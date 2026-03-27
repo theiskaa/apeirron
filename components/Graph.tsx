@@ -59,11 +59,13 @@ export default function Graph({
     fg.d3Force("center", null);
 
     // Zoom to fit — zoomed out
-    const timer = setTimeout(() => {
-      fg.zoomToFit(1200, 150);
-    }, 800);
+    // Fit all nodes in view after simulation has spread them out.
+    // Fire multiple times: early for a rough fit, then again once settled.
+    const t1 = setTimeout(() => fg.zoomToFit(600, 60), 500);
+    const t2 = setTimeout(() => fg.zoomToFit(800, 60), 2000);
+    const t3 = setTimeout(() => fg.zoomToFit(800, 60), 4000);
 
-    return () => clearTimeout(timer);
+    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -143,7 +145,6 @@ export default function Graph({
     setHoveredNode(node?.id ?? null);
   }, []);
 
-  // Node rendering
   const paintNode = useCallback(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (node: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
