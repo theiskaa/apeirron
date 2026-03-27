@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #202024;
+  --surface: #282830;
+  --border: #35353f;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--background);
+  color: #e2e2e8;
+  overflow: hidden;
+}
+
+/* Prose styles for rendered markdown articles */
+.prose-apeiron h2 {
+  @apply text-xl font-semibold mt-8 mb-3;
+  color: #e2e2e8;
+}
+
+.prose-apeiron h3 {
+  @apply text-lg font-medium mt-6 mb-2;
+  color: #e2e2e8;
+}
+
+.prose-apeiron p {
+  @apply leading-relaxed mb-4;
+  color: #8888a0;
+}
+
+.prose-apeiron ul {
+  @apply list-disc list-inside mb-4 space-y-1;
+  color: #8888a0;
+}
+
+.prose-apeiron ol {
+  @apply list-decimal list-inside mb-4 space-y-1;
+  color: #8888a0;
+}
+
+.prose-apeiron li {
+  @apply leading-relaxed;
+}
+
+.prose-apeiron a {
+  @apply text-cyan-400 hover:text-cyan-300 underline underline-offset-2;
+}
+
+/* Wiki-style [[node links]] rendered inline */
+.prose-apeiron a.node-link {
+  @apply no-underline font-medium cursor-pointer px-1 py-0.5 rounded;
+  color: #a78bfa;
+  background: rgba(167, 139, 250, 0.1);
+  border-bottom: 1px dashed rgba(167, 139, 250, 0.4);
+  transition: all 0.15s ease;
+}
+
+.prose-apeiron a.node-link:hover {
+  color: #c4b5fd;
+  background: rgba(167, 139, 250, 0.2);
+  border-bottom-color: rgba(167, 139, 250, 0.7);
+}
+
+/* Broken wiki links (target not found) */
+.prose-apeiron .node-link-broken {
+  @apply px-1 py-0.5 rounded;
+  color: #55556a;
+  background: rgba(85, 85, 106, 0.1);
+  border-bottom: 1px dashed rgba(85, 85, 106, 0.3);
+}
+
+.prose-apeiron blockquote {
+  @apply pl-4 italic my-4;
+  border-left: 2px solid #35353f;
+  color: #55556a;
+}
+
+.prose-apeiron strong {
+  @apply font-semibold;
+  color: #e2e2e8;
+}
+
+.prose-apeiron hr {
+  @apply my-6;
+  border-color: #35353f;
+}
+
+/* Scrollbar styling */
+.panel-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.panel-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.panel-scroll::-webkit-scrollbar-thumb {
+  background: #3a3a48;
+  border-radius: 3px;
+}
+
+.panel-scroll::-webkit-scrollbar-thumb:hover {
+  background: #4a4a58;
+}
