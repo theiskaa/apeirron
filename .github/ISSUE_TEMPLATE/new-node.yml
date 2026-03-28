@@ -1,0 +1,70 @@
+name: New Node Proposal
+description: Suggest a new topic to add to the graph
+title: "[Node] "
+labels: ["new-node"]
+body:
+  - type: input
+    id: title
+    attributes:
+      label: Node title
+      description: What should this node be called?
+      placeholder: e.g., "The Bicameral Mind"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Which category does this belong to?
+      options:
+        - Mind
+        - Origins
+        - Cosmos
+        - Power
+        - Reality
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What is this topic?
+      description: A brief description of the idea and why it belongs on Apeiron.
+      placeholder: |
+        What is the core idea? Why is it interesting?
+        Why does it deserve a deep-dive rather than a passing mention in another node?
+    validations:
+      required: true
+
+  - type: textarea
+    id: connections
+    attributes:
+      label: Connections
+      description: What existing nodes does this connect to, and why?
+      placeholder: |
+        - Consciousness — because ...
+        - Altered States — because ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Key sources or starting points
+      description: Books, papers, documentaries, or articles that cover this topic well.
+      placeholder: |
+        - "The Origin of Consciousness in the Breakdown of the Bicameral Mind" by Julian Jaynes
+        - https://example.com/relevant-article
+    validations:
+      required: false
+
+  - type: dropdown
+    id: willing
+    attributes:
+      label: Are you willing to write this node?
+      options:
+        - "Yes, I'll submit a PR"
+        - "No, I'm suggesting it for someone else to write"
+    validations:
+      required: true

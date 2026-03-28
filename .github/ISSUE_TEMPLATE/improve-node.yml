@@ -1,0 +1,43 @@
+name: Improve Existing Node
+description: Suggest improvements to an existing node
+title: "[Improve] "
+labels: ["improvement"]
+body:
+  - type: input
+    id: node
+    attributes:
+      label: Which node?
+      description: The title or id of the node that needs improvement.
+      placeholder: e.g., "consciousness" or "The Hard Problem"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: type
+    attributes:
+      label: What kind of improvement?
+      options:
+        - label: Writing quality (better prose, clearer argument)
+        - label: Missing connections (should link to other nodes)
+        - label: Factual correction
+        - label: More depth needed (topic is underdeveloped)
+        - label: Balance (missing the case for or against)
+        - label: Other
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: What specifically should be improved and why?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: willing
+    attributes:
+      label: Are you willing to submit a PR for this?
+      options:
+        - "Yes, I'll submit a PR"
+        - "No, I'm flagging it for someone else"
+    validations:
+      required: true
