@@ -281,7 +281,7 @@ export default function Graph({
         ? Math.sqrt(connections) * 3 + 2.5
         : Math.sqrt(connections) * 4.5 + 3.5;
       // Bigger hit area on mobile for fat fingers
-      const hitRadius = isMobile ? Math.max(radius * 4, 20) : Math.max(radius * 3, 14);
+      const hitRadius = isMobile ? Math.max(radius * 1.5, 12) : radius;
       ctx.beginPath();
       ctx.arc(node.x, node.y, hitRadius, 0, 2 * Math.PI);
       ctx.fillStyle = color;
