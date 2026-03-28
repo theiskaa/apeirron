@@ -1,7 +1,10 @@
 "use client";
 
 import { useCallback, useRef, useEffect, useMemo } from "react";
+import dynamic from "next/dynamic";
 import type { GraphNode, GraphLink } from "@/lib/types";
+
+const MiniGraph = dynamic(() => import("./MiniGraph"), { ssr: false });
 
 interface Props {
   node: GraphNode;
@@ -42,30 +45,6 @@ export default function NodeView({
     if (scrollRef.current) scrollRef.current.scrollTop = 0;
   }, [node.id]);
 
-  const connectedNodes = useMemo(() => {
-    const connectedLinks = links.filter((l) => {
-      const src =
-        typeof l.source === "object" ? (l.source as GraphNode).id : l.source;
-      const tgt =
-        typeof l.target === "object" ? (l.target as GraphNode).id : l.target;
-      return src === node.id || tgt === node.id;
-    });
-
-    return connectedLinks
-      .map((l) => {
-        const src =
-          typeof l.source === "object" ? (l.source as GraphNode).id : l.source;
-        const tgt =
-          typeof l.target === "object" ? (l.target as GraphNode).id : l.target;
-        const targetId = src === node.id ? tgt : src;
-        return {
-          node: allNodes.find((n) => n.id === targetId),
-          reason: l.reason,
-        };
-      })
-      .filter((c) => c.node);
-  }, [links, allNodes, node.id]);
-
   const { mainHtml, sourcesHtml } = useMemo(() => {
     const html = node.contentHtml;
     // Match <h2 id="sources">Sources</h2> and everything after
@@ -105,41 +84,20 @@ export default function NodeView({
           />
         </div>
 
-        <div className="w-full lg:w-72 xl:w-80 shrink-0 mt-10 lg:mt-0 lg:pt-16">
+        <div className="w-full lg:w-96 xl:w-[420px] shrink-0 mt-10 lg:mt-0 lg:pt-16">
           <div className="space-y-8">
-            {connectedNodes.length > 0 && (
-              <div>
-                <h3 className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-3">
-                  Connections
-                </h3>
-                <div className="space-y-2">
-                  {connectedNodes.map(({ node: cn, reason }) => {
-                    if (!cn) return null;
-                    return (
-                      <button
-                        key={cn.id}
-                        onClick={() => onNodeClick(cn.id)}
-                        className="w-full text-left p-2.5 rounded-lg border border-border
-                          hover:bg-surface transition-colors group"
-                      >
-                        <div className="flex items-center gap-2 mb-0.5">
-                          <span
-                            className="w-1.5 h-1.5 rounded-full shrink-0"
-                            style={{ backgroundColor: cn.color }}
-                          />
-                          <span className="text-xs font-medium text-text-primary group-hover:text-text-primary transition-colors">
-                            {cn.title}
-                          </span>
-                        </div>
-                        <p className="text-[11px] text-text-muted leading-relaxed pl-3.5">
-                          {reason}
-                        </p>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
+            {/* Mini graph showing local neighborhood */}
+            <div>
+              <h3 className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-3">
+                Connections
+              </h3>
+              <MiniGraph
+                currentNodeId={node.id}
+                allNodes={allNodes}
+                allLinks={links}
+                onNodeClick={onNodeClick}
+              />
+            </div>
             {sourcesHtml && (
               <div>
                 <h3 className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-3">
