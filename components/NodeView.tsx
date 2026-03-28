@@ -47,7 +47,6 @@ export default function NodeView({
 
   const { mainHtml, sourcesHtml } = useMemo(() => {
     const html = node.contentHtml;
-    // Match <h2 id="sources">Sources</h2> and everything after
     const sourcesMatch = html.match(
       /(<h2[^>]*id="sources"[^>]*>[\s\S]*$)/i
     );
@@ -62,31 +61,21 @@ export default function NodeView({
 
   return (
     <div ref={scrollRef} className="h-full overflow-y-auto panel-scroll">
-      <div className="flex flex-col lg:flex-row gap-0 lg:gap-10 max-w-7xl mx-auto px-6 lg:px-12 py-8">
-        <div className="flex-1 min-w-0 max-w-4xl">
-          <h1 className="text-3xl font-bold text-text-primary mb-2 leading-tight">
-            {node.title}
-          </h1>
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8">
+        <h1 className="text-3xl font-bold text-text-primary mb-2 leading-tight">
+          {node.title}
+        </h1>
+        <span
+          className="inline-block text-xs font-medium mb-8"
+          style={{ color: node.color }}
+        >
+          {node.category
+            .replace(/-/g, " ")
+            .replace(/\b\w/g, (c) => c.toUpperCase())}
+        </span>
 
-          <span
-            className="inline-block text-xs font-medium mb-8"
-            style={{ color: node.color }}
-          >
-            {node.category
-              .replace(/-/g, " ")
-              .replace(/\b\w/g, (c) => c.toUpperCase())}
-          </span>
-
-          <div
-            ref={contentRef}
-            className="prose-apeiron"
-            dangerouslySetInnerHTML={{ __html: mainHtml }}
-          />
-        </div>
-
-        <div className="w-full lg:w-96 xl:w-[420px] shrink-0 mt-10 lg:mt-0 lg:pt-16">
+        <div className="hidden lg:block float-right ml-10 mb-6 w-96 xl:w-[420px]">
           <div className="space-y-8">
-            {/* Mini graph showing local neighborhood */}
             <div>
               <h3 className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-3">
                 Connections
@@ -110,6 +99,39 @@ export default function NodeView({
               </div>
             )}
           </div>
+        </div>
+
+        <div
+          ref={contentRef}
+          className="prose-apeiron"
+          dangerouslySetInnerHTML={{ __html: mainHtml }}
+        />
+
+        <div className="clear-both" />
+
+        <div className="lg:hidden mt-10 space-y-8">
+          <div>
+            <h3 className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-3">
+              Connections
+            </h3>
+            <MiniGraph
+              currentNodeId={node.id}
+              allNodes={allNodes}
+              allLinks={links}
+              onNodeClick={onNodeClick}
+            />
+          </div>
+          {sourcesHtml && (
+            <div>
+              <h3 className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-3">
+                Sources
+              </h3>
+              <div
+                className="prose-apeiron prose-apeiron-sources"
+                dangerouslySetInnerHTML={{ __html: sourcesHtml.replace(/<h2[^>]*>.*?<\/h2>/i, "") }}
+              />
+            </div>
+          )}
         </div>
       </div>
     </div>
