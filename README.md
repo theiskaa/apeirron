@@ -20,4 +20,6 @@ Apeiron is open to contributions. You can:
 - **Improve an existing node** — better writing, more connections, factual corrections
 - **Propose a topic** — open an issue if you have an idea but don't want to write it yourself
 
+Every node must include verifiable sources — books, papers, videos with timestamps, or official documents. PRs without sources will not be merged.
+
 Read the [Contributing Guide](./CONTRIBUTING.md) for details on how to write a node, how connections work, and what makes a good submission.

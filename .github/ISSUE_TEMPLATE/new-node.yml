@@ -51,13 +51,16 @@ body:
   - type: textarea
     id: sources
     attributes:
-      label: Key sources or starting points
-      description: Books, papers, documentaries, or articles that cover this topic well.
+      label: Verifiable sources
+      description: |
+        At least one verifiable source is required. Books (author + year), papers, videos (with timestamps), official documents.
+        Nodes without verifiable sources will not be approved.
       placeholder: |
-        - "The Origin of Consciousness in the Breakdown of the Bicameral Mind" by Julian Jaynes
-        - https://example.com/relevant-article
+        - Jaynes, Julian. "The Origin of Consciousness in the Breakdown of the Bicameral Mind." Houghton Mifflin, 1976.
+        - https://example.com/relevant-paper
+        - Joe Rogan Experience #1284, 2019. YouTube at 1:22:15 — https://youtube.com/watch?v=xxx&t=4935
     validations:
-      required: false
+      required: true
 
   - type: dropdown
     id: willing

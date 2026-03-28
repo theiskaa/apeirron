@@ -22,6 +22,7 @@ body:
         - label: Factual correction
         - label: More depth needed (topic is underdeveloped)
         - label: Balance (missing the case for or against)
+        - label: Missing or weak sources
         - label: Other
 
   - type: textarea

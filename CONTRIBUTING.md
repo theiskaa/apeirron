@@ -55,6 +55,36 @@ There is no required structure. No forced sections. No template to follow. Some 
 - One-sided advocacy or dismissal
 - No connections to other nodes
 - Sensationalist tone
+- No verifiable sources
+
+## Sources
+
+Every node **must** end with a `## Sources` section. This is not optional. A node without verifiable sources will not be merged.
+
+The purpose is simple: Apeiron maps ideas that are contested, speculative, and often dismissed. The only way to maintain credibility is to show your work. Every claim should be traceable to something a reader can verify independently.
+
+### Format
+
+```markdown
+## Sources
+
+- Chalmers, David. "Facing Up to the Problem of Consciousness." *Journal of Consciousness Studies*, 2(3), 1995. [PDF](https://example.com/link)
+- Strassman, Rick. *DMT: The Spirit Molecule*. Park Street Press, 2000.
+- Hancock, Graham. Interview on Younger Dryas impact. *Joe Rogan Experience* #1284, 2019. [YouTube at 1:22:15](https://youtube.com/watch?v=xxx&t=4935)
+- Bank of England. "Money Creation in the Modern Economy." Quarterly Bulletin, Q1 2014. [Link](https://example.com)
+```
+
+### Requirements
+
+- **Minimum 1 source per node.** More is better.
+- **Each source must be specific.** Not "some studies show" — the actual study, with author, title, and year.
+- **Accepted source types:** academic papers, books (author + year), documentaries/videos (with timestamp), official documents, named interviews, investigative journalism (with publication name and date).
+- **URLs are encouraged** but not required — books and papers don't always have free links.
+- **Video sources must include timestamps** pointing to the relevant section, not just "watch this 3-hour documentary."
+
+### Why this matters
+
+Without sources, a node is just an opinion. With sources, it's a map. PRs that add new nodes without a Sources section will not be approved.
 
 ## Wiki links
 
@@ -84,7 +114,10 @@ If you think a new category is needed, open an issue to discuss it before submit
 - Frontmatter must be valid YAML
 - All `connections[].target` values should reference existing node ids (or nodes included in the same PR)
 - Content should include at least 2-3 `[[wiki links]]` to other nodes
+- **Must include a `## Sources` section with at least one verifiable source**
 - Run `npm run build` locally to verify the site builds without errors
+
+**PRs without sources will not be merged.** This is the single non-negotiable rule.
 
 ## Improving existing nodes
 

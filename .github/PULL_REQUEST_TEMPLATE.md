@@ -13,7 +13,12 @@ If this PR adds or modifies content in `content/nodes/`:
 - [ ] Content includes `[[wiki links]]` to other nodes
 - [ ] Both sides of the topic are presented fairly
 - [ ] Tone is serious and research-oriented, not sensationalist
+- [ ] **`## Sources` section exists with at least one verifiable source**
+- [ ] **Each source is specific** (author, title, year — not "some researchers say")
+- [ ] **Video sources include timestamps**
 - [ ] `npm run build` passes locally
+
+> **PRs without verifiable sources will not be merged.** Every claim must be traceable to something a reader can independently verify.
 
 ## Related issues
 
