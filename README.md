@@ -1,6 +1,6 @@
 # Apeirron
 
-> *apeirron (ἄπειρον)* — ancient Greek for "the infinite, the boundless, the undefined origin of all things."
+> *apeiron (ἄπειρον)* — ancient Greek for "the infinite, the boundless, the undefined origin of all things."
 
 An interactive knowledge graph mapping the biggest questions humanity asks — consciousness, ancient civilizations, the nature of reality, hidden power structures, the cosmos and many more — as interconnected nodes in a visual web.
 
