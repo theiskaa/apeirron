@@ -22,8 +22,8 @@ export default function MiniGraph({
   const containerRef = useRef<HTMLDivElement>(null);
   const [dims, setDims] = useState({ width: 280, height: 360 });
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
+  const hoveredNodeRef = useRef<string | null>(null);
   const hoverStartTime = useRef<number>(0);
-  const animFrameRef = useRef<number>(0);
 
   // Responsive container sizing
   useEffect(() => {
@@ -121,24 +121,23 @@ export default function MiniGraph({
   }, []);
 
   useEffect(() => {
-    if (hoveredNode === null) {
-      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
-      return;
-    }
-    hoverStartTime.current = performance.now();
+    hoveredNodeRef.current = hoveredNode;
+    if (hoveredNode !== null) hoverStartTime.current = performance.now();
+  }, [hoveredNode]);
+
+  useEffect(() => {
+    if (hoveredNode === null) return;
     let running = true;
-    const tickle = () => {
+    let raf = 0;
+    const tick = () => {
       if (!running) return;
-      fgRef.current?.refresh?.();
-      if (performance.now() - hoverStartTime.current < 400) {
-        animFrameRef.current = requestAnimationFrame(tickle);
+      if (performance.now() - hoverStartTime.current < 500) {
+        fgRef.current?.refresh?.();
+        raf = requestAnimationFrame(tick);
       }
     };
-    animFrameRef.current = requestAnimationFrame(tickle);
-    return () => {
-      running = false;
-      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
-    };
+    raf = requestAnimationFrame(tick);
+    return () => { running = false; cancelAnimationFrame(raf); };
   }, [hoveredNode]);
 
   const handleClick = useCallback(
@@ -163,9 +162,10 @@ export default function MiniGraph({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (node: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
       const isCurrent = node.id === currentNodeId;
-      const isHovered = node.id === hoveredNode;
-      const isNeighbor = hoveredNode !== null && neighbors.get(hoveredNode)?.has(node.id);
-      const somethingHovered = hoveredNode !== null;
+      const hovered = hoveredNodeRef.current;
+      const isHovered = node.id === hovered;
+      const isNeighbor = hovered !== null && neighbors.get(hovered)?.has(node.id);
+      const somethingHovered = hovered !== null;
       const isDimmed = somethingHovered && !isHovered && !isNeighbor && !isCurrent;
 
       const radius = isCurrent ? 6 : node.level === 1 ? 4 : node.level === 2 ? 2.5 : 2;
@@ -207,7 +207,7 @@ export default function MiniGraph({
         ctx.fillText(node.title, node.x, node.y + radius + 2);
       }
     },
-    [currentNodeId, hoveredNode, neighbors]
+    [currentNodeId, neighbors]
   );
 
   const paintNodeArea = useCallback(
@@ -231,19 +231,20 @@ export default function MiniGraph({
       const tgt = typeof link.target === "object" ? link.target : { id: link.target, x: 0, y: 0 };
       const isDark = document.documentElement.classList.contains("dark");
 
+      const hovered = hoveredNodeRef.current;
       const isHoveredLink =
-        hoveredNode !== null && (src.id === hoveredNode || tgt.id === hoveredNode);
-      const somethingHovered = hoveredNode !== null;
+        hovered !== null && (src.id === hovered || tgt.id === hovered);
+      const somethingHovered = hovered !== null;
 
       if (isHoveredLink) {
         const elapsed = performance.now() - hoverStartTime.current;
         const progress = Math.min(elapsed / 250, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
 
-        const fromX = src.id === hoveredNode ? src.x : tgt.x;
-        const fromY = src.id === hoveredNode ? src.y : tgt.y;
-        const toX = src.id === hoveredNode ? tgt.x : src.x;
-        const toY = src.id === hoveredNode ? tgt.y : src.y;
+        const fromX = src.id === hovered ? src.x : tgt.x;
+        const fromY = src.id === hovered ? src.y : tgt.y;
+        const toX = src.id === hovered ? tgt.x : src.x;
+        const toY = src.id === hovered ? tgt.y : src.y;
 
         const midX = fromX + (toX - fromX) * eased;
         const midY = fromY + (toY - fromY) * eased;
@@ -281,7 +282,7 @@ export default function MiniGraph({
         ctx.stroke();
       }
     },
-    [hoveredNode]
+    []
   );
 
   return (

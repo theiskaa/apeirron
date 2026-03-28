@@ -25,9 +25,9 @@ export default function Graph({
   const containerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
-  const [tappedNode, setTappedNode] = useState<string | null>(null);
+  const hoveredNodeRef = useRef<string | null>(null);
+  const tappedNodeRef = useRef<string | null>(null);
   const hoverStartTime = useRef<number>(0);
-  const animFrameRef = useRef<number>(0);
   const [graphBg, setGraphBg] = useState("#262626");
   const themeVars = useRef({
     line: "rgba(90,90,105,0.18)",
@@ -100,34 +100,34 @@ export default function Graph({
     fg.d3Force("link").distance(linkDist).strength(linkStr);
     fg.d3Force("center", null);
 
-    const t1 = setTimeout(() => fg.zoomToFit(600, padding), 500);
-    const t2 = setTimeout(() => fg.zoomToFit(800, padding), 2000);
-    const t3 = setTimeout(() => fg.zoomToFit(800, padding), 4000);
+    const p = isMobile ? 80 : 200;
+    const t1 = setTimeout(() => fg.zoomToFit(600, p), 500);
+    const t2 = setTimeout(() => fg.zoomToFit(800, p), 2000);
 
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); };
+    return () => { clearTimeout(t1); clearTimeout(t2); };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dimensions.width]);
 
-  // Hover animation loop
   useEffect(() => {
-    if (hoveredNode === null) {
-      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
-      return;
+    hoveredNodeRef.current = hoveredNode;
+    if (hoveredNode !== null) {
+      hoverStartTime.current = performance.now();
     }
-    hoverStartTime.current = performance.now();
+  }, [hoveredNode]);
+
+  useEffect(() => {
+    if (hoveredNode === null) return;
     let running = true;
-    const tickle = () => {
+    let raf = 0;
+    const tick = () => {
       if (!running) return;
-      fgRef.current?.refresh?.();
-      if (performance.now() - hoverStartTime.current < 450) {
-        animFrameRef.current = requestAnimationFrame(tickle);
+      if (performance.now() - hoverStartTime.current < 500) {
+        fgRef.current?.refresh?.();
+        raf = requestAnimationFrame(tick);
       }
     };
-    animFrameRef.current = requestAnimationFrame(tickle);
-    return () => {
-      running = false;
-      if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
-    };
+    raf = requestAnimationFrame(tick);
+    return () => { running = false; cancelAnimationFrame(raf); };
   }, [hoveredNode]);
 
   // Drag: pin node while dragging
@@ -177,35 +177,28 @@ export default function Graph({
     (node: any) => {
       const isMobile = dimensions.width < 768;
       if (isMobile) {
-        // Mobile: first tap highlights, second tap opens
-        if (tappedNode === node.id) {
-          // Second tap — open the node
+        if (tappedNodeRef.current === node.id) {
           onNodeClick(node.id);
-          setTappedNode(null);
+          tappedNodeRef.current = null;
           setHoveredNode(null);
         } else {
-          // First tap — highlight connections
-          setTappedNode(node.id);
+          tappedNodeRef.current = node.id;
           setHoveredNode(node.id);
-          hoverStartTime.current = performance.now();
         }
       } else {
+        setHoveredNode(null);
         onNodeClick(node.id);
       }
     },
-    [onNodeClick, tappedNode, dimensions.width]
+    [onNodeClick, dimensions.width]
   );
 
-  // Tap empty space on mobile to deselect
   const handleBackgroundClick = useCallback(() => {
-    if (dimensions.width < 768 && tappedNode) {
-      setTappedNode(null);
-      setHoveredNode(null);
-    }
-  }, [tappedNode, dimensions.width]);
+    setHoveredNode(null);
+    tappedNodeRef.current = null;
+  }, []);
 
   const handleNodeHover = useCallback((node: GraphNode | null) => {
-    // Only use hover on desktop
     if (dimensions.width >= 768) {
       setHoveredNode(node?.id ?? null);
     }
@@ -214,11 +207,11 @@ export default function Graph({
   const paintNode = useCallback(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (node: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
+      const hovered = hoveredNodeRef.current;
       const isSelected = node.id === selectedNodeId;
-      const isHovered = node.id === hoveredNode;
-      const isNeighbor =
-        hoveredNode !== null && neighbors.get(hoveredNode)?.has(node.id);
-      const somethingHovered = hoveredNode !== null;
+      const isHovered = node.id === hovered;
+      const isNeighbor = hovered !== null && neighbors.get(hovered)?.has(node.id);
+      const somethingHovered = hovered !== null;
       const isDimmed = somethingHovered && !isHovered && !isNeighbor;
 
       const isMobile = dimensions.width < 768;
@@ -270,7 +263,7 @@ export default function Graph({
         ctx.fillText(node.title, node.x, node.y + radius + 4);
       }
     },
-    [selectedNodeId, hoveredNode, neighbors, dimensions.width]
+    [selectedNodeId, neighbors, dimensions.width]
   );
 
   const paintNodeArea = useCallback(
@@ -303,23 +296,24 @@ export default function Graph({
           ? link.target
           : { id: link.target, x: 0, y: 0 };
 
+      const hovered = hoveredNodeRef.current;
       const isHoveredLink =
-        hoveredNode !== null &&
-        (src.id === hoveredNode || tgt.id === hoveredNode);
+        hovered !== null &&
+        (src.id === hovered || tgt.id === hovered);
       const isSelectedLink =
         selectedNodeId !== null &&
         (src.id === selectedNodeId || tgt.id === selectedNodeId);
-      const somethingHovered = hoveredNode !== null;
+      const somethingHovered = hovered !== null;
 
       if (isHoveredLink) {
         const elapsed = performance.now() - hoverStartTime.current;
         const progress = Math.min(elapsed / 300, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
 
-        const fromX = src.id === hoveredNode ? src.x : tgt.x;
-        const fromY = src.id === hoveredNode ? src.y : tgt.y;
-        const toX = src.id === hoveredNode ? tgt.x : src.x;
-        const toY = src.id === hoveredNode ? tgt.y : src.y;
+        const fromX = src.id === hovered ? src.x : tgt.x;
+        const fromY = src.id === hovered ? src.y : tgt.y;
+        const toX = src.id === hovered ? tgt.x : src.x;
+        const toY = src.id === hovered ? tgt.y : src.y;
 
         const midX = fromX + (toX - fromX) * eased;
         const midY = fromY + (toY - fromY) * eased;
@@ -362,7 +356,7 @@ export default function Graph({
         ctx.stroke();
       }
     },
-    [hoveredNode, selectedNodeId]
+    [selectedNodeId]
   );
 
   const paintBefore = useCallback(
