@@ -6,16 +6,17 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        background: "#202024",
-        surface: "#282830",
-        border: "#35353f",
+        background: "var(--background)",
+        surface: "var(--surface)",
+        border: "var(--border)",
         text: {
-          primary: "#e2e2e8",
-          secondary: "#8888a0",
-          muted: "#55556a",
+          primary: "var(--text-primary)",
+          secondary: "var(--text-secondary)",
+          muted: "var(--text-muted)",
         },
       },
     },

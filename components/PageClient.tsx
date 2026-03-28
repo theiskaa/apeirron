@@ -65,37 +65,54 @@ export default function PageClient({ graphData }: Props) {
   const showGraph = activeTab.type === "graph";
 
   return (
-    <div className="flex flex-col w-screen h-screen overflow-hidden bg-background">
-      <Navbar />
-
-      {hasNodeTabs && (
-        <TabBar
-          tabs={tabs}
-          activeTabId={activeTabId}
-          nodes={graphData.nodes}
-          onSelectTab={handleSelectTab}
-          onCloseTab={handleCloseTab}
+    <div className="relative w-screen h-screen overflow-hidden">
+      <div className={showGraph ? "absolute inset-0" : "hidden"}>
+        <Graph
+          graphData={graphData}
+          onNodeClick={handleNodeClick}
+          selectedNodeId={selectedNodeOnGraph}
         />
+      </div>
+
+      {activeNode && !showGraph && (
+        <div className="absolute inset-0 bg-background overflow-hidden">
+          <div className="flex flex-col h-full">
+            <Navbar />
+            {hasNodeTabs && (
+              <TabBar
+                tabs={tabs}
+                activeTabId={activeTabId}
+                nodes={graphData.nodes}
+                onSelectTab={handleSelectTab}
+                onCloseTab={handleCloseTab}
+              />
+            )}
+            <div className="flex-1 overflow-hidden">
+              <NodeView
+                node={activeNode}
+                links={graphData.links}
+                allNodes={graphData.nodes}
+                onNodeClick={handleNodeClick}
+              />
+            </div>
+          </div>
+        </div>
       )}
 
-      <div className="flex-1 relative overflow-hidden">
-        <div className={showGraph ? "w-full h-full" : "hidden"}>
-          <Graph
-            graphData={graphData}
-            onNodeClick={handleNodeClick}
-            selectedNodeId={selectedNodeOnGraph}
-          />
+      {showGraph && (
+        <div className="absolute top-0 left-0 right-0 z-10">
+          <Navbar />
+          {hasNodeTabs && (
+            <TabBar
+              tabs={tabs}
+              activeTabId={activeTabId}
+              nodes={graphData.nodes}
+              onSelectTab={handleSelectTab}
+              onCloseTab={handleCloseTab}
+            />
+          )}
         </div>
-
-        {activeNode && !showGraph && (
-          <NodeView
-            node={activeNode}
-            links={graphData.links}
-            allNodes={graphData.nodes}
-            onNodeClick={handleNodeClick}
-          />
-        )}
-      </div>
+      )}
     </div>
   );
 }

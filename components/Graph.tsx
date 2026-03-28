@@ -25,10 +25,44 @@ export default function Graph({
   const containerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
-  // On mobile, first tap "selects" (highlights connections), second tap opens
   const [tappedNode, setTappedNode] = useState<string | null>(null);
   const hoverStartTime = useRef<number>(0);
   const animFrameRef = useRef<number>(0);
+  const [graphBg, setGraphBg] = useState("#262626");
+  const themeVars = useRef({
+    line: "rgba(90,90,105,0.18)",
+    lineHover: "rgba(150,150,165,0.55)",
+    lineDim: "rgba(70,70,80,0.06)",
+    nodeDim: "rgba(80,80,90,0.25)",
+    label: "rgba(160,160,175,0.5)",
+    labelHover: "rgba(210,210,220,0.9)",
+    labelDim: "rgba(160,160,175,0.08)",
+    grid: "rgba(120,120,140,0.04)",
+    ring: "rgba(220,220,230,0.3)",
+  });
+
+  useEffect(() => {
+    const readTheme = () => {
+      const s = getComputedStyle(document.documentElement);
+      const g = (v: string, fallback: string) => s.getPropertyValue(v).trim() || fallback;
+      setGraphBg(g("--graph-bg", "#262626"));
+      themeVars.current = {
+        line: g("--graph-line", "rgba(90,90,105,0.18)"),
+        lineHover: g("--graph-line-hover", "rgba(150,150,165,0.55)"),
+        lineDim: g("--graph-line-dim", "rgba(70,70,80,0.06)"),
+        nodeDim: g("--graph-node-dim", "rgba(80,80,90,0.25)"),
+        label: g("--graph-label", "rgba(160,160,175,0.5)"),
+        labelHover: g("--graph-label-hover", "rgba(210,210,220,0.9)"),
+        labelDim: g("--graph-label-dim", "rgba(160,160,175,0.08)"),
+        grid: g("--graph-grid", "rgba(120,120,140,0.04)"),
+        ring: g("--graph-ring", "rgba(220,220,230,0.3)"),
+      };
+    };
+    readTheme();
+    const observer = new MutationObserver(readTheme);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
   // Responsive sizing
   useEffect(() => {
@@ -202,7 +236,7 @@ export default function Graph({
       ctx.beginPath();
       ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI);
       if (isDimmed) {
-        ctx.fillStyle = "rgba(80, 80, 90, 0.25)";
+        ctx.fillStyle = themeVars.current.nodeDim;
       } else {
         ctx.globalAlpha =
           isNeighbor && nodeAlpha < 1 ? 0.3 + nodeAlpha * 0.7 : 1;
@@ -214,7 +248,7 @@ export default function Graph({
       if (isHovered || isSelected) {
         ctx.beginPath();
         ctx.arc(node.x, node.y, radius + 2.5, 0, 2 * Math.PI);
-        ctx.strokeStyle = "rgba(220, 220, 230, 0.3)";
+        ctx.strokeStyle = themeVars.current.ring;
         ctx.lineWidth = 1.2;
         ctx.stroke();
       }
@@ -227,11 +261,11 @@ export default function Graph({
         ctx.textAlign = "center";
         ctx.textBaseline = "top";
         if (isDimmed) {
-          ctx.fillStyle = "rgba(160, 160, 175, 0.08)";
+          ctx.fillStyle = themeVars.current.labelDim;
         } else if (isHovered || isSelected) {
-          ctx.fillStyle = "rgba(210, 210, 220, 0.9)";
+          ctx.fillStyle = themeVars.current.labelHover;
         } else {
-          ctx.fillStyle = "rgba(160, 160, 175, 0.5)";
+          ctx.fillStyle = themeVars.current.label;
         }
         ctx.fillText(node.title, node.x, node.y + radius + 4);
       }
@@ -309,21 +343,21 @@ export default function Graph({
         ctx.beginPath();
         ctx.moveTo(src.x, src.y);
         ctx.lineTo(tgt.x, tgt.y);
-        ctx.strokeStyle = "rgba(130, 130, 145, 0.4)";
+        ctx.strokeStyle = themeVars.current.lineHover;
         ctx.lineWidth = 0.9;
         ctx.stroke();
       } else if (somethingHovered) {
         ctx.beginPath();
         ctx.moveTo(src.x, src.y);
         ctx.lineTo(tgt.x, tgt.y);
-        ctx.strokeStyle = "rgba(70, 70, 80, 0.06)";
+        ctx.strokeStyle = themeVars.current.lineDim;
         ctx.lineWidth = 0.4;
         ctx.stroke();
       } else {
         ctx.beginPath();
         ctx.moveTo(src.x, src.y);
         ctx.lineTo(tgt.x, tgt.y);
-        ctx.strokeStyle = "rgba(90, 90, 105, 0.18)";
+        ctx.strokeStyle = themeVars.current.line;
         ctx.lineWidth = 0.6;
         ctx.stroke();
       }
@@ -337,8 +371,7 @@ export default function Graph({
       if (globalScale < 0.3) return;
 
       const gridSize = 60;
-      const alpha = Math.min(globalScale * 0.04, 0.06);
-      ctx.strokeStyle = `rgba(120, 120, 140, ${alpha})`;
+      ctx.strokeStyle = themeVars.current.grid;
       ctx.lineWidth = 0.5 / globalScale;
 
       const topLeft = fgRef.current?.screen2GraphCoords(0, 0);
@@ -384,7 +417,7 @@ export default function Graph({
         onBackgroundClick={handleBackgroundClick}
         onNodeDrag={handleNodeDrag}
         onNodeDragEnd={handleNodeDragEnd}
-        backgroundColor="#202024"
+        backgroundColor={graphBg}
         onRenderFramePre={paintBefore}
         warmupTicks={0}
         d3AlphaDecay={0.01}
