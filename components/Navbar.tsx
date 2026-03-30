@@ -9,7 +9,7 @@ interface Props {
 
 export default function Navbar({ onLogoClick, onSearchClick }: Props) {
   return (
-    <nav className="relative z-10 flex items-center justify-between px-4 md:px-8 pt-7 pb-4 shrink-0">
+    <nav className="relative z-10 flex items-center justify-between px-3 md:px-8 pt-10 md:pt-7 pb-4 shrink-0">
       <button
         onClick={onLogoClick}
         className="flex items-center gap-3 hover:opacity-80 transition-opacity"
