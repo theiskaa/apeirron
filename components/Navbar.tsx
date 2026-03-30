@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
 
 interface Props {
@@ -15,7 +14,6 @@ export default function Navbar({ onLogoClick, onSearchClick }: Props) {
         onClick={onLogoClick}
         className="flex items-center gap-3 hover:opacity-80 transition-opacity"
       >
-        <Image src="/apeiron.svg" alt="Apeirron" width={42} height={42} className="dark:invert-0 invert" />
         <div className="flex flex-col text-left">
           <span className="text-lg font-semibold tracking-wide text-text-primary leading-tight">
             Apeirron
