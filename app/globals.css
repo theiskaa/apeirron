@@ -59,7 +59,7 @@ body {
 
 /* Prose styles for rendered markdown articles */
 .prose-apeiron h2 {
-  @apply text-xl font-semibold mt-8 mb-3 relative cursor-default;
+  @apply text-xl font-semibold mt-8 mb-3 relative cursor-pointer;
   color: var(--text-primary);
 }
 
@@ -80,7 +80,7 @@ body {
 }
 
 .prose-apeiron h3 {
-  @apply text-lg font-medium mt-6 mb-2 relative cursor-default;
+  @apply text-lg font-medium mt-6 mb-2 relative cursor-pointer;
   color: var(--text-primary);
 }
 

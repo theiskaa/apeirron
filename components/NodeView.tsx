@@ -36,6 +36,16 @@ export default function NodeView({
         e.preventDefault();
         const nodeId = target.getAttribute("data-node-link");
         if (nodeId) onNodeClick(nodeId);
+        return;
+      }
+      const heading = (e.target as HTMLElement).closest("h2[id], h3[id]");
+      if (heading) {
+        const id = heading.getAttribute("id");
+        if (id) {
+          heading.scrollIntoView({ behavior: "smooth", block: "start" });
+          setActiveId(id);
+          window.history.replaceState(null, "", `#${id}`);
+        }
       }
     },
     [onNodeClick]
@@ -68,7 +78,9 @@ export default function NodeView({
   }, [node.contentHtml]);
 
   const tocItems = useMemo(() => {
-    const items: TocItem[] = [];
+    const items: TocItem[] = [
+      { id: "_top", text: node.title, level: 1 },
+    ];
     const regex = /<h([23])[^>]*id="([^"]*)"[^>]*>(.*?)<\/h[23]>/gi;
     let match;
     while ((match = regex.exec(mainHtml)) !== null) {
@@ -79,7 +91,7 @@ export default function NodeView({
       });
     }
     return items;
-  }, [mainHtml]);
+  }, [mainHtml, node.title]);
 
   useEffect(() => {
     const scroll = scrollRef.current;
@@ -87,14 +99,25 @@ export default function NodeView({
     if (!scroll || !content || tocItems.length === 0) return;
 
     const onScroll = () => {
-      const headings = tocItems
+      // Skip _top when querying DOM — it doesn't exist as an element
+      const realItems = tocItems.filter((item) => item.id !== "_top");
+      const headings = realItems
         .map((item) => content.querySelector(`#${CSS.escape(item.id)}`))
         .filter(Boolean) as HTMLElement[];
-      if (headings.length === 0) return;
 
       const scrollTop = scroll.scrollTop;
       const offset = 120;
-      let current = headings[0]?.id ?? null;
+
+      // If we haven't scrolled past the first real heading, we're at top
+      if (headings.length === 0 || headings[0].offsetTop - scroll.offsetTop > scrollTop + offset) {
+        setActiveId((prev) => {
+          if (prev !== "_top") window.history.replaceState(null, "", window.location.pathname);
+          return "_top";
+        });
+        return;
+      }
+
+      let current = headings[0]?.id ?? "_top";
       for (const h of headings) {
         if (h.offsetTop - scroll.offsetTop <= scrollTop + offset) {
           current = h.id;
@@ -102,7 +125,12 @@ export default function NodeView({
           break;
         }
       }
-      setActiveId(current);
+      setActiveId((prev) => {
+        if (prev !== current) {
+          window.history.replaceState(null, "", current === "_top" ? window.location.pathname : `#${current}`);
+        }
+        return current;
+      });
     };
 
     scroll.addEventListener("scroll", onScroll, { passive: true });
@@ -112,10 +140,17 @@ export default function NodeView({
 
   const handleTocClick = useCallback(
     (id: string) => {
+      if (id === "_top") {
+        scrollRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+        setActiveId(id);
+        window.history.replaceState(null, "", window.location.pathname);
+        return;
+      }
       const el = contentRef.current?.querySelector(`#${CSS.escape(id)}`);
       if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "start" });
         setActiveId(id);
+        window.history.replaceState(null, "", `#${id}`);
       }
     },
     []
