@@ -4,13 +4,13 @@ title: "Descartes & Cartesian Dualism"
 category: "mind"
 connections:
   - target: "dualism"
-    reason: "Descartes is the architect of modern mind-body dualism"
+    reason: "Descartes created the modern form of mind-body dualism, arguing that mind and body are two completely different substances."
   - target: "consciousness"
-    reason: "The cogito — 'I think, therefore I am' — made consciousness the one indubitable fact"
+    reason: "Descartes' 'I think, therefore I am' made consciousness the one thing that cannot be doubted."
   - target: "materialism"
-    reason: "Descartes provoked the materialist counter-revolution by making the mind-body split so sharp"
+    reason: "Descartes made the mind-body split so sharp that later philosophers developed materialism specifically to reject it."
   - target: "hard-problem"
-    reason: "The hard problem is the modern descendant of Descartes' question: how does the non-physical mind relate to the physical brain?"
+    reason: "The hard problem is a modern version of Descartes' question: how does a non-physical mind connect to a physical brain?"
 ---
 
 In the winter of 1619, Rene Descartes -- a 23-year-old French soldier and mathematician -- locked himself in a heated room (*poele*) in southern Germany and resolved to doubt everything. Every belief he had ever held. Every sensation. Every memory. The existence of the external world. The reliability of his own senses. He emerged with three dreams that he took as divine visions, and a conviction that he would rebuild all of human knowledge from a single unshakeable foundation. It took him twenty years to write it down. The result was the *Meditations on First Philosophy* (1641), six short meditations that broke the history of philosophy in half.

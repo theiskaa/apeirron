@@ -4,11 +4,11 @@ title: "The Mandela Effect"
 category: "reality"
 connections:
   - target: "simulation-hypothesis"
-    reason: "If reality can be edited, the Mandela Effect is what the edit looks like from inside — residual memories from a previous version of the code"
+    reason: "If reality is a simulation that gets updated, the Mandela Effect could be leftover memories from before a change was applied to the code"
   - target: "consciousness"
-    reason: "The effect reveals that memory and reality may be more entangled than materialist science assumes — we may not simply record reality, we may participate in creating it"
+    reason: "The Mandela Effect raises questions about how consciousness interacts with reality, since thousands of people share the same false memories in very specific detail"
   - target: "nature-of-time"
-    reason: "If the block universe can be modified retroactively, the Mandela Effect is the fingerprint of temporal editing — memories of a timeline that no longer exists"
+    reason: "If time is a block that can be changed retroactively, the Mandela Effect could be people retaining memories from a timeline that was altered"
 ---
 
 In 2009, a paranormal researcher named Fiona Broome attended Dragon Con, the massive science fiction and fantasy convention in Atlanta, and struck up a conversation about Nelson Mandela. Broome mentioned her vivid memory of Mandela dying in a South African prison in the 1980s. She remembered the news coverage. She remembered a funeral. She remembered a speech by Winnie Mandela, grieving and dignified. The memory was detailed, textured, and completely wrong. Nelson Mandela had not died in prison. He had been released in 1990, had become the first Black president of South Africa in 1994, and was, at the time of Broome's conversation, still alive. He would not die until December 5, 2013, at the age of 95, in his home in Johannesburg.

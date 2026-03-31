@@ -4,17 +4,17 @@ title: "Operation Mockingbird"
 category: "operations"
 connections:
   - target: "control-systems"
-    reason: "Mockingbird is the literal mechanism by which invisible control systems operated through the visible institution of the free press"
+    reason: "Mockingbird placed CIA assets inside major news organizations. This gave the government direct control over what the press reported and what it buried."
   - target: "shadow-elite"
-    reason: "The CIA officers who ran Mockingbird — Wisner, Dulles, Angleton — were themselves members of the East Coast establishment that moved seamlessly between government, intelligence, media, and finance"
+    reason: "The people who ran Mockingbird, like Allen Dulles and Frank Wisner, moved between the CIA, Wall Street, and media ownership. They were part of a small elite that controlled multiple institutions."
   - target: "jfk"
-    reason: "The media's uncritical acceptance of the Warren Commission's lone-gunman conclusion is the most consequential example of Mockingbird-style narrative control"
+    reason: "After the JFK assassination, major media outlets accepted the Warren Commission's lone-gunman conclusion with almost no pushback. Many of those outlets had CIA ties through Mockingbird."
   - target: "cia-drugs"
-    reason: "The same media apparatus that protected the CIA's reputation through Mockingbird was deployed to destroy Gary Webb when he exposed CIA drug trafficking"
+    reason: "Gary Webb exposed CIA involvement in drug trafficking. The newspapers that had Mockingbird-era CIA ties, like the Washington Post, led the effort to discredit him."
   - target: "mkultra"
-    reason: "Mockingbird and MKUltra were parallel programs — one controlling what people read, the other attempting to control what people think"
+    reason: "Mockingbird controlled what information reached the public through the press. MKUltra tried to control how people think through drugs and psychological manipulation. Both were secret CIA programs running at the same time."
   - target: "nine-eleven"
-    reason: "The post-9/11 media environment — uniform support for the Iraq War based on fabricated intelligence — demonstrated that the Mockingbird model had evolved but never ended"
+    reason: "After 9/11, major media outlets uniformly supported the Iraq War based on false WMD claims without serious investigation. This is the same pattern Mockingbird established: media repeating government talking points."
 ---
 
 In 1977, Carl Bernstein — half of the reporting duo that had broken the Watergate story and helped bring down a president — published a 25,000-word article in *Rolling Stone* magazine titled "The CIA and the Media." The article's central finding was staggering: over the previous twenty-five years, more than four hundred American journalists had secretly carried out assignments for the Central Intelligence Agency. These were not marginal freelancers or obscure correspondents. They were some of the most prominent names in American journalism, working for the most respected news organizations in the country — the *New York Times*, *Time* magazine, CBS, the *Washington Post*, *Newsweek*, the Associated Press, United Press International, Reuters, the *Miami Herald*, the *Saturday Evening Post*, and dozens of others. They had planted stories, suppressed stories, provided cover for CIA operatives abroad, gathered intelligence under journalistic credentials, and in some cases served as full-time CIA employees operating under the cover of news organizations that were complicit in the arrangement.

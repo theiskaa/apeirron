@@ -4,17 +4,17 @@ title: "The Bermuda Triangle"
 category: "reality"
 connections:
   - target: "philadelphia-experiment"
-    reason: "The Philadelphia Experiment and the Bermuda Triangle share the same core claim — that electromagnetic anomalies in the Atlantic can bend space, time, and physical matter in ways official science refuses to acknowledge"
+    reason: "Both the Philadelphia Experiment and the Bermuda Triangle involve claims of electromagnetic anomalies in the Atlantic that can cause ships and planes to disappear or experience strange effects."
   - target: "atlantis"
-    reason: "The Bimini Road discovery and Edgar Cayce's prophecies placed Atlantis directly within the Bermuda Triangle — suggesting that the anomalies are caused by buried technology from a lost civilization"
+    reason: "The Bimini Road, an underwater rock formation found in the Bahamas, and Edgar Cayce's prophecies both place Atlantis inside the Bermuda Triangle. Some theorists think Atlantean technology on the ocean floor causes the Triangle's anomalies."
   - target: "ufos"
-    reason: "USO sightings — unidentified submerged objects — in the Triangle have led researchers to propose underwater alien bases, connecting the ocean's most mysterious region to the broader UFO phenomenon"
+    reason: "There have been reports of unidentified submerged objects (USOs) in the Bermuda Triangle. Some researchers think these could be evidence of underwater alien bases in the area."
   - target: "nature-of-time"
-    reason: "Pilots and sailors in the Triangle have reported time distortions — watches stopping, hours passing in minutes, electronic clocks resetting — suggesting the region may be a site where time itself becomes unstable"
+    reason: "Pilots and sailors in the Bermuda Triangle have reported time distortions: watches stopping, hours seeming to pass in minutes, and electronic clocks resetting. These reports suggest something in the area may affect how time works."
   - target: "consciousness"
-    reason: "The electromagnetic anomalies reported in the Triangle — compass failures, instrument malfunctions, disorientation — mirror the effects of electromagnetic fields on human consciousness studied in laboratory settings"
+    reason: "Compass failures, instrument malfunctions, and disorientation are commonly reported in the Triangle. Lab studies have shown that strong electromagnetic fields can cause similar confusion and altered mental states in humans."
   - target: "ancient-civilizations"
-    reason: "If advanced pre-diluvian civilizations existed, their submerged technology — still active on the ocean floor — could account for the energy anomalies that have plagued the Triangle for centuries"
+    reason: "If advanced ancient civilizations existed before a great flood, their technology could still be on the ocean floor in the Triangle area. Some theorists think this buried tech explains the strange energy readings reported there."
 ---
 
 On the afternoon of December 5, 1945, five torpedo bombers lifted off from the Naval Air Station at Fort Lauderdale, Florida, on a routine training mission designated Navigation Problem Number One. The flight was known as Flight 19. It consisted of five TBM Avenger aircraft, crewed by fourteen men — thirteen students and one instructor, Lieutenant Charles Carroll Taylor, a veteran pilot with over 2,500 hours of flight time. The mission was simple: fly east, conduct a practice bombing run over Hen and Chickens Shoals, continue east and then north, turn southwest, and return to base. The entire exercise was expected to take approximately two hours. The weather was fair. The seas were moderate. There was no reason for anything to go wrong.

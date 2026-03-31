@@ -4,17 +4,17 @@ title: "The Simulation Hypothesis"
 category: "reality"
 connections:
   - target: "consciousness"
-    reason: "If reality is computed, consciousness may be a programmed construct — or the reason the simulation exists"
+    reason: "If we live in a simulation, consciousness might be a programmed feature, and whether simulated consciousness is real consciousness is the deepest question the hypothesis raises"
   - target: "fermi-paradox"
-    reason: "The absence of aliens could be a design choice in a simulated universe"
+    reason: "If our universe is a simulation, the reason we see no aliens might simply be that they were never included in the program"
   - target: "hard-problem"
-    reason: "The hard problem deepens in a simulation — is simulated consciousness real consciousness?"
+    reason: "The simulation hypothesis makes the hard problem even harder: if consciousness can be simulated, does simulated experience count as real experience?"
   - target: "hermetic-tradition"
-    reason: "The Gnostics and Hermeticists claimed millennia ago that reality is a construct and the uninitiated cannot see it — the simulation hypothesis is their thesis in modern clothing"
+    reason: "The Gnostics and Hermeticists claimed thousands of years ago that the visible world is a constructed illusion, which is essentially the same idea as the simulation hypothesis in ancient language"
   - target: "mandela-effect"
-    reason: "If reality can be patched like software, the Mandela Effect is what the edit looks like from inside — residual memories from a previous version"
+    reason: "If reality is a simulation that gets updated, the Mandela Effect could be people remembering things from before a patch was applied"
   - target: "sacred-geometry"
-    reason: "If reality is computed, sacred geometry may be the source code showing through — mathematical constants that recur too perfectly to be coincidental"
+    reason: "If reality is computed, the recurring mathematical constants in sacred geometry could be the underlying code showing through, like seeing the math behind a video game's graphics"
 ---
 
 In 2003, Oxford philosopher Nick Bostrom published a paper that reframed an ancient question in the language of probability theory. The argument was simple, the conclusion was not.

@@ -4,11 +4,11 @@ title: "Stoicism"
 category: "mind"
 connections:
   - target: "materialism"
-    reason: "The Stoics were systematic materialists — even the soul and God were physical substances"
+    reason: "The Stoics were materialists. They believed everything is physical, including the soul and God."
   - target: "consciousness"
-    reason: "Stoic philosophy offers a materialist account of awareness, self-command, and the rational soul"
+    reason: "The Stoics had a detailed physical theory of how awareness and reasoning work, grounded in the material soul."
   - target: "epicureanism"
-    reason: "Stoicism and Epicureanism were rival materialist schools with opposite prescriptions for how to live"
+    reason: "Stoicism and Epicureanism were competing schools in ancient Greece. Both were materialist, but they gave opposite advice on how to live."
 ---
 
 Around 300 BCE, Zeno of Citium began teaching in the Stoa Poikile — the "Painted Porch" — in the Athenian agora. He had arrived in Athens as a shipwrecked merchant from Cyprus, lost his fortune, wandered into a bookshop, read Xenophon's account of Socrates, and asked the bookseller where he could find a man like that. The bookseller pointed at Crates the Cynic walking past. Zeno followed him and never looked back. The philosophy that took its name from that painted porch would become one of the most influential in Western history, shaping Roman law, Christian theology, cognitive behavioral therapy, and the modern self-help movement. But beneath the popular image of Stoicism as a philosophy of grit and emotional toughness lies something more radical: a thoroughgoing [[materialism]] that grounds even the soul, even God, in physical substance — and a theory of mind so sophisticated that therapists are still using it twenty-three centuries later.

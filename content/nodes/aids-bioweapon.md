@@ -4,15 +4,15 @@ title: "AIDS as Bioweapon"
 category: "operations"
 connections:
   - target: "mkultra"
-    reason: "The agency that dosed unwitting citizens with LSD, experimented on prisoners, and funded research into biological incapacitation had already demonstrated the institutional will to use human beings as expendable test subjects — the step from MKUltra to a manufactured plague is, for many, not a leap but a continuation"
+    reason: "MKUltra proved the CIA was willing to experiment on people without their consent, including with biological agents. The AIDS bioweapon theory says the same agency applied that willingness to creating a disease."
   - target: "cia-drugs"
-    reason: "The CIA that flooded Black communities with crack cocaine is alleged by some researchers to have also introduced HIV into those same communities — two weapons aimed at the same population through the same institutional apparatus"
+    reason: "CIA drug trafficking funneled crack cocaine into Black communities. The AIDS bioweapon theory claims HIV was also deliberately introduced into those same communities. Both allegations target the same agency and the same population."
   - target: "big-pharma"
-    reason: "The pharmaceutical industry's response to AIDS — AZT pricing, delayed generic access, the profit motive in treatment rather than cure — is cited as evidence that the industry benefits from the epidemic it may have helped create"
+    reason: "Drug companies made enormous profits from AIDS treatments like AZT while blocking cheaper generics. Critics argue the pharmaceutical industry had a financial incentive to manage the disease rather than cure it."
   - target: "control-systems"
-    reason: "Whether AIDS was created deliberately or emerged naturally, the institutional response — the CDC's slow reaction, the stigmatization of gay men, the blood supply scandal — functioned as a control system that determined who lived and who died based on social value"
+    reason: "The government response to AIDS was slow, especially for gay men and minorities. The CDC delayed action, the blood supply went unprotected for years, and who got help depended largely on their social status."
   - target: "shadow-elite"
-    reason: "The bioweapon hypothesis alleges that population reduction programs discussed in elite policy documents were not theoretical but operational — AIDS as eugenics by other means"
+    reason: "Government policy documents from the 1970s discussed population control as a strategic goal. The bioweapon theory claims AIDS was one way those population reduction plans were actually carried out."
 ---
 
 On June 5, 1981, the Morbidity and Mortality Weekly Report — a publication of the Centers for Disease Control that, under normal circumstances, is read only by epidemiologists and public health officials — published a brief clinical note titled "Pneumocystis Pneumonia — Los Angeles." It described five young men, all "active homosexuals," who had been treated at three different hospitals in Los Angeles between October 1980 and May 1981 for Pneumocystis carinii pneumonia, a rare lung infection previously seen almost exclusively in patients with severely compromised immune systems. Two of the five were already dead by the time the report was published. The others would not survive long. The report's author, Dr. Michael Gottlieb, an immunologist at UCLA, noted that the occurrence of this infection in five previously healthy young men without any known underlying immunodeficiency was "unusual." It was more than unusual. It was the first official documentation of what would become the deadliest pandemic of the late twentieth century — a disease that has, as of this writing, killed more than forty million people worldwide and continues to infect roughly 1.3 million new people every year.

@@ -4,13 +4,13 @@ title: "The Fermi Paradox"
 category: "cosmos"
 connections:
   - target: "ancient-astronauts"
-    reason: "If aliens visited in the past, the paradox may already be resolved"
+    reason: "If ancient astronaut theorists are right that aliens visited Earth thousands of years ago, then the question 'where is everybody?' already has an answer"
   - target: "simulation-hypothesis"
-    reason: "The absence of aliens could mean our universe is simulated with limited scope"
+    reason: "If we are in a simulation, aliens might not exist in the program at all, which would explain the silence"
   - target: "consciousness"
-    reason: "If consciousness is rare or special, it may explain why we appear to be alone"
+    reason: "If consciousness is extremely rare or requires very specific conditions, that could explain why we haven't found other intelligent life"
   - target: "ufos"
-    reason: "The modern UAP evidence — Pentagon videos, congressional testimony, whistleblower claims — suggests the paradox may already be resolved: they are here"
+    reason: "Pentagon UFO videos, congressional testimony, and whistleblower claims suggest aliens might already be here, which would answer Fermi's question directly"
 ---
 
 In the summer of 1950, physicist Enrico Fermi sat down to lunch with colleagues at Los Alamos National Laboratory. The conversation turned to flying saucers, then to the probability of extraterrestrial life, and then to a question that silenced the table. Fermi looked up and asked: "Where is everybody?"

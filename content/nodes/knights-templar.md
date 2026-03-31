@@ -4,17 +4,17 @@ title: "The Knights Templar"
 category: "power"
 connections:
   - target: "secret-societies"
-    reason: "The Templars are the archetype of the secret society — a brotherhood bound by oath, destroyed by conspiracy, and allegedly surviving in the shadows"
+    reason: "The Templars are the original model for secret societies: a sworn brotherhood that was destroyed by a conspiracy and allegedly continued operating in hiding."
   - target: "freemasonry"
-    reason: "Freemasonry claims direct descent from the Templars — the suppressed order allegedly surviving through the stonemason guilds of Scotland"
+    reason: "Freemasonry claims to descend directly from the Templars, who allegedly survived their destruction by merging into Scottish stonemason guilds."
   - target: "ancient-civilizations"
-    reason: "What the Templars found beneath Solomon's Temple may connect to knowledge far older than Christianity — relics of a civilization mainstream history does not acknowledge"
+    reason: "The Templars spent nine years digging under Solomon's Temple. Whatever they found may date back to civilizations far older than mainstream history acknowledges."
   - target: "megaliths"
-    reason: "The Temple Mount is one of the most ancient constructed sites on Earth — the Templars spent nine years excavating its foundations"
+    reason: "The Temple Mount has thousands of years of construction layered underground. The Templars spent nine years excavating beneath it."
   - target: "hermetic-tradition"
-    reason: "The esoteric knowledge the Templars allegedly recovered — from Gnostic texts to Kabbalistic teachings — fed directly into the Western Hermetic tradition"
+    reason: "The Templars allegedly recovered Gnostic texts and Kabbalistic teachings in the Holy Land. This material fed directly into the Western Hermetic tradition."
   - target: "control-systems"
-    reason: "The Templars invented international banking, answerable to no king — the first organization to demonstrate that financial power can exceed political power"
+    reason: "The Templars invented international banking and answered to no king. They were the first to prove that financial power can be greater than political power."
 ---
 
 In 1119, nine French knights led by Hugues de Payens presented themselves to King Baldwin II of Jerusalem with a singular offer: they would protect Christian pilgrims traveling to the Holy Land. Baldwin gave them quarters on the Temple Mount — the site where Solomon's Temple had stood, the holiest ground in Judaism, and one of the most contested pieces of real estate in human history. For the next nine years, the founding knights apparently recruited no new members, engaged in no military campaigns, and were never seen protecting any pilgrims.

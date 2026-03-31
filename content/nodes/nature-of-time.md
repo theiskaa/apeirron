@@ -4,11 +4,11 @@ title: "The Nature of Time"
 category: "reality"
 connections:
   - target: "consciousness"
-    reason: "Our experience of time flowing may be a feature of consciousness, not of physics"
+    reason: "Physics says time doesn't actually flow, so the feeling that it does might be something consciousness creates rather than something real about the universe"
   - target: "simulation-hypothesis"
-    reason: "In a simulation, time might be an illusion — a rendering sequence rather than a dimension"
+    reason: "In a simulation, time would just be the order that frames are rendered in, not a real dimension, which would explain why physics says time doesn't flow"
   - target: "mandela-effect"
-    reason: "If the block universe can be modified retroactively, the Mandela Effect is its fingerprint — memories from a timeline that no longer exists"
+    reason: "If past, present, and future all exist at once in a block universe, and that block can be changed, the Mandela Effect could be memories from a version of the past that was altered"
 ---
 
 You have never experienced the past. You have never experienced the future. You have only ever experienced *now*. The past exists as memory — a pattern in your brain, accessed in the present. The future exists as anticipation — another pattern, also accessed in the present. The flow of time, the sense that moments are arriving and departing, is the most fundamental feature of your experience. And physics says it may not be real.

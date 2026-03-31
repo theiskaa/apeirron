@@ -4,15 +4,15 @@ title: "The Roswell Incident"
 category: "cosmos"
 connections:
   - target: "ufos"
-    reason: "Roswell is the foundational event of modern UFO culture — the moment the phenomenon shifted from lights in the sky to physical craft, recovered bodies, and government cover-up"
+    reason: "Roswell was the first major case where UFO claims went beyond sightings to include a physical crash, recovered debris, and alleged alien bodies. It started the modern UFO cover-up narrative."
   - target: "area-51"
-    reason: "The wreckage and bodies allegedly recovered at Roswell were, according to multiple witnesses, transported to Area 51's predecessor facilities — connecting the crash site to the most secretive military installation on Earth"
+    reason: "Multiple witnesses claim the Roswell wreckage and bodies were shipped to military facilities that later became part of the Area 51 complex for analysis and storage."
   - target: "control-systems"
-    reason: "The Roswell cover-up — from the retracted press release to the weather balloon story to Project Mogul — is a textbook case of institutional narrative management, where the official story changed every time the previous version became untenable"
+    reason: "The official Roswell explanation has changed multiple times: first a flying disc, then a weather balloon, then Project Mogul. Each new story came only after the previous one fell apart."
   - target: "deep-state"
-    reason: "Majestic 12 — the alleged secret committee of scientists, military leaders, and intelligence officials formed to manage the Roswell recovery — represents the deep state in its purest form: unelected, unaccountable, and operating above the President"
+    reason: "Majestic 12 was allegedly a secret committee of top military, intelligence, and science officials created to manage the Roswell recovery. If real, it was an unelected group making major decisions with no public oversight."
   - target: "operation-mockingbird"
-    reason: "The media's uniform acceptance of the weather balloon explanation in 1947, and its decades-long dismissal of witnesses who contradicted it, mirrors the Mockingbird pattern of press management on matters of national security"
+    reason: "In 1947, the press immediately accepted the military's weather balloon story and ignored contradicting witnesses for decades. This is the kind of uncritical reporting that Mockingbird was designed to produce."
 ---
 
 In the first week of July 1947, something fell out of the sky and struck the high desert of southeastern New Mexico. Whatever it was scattered debris across a remote ranch, generated a press release that circled the globe in hours, triggered a military response of extraordinary intensity, and then — by official decree — became a weather balloon. The story died. For thirty years, no one of consequence spoke of it. Then the witnesses began to talk, and what they described was not a balloon of any kind. What they described was something that, if true, would constitute the most consequential event in recorded human history: physical proof that human beings are not alone in the universe, and that their government has known this since the summer of 1947 and has maintained the secret across eight decades, twelve presidencies, and the entire arc of the modern age.

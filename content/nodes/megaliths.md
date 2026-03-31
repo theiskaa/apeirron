@@ -4,15 +4,15 @@ title: "Megalithic Mysteries"
 category: "origins"
 connections:
   - target: "ancient-civilizations"
-    reason: "Megaliths are the physical evidence for civilizations that predate accepted history"
+    reason: "Megalithic structures are the physical evidence that someone with advanced building knowledge existed before what mainstream history says should have been possible"
   - target: "ancient-astronauts"
-    reason: "The engineering precision of ancient megaliths has fueled theories of non-human assistance"
+    reason: "The precision and scale of megalithic construction is so advanced that some argue the builders had help from a technologically superior non-human source"
   - target: "freemasonry"
-    reason: "Freemasonry claims descent from the master builders of antiquity — the knowledge of how these stones were cut and placed may be the original secret"
+    reason: "Freemasonry claims to descend from the master builders of ancient times. The actual construction techniques used for megaliths may be the original knowledge they preserved"
   - target: "sacred-geometry"
-    reason: "The Great Pyramid encodes pi and phi to extraordinary precision — the megaliths are sacred geometry rendered in stone"
+    reason: "The Great Pyramid encodes pi and the golden ratio to very high precision, meaning megalithic builders were using sacred geometry principles in their construction"
   - target: "atlantis"
-    reason: "If Atlantis was real, the megalithic structures scattered across the globe may be what its builders left behind"
+    reason: "If Atlantis was real, the megalithic structures found across the world could be what its civilization built before it was destroyed"
 ---
 
 The Great Pyramid of Giza contains approximately 2.3 million stone blocks, averaging 2.5 tons each, with some granite blocks in the King's Chamber weighing over 80 tons. These were quarried, transported hundreds of miles, and placed with a precision of 1/50th of an inch. The base is level to within 2.1 centimeters across 13 acres. The sides are aligned to true north with an error of 3/60th of a degree — more accurate than the Royal Greenwich Observatory.

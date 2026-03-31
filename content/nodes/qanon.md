@@ -4,17 +4,17 @@ title: "QAnon"
 category: "modern"
 connections:
   - target: "control-systems"
-    reason: "QAnon is simultaneously a rebellion against narrative control and an example of it — a decentralized movement that nonetheless steered millions toward a single, managed interpretation of reality"
+    reason: "QAnon claimed to fight media manipulation, but it also controlled its followers' worldview by funneling millions into one specific narrative through cryptic posts and community enforcement."
   - target: "pizzagate"
-    reason: "Pizzagate was the seed from which QAnon grew — the elite pedophile accusation was the emotional core that Q systematized into a grand unified conspiracy theory"
+    reason: "QAnon grew directly out of Pizzagate. The core accusation that elites abuse children started with Pizzagate, and Q built an entire conspiracy framework around it."
   - target: "deep-state"
-    reason: "The deep state is QAnon's primary antagonist — the permanent bureaucratic apparatus that Q claimed Trump was secretly dismantling from within"
+    reason: "QAnon's central story is that Trump is secretly fighting the deep state. The deep state is the main villain in the Q narrative."
   - target: "shadow-elite"
-    reason: "QAnon's 'cabal' is the shadow elite given a name and a narrative — a ruling class engaged in crimes so monstrous they justify any means of resistance"
+    reason: "QAnon calls its enemy 'the cabal,' which is their version of the shadow elite idea -- a hidden ruling class that secretly runs the world."
   - target: "nine-eleven"
-    reason: "QAnon inherited the epistemological framework of the 9/11 truth movement — the conviction that spectacular public events conceal operations by hidden actors"
+    reason: "QAnon borrowed its basic logic from the 9/11 truth movement: the idea that major public events are staged by hidden actors to serve a secret agenda."
   - target: "operation-mockingbird"
-    reason: "QAnon's war against 'fake news' and mainstream media echoes the Mockingbird revelation — the discovery that the press serves power rather than checking it"
+    reason: "Operation Mockingbird showed the CIA had infiltrated major media outlets. QAnon uses this history to argue that mainstream media still serves the government rather than the public."
 ---
 
 On the evening of October 28, 2017, an anonymous user posted on the /pol/ board of 4chan — the politically incorrect subforum of the anarchic imageboard that had, over the previous decade, become the incubator for some of the internet's most potent cultural and political movements. The post was formatted like an intelligence briefing. It read, in part: "HRC extradition already in motion effective yesterday with several countries in case of cross border run. Passport approved to be flagged effective 10/30 @ 12:01am. Expect massive riots organized in defiance and target. US M's will conduct the operation while NG activated." HRC was Hillary Rodham Clinton. US M's was the United States Marines. NG was the National Guard. The anonymous poster — who would come to be known as Q, or Q Clearance Patriot, a reference to the Department of Energy's top-secret security classification — was claiming that Hillary Clinton was about to be arrested, that the military was prepared to contain the resulting unrest, and that the storm that President Trump had cryptically referenced at a White House gathering of military leaders on October 5, 2017 ("You guys know what this represents? Maybe it's the calm before the storm") was real. It was happening.

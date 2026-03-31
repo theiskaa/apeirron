@@ -4,15 +4,15 @@ title: "Dualism"
 category: "mind"
 connections:
   - target: "consciousness"
-    reason: "Dualism proposes that consciousness is fundamentally non-physical — a separate substance from the brain"
+    reason: "Dualism says consciousness is non-physical, a separate substance from the brain."
   - target: "materialism"
-    reason: "Materialism is the direct rejection of dualism — there is no non-physical mind"
+    reason: "Materialism rejects dualism. It says there is no non-physical mind; only the physical brain exists."
   - target: "idealism"
-    reason: "Idealism dissolves dualism by eliminating the material side entirely"
+    reason: "Idealism removes the need for dualism by saying only mind exists, not matter."
   - target: "descartes"
-    reason: "Descartes is the architect of modern dualism — the mind-body split that defines the debate"
+    reason: "Descartes created the modern version of dualism by arguing that mind and body are two completely different substances."
   - target: "hard-problem"
-    reason: "The hard problem is arguably a dualist intuition in modern dress — that consciousness can't be reduced to physics"
+    reason: "The hard problem asks why physical brain processes produce subjective experience. This is essentially the same question dualism raises."
 ---
 
 You are, right now, having an experience. Light enters your eyes. Electrical signals traverse your neurons. Neurotransmitters cross synaptic gaps. All of this can be described in the language of physics and chemistry. And yet --- simultaneously, undeniably --- there is *something it is like* to be you. There is a felt quality to the color blue. There is pain that *hurts*, not merely signals that fire. There is the sense of being a someone.

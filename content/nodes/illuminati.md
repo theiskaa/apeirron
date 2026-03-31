@@ -4,13 +4,13 @@ title: "The Illuminati"
 category: "power"
 connections:
   - target: "secret-societies"
-    reason: "The Illuminati lasted barely a decade but created the master template for every conspiracy theory about hidden power in the last two centuries"
+    reason: "The Illuminati only lasted nine years, but they created the template that every conspiracy theory about secret groups has followed for the past 200+ years."
   - target: "freemasonry"
-    reason: "Weishaupt's primary method was infiltrating Masonic lodges — the entanglement of the two orders became the foundation of modern conspiracy thinking"
+    reason: "Weishaupt's main strategy was infiltrating Masonic lodges to recruit members. This real overlap between the two groups started most modern conspiracy theories about Freemasonry."
   - target: "control-systems"
-    reason: "The Illuminati pioneered systematic infiltration of institutions — a model of invisible control that governments and intelligence agencies would later perfect"
+    reason: "The Illuminati invented the method of placing their people inside existing institutions to steer them from within. Governments and intelligence agencies later used the same approach."
   - target: "shadow-elite"
-    reason: "Whether the Illuminati survived or not, their model did — the modern power elite operates on principles Weishaupt would recognize instantly"
+    reason: "The Illuminati are gone, but today's power elite uses the same playbook: hidden coordination, institutional infiltration, and decision-making behind closed doors."
 ---
 
 On May 1, 1776 — the same year as the American Declaration of Independence, a coincidence that conspiracy theorists have never stopped noting — Adam Weishaupt, a 28-year-old professor of canon law at the University of Ingolstadt in Bavaria, founded the Order of the Illuminati. The name meant "the enlightened ones." The goal was the overthrow of everything.

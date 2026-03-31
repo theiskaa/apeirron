@@ -4,11 +4,11 @@ title: "The Hard Problem"
 category: "mind"
 connections:
   - target: "consciousness"
-    reason: "The hard problem is the formal name for the central mystery of consciousness"
+    reason: "The hard problem is the question of why physical brain processes produce subjective conscious experience."
   - target: "panpsychism"
-    reason: "Panpsychism is the most radical proposed solution to the hard problem"
+    reason: "Panpsychism tries to solve the hard problem by saying consciousness exists in all matter, so it never had to emerge from nothing."
   - target: "altered-states"
-    reason: "Altered states reveal that subjective experience can be radically transformed, deepening the mystery"
+    reason: "Altered states show that subjective experience can change dramatically, which makes the hard problem harder to explain."
 ---
 
 In 1995, philosopher David Chalmers drew a line through the study of the mind. On one side he placed the "easy problems" — explaining how the brain processes information, integrates sensory data, controls behavior, and produces language. These are staggeringly complex engineering challenges, but they are *tractable*. We know, in principle, what a solution would look like. On the other side he placed a single question: why does any of this processing feel like something from the inside?

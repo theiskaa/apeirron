@@ -4,17 +4,17 @@ title: "The Federal Reserve"
 category: "power"
 connections:
   - target: "shadow-elite"
-    reason: "The Federal Reserve was created in secret by the most powerful bankers in America — the shadow elite's most consequential institutional achievement, a private bank with public authority over the money supply"
+    reason: "The Federal Reserve was designed in a secret 1910 meeting on Jekyll Island by America's most powerful bankers. It is a privately owned institution with authority over the entire US money supply."
   - target: "new-world-order"
-    reason: "Central banking is the financial engine of the New World Order — control the money and you control the governments that depend on it"
+    reason: "NWO theorists see central banks like the Fed as the financial backbone of world government. Whoever controls the money supply controls the governments that depend on borrowing."
   - target: "control-systems"
-    reason: "The Federal Reserve is the invisible control system that shapes every aspect of economic life — interest rates, inflation, employment, the value of savings — without democratic accountability"
+    reason: "The Fed sets interest rates, controls inflation, and affects employment and the value of savings. It shapes the entire economy but is not directly accountable to voters."
   - target: "illuminati"
-    reason: "The banking dynasties alleged to control the Fed — the Rothschilds, the Warburgs, the Rockefellers — are the same families that conspiracy theorists place at the apex of the Illuminati hierarchy"
+    reason: "The banking families linked to the Fed's creation -- the Rothschilds, Warburgs, and Rockefellers -- are the same families that conspiracy theorists claim run the Illuminati."
   - target: "jfk"
-    reason: "Executive Order 11110 — Kennedy's alleged attempt to strip the Federal Reserve of its power by authorizing Treasury-issued silver certificates — is cited as a motive for his assassination, though the economic reality is more complex"
+    reason: "Some conspiracy theorists claim JFK signed Executive Order 11110 to take power away from the Federal Reserve, and that this was a motive for his assassination. The actual economic effect of the order is debated."
   - target: "nine-eleven"
-    reason: "The post-9/11 financial order — unlimited quantitative easing, the 2008 bailouts, the concentration of economic power — accelerated the trends that Fed critics had warned about for decades"
+    reason: "After 9/11, the Fed used quantitative easing and the 2008 bank bailouts to concentrate more economic power. These actions confirmed what Fed critics had been warning about for decades."
 ---
 
 On a cold November night in 1910, a private railway car sat waiting at a train station in Hoboken, New Jersey. The men who boarded it were under strict instructions: use first names only, do not acknowledge one another to the staff, and if anyone asks, you are going on a duck-hunting trip to the coast of Georgia. The destination was Jekyll Island — a private retreat owned by some of the wealthiest families in America. The purpose was to design a central banking system for the United States. The men who gathered in that rail car represented, by some estimates, one-quarter of the entire wealth of the world. What they produced over nine days of secret deliberation would become the Federal Reserve System — the institution that controls the American money supply, sets interest rates for the global economy, and operates with less public accountability than a municipal water board. The story of its creation is not a conspiracy theory. It is documented history, confirmed by the participants themselves. The question the story raises — whether a monetary system designed in secret, by bankers, for bankers, can ever truly serve the public interest — remains unanswered more than a century later.

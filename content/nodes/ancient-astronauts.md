@@ -4,13 +4,13 @@ title: "Ancient Astronauts"
 category: "origins"
 connections:
   - target: "ancient-civilizations"
-    reason: "If an advanced pre-flood civilization existed, the question is whether they were human or something else"
+    reason: "If a lost civilization existed before recorded history, the next question is whether they were human or extraterrestrial visitors"
   - target: "megaliths"
-    reason: "Megalithic construction that defies known ancient capabilities has fueled theories of external help"
+    reason: "Some megalithic structures are so precisely built that ancient astronaut theorists argue they required help from a technologically advanced non-human source"
   - target: "fermi-paradox"
-    reason: "If aliens visited Earth in the past, the Fermi Paradox may already have its answer"
+    reason: "If aliens visited Earth in the ancient past, the Fermi Paradox ('where is everybody?') would already be answered"
   - target: "ufos"
-    reason: "The ancient astronaut phenomenon and modern UAPs may be the same phenomenon across millennia — the descriptions change with the technology of the observer"
+    reason: "Ancient texts describe beings and craft from the sky, and today people report UFOs. It could be the same thing, just described differently depending on the time period"
 ---
 
 Every ancient culture on Earth describes beings who came from the sky.

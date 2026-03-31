@@ -4,15 +4,15 @@ title: "9/11"
 category: "operations"
 connections:
   - target: "control-systems"
-    reason: "The 9/11 Commission was the Warren Commission's successor — a managed investigation designed to produce consensus, not truth"
+    reason: "The 9/11 Commission was set up like the Warren Commission: limited funding, a tight deadline, and restricted access to evidence. Both produced official reports that large portions of the public never fully accepted."
   - target: "shadow-elite"
-    reason: "The Project for a New American Century called for a 'new Pearl Harbor' to transform American foreign policy — 9/11 delivered exactly that"
+    reason: "The neoconservative think tank PNAC wrote in 2000 that transforming U.S. defense policy would require 'a new Pearl Harbor.' Many of its members held senior positions in the Bush administration when 9/11 happened."
   - target: "jfk"
-    reason: "The JFK assassination established the template — official commission, controlled narrative, classified documents, and a public that never fully believed the story"
+    reason: "Both events were followed by government commissions, classified documents, and official narratives that much of the public questioned. The JFK playbook was repeated after 9/11."
   - target: "operation-northwoods"
-    reason: "Northwoods proved the U.S. military was willing to stage false-flag attacks on American soil to justify war — the conceptual precedent for 9/11 truth claims"
+    reason: "Operation Northwoods was a 1962 Pentagon plan to stage fake terrorist attacks on Americans to justify invading Cuba. 9/11 truth advocates cite it as proof the military has considered false-flag operations before."
   - target: "operation-mockingbird"
-    reason: "The media's uniform refusal to question the official 9/11 narrative mirrors the kind of coordinated message control Mockingbird established"
+    reason: "Operation Mockingbird was the CIA's program to influence major media outlets. After 9/11, those same outlets largely repeated the government's narrative without independent investigation."
 ---
 
 At 8:46 a.m. on September 11, 2001, American Airlines Flight 11 — a Boeing 767 carrying 92 people — struck the North Tower of the World Trade Center between the 93rd and 99th floors. Seventeen minutes later, at 9:03 a.m., United Airlines Flight 175 — another Boeing 767, carrying 65 people — struck the South Tower between the 77th and 85th floors. The impacts were broadcast live across the world. At 9:37 a.m., American Airlines Flight 77, a Boeing 757 carrying 64 people, struck the western face of the Pentagon. At 10:03 a.m., United Airlines Flight 93, a Boeing 757 carrying 44 people, crashed into a field near Shanksville, Pennsylvania, after passengers reportedly attempted to retake the aircraft from the hijackers. By 10:28 a.m., both towers of the World Trade Center had collapsed. 2,977 people were dead — the largest loss of life from a foreign attack on American soil in history, exceeding Pearl Harbor by more than five hundred.

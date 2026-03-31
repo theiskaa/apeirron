@@ -4,15 +4,15 @@ title: "Operation Northwoods"
 category: "operations"
 connections:
   - target: "jfk"
-    reason: "Kennedy rejected Northwoods and removed its architect — within eighteen months he was dead, and the question of whether the same institutional mindset was turned against him has never been resolved"
+    reason: "Kennedy personally rejected the Northwoods plan and removed its chief architect from power. He was assassinated less than two years later."
   - target: "nine-eleven"
-    reason: "Northwoods is the document 9/11 truth advocates cite most — declassified proof that the U.S. military proposed false-flag terrorism against American citizens to justify war"
+    reason: "Northwoods is a declassified document showing the U.S. military proposed fake terrorist attacks on Americans to start a war. 9/11 truth advocates point to it as proof the government has considered doing this before."
   - target: "control-systems"
-    reason: "Northwoods was designed to manufacture a narrative — staged events presented as real to manipulate public opinion toward a predetermined policy goal"
+    reason: "Northwoods proposed staging fake attacks and presenting them as real to manipulate public opinion into supporting a war the government had already decided to fight."
   - target: "shadow-elite"
-    reason: "The Joint Chiefs of Staff unanimously approved a plan to terrorize American civilians — revealing how far the military-industrial establishment would go to achieve its objectives"
+    reason: "The Joint Chiefs of Staff unanimously approved a plan to stage terrorist attacks on American civilians. This shows how far senior officials were willing to go outside democratic oversight."
   - target: "mkultra"
-    reason: "Northwoods and MKUltra emerged from the same institutional culture — Cold War agencies that believed any means were justified by the Communist threat"
+    reason: "Both Northwoods and MKUltra came out of the same Cold War military and intelligence agencies, which believed fighting Communism justified harming American citizens."
 ---
 
 On March 13, 1962, General Lyman Louis Lemnitzer, Chairman of the Joint Chiefs of Staff, presented a document to Secretary of Defense Robert McNamara. The document was titled "Justification for US Military Intervention in Cuba." It carried the full endorsement of the Joint Chiefs — the highest-ranking military officers in the United States. It was not a contingency plan for responding to Cuban aggression. It was a detailed proposal for fabricating Cuban aggression. The plan called for the United States government to stage terrorist attacks against its own citizens, blow up American ships, hijack American airplanes, orchestrate bombings in American cities, and blame every act on Fidel Castro's government — all to manufacture the public outrage necessary to justify a full-scale military invasion of Cuba. The document was classified top secret. It remained buried for thirty-five years. When it was finally declassified in 1997, it did not merely confirm what conspiracy researchers had long suspected. It exceeded it. Here was proof, signed and stamped and filed in the National Archives, that the highest military authority in the United States had proposed a campaign of state-sponsored terrorism against the American people.

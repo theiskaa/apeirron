@@ -4,11 +4,11 @@ title: "Epicureanism"
 category: "mind"
 connections:
   - target: "materialism"
-    reason: "Epicurus built the most complete materialist cosmology of the ancient world — atoms, void, and nothing else"
+    reason: "Epicurus said everything is made of atoms and empty space, with nothing immaterial. This was the most complete materialist system in the ancient world."
   - target: "consciousness"
-    reason: "Epicurean philosophy offers a radical account of consciousness as atomic arrangement — mortal, physical, and dissolving at death"
+    reason: "Epicureans believed consciousness is just atoms arranged in a certain way. When you die, the atoms scatter and consciousness ends."
   - target: "stoicism"
-    reason: "Epicureanism and Stoicism were rival materialist schools with opposite approaches to the good life"
+    reason: "Epicureanism and Stoicism were competing schools in ancient Greece. Both were materialist, but they gave opposite advice on how to live."
 ---
 
 "Death is nothing to us." With that declaration, Epicurus (341-270 BCE) distilled an entire metaphysics into an ethical principle. If the soul is made of atoms, and atoms disperse at death, then there is no afterlife to fear, no divine judgment to dread, no eternal punishment to avoid. The only reality is this life, these atoms, this moment. The purpose of philosophy is not to prepare for what comes after death but to liberate you from the fear of it. For two thousand years, that message was considered so dangerous that the most powerful institutions on earth tried to erase it from human memory. They failed.

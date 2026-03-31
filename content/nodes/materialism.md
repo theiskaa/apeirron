@@ -4,17 +4,17 @@ title: "Materialism"
 category: "mind"
 connections:
   - target: "consciousness"
-    reason: "Materialism claims consciousness is entirely physical — a product of matter and nothing more"
+    reason: "Materialism says consciousness is produced entirely by physical matter in the brain."
   - target: "idealism"
-    reason: "The fundamental opposition: materialism says matter is primary, idealism says mind is"
+    reason: "These are opposite positions. Materialism says matter is the basis of everything; idealism says mind is."
   - target: "dualism"
-    reason: "Materialism rejects dualism's separation of mind and body — there is only body"
+    reason: "Materialism directly rejects dualism. Dualism says mind and body are separate; materialism says only body exists."
   - target: "stoicism"
-    reason: "The Stoics were among the first systematic materialists, grounding even the soul in physical substance"
+    reason: "The Stoics were early materialists. They believed even the soul and God were made of physical substance."
   - target: "epicureanism"
-    reason: "Epicurus built an entire cosmology on atoms and void — no immaterial soul, no afterlife"
+    reason: "Epicurus taught that everything is made of atoms, including the soul. There is no immaterial mind or afterlife."
   - target: "dennett"
-    reason: "Dennett is the most prominent living defender of materialist consciousness — the mind is what the brain does"
+    reason: "Dennett is the leading modern philosopher who argues that consciousness is entirely physical brain activity."
 ---
 
 Materialism is the philosophical position that everything that exists is physical. There is no soul, no immaterial mind, no ghostly substance hiding behind the neurons. [[consciousness]] --- your felt experience of being alive, of seeing red, of feeling pain --- is entirely a product of matter in motion. When the brain dies, you die. There is nothing left over.

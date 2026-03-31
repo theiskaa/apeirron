@@ -4,13 +4,13 @@ title: "Daniel Dennett & Modern Materialism"
 category: "mind"
 connections:
   - target: "materialism"
-    reason: "Dennett is the most prominent defender of materialist consciousness in contemporary philosophy"
+    reason: "Dennett is the leading modern philosopher arguing that consciousness is entirely physical."
   - target: "consciousness"
-    reason: "Dennett argues consciousness is entirely physical — there is no hard problem, only a hard illusion"
+    reason: "Dennett spent his career arguing that consciousness is just what brains do, with no non-physical element."
   - target: "hard-problem"
-    reason: "Dennett's life work is the argument that the hard problem is a pseudo-problem"
+    reason: "Dennett argued the hard problem is not a real problem. He believed once you explain what the brain does, there is nothing left to explain."
   - target: "descartes"
-    reason: "Dennett's entire project is the dismantling of the Cartesian theater — the idea of a central 'observer' in the brain"
+    reason: "Dennett's main target was Descartes' idea that there is a central 'observer' inside the brain watching experience happen."
 ---
 
 Daniel Clement Dennett (1942--2024) was the most formidable materialist philosopher of the late twentieth and early twenty-first century. For over five decades, he argued -- with wit, rigor, and relentless clarity -- that [[consciousness]] is not mysterious, not non-physical, and not a "hard problem." It is what brains do. There is nothing left over to explain. And if you think there is, you are in the grip of what he called a "zombic hunch" -- an intuition so deep and so wrong that it has derailed the entire field.

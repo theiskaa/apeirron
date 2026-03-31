@@ -4,15 +4,15 @@ title: "Lost Ancient Civilizations"
 category: "origins"
 connections:
   - target: "megaliths"
-    reason: "Megalithic structures worldwide suggest a technologically capable civilization that mainstream history does not account for"
+    reason: "Megalithic structures around the world were built with techniques that mainstream history can't fully explain, suggesting a lost civilization with advanced construction knowledge"
   - target: "ancient-astronauts"
-    reason: "If an advanced civilization existed before recorded history, the question becomes whether they were human at all"
+    reason: "If an advanced civilization existed before recorded history, ancient astronaut theory asks whether those people were human or visitors from somewhere else"
   - target: "consciousness"
-    reason: "Ancient cultures universally placed consciousness at the center of reality, suggesting knowledge we have lost"
+    reason: "Ancient cultures across the world treated consciousness as the foundation of reality, not a byproduct of it, which suggests they may have understood something about the mind that we've forgotten"
   - target: "secret-societies"
-    reason: "The mystery traditions and secret orders claim unbroken lineages to pre-flood civilizations — if those civilizations existed, someone may have preserved what they knew"
+    reason: "Secret societies claim their knowledge has been passed down in an unbroken chain from pre-flood civilizations. If those civilizations existed, these groups may be carrying their knowledge"
   - target: "atlantis"
-    reason: "Atlantis is this hypothesis given a name — Plato's account of a civilization destroyed 9,600 BCE coincides precisely with the Younger Dryas cataclysm"
+    reason: "Atlantis is the most famous lost civilization story, and Plato's date for its destruction (9,600 BCE) lines up exactly with the Younger Dryas cataclysm"
 ---
 
 Around 11,600 years ago, the Earth changed. The Younger Dryas — a sudden, catastrophic return to ice-age conditions — ended as abruptly as it began. Sea levels rose dramatically. Coastlines that had been inhabited for millennia vanished under water. And somewhere in this cataclysm, something may have been lost.

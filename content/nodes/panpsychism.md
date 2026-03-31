@@ -4,11 +4,11 @@ title: "Panpsychism"
 category: "mind"
 connections:
   - target: "consciousness"
-    reason: "Panpsychism is the most radical answer to what consciousness fundamentally is"
+    reason: "Panpsychism says consciousness is a basic feature of all matter, not something that only brains produce."
   - target: "hard-problem"
-    reason: "If consciousness can't emerge from non-conscious matter, panpsychism says it was always there"
+    reason: "The hard problem asks how consciousness arises from non-conscious matter. Panpsychism avoids this by saying matter was always conscious."
   - target: "altered-states"
-    reason: "Psychedelic experiences frequently produce the felt conviction that everything is conscious"
+    reason: "People on psychedelics often report feeling that everything around them is conscious, which matches what panpsychism claims."
 ---
 
 Here is the problem, stated as plainly as possible: we live in a universe made of matter. Matter, as physics describes it, is mindless — particles bouncing off particles according to mathematical laws, with no inner life, no experience, no point of view. And yet, somewhere in this mindless machinery, *experience* appears. You are made of atoms, and atoms are not conscious, and yet you are.

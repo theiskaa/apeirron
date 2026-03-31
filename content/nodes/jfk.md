@@ -4,13 +4,13 @@ title: "The JFK Assassination"
 category: "operations"
 connections:
   - target: "shadow-elite"
-    reason: "The assassination exposed the fault lines of invisible power — the CIA, the Mafia, the military-industrial complex, and the question of who actually governs America"
+    reason: "The JFK assassination involved the CIA, the Mafia, and the military-industrial complex -- the same groups that make up the shadow elite power structure."
   - target: "control-systems"
-    reason: "The Warren Commission was the template for managed narrative — how official investigations can manufacture consensus while burying evidence"
+    reason: "The Warren Commission set the template for how official investigations can manufacture a consensus story while burying contradictory evidence."
   - target: "secret-societies"
-    reason: "Dealey Plaza sits on the 33rd parallel, the site was named after a 33rd-degree Mason, and the assassination has been linked to Masonic ritual by multiple researchers"
+    reason: "Dealey Plaza is on the 33rd parallel and was named after a 33rd-degree Freemason. Multiple researchers have connected the assassination to Masonic symbolism."
   - target: "mkultra"
-    reason: "Oswald's defection, his return, his handler connections, and Jack Ruby's behavior all raise questions about intelligence mind control programs"
+    reason: "Oswald had intelligence connections and a bizarre defection history, and Jack Ruby's behavior fits patterns seen in MKUltra-style programming."
 ---
 
 At 12:30 p.m. on November 22, 1963, the presidential motorcade turned left from Houston Street onto Elm Street in Dealey Plaza, Dallas, Texas. President John Fitzgerald Kennedy sat in the rear seat of the open Lincoln Continental limousine, SS-100-X, next to his wife Jacqueline. In front of them sat Texas Governor John Connally and his wife Nellie. The sun was out. The crowds were large and enthusiastic. Nellie Connally turned to the President and said, "Mr. President, you can't say Dallas doesn't love you." Kennedy replied, "No, you certainly can't." Seconds later, he was shot. Within thirty minutes, he was dead at Parkland Memorial Hospital. He was forty-six years old.

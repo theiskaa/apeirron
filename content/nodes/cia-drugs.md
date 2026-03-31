@@ -4,15 +4,15 @@ title: "CIA Drug Trafficking"
 category: "operations"
 connections:
   - target: "mkultra"
-    reason: "The same agency that dosed unwitting citizens with LSD facilitated the flow of cocaine and heroin into American cities — MKUltra and drug trafficking are two faces of the CIA's contempt for the people it claims to protect"
+    reason: "MKUltra involved the CIA testing drugs on unwitting Americans. CIA drug trafficking involved the agency protecting cocaine and heroin networks. Both show the CIA willing to harm American citizens for its own goals."
   - target: "shadow-elite"
-    reason: "Iran-Contra revealed a shadow foreign policy funded by drug money and arms sales — the deep state operating entirely outside constitutional authority"
+    reason: "Iran-Contra showed that senior officials ran a secret foreign policy funded by drug money and illegal arms sales, bypassing Congress entirely."
   - target: "control-systems"
-    reason: "Gary Webb's destruction by the mainstream press is a case study in how the media functions as a control system — protecting institutional power by destroying those who expose it"
+    reason: "When Gary Webb reported on CIA drug trafficking, major newspapers attacked his credibility instead of investigating the CIA. The story was killed by discrediting the journalist, not disproving the facts."
   - target: "operation-mockingbird"
-    reason: "The coordinated media attack on Gary Webb — led by the same outlets with documented CIA ties — is the clearest modern example of Mockingbird-style narrative management"
+    reason: "The Washington Post, which had documented CIA ties through Operation Mockingbird, led the media attack on Gary Webb after he exposed CIA drug trafficking. The same outlets Mockingbird cultivated helped discredit him."
   - target: "jfk"
-    reason: "The CIA-Mafia drug networks that flourished in Southeast Asia and Latin America were built by the same institutional culture that surrounded the Kennedy assassination"
+    reason: "The CIA worked with organized crime figures in its drug-connected operations overseas. Some of these same CIA-Mafia networks were active during the period of the Kennedy assassination."
 ---
 
 In April 1989, after the Iran-Contra affair had been sanitized by the Tower Commission and the congressional hearings had ended with no senior official serving meaningful prison time, Senator John Kerry released a report from the Senate Subcommittee on Terrorism, Narcotics, and International Operations. The report concluded: "It is clear that individuals who provided support for the Contras were involved in drug trafficking, the supply network of the Contras was used by drug trafficking organizations, and elements of the Contras themselves knowingly received financial and material assistance from drug traffickers." The report was 1,166 pages long. It was based on hundreds of depositions, interviews, and classified documents. It was ignored by nearly every major newspaper in the United States. The *New York Times* gave it a single story, buried deep in the paper. The *Washington Post* ran a brief inside-page article. Television news barely mentioned it. A United States Senate subcommittee had documented, with evidence, that the American government's proxy army in Central America was entangled with cocaine traffickers — and the story simply disappeared. The question of why it disappeared is inseparable from the story itself.

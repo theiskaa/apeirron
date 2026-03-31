@@ -4,15 +4,15 @@ title: "UFOs & UAPs"
 category: "cosmos"
 connections:
   - target: "fermi-paradox"
-    reason: "The modern UAP evidence may resolve the Fermi Paradox — they are not absent, they are here, and the government knows"
+    reason: "If UFOs are real and the government has evidence of them, then the Fermi Paradox might already be answered: aliens are here, we just weren't told"
   - target: "ancient-astronauts"
-    reason: "The same phenomenon across millennia — gods in the sky then, unidentified craft now. The descriptions change with the technology of the observer"
+    reason: "Ancient people described gods coming from the sky, and today we see unidentified craft. It may be the same phenomenon described differently depending on the era"
   - target: "shadow-elite"
-    reason: "The UFO cover-up is the longest-running classified program in modern history — from Project Blue Book to AATIP to the Schumer amendment"
+    reason: "The UFO topic has been classified by powerful government and military insiders for decades, from Project Blue Book through AATIP to recent congressional efforts at disclosure"
   - target: "control-systems"
-    reason: "If contact has been made and classified, UFO secrecy is the ultimate control system — hiding the most consequential information in human history"
+    reason: "If governments have made contact with non-human intelligence and kept it secret, that would be the most significant information ever withheld from the public"
   - target: "consciousness"
-    reason: "Jacques Vallée's hypothesis: UFOs are not spacecraft but a consciousness phenomenon — something that interacts with the mind, not just with radar"
+    reason: "Researcher Jacques Vallee argued that UFOs aren't physical spacecraft but something that interacts directly with human consciousness, not just with radar and cameras"
 ---
 
 On December 16, 2017, the *New York Times* published an article that should have ended the world as we knew it. Written by Helene Cooper, Ralph Blumenthal, and Leslie Kean — two veteran *Times* reporters and an investigative journalist who had spent years cultivating sources in the defense and intelligence communities — the piece revealed that the United States Department of Defense had been running a secret program to investigate unidentified flying objects. The program was called the Advanced Aerospace Threat Identification Program, or AATIP. It had been funded with $22 million in black budget money. It had been operational since at least 2007. And it had studied military encounters with objects that exhibited flight characteristics far beyond any known technology — American, Russian, Chinese, or otherwise.
