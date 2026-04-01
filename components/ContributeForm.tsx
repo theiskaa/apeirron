@@ -600,9 +600,6 @@ export default function ContributeForm({
               "Submit Proposal"
             )}
           </button>
-          <span className="text-[11px] text-text-muted">
-            No GitHub account needed
-          </span>
           {prefillNodeId && (
             <span className="text-[11px] text-text-muted ml-auto hidden sm:block">
               Proposing: <strong className="text-text-secondary">{prefillTitle}</strong>
