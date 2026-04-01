@@ -72,7 +72,8 @@ export function getExcerpt(markdown: string, maxLength = 160): string {
 function resolveWikiLinks(
   html: string,
   nodeById: Map<string, NodeData>,
-  nodeByTitle: Map<string, NodeData>
+  nodeByTitle: Map<string, NodeData>,
+  phantomIds?: Set<string>
 ): string {
   return html.replace(/\[\[([^\]]+)\]\]/g, (_match, ref: string) => {
     const trimmed = ref.trim();
@@ -80,6 +81,13 @@ function resolveWikiLinks(
     if (node) {
       const { id, title } = node.frontmatter;
       return `<a data-node-link="${id}" class="node-link">${title}</a>`;
+    }
+    if (phantomIds?.has(trimmed)) {
+      const title = trimmed
+        .split("-")
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(" ");
+      return `<a data-node-link="${trimmed}" class="node-link node-link-phantom">${title}</a>`;
     }
     // No match found — render as plain text with a broken-link style
     return `<span class="node-link-broken">${trimmed}</span>`;
@@ -115,6 +123,14 @@ export async function buildGraphData(): Promise<GraphData> {
     }
   }
 
+  // Detect phantom nodes — referenced in connections but no .md file exists
+  const existingIds = new Set(nodes.map((n) => n.frontmatter.id));
+  const phantomIds = new Set<string>();
+  for (const link of links) {
+    if (!existingIds.has(link.target)) phantomIds.add(link.target);
+    if (!existingIds.has(link.source)) phantomIds.add(link.source);
+  }
+
   const connectionCount = new Map<string, number>();
   for (const link of links) {
     connectionCount.set(
@@ -132,7 +148,7 @@ export async function buildGraphData(): Promise<GraphData> {
     nodes.map(async (node) => {
       const cat = categoryMap.get(node.frontmatter.category);
       let contentHtml = await markdownToHtml(node.content);
-      contentHtml = resolveWikiLinks(contentHtml, nodeById, nodeByTitle);
+      contentHtml = resolveWikiLinks(contentHtml, nodeById, nodeByTitle, phantomIds);
       return {
         id: node.frontmatter.id,
         title: node.frontmatter.title,
@@ -144,7 +160,36 @@ export async function buildGraphData(): Promise<GraphData> {
     })
   );
 
+  // Create phantom graph nodes
+  for (const pid of phantomIds) {
+    const title = pid
+      .split("-")
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(" ");
+    graphNodes.push({
+      id: pid,
+      title,
+      category: "phantom",
+      color: "#666666",
+      val: connectionCount.get(pid) ?? 1,
+      contentHtml: "",
+      phantom: true,
+    });
+  }
+
   return { nodes: graphNodes, links };
+}
+
+export function getPhantomNodeIds(): string[] {
+  const nodes = getAllNodes();
+  const existingIds = new Set(nodes.map((n) => n.frontmatter.id));
+  const phantomIds = new Set<string>();
+  for (const node of nodes) {
+    for (const conn of node.frontmatter.connections ?? []) {
+      if (!existingIds.has(conn.target)) phantomIds.add(conn.target);
+    }
+  }
+  return [...phantomIds];
 }
 
 /**

@@ -29,6 +29,7 @@ export interface GraphNode {
   color: string;
   val: number;
   contentHtml: string;
+  phantom?: boolean;
 }
 
 export interface GraphLink {
