@@ -4,6 +4,8 @@ import { useRef, useEffect, useMemo, useCallback, useState } from "react";
 import ForceGraph2D from "react-force-graph-2d";
 import type { GraphNode, GraphLink } from "@/lib/types";
 
+type MiniNode = { id: string; title: string; color: string; val: number; level: number; phantom?: boolean };
+
 interface Props {
   currentNodeId: string;
   allNodes: GraphNode[];
@@ -66,9 +68,10 @@ export default function MiniGraph({
           color: n.color,
           val: id === currentNodeId ? 8 : 4,
           level,
+          phantom: n.phantom,
         };
       })
-      .filter(Boolean) as { id: string; title: string; color: string; val: number; level: number }[];
+      .filter(Boolean) as MiniNode[];
 
     const reachableIds = includedIds;
     const links = allLinks
@@ -170,16 +173,31 @@ export default function MiniGraph({
 
       const radius = isCurrent ? 6 : node.level === 1 ? 4 : node.level === 2 ? 2.5 : 2;
 
+      const isPhantom = !!node.phantom;
+
       ctx.beginPath();
       ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI);
       if (isDimmed) {
         ctx.fillStyle = "rgba(100,100,110,0.2)";
+      } else if (isPhantom) {
+        ctx.fillStyle = node.color;
+        ctx.globalAlpha = 0.45;
       } else {
         ctx.fillStyle = node.color;
         ctx.globalAlpha = node.level >= 3 && !isHovered && !isNeighbor ? 0.4 : 1;
       }
       ctx.fill();
       ctx.globalAlpha = 1;
+
+      if (isPhantom && !isDimmed) {
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, radius + 1.5, 0, 2 * Math.PI);
+        ctx.setLineDash([1.5, 1.5]);
+        ctx.strokeStyle = "rgba(140,140,160,0.3)";
+        ctx.lineWidth = 0.7;
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
 
       if (isCurrent || isHovered) {
         ctx.beginPath();

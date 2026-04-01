@@ -150,6 +150,24 @@ body {
   opacity: 1;
 }
 
+/* Phantom wiki links (node proposed but not written) */
+.prose-apeiron a.node-link.node-link-phantom {
+  color: var(--text-muted);
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.prose-apeiron a.node-link.node-link-phantom:hover {
+  color: var(--text-secondary);
+}
+
+.prose-apeiron a.node-link.node-link-phantom::before,
+.prose-apeiron a.node-link.node-link-phantom::after {
+  color: var(--text-muted);
+}
+
 /* Broken wiki links (target not found) */
 .prose-apeiron .node-link-broken {
   color: var(--text-muted);

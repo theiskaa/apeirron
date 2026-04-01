@@ -242,10 +242,15 @@ export default function Graph({
         nodeAlpha = Math.min(elapsed / 350, 1);
       }
 
+      const isPhantom = !!(node as GraphNode).phantom;
+
       ctx.beginPath();
       ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI);
       if (isDimmed) {
         ctx.fillStyle = themeVars.current.nodeDim;
+      } else if (isPhantom) {
+        ctx.globalAlpha = isNeighbor && nodeAlpha < 1 ? 0.3 + nodeAlpha * 0.7 : 0.5;
+        ctx.fillStyle = node.color;
       } else {
         ctx.globalAlpha =
           isNeighbor && nodeAlpha < 1 ? 0.3 + nodeAlpha * 0.7 : 1;
@@ -253,6 +258,16 @@ export default function Graph({
       }
       ctx.fill();
       ctx.globalAlpha = 1;
+
+      if (isPhantom && !isDimmed) {
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, radius + 2, 0, 2 * Math.PI);
+        ctx.setLineDash([2, 2]);
+        ctx.strokeStyle = themeVars.current.ring;
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
 
       if (isHovered || isSelected) {
         ctx.beginPath();

@@ -4,6 +4,7 @@ import {
   getExcerpt,
   buildGraphData,
   getCategories,
+  getPhantomNodeIds,
 } from "@/lib/content";
 import type { Metadata } from "next";
 import PageClient from "@/components/PageClient";
@@ -14,7 +15,11 @@ interface Props {
 
 export async function generateStaticParams() {
   const nodes = getAllNodes();
-  return nodes.map((node) => ({ id: node.frontmatter.id }));
+  const phantomIds = getPhantomNodeIds();
+  return [
+    ...nodes.map((node) => ({ id: node.frontmatter.id })),
+    ...phantomIds.map((id) => ({ id })),
+  ];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -22,7 +27,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const nodes = getAllNodes();
   const node = nodes.find((n) => n.frontmatter.id === id);
 
-  if (!node) return { title: "Not Found — Apeirron" };
+  if (!node) {
+    // Could be a phantom node
+    const phantomIds = getPhantomNodeIds();
+    if (phantomIds.includes(id)) {
+      const title = id
+        .split("-")
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(" ");
+      return {
+        title: `${title} — Apeirron`,
+        description: `${title} is a proposed topic in the Apeirron knowledge graph. Contribute to help build this node.`,
+      };
+    }
+    return { title: "Not Found — Apeirron" };
+  }
 
   const categories = getCategories();
   const category = categories.find(
