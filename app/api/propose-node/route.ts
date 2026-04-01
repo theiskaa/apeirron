@@ -105,10 +105,14 @@ interface ProposalData {
 function buildIssueBody(data: ProposalData, id: string): string {
   const categories = getCategories();
   const isCustomCat = data.category.startsWith("custom:");
+  // Custom format: "custom:Name:#hexcolor"
+  const customParts = isCustomCat ? data.category.slice(7).split(":") : [];
+  const customName = customParts[0] ?? "";
+  const customColor = customParts[1] ?? "";
   const catLabel = isCustomCat
-    ? `${data.category.slice(7)} (proposed new category)`
+    ? `${customName} (proposed new category${customColor ? `, color: ${customColor}` : ""})`
     : categories.find((c) => c.id === data.category)?.label ?? data.category;
-  const catYaml = isCustomCat ? data.category.slice(7).toLowerCase().replace(/\s+/g, "-") : data.category;
+  const catYaml = isCustomCat ? customName.toLowerCase().replace(/\s+/g, "-") : data.category;
 
   const validConnections = data.connections.filter(
     (c) => c.target.trim() && c.reason.trim()
@@ -145,6 +149,9 @@ function buildIssueBody(data: ProposalData, id: string): string {
     "## New Node Proposal",
     "",
     `**Category:** ${catLabel}`,
+    ...(isCustomCat && customColor
+      ? [`**Proposed category entry:** \`{ "id": "${catYaml}", "label": "${customName}", "color": "${customColor}" }\``]
+      : []),
     `**Proposed ID:** \`${id}\``,
     `**Proposed file:** \`content/nodes/${id}.md\``,
     "",
@@ -229,12 +236,6 @@ export async function POST(req: NextRequest) {
   const validConnections = (data.connections ?? []).filter(
     (c) => c.target?.trim() && c.reason?.trim()
   );
-  if (validConnections.length === 0) {
-    return NextResponse.json(
-      { error: "At least one connection with a target and reason is required." },
-      { status: 400 }
-    );
-  }
 
   const id = deriveId(title);
   if (!id) {

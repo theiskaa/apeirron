@@ -107,7 +107,6 @@ export default function ContributeForm({
     title.trim().length >= 3 &&
     category !== "" &&
     content.trim().length >= 100 &&
-    validConnections.length >= 1 &&
     !submitting;
 
 
@@ -277,12 +276,33 @@ export default function ContributeForm({
                 />
               </svg>
             </div>
-            <h2 className="text-xl font-semibold text-text-primary mb-2">
+            <h2 className="text-xl font-semibold text-text-primary mb-4">
               Proposal submitted
             </h2>
-            <p className="text-sm text-text-secondary mb-6">
-              Your node proposal has been submitted for review.
-            </p>
+            <div className="text-sm text-text-secondary space-y-3 mb-8 text-left max-w-md mx-auto">
+              <p>
+                Your node has been submitted as a proposal to the Apeirron knowledge graph.
+                A maintainer will review it, and one of the following will happen:
+              </p>
+              <ul className="space-y-2 text-[13px]" style={{ color: "rgba(144,144,160,0.7)" }}>
+                <li className="flex gap-2">
+                  <span className="shrink-0 mt-0.5" style={{ color: "rgba(80,180,120,0.8)" }}>&#10003;</span>
+                  <span><strong className="text-text-secondary">Accepted as-is</strong> — your content is added directly to the graph with full credit.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="shrink-0 mt-0.5" style={{ color: "rgba(200,170,60,0.8)" }}>&#9998;</span>
+                  <span><strong className="text-text-secondary">Accepted with edits</strong> — a maintainer may refine the writing, adjust connections, or restructure sections before adding it.</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="shrink-0 mt-0.5" style={{ color: "rgba(180,100,100,0.8)" }}>&#10007;</span>
+                  <span><strong className="text-text-secondary">Not added</strong> — if the topic doesn&apos;t fit the graph, overlaps with an existing node, or needs significantly more research, it may be declined with feedback.</span>
+                </li>
+              </ul>
+              <p className="text-[12px]" style={{ color: "rgba(144,144,160,0.5)" }}>
+                You can track the status of your proposal on GitHub. Maintainers may leave comments
+                or questions on the issue — no GitHub account is needed to view it, but you&apos;ll need one to reply.
+              </p>
+            </div>
             <div className="flex items-center justify-center gap-3 flex-wrap">
               <a
                 href={result.issueUrl}
@@ -301,7 +321,10 @@ export default function ContributeForm({
                 Back to graph
               </button>
               <button
-                onClick={resetForm}
+                onClick={() => {
+                  resetForm();
+                  window.history.replaceState(null, "", "/contribute");
+                }}
                 className="px-4 py-2 rounded-md text-sm text-text-muted hover:text-text-secondary transition-colors"
               >
                 Submit another
@@ -513,10 +536,10 @@ export default function ContributeForm({
                     className="w-full min-h-[600px] bg-transparent text-[15px] leading-[1.85] text-text-primary outline-none resize-y placeholder:text-text-muted/25 border-none p-0 font-[inherit]"
                   />
                 ) : (
-                  <div className="min-h-[600px]">
+                  <div className="min-h-[600px] max-w-full overflow-hidden">
                     {content.trim() ? (
                       <div
-                        className="prose-apeiron"
+                        className="prose-apeiron max-w-none"
                         dangerouslySetInnerHTML={{ __html: previewHtml }}
                       />
                     ) : (

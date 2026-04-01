@@ -33,11 +33,13 @@ export default function CategoryPicker({ categories, value, onChange }: Props) {
 
   const isCustom = value.startsWith("custom:");
   const selectedCat = categories.find((c) => c.id === value);
+  // Custom format: "custom:Name:#hexcolor"
+  const customParts = isCustom ? value.slice(7).split(":") : [];
   const displayLabel = isCustom
-    ? value.slice(7)
+    ? customParts[0]
     : selectedCat?.label ?? "";
   const displayColor = isCustom
-    ? customColor
+    ? (customParts[1] || customColor)
     : selectedCat?.color ?? "var(--text-muted)";
 
   // Click outside to close
@@ -71,7 +73,7 @@ export default function CategoryPicker({ categories, value, onChange }: Props) {
 
   const handleCreateCustom = useCallback(() => {
     if (!customName.trim()) return;
-    onChange("custom:" + customName.trim());
+    onChange("custom:" + customName.trim() + ":" + customColor);
     setOpen(false);
     setShowNewForm(false);
     setCustomName("");
