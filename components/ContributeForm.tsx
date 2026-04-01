@@ -9,6 +9,7 @@ import remarkRehype from "remark-rehype";
 import rehypeSlug from "rehype-slug";
 import rehypeStringify from "rehype-stringify";
 import Navbar from "./Navbar";
+import CategoryPicker from "./CategoryPicker";
 import type { Category, GraphNode, GraphLink } from "@/lib/types";
 
 const MiniGraph = dynamic(() => import("./MiniGraph"), { ssr: false });
@@ -53,19 +54,47 @@ export default function ContributeForm({
   prefillTitle = "",
   prefillNodeId,
 }: Props) {
-  const [title, setTitle] = useState(prefillTitle);
-  const [category, setCategory] = useState("");
-  const [content, setContent] = useState("");
-  const [sources, setSources] = useState("");
-  const [connections, setConnections] = useState<Connection[]>([
-    { target: "", reason: "" },
-  ]);
+  const STORAGE_KEY = "apeirron-contribute-draft";
+  const saved = useRef<Record<string, unknown> | null>(null);
+  if (saved.current === null && typeof window !== "undefined") {
+    try {
+      const raw = sessionStorage.getItem(STORAGE_KEY);
+      saved.current = raw ? JSON.parse(raw) : {};
+    } catch {
+      saved.current = {};
+    }
+  }
+  const s = saved.current ?? {};
+
+  const [title, setTitle] = useState((s.title as string) || prefillTitle);
+  const [category, setCategory] = useState((s.category as string) || "");
+  const [content, setContent] = useState((s.content as string) || "");
+  const [sources, setSources] = useState((s.sources as string) || "");
+  const [connections, setConnections] = useState<Connection[]>(
+    (s.connections as Connection[] | undefined)?.length
+      ? (s.connections as Connection[])
+      : [{ target: "", reason: "" }]
+  );
   const [honeypot, setHoneypot] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [result, setResult] = useState<SubmitResult>(null);
   const [mode, setMode] = useState<"edit" | "preview">("edit");
   const [previewHtml, setPreviewHtml] = useState("");
   const previewTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    if (saveTimer.current) clearTimeout(saveTimer.current);
+    saveTimer.current = setTimeout(() => {
+      try {
+        sessionStorage.setItem(
+          STORAGE_KEY,
+          JSON.stringify({ title, category, content, sources, connections })
+        );
+      } catch { /* quota exceeded — ignore */ }
+    }, 500);
+    return () => { if (saveTimer.current) clearTimeout(saveTimer.current); };
+  }, [title, category, content, sources, connections]);
 
   // Derived state
   const currentId = deriveId(title) || "new-node";
@@ -210,6 +239,7 @@ export default function ContributeForm({
     setSources("");
     setConnections([{ target: "", reason: "" }]);
     setResult(null);
+    try { sessionStorage.removeItem(STORAGE_KEY); } catch {}
   }, []);
 
   if (result?.success) {
@@ -433,19 +463,11 @@ export default function ContributeForm({
               className="w-full text-3xl font-bold text-text-primary mb-2 leading-tight bg-transparent outline-none placeholder:text-text-muted/30 border-none p-0"
             />
 
-            <select
+            <CategoryPicker
+              categories={categories}
               value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              className="inline-block text-xs font-medium mb-3 bg-transparent outline-none cursor-pointer border-none p-0 appearance-none"
-              style={{ color: category ? currentColor : "var(--text-muted)" }}
-            >
-              <option value="">Select category...</option>
-              {categories.map((c) => (
-                <option key={c.id} value={c.id}>
-                  {c.label}
-                </option>
-              ))}
-            </select>
+              onChange={setCategory}
+            />
 
             <div className="flex items-center mb-5">
               <div

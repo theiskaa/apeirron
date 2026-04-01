@@ -104,8 +104,11 @@ interface ProposalData {
 
 function buildIssueBody(data: ProposalData, id: string): string {
   const categories = getCategories();
-  const catLabel =
-    categories.find((c) => c.id === data.category)?.label ?? data.category;
+  const isCustomCat = data.category.startsWith("custom:");
+  const catLabel = isCustomCat
+    ? `${data.category.slice(7)} (proposed new category)`
+    : categories.find((c) => c.id === data.category)?.label ?? data.category;
+  const catYaml = isCustomCat ? data.category.slice(7).toLowerCase().replace(/\s+/g, "-") : data.category;
 
   const validConnections = data.connections.filter(
     (c) => c.target.trim() && c.reason.trim()
@@ -126,7 +129,7 @@ function buildIssueBody(data: ProposalData, id: string): string {
     "---",
     `id: "${id}"`,
     `title: "${data.title.trim()}"`,
-    `category: "${data.category}"`,
+    `category: "${catYaml}"`,
     "connections:",
     connectionsYaml || "  []",
     "---",
@@ -203,12 +206,16 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const validCategoryIds = getCategories().map((c) => c.id);
-  if (!validCategoryIds.includes(data.category)) {
-    return NextResponse.json(
-      { error: "Please select a valid category." },
-      { status: 400 }
-    );
+  // Accept existing categories or custom proposals (prefixed with "custom:")
+  const isCustomCategory = data.category.startsWith("custom:");
+  if (!isCustomCategory) {
+    const validCategoryIds = getCategories().map((c) => c.id);
+    if (!validCategoryIds.includes(data.category)) {
+      return NextResponse.json(
+        { error: "Please select a valid category." },
+        { status: 400 }
+      );
+    }
   }
 
   const content = data.content?.trim();
