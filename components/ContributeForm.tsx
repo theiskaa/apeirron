@@ -98,6 +98,20 @@ export default function ContributeForm({
 
   // Derived state
   const currentId = deriveId(title) || "new-node";
+
+  // Debounced values for MiniGraph — avoids re-rendering on every keystroke
+  const [debouncedGraphTitle, setDebouncedGraphTitle] = useState(title);
+  const [debouncedGraphId, setDebouncedGraphId] = useState(currentId);
+  const graphTitleTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => {
+    if (graphTitleTimer.current) clearTimeout(graphTitleTimer.current);
+    graphTitleTimer.current = setTimeout(() => {
+      setDebouncedGraphTitle(title);
+      setDebouncedGraphId(deriveId(title) || "new-node");
+    }, 400);
+    return () => { if (graphTitleTimer.current) clearTimeout(graphTitleTimer.current); };
+  }, [title]);
+
   const currentColor =
     categories.find((c) => c.id === category)?.color ?? "#666666";
   const validConnections = connections.filter(
@@ -113,13 +127,12 @@ export default function ContributeForm({
   // Stable key for graph topology — only changes when targets change, not reasons
   const connectionTargets = connections.map((c) => c.target.trim()).join(",");
 
-  // Live MiniGraph data — only recomputes when topology changes
   const miniGraphData = useMemo(() => {
     const conns = connections.filter((c) => c.target.trim());
     const nodes: GraphNode[] = [
       {
-        id: currentId,
-        title: title || "New Node",
+        id: debouncedGraphId,
+        title: debouncedGraphTitle || "New Node",
         category: category || "mind",
         color: currentColor,
         val: Math.max(conns.length, 1),
@@ -127,7 +140,7 @@ export default function ContributeForm({
       },
     ];
 
-    const addedIds = new Set([currentId]);
+    const addedIds = new Set([debouncedGraphId]);
     for (const conn of conns) {
       const tid = conn.target.trim();
       if (addedIds.has(tid)) continue;
@@ -150,14 +163,14 @@ export default function ContributeForm({
     }
 
     const links: GraphLink[] = conns.map((c) => ({
-      source: currentId,
+      source: debouncedGraphId,
       target: c.target.trim(),
       reason: c.reason.trim(),
     }));
 
     return { nodes, links };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentId, title, category, currentColor, connectionTargets, nodeList]);
+  }, [debouncedGraphId, debouncedGraphTitle, category, currentColor, connectionTargets, nodeList]);
 
   useEffect(() => {
     if (mode !== "preview") return;
@@ -342,7 +355,7 @@ export default function ContributeForm({
         Connections
       </h3>
       <MiniGraph
-        currentNodeId={currentId}
+        currentNodeId={debouncedGraphId}
         allNodes={miniGraphData.nodes}
         allLinks={miniGraphData.links}
         onNodeClick={() => {}}
