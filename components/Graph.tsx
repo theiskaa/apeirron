@@ -362,28 +362,28 @@ export default function Graph({
         ctx.moveTo(fromX, fromY);
         ctx.lineTo(midX, midY);
         ctx.strokeStyle = `rgba(160, 160, 180, ${0.2 + eased * 0.4})`;
-        ctx.lineWidth = 0.8 + eased * 0.5;
+        ctx.lineWidth = 1.0 + eased * 0.6;
         ctx.stroke();
       } else if (isSelectedLink) {
         ctx.beginPath();
         ctx.moveTo(src.x, src.y);
         ctx.lineTo(tgt.x, tgt.y);
         ctx.strokeStyle = themeVars.current.lineHover;
-        ctx.lineWidth = 0.9;
+        ctx.lineWidth = 1.2;
         ctx.stroke();
       } else if (somethingHovered) {
         ctx.beginPath();
         ctx.moveTo(src.x, src.y);
         ctx.lineTo(tgt.x, tgt.y);
         ctx.strokeStyle = themeVars.current.lineDim;
-        ctx.lineWidth = 0.4;
+        ctx.lineWidth = 0.6;
         ctx.stroke();
       } else {
         ctx.beginPath();
         ctx.moveTo(src.x, src.y);
         ctx.lineTo(tgt.x, tgt.y);
         ctx.strokeStyle = themeVars.current.line;
-        ctx.lineWidth = 0.6;
+        ctx.lineWidth = 1.0;
         ctx.stroke();
       }
     },

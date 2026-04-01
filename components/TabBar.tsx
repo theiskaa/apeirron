@@ -36,7 +36,7 @@ export default function TabBar({
           <button
             key={tab.id}
             onClick={() => onSelectTab(tab.id)}
-            className={`group flex items-center gap-1.5 py-1 px-2.5 text-[11.5px] rounded-full shrink-0 transition-all duration-150
+            className={`group flex items-center gap-1.5 py-1 px-2.5 text-[11px] rounded-full shrink-0 transition-all duration-150
               ${isActive
                 ? "text-text-primary ring-1"
                 : "text-text-muted hover:text-text-secondary hover:bg-text-primary/[0.04]"

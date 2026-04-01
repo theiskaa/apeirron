@@ -192,7 +192,7 @@ export default function NodeView({
                       style={{
                         color: activeId === item.id ? "var(--text-primary)" : "rgba(144,144,160,0.45)",
                       }}
-                      className={`text-left w-full text-[11.5px] leading-snug py-[3px] transition-colors ${
+                      className={`text-left w-full text-[11px] leading-snug py-[3px] transition-colors ${
                         item.level === 3 ? "pl-3" : ""
                       }`}
                       onMouseEnter={(e) => e.currentTarget.style.color = "var(--text-primary)"}

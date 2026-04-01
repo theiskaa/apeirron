@@ -85,17 +85,35 @@ export default function CommandPalette({ nodes, open, onClose, onSelect }: Props
     [filtered, selectedIndex, handleSelect, onClose]
   );
 
-  if (!open) return null;
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    if (open) {
+      setVisible(true);
+    } else {
+      const t = setTimeout(() => setVisible(false), 120);
+      return () => clearTimeout(t);
+    }
+  }, [open]);
+
+  if (!visible && !open) return null;
 
   const hasResults = query.trim().length > 0 && filtered.length > 0;
   const hasNoResults = query.trim().length > 0 && filtered.length === 0;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-[18vh]">
+    <div
+      className="fixed inset-0 z-50 flex items-start justify-center pt-[18vh] transition-opacity duration-150"
+      style={{ opacity: open ? 1 : 0 }}
+    >
       <div className="absolute inset-0 bg-black/15 dark:bg-black/30 backdrop-blur-sm" onClick={onClose} />
 
       <div
-        className="relative w-full max-w-xl mx-4"
+        className="relative w-full max-w-xl mx-4 transition-all duration-150"
+        style={{
+          opacity: open ? 1 : 0,
+          transform: open ? "translateY(0) scale(1)" : "translateY(-8px) scale(0.98)",
+        }}
         onKeyDown={handleKeyDown}
       >
         <div className="flex items-center gap-3 px-5 h-12 bg-[var(--surface)] rounded-full shadow-2xl shadow-black/10 dark:shadow-black/30 ring-1 ring-black/[0.06] dark:ring-white/[0.08] focus-within:ring-2 focus-within:ring-black/[0.12] dark:focus-within:ring-white/[0.15] transition-shadow">
