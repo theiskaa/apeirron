@@ -33,6 +33,25 @@ export default function CommandPalette({ nodes, open, onClose, onSelect }: Props
       .map((r) => r.node);
   }, [nodes, query]);
 
+  const grouped = useMemo(() => {
+    if (query.trim()) return null;
+    const map = new Map<string, { label: string; color: string; nodes: GraphNode[] }>();
+    for (const n of nodes) {
+      if (!map.has(n.category)) {
+        map.set(n.category, {
+          label: n.category.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+          color: n.color,
+          nodes: [],
+        });
+      }
+      map.get(n.category)!.nodes.push(n);
+    }
+    for (const g of map.values()) {
+      g.nodes.sort((a, b) => a.title.localeCompare(b.title));
+    }
+    return Array.from(map.values());
+  }, [nodes, query]);
+
   useEffect(() => {
     if (open) {
       setQuery("");
@@ -59,31 +78,11 @@ export default function CommandPalette({ nodes, open, onClose, onSelect }: Props
     [onSelect, onClose]
   );
 
-  const handleKeyDown = useCallback(
-    (e: React.KeyboardEvent) => {
-      switch (e.key) {
-        case "ArrowDown":
-          e.preventDefault();
-          setSelectedIndex((i) => Math.min(i + 1, filtered.length - 1));
-          break;
-        case "ArrowUp":
-          e.preventDefault();
-          setSelectedIndex((i) => Math.max(i - 1, 0));
-          break;
-        case "Enter":
-          e.preventDefault();
-          if (filtered[selectedIndex]) {
-            handleSelect(filtered[selectedIndex].id);
-          }
-          break;
-        case "Escape":
-          e.preventDefault();
-          onClose();
-          break;
-      }
-    },
-    [filtered, selectedIndex, handleSelect, onClose]
-  );
+  // Flat index for keyboard navigation across grouped items
+  const flatBrowseNodes = useMemo(() => {
+    if (!grouped) return [];
+    return grouped.flatMap((g) => g.nodes);
+  }, [grouped]);
 
   const [visible, setVisible] = useState(false);
 
@@ -98,23 +97,47 @@ export default function CommandPalette({ nodes, open, onClose, onSelect }: Props
 
   if (!visible && !open) return null;
 
-  const hasResults = query.trim().length > 0 && filtered.length > 0;
-  const hasNoResults = query.trim().length > 0 && filtered.length === 0;
+  const hasQuery = query.trim().length > 0;
+  const hasResults = hasQuery && filtered.length > 0;
+  const hasNoResults = hasQuery && filtered.length === 0;
+  const showBrowse = !hasQuery && grouped;
 
   return (
     <div
       className="fixed inset-0 z-50 flex items-start justify-center pt-[18vh] transition-opacity duration-150"
       style={{ opacity: open ? 1 : 0 }}
     >
-      <div className="absolute inset-0 bg-black/15 dark:bg-black/30 backdrop-blur-sm" onClick={onClose} />
+      <div className="absolute inset-0 bg-black/15 dark:bg-black/30 backdrop-blur-sm" onClick={onClose} aria-hidden="true" />
 
       <div
+        role="dialog"
+        aria-label="Search nodes"
         className="relative w-full max-w-xl mx-4 transition-all duration-150"
         style={{
           opacity: open ? 1 : 0,
           transform: open ? "translateY(0) scale(1)" : "translateY(-8px) scale(0.98)",
         }}
-        onKeyDown={handleKeyDown}
+        onKeyDown={(e) => {
+          const list = hasQuery ? filtered : flatBrowseNodes;
+          switch (e.key) {
+            case "ArrowDown":
+              e.preventDefault();
+              setSelectedIndex((i) => Math.min(i + 1, list.length - 1));
+              break;
+            case "ArrowUp":
+              e.preventDefault();
+              setSelectedIndex((i) => Math.max(i - 1, 0));
+              break;
+            case "Enter":
+              e.preventDefault();
+              if (list[selectedIndex]) handleSelect(list[selectedIndex].id);
+              break;
+            case "Escape":
+              e.preventDefault();
+              onClose();
+              break;
+          }
+        }}
       >
         <div className="flex items-center gap-3 px-5 h-12 bg-[var(--surface)] rounded-full shadow-2xl shadow-black/10 dark:shadow-black/30 ring-1 ring-black/[0.06] dark:ring-white/[0.08] focus-within:ring-2 focus-within:ring-black/[0.12] dark:focus-within:ring-white/[0.15] transition-shadow">
           <svg
@@ -141,39 +164,74 @@ export default function CommandPalette({ nodes, open, onClose, onSelect }: Props
           />
         </div>
 
-        {(hasResults || hasNoResults) && (
-          <div className="mt-2 bg-[var(--surface)] rounded-2xl shadow-2xl shadow-black/10 dark:shadow-black/30 ring-1 ring-black/[0.06] dark:ring-white/[0.08] overflow-hidden">
-            {hasNoResults ? (
-              <div className="px-5 py-6 text-center text-sm text-text-muted">
-                No matching nodes
-              </div>
-            ) : (
-              <div ref={listRef} className="max-h-72 overflow-y-auto py-1.5 px-1.5 no-scrollbar">
-                {filtered.map((node, i) => (
-                  <button
-                    key={node.id}
-                    onClick={() => handleSelect(node.id)}
-                    onMouseEnter={() => setSelectedIndex(i)}
-                    className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors rounded-xl ${
-                      i === selectedIndex ? "bg-black/[0.04] dark:bg-white/[0.06]" : ""
-                    }`}
-                  >
-                    <span
-                      className="w-2 h-2 rounded-full shrink-0"
-                      style={{ backgroundColor: node.color }}
-                    />
-                    <span className="text-[14px] text-text-primary truncate">
-                      {node.title}
-                    </span>
-                    <span className="ml-auto text-[11px] text-text-muted shrink-0">
-                      {node.category.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
+        <div className="mt-2 bg-[var(--surface)] rounded-2xl shadow-2xl shadow-black/10 dark:shadow-black/30 ring-1 ring-black/[0.06] dark:ring-white/[0.08] overflow-hidden">
+          {hasNoResults ? (
+            <div className="px-5 py-6 text-center text-sm text-text-muted">
+              No matching nodes
+            </div>
+          ) : showBrowse ? (
+            <div ref={listRef} role="listbox" className="max-h-80 overflow-y-auto py-1.5 px-1.5 no-scrollbar">
+              {(() => {
+                let flatIdx = 0;
+                return grouped.map((group) => (
+                  <div key={group.label}>
+                    <div className="flex items-center gap-2 px-4 pt-3 pb-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: group.color }} />
+                      <span className="text-[10px] font-semibold uppercase tracking-wider text-text-muted">
+                        {group.label}
+                      </span>
+                    </div>
+                    {group.nodes.map((node) => {
+                      const idx = flatIdx++;
+                      return (
+                        <button
+                          key={node.id}
+                          role="option"
+                          aria-selected={idx === selectedIndex}
+                          onClick={() => handleSelect(node.id)}
+                          onMouseEnter={() => setSelectedIndex(idx)}
+                          className={`w-full flex items-center gap-3 px-4 py-2 text-left transition-colors rounded-xl ${
+                            idx === selectedIndex ? "bg-black/[0.04] dark:bg-white/[0.06]" : ""
+                          }`}
+                        >
+                          <span className="text-[13px] text-text-primary truncate">
+                            {node.title}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                ));
+              })()}
+            </div>
+          ) : (
+            <div ref={listRef} role="listbox" className="max-h-72 overflow-y-auto py-1.5 px-1.5 no-scrollbar">
+              {filtered.map((node, i) => (
+                <button
+                  key={node.id}
+                  role="option"
+                  aria-selected={i === selectedIndex}
+                  onClick={() => handleSelect(node.id)}
+                  onMouseEnter={() => setSelectedIndex(i)}
+                  className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors rounded-xl ${
+                    i === selectedIndex ? "bg-black/[0.04] dark:bg-white/[0.06]" : ""
+                  }`}
+                >
+                  <span
+                    className="w-2 h-2 rounded-full shrink-0"
+                    style={{ backgroundColor: node.color }}
+                  />
+                  <span className="text-[14px] text-text-primary truncate">
+                    {node.title}
+                  </span>
+                  <span className="ml-auto text-[11px] text-text-muted shrink-0">
+                    {node.category.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+                  </span>
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
