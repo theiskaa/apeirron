@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo, useEffect } from "react";
+import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import type { GraphData } from "@/lib/types";
 import Navbar from "./Navbar";
@@ -42,13 +42,37 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
 
   const hasNodeTabs = tabs.some((t) => t.type === "node");
 
+  const prevUrl = useRef(typeof window !== "undefined" ? window.location.pathname : "/");
   useEffect(() => {
-    if (activeTab.type === "node" && activeTab.nodeId) {
-      window.history.replaceState(null, "", `/node/${activeTab.nodeId}`);
-    } else {
-      window.history.replaceState(null, "", "/");
+    const url = activeTab.type === "node" && activeTab.nodeId
+      ? `/node/${activeTab.nodeId}`
+      : "/";
+    if (url !== prevUrl.current) {
+      window.history.pushState({ tabId: activeTabId }, "", url);
+      prevUrl.current = url;
     }
-  }, [activeTab]);
+  }, [activeTab, activeTabId]);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname;
+      const match = path.match(/^\/node\/(.+)$/);
+      if (match) {
+        const nodeId = match[1];
+        const tabId = `node:${nodeId}`;
+        setTabs((prev) => {
+          if (prev.some((t) => t.id === tabId)) return prev;
+          return [...prev, { id: tabId, type: "node", nodeId }];
+        });
+        setActiveTabId(tabId);
+      } else {
+        setActiveTabId("graph");
+      }
+      prevUrl.current = path;
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
 
   // ⌘K / Ctrl+K keyboard shortcut
   useEffect(() => {

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
 
 interface Props {
@@ -8,21 +9,34 @@ interface Props {
 }
 
 export default function Navbar({ onLogoClick, onSearchClick }: Props) {
+  const logoContent = (
+    <div className="flex flex-col text-left">
+      <span className="text-[15px] font-semibold tracking-[0.14em] text-text-primary leading-tight capitalize">
+        Apeirron
+      </span>
+      <span className="text-[10px] text-text-muted tracking-[0.06em]">
+        Biggest questions humanity asks
+      </span>
+    </div>
+  );
+
   return (
     <nav className="relative z-10 flex items-center justify-between px-3 md:px-8 pt-10 md:pt-7 pb-4 shrink-0">
-      <button
-        onClick={onLogoClick}
-        className="flex items-center gap-3 hover:opacity-80 transition-opacity"
-      >
-        <div className="flex flex-col text-left">
-          <span className="text-[15px] font-semibold tracking-[0.14em] text-text-primary leading-tight capitalize">
-            Apeirron
-          </span>
-          <span className="text-[10px] text-text-muted tracking-[0.06em]">
-            Biggest questions humanity asks
-          </span>
-        </div>
-      </button>
+      {onLogoClick ? (
+        <button
+          onClick={onLogoClick}
+          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+        >
+          {logoContent}
+        </button>
+      ) : (
+        <Link
+          href="/"
+          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+        >
+          {logoContent}
+        </Link>
+      )}
       <div className="flex items-center gap-4">
         {onSearchClick && (
           <button
@@ -51,7 +65,7 @@ export default function Navbar({ onLogoClick, onSearchClick }: Props) {
             <kbd className="hidden md:inline text-[10px] text-text-muted/70 ml-1">⌘K</kbd>
           </button>
         )}
-        <a
+        <Link
           href="/contribute"
           className="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-full text-text-muted hover:text-text-secondary transition-all text-[11px] tracking-wide leading-none"
           style={{
@@ -72,7 +86,7 @@ export default function Navbar({ onLogoClick, onSearchClick }: Props) {
             <path d="M12 5v14M5 12h14" />
           </svg>
           <span className="hidden sm:inline">New Node</span>
-        </a>
+        </Link>
         <ThemeToggle />
         <a
           href="https://github.com/theiskaa/apeirron"

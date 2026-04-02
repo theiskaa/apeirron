@@ -36,19 +36,26 @@ export function getCategories(): Category[] {
   return JSON.parse(raw);
 }
 
+let _frontmatterCache: NodeFrontmatter[] | null = null;
+
 /** Lightweight: only parses frontmatter, skips content. */
 export function getAllNodeFrontmatters(): NodeFrontmatter[] {
+  if (_frontmatterCache) return _frontmatterCache;
   const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".md"));
-  return files.map((filename) => {
+  _frontmatterCache = files.map((filename) => {
     const raw = fs.readFileSync(path.join(CONTENT_DIR, filename), "utf-8");
     const { data } = matter(raw);
     return data as NodeFrontmatter;
   });
+  return _frontmatterCache;
 }
 
+let _allNodesCache: NodeData[] | null = null;
+
 export function getAllNodes(): NodeData[] {
+  if (_allNodesCache) return _allNodesCache;
   const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".md"));
-  return files.map((filename) => {
+  _allNodesCache = files.map((filename) => {
     const raw = fs.readFileSync(path.join(CONTENT_DIR, filename), "utf-8");
     const { data, content } = matter(raw);
     return {
@@ -57,6 +64,7 @@ export function getAllNodes(): NodeData[] {
       slug: filename.replace(/\.md$/, ""),
     };
   });
+  return _allNodesCache;
 }
 
 /** Extract a plain-text excerpt from markdown for meta descriptions. */
@@ -104,7 +112,10 @@ function resolveWikiLinks(
   });
 }
 
+let _graphDataCache: GraphData | null = null;
+
 export async function buildGraphData(): Promise<GraphData> {
+  if (_graphDataCache) return _graphDataCache;
   const nodes = getAllNodes();
   const categories = getCategories();
   const categoryMap = new Map(categories.map((c) => [c.id, c]));
@@ -187,7 +198,8 @@ export async function buildGraphData(): Promise<GraphData> {
     });
   }
 
-  return { nodes: graphNodes, links };
+  _graphDataCache = { nodes: graphNodes, links };
+  return _graphDataCache;
 }
 
 export function getPhantomNodeIds(): string[] {
