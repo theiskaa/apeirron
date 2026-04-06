@@ -13,6 +13,10 @@ connections:
     reason: "Secret societies claim their knowledge has been passed down in an unbroken chain from pre-flood civilizations. If those civilizations existed, these groups may be carrying their knowledge"
   - target: "atlantis"
     reason: "Atlantis is the most famous lost civilization story, and Plato's date for its destruction (9,600 BCE) lines up exactly with the Younger Dryas cataclysm"
+  - target: "gobekli-tepe"
+    reason: "Göbekli Tepe is the single most important archaeological site for the lost civilization thesis. Built at 9,600 BCE by supposedly pre-agricultural people, it proves that organized, monumental construction existed thousands of years before the mainstream timeline allows."
+  - target: "nibiru"
+    reason: "Sitchin's Nibiru thesis claims the Anunnaki directly founded Sumerian civilization — the earliest known culture. If true, the origin of human civilization is not indigenous development but transplantation from Nibiru's inhabitants."
 ---
 
 Around 11,600 years ago, the Earth changed. The Younger Dryas — a sudden, catastrophic return to ice-age conditions — ended as abruptly as it began. Sea levels rose dramatically. Coastlines that had been inhabited for millennia vanished under water. And somewhere in this cataclysm, something may have been lost.

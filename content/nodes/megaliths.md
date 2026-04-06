@@ -13,6 +13,8 @@ connections:
     reason: "The Great Pyramid encodes pi and the golden ratio to very high precision, meaning megalithic builders were using sacred geometry principles in their construction"
   - target: "atlantis"
     reason: "If Atlantis was real, the megalithic structures found across the world could be what its civilization built before it was destroyed"
+  - target: "gobekli-tepe"
+    reason: "Göbekli Tepe's multi-ton T-shaped pillars, quarried and erected at 9,600 BCE without metal tools or the wheel, are the oldest known megalithic structures on Earth and the earliest example of the unexplained engineering precision found at sites like Baalbek and Puma Punku."
 ---
 
 The Great Pyramid of Giza contains approximately 2.3 million stone blocks, averaging 2.5 tons each, with some granite blocks in the King's Chamber weighing over 80 tons. These were quarried, transported hundreds of miles, and placed with a precision of 1/50th of an inch. The base is level to within 2.1 centimeters across 13 acres. The sides are aligned to true north with an error of 3/60th of a degree — more accurate than the Royal Greenwich Observatory.

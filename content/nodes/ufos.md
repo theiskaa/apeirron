@@ -13,6 +13,8 @@ connections:
     reason: "If governments have made contact with non-human intelligence and kept it secret, that would be the most significant information ever withheld from the public"
   - target: "consciousness"
     reason: "Researcher Jacques Vallee argued that UFOs aren't physical spacecraft but something that interacts directly with human consciousness, not just with radar and cameras"
+  - target: "breakaway-civilization"
+    reason: "The breakaway civilization thesis proposes that a significant portion of UFO sightings are human-built craft developed in classified programs — not extraterrestrial vehicles but products of a secret technological civilization funded by black budgets."
 ---
 
 On December 16, 2017, the *New York Times* published an article that should have ended the world as we knew it. Written by Helene Cooper, Ralph Blumenthal, and Leslie Kean — two veteran *Times* reporters and an investigative journalist who had spent years cultivating sources in the defense and intelligence communities — the piece revealed that the United States Department of Defense had been running a secret program to investigate unidentified flying objects. The program was called the Advanced Aerospace Threat Identification Program, or AATIP. It had been funded with $22 million in black budget money. It had been operational since at least 2007. And it had studied military encounters with objects that exhibited flight characteristics far beyond any known technology — American, Russian, Chinese, or otherwise.

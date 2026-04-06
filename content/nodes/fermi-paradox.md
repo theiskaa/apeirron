@@ -11,6 +11,8 @@ connections:
     reason: "If consciousness is extremely rare or requires very specific conditions, that could explain why we haven't found other intelligent life"
   - target: "ufos"
     reason: "Pentagon UFO videos, congressional testimony, and whistleblower claims suggest aliens might already be here, which would answer Fermi's question directly"
+  - target: "nibiru"
+    reason: "If Sitchin's Nibiru is real — an inhabited planet on a 3,600-year orbit through our solar system — then Fermi's question is answered at the smallest possible scale: intelligent life is not light-years away but orbiting among us on a cycle longer than recorded history."
 ---
 
 In the summer of 1950, physicist Enrico Fermi sat down to lunch with colleagues at Los Alamos National Laboratory. The conversation turned to flying saucers, then to the probability of extraterrestrial life, and then to a question that silenced the table. Fermi looked up and asked: "Where is everybody?"

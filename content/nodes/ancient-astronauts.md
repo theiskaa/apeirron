@@ -11,6 +11,8 @@ connections:
     reason: "If aliens visited Earth in the ancient past, the Fermi Paradox ('where is everybody?') would already be answered"
   - target: "ufos"
     reason: "Ancient texts describe beings and craft from the sky, and today people report UFOs. It could be the same thing, just described differently depending on the time period"
+  - target: "nibiru"
+    reason: "Zecharia Sitchin's entire ancient astronaut framework rests on Nibiru — the alleged home planet of the Anunnaki. His translations of Sumerian texts claim it follows a 3,600-year orbit through our solar system, making it the origin point for the visitors described in Sumerian records."
 ---
 
 Every ancient culture on Earth describes beings who came from the sky.

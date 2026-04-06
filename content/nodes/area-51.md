@@ -13,6 +13,8 @@ connections:
     reason: "Both Area 51 and MKUltra were run by the same kind of setup: secret programs with large budgets and no outside oversight, where the government did whatever it wanted without public knowledge."
   - target: "nine-eleven"
     reason: "The extreme compartmentalization used to keep Area 51 secret is the same system that prevented CIA and FBI from sharing intelligence before 9/11."
+  - target: "breakaway-civilization"
+    reason: "Area 51 and the network of classified facilities at Groom Lake, Tonopah, and Plant 42 are cited by Richard Dolan and others as the physical locations where the breakaway civilization develops and tests aerospace technology decades ahead of anything in the public world."
 ---
 
 In the summer of 1955, a small team of Lockheed engineers and CIA officers drove into the Nevada desert along an unmarked road, past the last town, past the last ranch, past anything that could be reasonably called civilization, until they reached the edge of a dry lakebed surrounded by mountains. The place had no official name on any current map. The lakebed was called Groom Lake. The surrounding basin was part of the Nevada Test and Training Range, itself a subsidiary of the vast Nellis Air Force Range Complex — millions of acres of restricted desert that the federal government had been accumulating since the 1940s for nuclear weapons testing. The Atomic Energy Commission had detonated over a hundred nuclear devices within a hundred miles of where the engineers now stood. The landscape was cratered, irradiated, and utterly empty. It was, in other words, perfect.
