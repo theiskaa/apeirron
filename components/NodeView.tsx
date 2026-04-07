@@ -3,6 +3,7 @@
 import { useCallback, useRef, useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
 import type { GraphNode, GraphLink } from "@/lib/types";
+import { READING_PATHS } from "@/lib/paths";
 
 const MiniGraph = dynamic(() => import("./MiniGraph"), { ssr: false });
 
@@ -260,6 +261,12 @@ export default function NodeView({
             ref={contentRef}
             className="prose-apeiron"
             dangerouslySetInnerHTML={{ __html: mainHtml }}
+          />
+
+          <ReadNext
+            nodeId={node.id}
+            allNodes={allNodes}
+            onNodeClick={onNodeClick}
           />
 
           <div className="clear-both" />
@@ -543,6 +550,158 @@ function ConnectionReasons({
                 </span>
               </div>
             </div>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ReadNext({
+  nodeId,
+  allNodes,
+  onNodeClick,
+}: {
+  nodeId: string;
+  allNodes: GraphNode[];
+  onNodeClick: (id: string) => void;
+}) {
+  const nodeMap = useMemo(
+    () => new Map(allNodes.map((n) => [n.id, n])),
+    [allNodes]
+  );
+
+  const suggestions = useMemo(() => {
+    const results: {
+      pathTitle: string;
+      pathId: string;
+      node: GraphNode;
+      hook: string;
+      label: string;
+      isNextPath?: boolean;
+    }[] = [];
+    const seen = new Set<string>();
+
+    for (let pi = 0; pi < READING_PATHS.length; pi++) {
+      const path = READING_PATHS[pi];
+      const idx = path.nodes.findIndex((pn) => pn.id === nodeId);
+      if (idx === -1) continue;
+
+      if (idx < path.nodes.length - 1) {
+        const next = path.nodes[idx + 1];
+        if (seen.has(next.id)) continue;
+        const nextNode = nodeMap.get(next.id);
+        if (!nextNode) continue;
+        seen.add(next.id);
+        results.push({
+          pathTitle: path.title,
+          pathId: path.id,
+          node: nextNode,
+          hook: next.hook,
+          label: `${idx + 2} of ${path.nodes.length}`,
+        });
+      } else {
+        const nextPath = READING_PATHS[pi + 1];
+        if (!nextPath || nextPath.nodes.length === 0) continue;
+        const first = nextPath.nodes[0];
+        if (seen.has(`path:${nextPath.id}`)) continue;
+        const firstNode = nodeMap.get(first.id);
+        if (!firstNode) continue;
+        seen.add(`path:${nextPath.id}`);
+        results.push({
+          pathTitle: nextPath.title,
+          pathId: nextPath.id,
+          node: firstNode,
+          hook: nextPath.description,
+          label: `1 of ${nextPath.nodes.length}`,
+          isNextPath: true,
+        });
+      }
+    }
+    return results;
+  }, [nodeId, nodeMap]);
+
+  if (suggestions.length === 0) return null;
+
+  return (
+    <div className="mt-14 mb-8">
+      <div
+        className="w-full h-px mb-8"
+        style={{ backgroundColor: "color-mix(in srgb, var(--text-primary) 6%, transparent)" }}
+      />
+      <h3 className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-4">
+        Read next
+      </h3>
+      <div
+        className="grid gap-3"
+        style={{
+          gridTemplateColumns:
+            suggestions.length > 1
+              ? "repeat(auto-fit, minmax(260px, 1fr))"
+              : "1fr",
+        }}
+      >
+        {suggestions.map((s) => (
+          <button
+            key={`${s.pathId}-${s.node.id}`}
+            onClick={() => onNodeClick(s.node.id)}
+            className="group text-left rounded-xl p-4 transition-all duration-150 hover:scale-[1.01]"
+            style={{
+              backgroundColor:
+                "color-mix(in srgb, var(--text-primary) 3%, transparent)",
+              boxShadow:
+                "inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 7%, transparent)",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor =
+                "color-mix(in srgb, var(--text-primary) 6%, transparent)";
+              e.currentTarget.style.boxShadow = `inset 0 0 0 1px ${s.node.color}33`;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor =
+                "color-mix(in srgb, var(--text-primary) 3%, transparent)";
+              e.currentTarget.style.boxShadow =
+                "inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 7%, transparent)";
+            }}
+          >
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-[10px] text-text-muted/50 tracking-wide">
+                {s.isNextPath ? "Next path" : s.pathTitle}
+              </span>
+              {s.isNextPath && (
+                <span className="text-[10px] text-text-muted/35 tracking-wide">
+                  — {s.pathTitle}
+                </span>
+              )}
+              <span className="text-[9px] text-text-muted/30 tabular-nums ml-auto">
+                {s.label}
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span
+                className="w-2 h-2 rounded-full shrink-0"
+                style={{ backgroundColor: s.node.color }}
+              />
+              <span className="text-[15px] font-medium text-text-primary group-hover:text-text-primary/90 transition-colors">
+                {s.node.title}
+              </span>
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="ml-auto shrink-0 text-text-muted/30 group-hover:text-text-muted/70 group-hover:translate-x-0.5 transition-all"
+              >
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+            </div>
+            <p className="text-[12px] text-text-muted/60 group-hover:text-text-muted/80 transition-colors mt-1.5 ml-5 leading-snug">
+              {s.hook}
+            </p>
           </button>
         ))}
       </div>
