@@ -7,6 +7,7 @@ import Navbar from "./Navbar";
 import TabBar, { type Tab } from "./TabBar";
 import NodeView from "./NodeView";
 import CommandPalette from "./CommandPalette";
+import ExplorerPanel from "./ExplorerPanel";
 
 const Graph = dynamic(() => import("./Graph"), { ssr: false });
 
@@ -28,6 +29,7 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
     initialNodeId ? `node:${initialNodeId}` : "graph"
   );
   const [paletteOpen, setPaletteOpen] = useState(false);
+  const [explorerOpen, setExplorerOpen] = useState(false);
   const [focusNodeId, setFocusNodeId] = useState<string | null>(null);
 
   const activeTab = useMemo(
@@ -74,12 +76,15 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
-  // ⌘K / Ctrl+K keyboard shortcut
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
         setPaletteOpen((v) => !v);
+      }
+      if ((e.metaKey || e.ctrlKey) && e.key === "b") {
+        e.preventDefault();
+        setExplorerOpen((v) => !v);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -132,6 +137,7 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
 
   const showGraph = activeTab.type === "graph";
   const openSearch = useCallback(() => setPaletteOpen(true), []);
+  const toggleExplorer = useCallback(() => setExplorerOpen((v) => !v), []);
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
@@ -147,7 +153,7 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
       {activeNode && !showGraph && (
         <div className="absolute inset-0 bg-background overflow-hidden">
           <div className="flex flex-col h-full">
-            <Navbar onLogoClick={() => setActiveTabId("graph")} onSearchClick={openSearch} />
+            <Navbar onLogoClick={() => setActiveTabId("graph")} onSearchClick={openSearch} onExplorerToggle={toggleExplorer} explorerOpen={explorerOpen} />
             {hasNodeTabs && (
               <TabBar
                 tabs={tabs}
@@ -171,7 +177,7 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
 
       {showGraph && (
         <div className="absolute top-0 left-0 right-0 z-10">
-          <Navbar onLogoClick={() => setActiveTabId("graph")} onSearchClick={openSearch} />
+          <Navbar onLogoClick={() => setActiveTabId("graph")} onSearchClick={openSearch} onExplorerToggle={toggleExplorer} explorerOpen={explorerOpen} />
           {hasNodeTabs && (
             <TabBar
               tabs={tabs}
@@ -183,6 +189,13 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
           )}
         </div>
       )}
+
+      <ExplorerPanel
+        nodes={graphData.nodes}
+        open={explorerOpen}
+        onClose={() => setExplorerOpen(false)}
+        onNodeSelect={handleNodeClick}
+      />
 
       <CommandPalette
         nodes={graphData.nodes}
