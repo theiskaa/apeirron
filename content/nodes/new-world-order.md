@@ -17,6 +17,8 @@ connections:
     reason: "QAnon's 'cabal' is basically the New World Order idea updated for social media. The same concept of a secret global elite, just with new terminology and a hero story about Trump fighting them."
   - target: "control-systems"
     reason: "The NWO theory says that all control systems -- media, banking, medicine, surveillance -- are not separate. They are all coordinated parts of one plan for total global control."
+  - target: "chemtrails"
+    reason: "Stratospheric aerosol injection at planetary scale would require a global governance structure to manage — deciding who gets sprayed, how much sunlight is blocked, which regions are affected. Chemtrail researchers see geoengineering as the NWO's endgame: climate crisis as the justification for global control over the atmosphere itself."
   - target: "great-reset"
     reason: "The Great Reset is the New World Order thesis rebranded for the 2020s — Klaus Schwab and the WEF openly calling for a restructuring of the global economic and social order, with digital IDs, stakeholder capitalism, and centralized governance."
   - target: "bilderberg"
