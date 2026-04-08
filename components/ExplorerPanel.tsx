@@ -10,6 +10,8 @@ const MIN_WIDTH = 272;
 const MAX_WIDTH = 600;
 const DEFAULT_WIDTH = 480;
 const STORAGE_KEY = "apeiron-explorer-width";
+const MD_BREAKPOINT = 768;
+const SWIPE_CLOSE_THRESHOLD = 80;
 
 function loadWidth(): number {
   if (typeof window === "undefined") return DEFAULT_WIDTH;
@@ -41,13 +43,39 @@ export default function ExplorerPanel({
   const [collapsed, setCollapsed] = useState<Set<string>>(new Set());
   const [width, setWidth] = useState(loadWidth);
   const [isDragging, setIsDragging] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [swipeX, setSwipeX] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const dragRef = useRef({ startX: 0, startWidth: 0 });
+  const touchRef = useRef({ startX: 0, swiping: false });
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < MD_BREAKPOINT);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   useEffect(() => {
     if (open && mode === "browse")
       setTimeout(() => inputRef.current?.focus(), 200);
   }, [open, mode]);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchRef.current = { startX: e.touches[0].clientX, swiping: false };
+  }, []);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    const delta = e.touches[0].clientX - touchRef.current.startX;
+    if (delta < -10) touchRef.current.swiping = true;
+    if (touchRef.current.swiping) setSwipeX(Math.min(0, delta));
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    if (swipeX < -SWIPE_CLOSE_THRESHOLD) onClose();
+    setSwipeX(0);
+    touchRef.current.swiping = false;
+  }, [swipeX, onClose]);
 
   // --- Drag resize ---
   const handleDragStart = useCallback(
@@ -138,8 +166,11 @@ export default function ExplorerPanel({
   }, []);
 
   const handleSelect = useCallback(
-    (nodeId: string) => onNodeSelect(nodeId),
-    [onNodeSelect]
+    (nodeId: string) => {
+      onNodeSelect(nodeId);
+      if (isMobile) onClose();
+    },
+    [onNodeSelect, isMobile, onClose]
   );
 
   return (
@@ -154,13 +185,24 @@ export default function ExplorerPanel({
       )}
 
       <div
-        className="absolute left-0 top-0 bottom-0 z-40 flex p-2.5"
+        className="absolute left-0 top-0 bottom-0 z-40 flex p-2.5 md:p-2.5"
         style={{
-          width: `${width}px`,
-          transform: open ? "translateX(0)" : "translateX(-100%)",
-          transition: isDragging ? "none" : "transform 220ms cubic-bezier(0.4, 0, 0.2, 1)",
+          width: isMobile ? "100%" : `${width}px`,
+          transform: open
+            ? swipeX < 0
+              ? `translateX(${swipeX}px)`
+              : "translateX(0)"
+            : "translateX(-100%)",
+          transition:
+            isDragging || swipeX !== 0
+              ? "none"
+              : "transform 220ms cubic-bezier(0.4, 0, 0.2, 1)",
           pointerEvents: open ? "auto" : "none",
+          paddingBottom: isMobile ? "env(safe-area-inset-bottom)" : undefined,
         }}
+        onTouchStart={isMobile ? handleTouchStart : undefined}
+        onTouchMove={isMobile ? handleTouchMove : undefined}
+        onTouchEnd={isMobile ? handleTouchEnd : undefined}
       >
         <div
           className="flex-1 min-w-0 h-full flex flex-col rounded-2xl overflow-hidden"
@@ -493,38 +535,51 @@ export default function ExplorerPanel({
 
           <div
             className="px-4 py-2.5 shrink-0 flex items-center justify-between"
-            style={{ borderTop: "1px solid color-mix(in srgb, var(--text-primary) 6%, transparent)" }}
+            style={{
+              borderTop: "1px solid color-mix(in srgb, var(--text-primary) 6%, transparent)",
+              paddingBottom: isMobile
+                ? "calc(0.625rem + env(safe-area-inset-bottom))"
+                : undefined,
+            }}
           >
             <span className="text-[10px] text-text-muted/60">
               {mode === "paths"
                 ? `${READING_PATHS.length} paths`
                 : `${realNodes.length} nodes`}
             </span>
-            <kbd className="text-[9px] text-text-muted/40 tracking-wide">⌘B</kbd>
+            {isMobile ? (
+              <span className="text-[9px] text-text-muted/40 tracking-wide">
+                swipe left to close
+              </span>
+            ) : (
+              <kbd className="text-[9px] text-text-muted/40 tracking-wide">⌘B</kbd>
+            )}
           </div>
         </div>
 
-        <div
-          onMouseDown={handleDragStart}
-          className="absolute right-0 top-0 bottom-0 w-3 cursor-col-resize group flex items-center justify-center"
-          role="separator"
-          aria-orientation="vertical"
-          aria-valuemin={MIN_WIDTH}
-          aria-valuemax={MAX_WIDTH}
-          aria-valuenow={width}
-        >
+        {!isMobile && (
           <div
-            className={`w-[3px] h-10 rounded-full transition-opacity duration-150 ${
-              isDragging
-                ? "opacity-100"
-                : "opacity-0 group-hover:opacity-100"
-            }`}
-            style={{
-              backgroundColor:
-                "color-mix(in srgb, var(--text-primary) 20%, transparent)",
-            }}
-          />
-        </div>
+            onMouseDown={handleDragStart}
+            className="absolute right-0 top-0 bottom-0 w-3 cursor-col-resize group flex items-center justify-center"
+            role="separator"
+            aria-orientation="vertical"
+            aria-valuemin={MIN_WIDTH}
+            aria-valuemax={MAX_WIDTH}
+            aria-valuenow={width}
+          >
+            <div
+              className={`w-[3px] h-10 rounded-full transition-opacity duration-150 ${
+                isDragging
+                  ? "opacity-100"
+                  : "opacity-0 group-hover:opacity-100"
+              }`}
+              style={{
+                backgroundColor:
+                  "color-mix(in srgb, var(--text-primary) 20%, transparent)",
+              }}
+            />
+          </div>
+        )}
       </div>
     </>
   );

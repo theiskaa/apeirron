@@ -16,7 +16,7 @@ export default function Navbar({ onLogoClick, onSearchClick, onExplorerToggle, e
       <span className="text-[15px] font-semibold tracking-[0.14em] text-text-primary leading-tight capitalize">
         Apeirron
       </span>
-      <span className="text-[10px] text-text-muted tracking-[0.06em]">
+      <span className="hidden md:block text-[10px] text-text-muted tracking-[0.06em]">
         Biggest questions humanity asks
       </span>
     </div>
@@ -39,7 +39,7 @@ export default function Navbar({ onLogoClick, onSearchClick, onExplorerToggle, e
           {logoContent}
         </Link>
       )}
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-2 md:gap-4">
         {onExplorerToggle && (
           <button
             onClick={onExplorerToggle}
