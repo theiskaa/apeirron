@@ -7,7 +7,7 @@ import { READING_PATHS } from "@/lib/paths";
 type Mode = "browse" | "paths";
 
 const MIN_WIDTH = 272;
-const MAX_WIDTH = 600;
+const MAX_WIDTH = 720;
 const DEFAULT_WIDTH = 480;
 const STORAGE_KEY = "apeiron-explorer-width";
 const MD_BREAKPOINT = 768;
