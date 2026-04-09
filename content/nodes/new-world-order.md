@@ -23,6 +23,8 @@ connections:
     reason: "The Great Reset is the New World Order thesis rebranded for the 2020s — Klaus Schwab and the WEF openly calling for a restructuring of the global economic and social order, with digital IDs, stakeholder capitalism, and centralized governance."
   - target: "bilderberg"
     reason: "Bilderberg has been the premier NWO coordination body since 1954 — the forum where European and American elites align on policy before implementing it through their respective governments."
+  - target: "denver-airport"
+    reason: "DIA's capstone is inscribed with the words 'New World Airport Commission' — a name found in no government registry — alongside Masonic symbols, and its murals depict a sequence from global genocide to a unified new order."
 ---
 
 On the evening of September 11, 1990 — a date that would acquire a second and far more terrible significance exactly eleven years later — President George Herbert Walker Bush stood before a joint session of the United States Congress and delivered an address on the Persian Gulf crisis. Saddam Hussein had invaded Kuwait six weeks earlier, and the world was watching to see how the last remaining superpower would respond. Bush spoke of collective security, of international law, of a coalition of nations acting in concert against aggression. And then he said this:
