@@ -21,6 +21,8 @@ connections:
     reason: "Skull and Bones borrowed its core rituals directly from Masonic tradition — the coffin ceremony, the death-and-rebirth initiation, the division between initiated and profane, and the oath of lifelong secrecy."
   - target: "denver-airport"
     reason: "The Grand Lodge of Colorado laid DIA's capstone in a public Masonic ceremony in 1994. The dedication stone is engraved with the square and compass and names two Grand Masters — permanent Masonic symbols embedded in the floor of a major American airport."
+  - target: "saturn-black-cube"
+    reason: "The Masonic checkered floor is a pattern of black and white squares — a flattened cube. The compass and square generate the circle and the square, the two fundamental forms of Saturn's esoteric geometry, and Saturn as the 'Great Architect' maps directly onto Freemasonry's central metaphor."
 ---
 
 On June 24, 1717 — the Feast of St. John the Baptist — four London lodges met at the Goose and Gridiron Ale House near St Paul's Cathedral and formed the Grand Lodge of England. This is the conventional origin date of modern Freemasonry. But the conventional date is almost certainly wrong — not in the sense that the meeting didn't happen, but in the sense that what happened that evening was not a beginning. It was a formalization. The thing itself was already ancient.

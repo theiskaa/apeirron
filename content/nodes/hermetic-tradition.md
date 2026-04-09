@@ -21,6 +21,8 @@ connections:
     reason: "Masonic rituals and symbols are full of Hermetic, alchemical, and Kabbalistic references. The lodges are basically preserving Hermetic teachings in ritual form"
   - target: "panpsychism"
     reason: "The Hermetic idea that the entire cosmos is alive and conscious ('all is mind') is essentially the same claim that modern panpsychism makes: consciousness is in everything"
+  - target: "saturn-black-cube"
+    reason: "Saturn is the outermost classical planet in Hermetic cosmology — the guardian of the threshold between the material and divine worlds, ruler of lead and the nigredo, the blackening stage where the alchemical Great Work begins."
 ---
 
 In 1460, a monk named Leonardo da Pistoia brought a Greek manuscript to Cosimo de' Medici in Florence. Cosimo had spent decades — and a fortune — funding Marsilio Ficino's translation of the complete works of Plato. The manuscript was not Plato. It was something that Cosimo considered more important. He ordered Ficino to stop translating Plato immediately and translate the new manuscript first.
