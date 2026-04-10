@@ -8,8 +8,12 @@ import TabBar, { type Tab } from "./TabBar";
 import NodeView from "./NodeView";
 import CommandPalette from "./CommandPalette";
 import ExplorerPanel from "./ExplorerPanel";
+import ViewModeToggle, { type ViewMode } from "./ViewModeToggle";
 
 const Graph = dynamic(() => import("./Graph"), { ssr: false });
+const PathsGraph = dynamic(() => import("./PathsGraph"), { ssr: false });
+
+const VIEW_MODE_STORAGE_KEY = "apeiron-view-mode";
 
 const GRAPH_TAB: Tab = { id: "graph", type: "graph" };
 
@@ -31,6 +35,23 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [explorerOpen, setExplorerOpen] = useState(false);
   const [focusNodeId, setFocusNodeId] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<ViewMode>("connections");
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(VIEW_MODE_STORAGE_KEY);
+      if (saved === "connections" || saved === "paths") {
+        setViewMode(saved);
+      }
+    } catch {}
+  }, []);
+
+  const handleViewModeChange = useCallback((mode: ViewMode) => {
+    setViewMode(mode);
+    try {
+      localStorage.setItem(VIEW_MODE_STORAGE_KEY, mode);
+    } catch {}
+  }, []);
 
   const activeTab = useMemo(
     () => tabs.find((t) => t.id === activeTabId) ?? GRAPH_TAB,
@@ -142,12 +163,21 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
   return (
     <div className="relative w-screen h-screen overflow-hidden">
       <div className={`absolute inset-0 ${showGraph ? "z-0" : "z-[-1] pointer-events-none"}`}>
-        <Graph
-          graphData={graphData}
-          onNodeClick={handleNodeClick}
-          selectedNodeId={selectedNodeOnGraph}
-          focusNodeId={focusNodeId}
-        />
+        {viewMode === "connections" ? (
+          <Graph
+            graphData={graphData}
+            onNodeClick={handleNodeClick}
+            selectedNodeId={selectedNodeOnGraph}
+            focusNodeId={focusNodeId}
+          />
+        ) : (
+          <PathsGraph
+            graphData={graphData}
+            onNodeClick={handleNodeClick}
+            selectedNodeId={selectedNodeOnGraph}
+            focusNodeId={focusNodeId}
+          />
+        )}
       </div>
 
       {activeNode && !showGraph && (
@@ -187,6 +217,12 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
               onCloseTab={handleCloseTab}
             />
           )}
+        </div>
+      )}
+
+      {showGraph && (
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
+          <ViewModeToggle mode={viewMode} onChange={handleViewModeChange} />
         </div>
       )}
 
