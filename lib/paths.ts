@@ -49,7 +49,8 @@ export const READING_PATHS: ReadingPath[] = [
     description: "The networks behind the networks — secret societies from the Templars to today",
     nodes: [
       { id: "secret-societies", hook: "Power has always organized in the dark — from mystery schools in Egypt to boardrooms in Manhattan" },
-      { id: "knights-templar", hook: "The original template: a military order that became the richest organization in Europe, then was destroyed in a single day" },
+      { id: "pythagoras", hook: "And the founding Greek prototype. A sixth-century BC philosopher who spent twenty-two years studying with the Egyptian priesthood, twelve more in Babylon, then returned west to found a sworn brotherhood at Croton — combining mathematics, music, dietary discipline, and the doctrine that all reality is number. Every Western secret society that followed is operating on a model the Pythagorean brotherhood originated" },
+      { id: "knights-templar", hook: "The original Christian-era template: a military order that became the richest organization in Europe, then was destroyed in a single day" },
       { id: "holy-grail", hook: "What were the Templars really guarding? The Grail isn't a cup — it might be a bloodline, a secret, or a technology" },
       { id: "hermetic-tradition", hook: "The philosophy that runs beneath all secret societies — 'as above, so below' and the hidden structure of reality" },
       { id: "freemasonry", hook: "The network that survived the Templars — from cathedral builders to the men who designed Washington D.C." },
