@@ -7,7 +7,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { APEIRON_WIDTH } from "@/lib/paths-sim";
+import { APEIRRON_WIDTH } from "@/lib/paths-sim";
 
 interface CanvasViewportProps {
   transform: { x: number; y: number; scale: number };
@@ -23,6 +23,11 @@ interface CanvasViewportProps {
   // start zoomed on the currently-viewed node.
   initialFocusPoint?: { x: number; y: number } | null;
   hideControls?: boolean;
+  // When true, keep the content's center inside the viewport after every
+  // transform update. Prevents pan / fling / wheel from launching content
+  // completely off-screen in constrained contexts (e.g. the 360 px mini
+  // where the user has no Fit button to recover).
+  clampTransform?: boolean;
   children: React.ReactNode;
 }
 
@@ -39,6 +44,7 @@ export default function CanvasViewport({
   hasDrags,
   initialFocusPoint,
   hideControls,
+  clampTransform,
   children,
 }: CanvasViewportProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -73,6 +79,47 @@ export default function CanvasViewport({
     }
   }, []);
 
+  // Clamp a candidate transform so the content's center stays inside the
+  // viewport rect. Applied to every setTransform call when clampTransform
+  // is enabled — catches wheel, pan, fling coast, zoom buttons alike.
+  const applyClamp = useCallback(
+    (t: { x: number; y: number; scale: number }) => {
+      if (!clampTransform) return t;
+      const el = viewportRef.current;
+      if (!el) return t;
+      const rect = el.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return t;
+      const centerX = t.x + (contentWidth * t.scale) / 2;
+      const centerY = t.y + (contentHeight * t.scale) / 2;
+      let nx = t.x;
+      let ny = t.y;
+      if (centerX < 0) nx -= centerX;
+      else if (centerX > rect.width) nx -= centerX - rect.width;
+      if (centerY < 0) ny -= centerY;
+      else if (centerY > rect.height) ny -= centerY - rect.height;
+      return { ...t, x: nx, y: ny };
+    },
+    [clampTransform, contentWidth, contentHeight]
+  );
+
+  // Wrapped setter that runs every update through applyClamp. All internal
+  // transform mutations go through this instead of the raw `setTransform`
+  // prop so constrained contexts (the mini) can't escape their bounds.
+  const setClampedTransform: typeof setTransform = useCallback(
+    (updater) => {
+      setTransform((prev) => {
+        const next =
+          typeof updater === "function"
+            ? (updater as (
+                p: { x: number; y: number; scale: number }
+              ) => { x: number; y: number; scale: number })(prev)
+            : updater;
+        return applyClamp(next);
+      });
+    },
+    [setTransform, applyClamp]
+  );
+
   useEffect(() => {
     return () => {
       if (panInertiaRafRef.current !== null) {
@@ -93,12 +140,12 @@ export default function CanvasViewport({
     const scaleX = (rect.width - 100) / contentWidth;
     const scaleY = (rect.height - 140) / contentHeight;
     const fit = Math.max(MIN_SCALE, Math.min(1, Math.min(scaleX, scaleY)));
-    setTransform({
+    setClampedTransform({
       x: (rect.width - contentWidth * fit) / 2,
       y: (rect.height - contentHeight * fit) / 2,
       scale: fit,
     });
-  }, [contentWidth, contentHeight, setTransform]);
+  }, [contentWidth, contentHeight, setClampedTransform]);
 
   const focusApeirron = useCallback(() => {
     const el = viewportRef.current;
@@ -106,14 +153,14 @@ export default function CanvasViewport({
     const rect = el.getBoundingClientRect();
     const scale = Math.min(
       0.35,
-      Math.max(0.18, (rect.width * 0.14) / (APEIRON_WIDTH * 2.5))
+      Math.max(0.18, (rect.width * 0.14) / (APEIRRON_WIDTH * 2.5))
     );
-    setTransform({
+    setClampedTransform({
       x: rect.width / 2 - (contentWidth / 2) * scale,
       y: rect.height / 2 - (contentHeight / 2) * scale,
       scale,
     });
-  }, [contentWidth, contentHeight, setTransform]);
+  }, [contentWidth, contentHeight, setClampedTransform]);
 
   useLayoutEffect(() => {
     if (initialized) return;
@@ -126,7 +173,7 @@ export default function CanvasViewport({
       const rect = el.getBoundingClientRect();
       if (rect.width === 0 || rect.height === 0) return;
       const scale = INITIAL_FOCUS_SCALE;
-      setTransform({
+      setClampedTransform({
         x: rect.width / 2 - initialFocusPoint.x * scale,
         y: rect.height / 2 - initialFocusPoint.y * scale,
         scale,
@@ -136,17 +183,21 @@ export default function CanvasViewport({
     }
     focusApeirron();
     setInitialized(true);
-  }, [focusApeirron, initialized, initialFocusPoint, setTransform]);
+  }, [focusApeirron, initialized, initialFocusPoint, setClampedTransform]);
 
   useEffect(() => {
     const el = viewportRef.current;
     if (!el) return;
     const handleWheel = (e: WheelEvent) => {
+      // Wheel always zooms — matches the connections Graph component and
+      // the Figma/Excalidraw convention. Pinch (which browsers report as
+      // wheel + ctrlKey on macOS) and Ctrl/Cmd+wheel are also handled by
+      // this same path. To pan, the user drags.
       e.preventDefault();
       const rect = el.getBoundingClientRect();
       const cx = e.clientX - rect.left;
       const cy = e.clientY - rect.top;
-      setTransform((t) => {
+      setClampedTransform((t) => {
         const factor = Math.exp(-e.deltaY * 0.0015);
         const newScale = Math.max(
           MIN_SCALE,
@@ -162,7 +213,7 @@ export default function CanvasViewport({
     };
     el.addEventListener("wheel", handleWheel, { passive: false });
     return () => el.removeEventListener("wheel", handleWheel);
-  }, [setTransform]);
+  }, [setClampedTransform]);
 
   const handlePointerDown = useCallback(
     (e: React.PointerEvent) => {
@@ -193,7 +244,7 @@ export default function CanvasViewport({
   const handlePointerMove = useCallback(
     (e: React.PointerEvent) => {
       if (!panState.current.active) return;
-      setTransform((t) => ({
+      setClampedTransform((t) => ({
         ...t,
         x: panState.current.originX + (e.clientX - panState.current.startX),
         y: panState.current.originY + (e.clientY - panState.current.startY),
@@ -210,7 +261,7 @@ export default function CanvasViewport({
       };
       panLastRef.current = { t: now, x: e.clientX, y: e.clientY };
     },
-    [setTransform]
+    [setClampedTransform]
   );
 
   const handlePointerUp = useCallback(
@@ -252,7 +303,7 @@ export default function CanvasViewport({
       };
 
       const step = () => {
-        setTransform((t) => ({ ...t, x: t.x + vx, y: t.y + vy }));
+        setClampedTransform((t) => ({ ...t, x: t.x + vx, y: t.y + vy }));
         vx *= PAN_FRICTION;
         vy *= PAN_FRICTION;
         if (Math.abs(vx) < PAN_MIN_VEL && Math.abs(vy) < PAN_MIN_VEL) {
@@ -267,7 +318,7 @@ export default function CanvasViewport({
       };
       panInertiaRafRef.current = requestAnimationFrame(step);
     },
-    [setTransform, stopPanInertia]
+    [setClampedTransform, stopPanInertia]
   );
 
   const zoomAtCenter = useCallback(
@@ -277,7 +328,7 @@ export default function CanvasViewport({
       const rect = el.getBoundingClientRect();
       const cx = rect.width / 2;
       const cy = rect.height / 2;
-      setTransform((t) => {
+      setClampedTransform((t) => {
         const newScale = Math.max(
           MIN_SCALE,
           Math.min(MAX_SCALE, t.scale * factor)
@@ -290,7 +341,7 @@ export default function CanvasViewport({
         };
       });
     },
-    [setTransform]
+    [setClampedTransform]
   );
 
   return (

@@ -40,6 +40,12 @@ interface Props {
   // Persist path offsets and global offset to localStorage. Default true;
   // set false for secondary instances like MiniPathDiagram.
   persist?: boolean;
+  // Stop running the rAF physics loop. Used by PageClient when the user
+  // navigates away from the graph view — the component stays mounted but
+  // the sim doesn't burn CPU in the background.
+  paused?: boolean;
+  // Forwarded to CanvasViewport. See its docs.
+  clampTransform?: boolean;
 }
 
 const OFFSETS_STORAGE_KEY = "apeirron-path-offsets";
@@ -54,6 +60,8 @@ export default function PathsGraph({
   hideControls,
   hideApeirron,
   persist = true,
+  paused = false,
+  clampTransform,
 }: Props) {
   // Compute the base layout for this instance's paths. Stable referential
   // equality on the paths array means this only recomputes when the caller
@@ -98,10 +106,24 @@ export default function PathsGraph({
   const rafRef = useRef<number | null>(null);
   const runningRef = useRef(false);
 
+  // Live `paused` value readable from inside the rAF loop without retriggering
+  // ensureRunning's identity. Lets us bail mid-coast the moment paused flips.
+  const pausedRef = useRef(paused);
+  useEffect(() => {
+    pausedRef.current = paused;
+  }, [paused]);
+
   const ensureRunning = useCallback(() => {
+    if (pausedRef.current) return;
     if (runningRef.current) return;
     runningRef.current = true;
     const loop = () => {
+      // Mid-coast pause check: bail without scheduling another frame.
+      if (pausedRef.current) {
+        runningRef.current = false;
+        rafRef.current = null;
+        return;
+      }
       const sims = simsRef.current;
       let anyHot = false;
       if (sims) {
@@ -122,6 +144,27 @@ export default function PathsGraph({
     };
     rafRef.current = requestAnimationFrame(loop);
   }, [getEffectiveGlobalOffset]);
+
+  // Pause transitions: cancel in-flight rAF when paused goes true; resume the
+  // loop when paused goes false if any sim is still hot from before.
+  useEffect(() => {
+    if (paused) {
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+      runningRef.current = false;
+      return;
+    }
+    const sims = simsRef.current;
+    if (!sims) return;
+    for (const sim of sims.values()) {
+      if (sim.hot) {
+        ensureRunning();
+        return;
+      }
+    }
+  }, [paused, ensureRunning]);
 
   useEffect(() => {
     transformRef.current = transform;
@@ -506,6 +549,7 @@ export default function PathsGraph({
           hasDrags={hasDrags}
           initialFocusPoint={initialFocusPoint}
           hideControls={hideControls}
+          clampTransform={clampTransform}
         >
           <MegaDiagram
             layout={megaLayout}

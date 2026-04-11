@@ -75,6 +75,7 @@ export default function MiniPathDiagram({
         hideControls
         hideApeirron
         persist={false}
+        clampTransform
       />
     </div>
   );

@@ -169,6 +169,7 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
             onNodeClick={handleNodeClick}
             selectedNodeId={selectedNodeOnGraph}
             focusNodeId={focusNodeId}
+            paused={!showGraph}
           />
         )}
       </div>

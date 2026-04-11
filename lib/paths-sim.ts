@@ -6,12 +6,12 @@
 import type { ReadingPath } from "./paths";
 import { layoutPathWithCategory, type PathLayout } from "./paths-layout";
 
-export const APEIRON_ID = "__apeirron";
-export const APEIRON_WIDTH = 300;
-export const APEIRON_HEIGHT = 150;
+export const APEIRRON_ID = "__apeirron";
+export const APEIRRON_WIDTH = 300;
+export const APEIRRON_HEIGHT = 150;
 export const HORIZONTAL_GAP = 16;
-export const APEIRON_GAP = 260;
-export const APEIRON_TOP_PADDING = 280;
+export const APEIRRON_GAP = 260;
+export const APEIRRON_TOP_PADDING = 280;
 export const CANVAS_BOTTOM_PADDING = 100;
 
 export const PATH_COLORS: Record<string, string> = {
@@ -230,15 +230,15 @@ export function computeBase(paths: ReadingPath[]): BaseLayout {
       placements: [],
       apeirron: {
         x: 0,
-        y: APEIRON_TOP_PADDING,
-        width: APEIRON_WIDTH,
-        height: APEIRON_HEIGHT,
+        y: APEIRRON_TOP_PADDING,
+        width: APEIRRON_WIDTH,
+        height: APEIRRON_HEIGHT,
       },
-      width: APEIRON_WIDTH + 400,
+      width: APEIRRON_WIDTH + 400,
       height:
-        APEIRON_TOP_PADDING +
-        APEIRON_HEIGHT +
-        APEIRON_GAP +
+        APEIRRON_TOP_PADDING +
+        APEIRRON_HEIGHT +
+        APEIRRON_GAP +
         CANVAS_BOTTOM_PADDING,
     };
   }
@@ -248,12 +248,12 @@ export function computeBase(paths: ReadingPath[]): BaseLayout {
     allLayouts.reduce((sum, l) => sum + l.layout.width, 0) +
     (allLayouts.length - 1) * HORIZONTAL_GAP;
 
-  const canvasWidth = Math.max(rowWidth, APEIRON_WIDTH + 400);
+  const canvasWidth = Math.max(rowWidth, APEIRRON_WIDTH + 400);
   const rowStartX = (canvasWidth - rowWidth) / 2;
-  const apeirronY = APEIRON_TOP_PADDING;
-  const rowY = apeirronY + APEIRON_HEIGHT + APEIRON_GAP;
+  const apeirronY = APEIRRON_TOP_PADDING;
+  const rowY = apeirronY + APEIRRON_HEIGHT + APEIRRON_GAP;
   const canvasHeight = rowY + maxHeight + CANVAS_BOTTOM_PADDING;
-  const apeirronX = canvasWidth / 2 - APEIRON_WIDTH / 2;
+  const apeirronX = canvasWidth / 2 - APEIRRON_WIDTH / 2;
 
   let cursorX = rowStartX;
   const placements: BasePlacement[] = allLayouts.map((l) => {
@@ -274,8 +274,8 @@ export function computeBase(paths: ReadingPath[]): BaseLayout {
     apeirron: {
       x: apeirronX,
       y: apeirronY,
-      width: APEIRON_WIDTH,
-      height: APEIRON_HEIGHT,
+      width: APEIRRON_WIDTH,
+      height: APEIRRON_HEIGHT,
     },
     width: canvasWidth,
     height: canvasHeight,
@@ -611,9 +611,9 @@ export function buildMegaLayout(
   const apeirronX = base.apeirron.x + globalOffset.x;
   const apeirronY = base.apeirron.y + globalOffset.y;
   const apeirron: MegaNode = {
-    key: APEIRON_ID,
-    pathId: APEIRON_ID,
-    nodeId: APEIRON_ID,
+    key: APEIRRON_ID,
+    pathId: APEIRRON_ID,
+    nodeId: APEIRRON_ID,
     kind: "apeirron",
     x: apeirronX,
     y: apeirronY,
