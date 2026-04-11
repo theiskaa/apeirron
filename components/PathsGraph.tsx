@@ -20,6 +20,20 @@ interface Props {
   onNodeClick: (nodeId: string) => void;
   selectedNodeId: string | null;
   focusNodeId: string | null;
+  // Filter which reading paths participate in this instance. Defaults to
+  // the full READING_PATHS set used by the main view.
+  paths?: ReadingPath[];
+  // If set, the viewport centers + zooms on this node at mount instead of
+  // running the default focusApeiron logic.
+  initialFocusNodeId?: string | null;
+  // Hide the bottom-right Focus/Reset/zoom controls.
+  hideControls?: boolean;
+  // Hide the Apeiron root card and its hub edges entirely. Used by
+  // MiniPathDiagram — the single-path view doesn't need the root hub.
+  hideApeiron?: boolean;
+  // Persist path offsets and global offset to localStorage. Default true;
+  // set false for secondary instances like MiniPathDiagram.
+  persist?: boolean;
 }
 
 const PATH_COLORS: Record<string, string> = {
@@ -62,13 +76,15 @@ interface ApeironPos {
   height: number;
 }
 
-const BASE: {
+interface BaseLayout {
   placements: BasePlacement[];
   apeiron: ApeironPos;
   width: number;
   height: number;
-} = (() => {
-  const allLayouts = READING_PATHS.map((path) => {
+}
+
+function computeBase(paths: ReadingPath[]): BaseLayout {
+  const allLayouts = paths.map((path) => {
     const orderMap = new Map<string, number>();
     path.nodes.forEach((pn, i) => orderMap.set(pn.id, i + 1));
     return {
@@ -78,6 +94,20 @@ const BASE: {
       orderMap,
     };
   });
+
+  if (allLayouts.length === 0) {
+    return {
+      placements: [],
+      apeiron: {
+        x: 0,
+        y: APEIRON_TOP_PADDING,
+        width: APEIRON_WIDTH,
+        height: APEIRON_HEIGHT,
+      },
+      width: APEIRON_WIDTH + 400,
+      height: APEIRON_TOP_PADDING + APEIRON_HEIGHT + APEIRON_GAP + CANVAS_BOTTOM_PADDING,
+    };
+  }
 
   const maxHeight = Math.max(...allLayouts.map((l) => l.layout.height));
   const rowWidth =
@@ -116,7 +146,7 @@ const BASE: {
     width: canvasWidth,
     height: canvasHeight,
   };
-})();
+}
 
 interface MegaNode {
   key: string;
@@ -283,9 +313,9 @@ interface PathSim {
   bumpStart: number | null;
 }
 
-function initSims(): Map<string, PathSim> {
+function initSims(base: BaseLayout): Map<string, PathSim> {
   const sims = new Map<string, PathSim>();
-  for (const p of BASE.placements) {
+  for (const p of base.placements) {
     const nodes = new Map<string, SimNode>();
     const byLocalId = new Map<string, SimNode>();
     let categoryKey: string | null = null;
@@ -597,13 +627,14 @@ function stepSim(sim: PathSim, globalOffset: PointXY): boolean {
 
 function buildMegaLayout(
   sims: Map<string, PathSim>,
-  globalOffset: PointXY
+  globalOffset: PointXY,
+  base: BaseLayout
 ): MegaLayout {
   // Apeiron is the only thing that renders at globalOffset directly — every
   // other node's sim position already reflects the global shift via stepSim's
   // target calculation.
-  const apeironX = BASE.apeiron.x + globalOffset.x;
-  const apeironY = BASE.apeiron.y + globalOffset.y;
+  const apeironX = base.apeiron.x + globalOffset.x;
+  const apeironY = base.apeiron.y + globalOffset.y;
   const apeiron: MegaNode = {
     key: APEIRON_ID,
     pathId: APEIRON_ID,
@@ -611,8 +642,8 @@ function buildMegaLayout(
     kind: "apeiron",
     x: apeironX,
     y: apeironY,
-    width: BASE.apeiron.width,
-    height: BASE.apeiron.height,
+    width: base.apeiron.width,
+    height: base.apeiron.height,
     color: "#d8d8e0",
     title: "Apeirron",
   };
@@ -620,8 +651,8 @@ function buildMegaLayout(
   const hubEdges: MegaEdge[] = [];
   const pathGroups: MegaPathGroup[] = [];
 
-  let maxX = apeironX + BASE.apeiron.width;
-  let maxY = apeironY + BASE.apeiron.height;
+  let maxX = apeironX + base.apeiron.width;
+  let maxY = apeironY + base.apeiron.height;
 
   const now = performance.now();
 
@@ -734,8 +765,8 @@ function buildMegaLayout(
           key: `hub->${sim.pathId}`,
           pathId: sim.pathId,
           color: sim.color,
-          x1: apeironX + BASE.apeiron.width / 2,
-          y1: apeironY + BASE.apeiron.height,
+          x1: apeironX + base.apeiron.width / 2,
+          y1: apeironY + base.apeiron.height,
           x2: cx,
           y2: cy,
           emphasis: "hub",
@@ -758,8 +789,8 @@ function buildMegaLayout(
     apeiron,
     hubEdges,
     pathGroups,
-    width: Math.max(maxX, BASE.width),
-    height: Math.max(maxY, BASE.height),
+    width: Math.max(maxX, base.width),
+    height: Math.max(maxY, base.height),
   };
 }
 
@@ -767,7 +798,20 @@ export default function PathsGraph({
   graphData,
   onNodeClick,
   selectedNodeId,
+  paths,
+  initialFocusNodeId,
+  hideControls,
+  hideApeiron,
+  persist = true,
 }: Props) {
+  // Compute the base layout for this instance's paths. Stable referential
+  // equality on the paths array means this only recomputes when the caller
+  // actually passes a different `paths`.
+  const base = useMemo(
+    () => computeBase(paths ?? READING_PATHS),
+    [paths]
+  );
+
   const byId = useMemo(
     () => new Map(graphData.nodes.map((n) => [n.id, n])),
     [graphData.nodes]
@@ -775,7 +819,7 @@ export default function PathsGraph({
 
   const simsRef = useRef<Map<string, PathSim> | null>(null);
   if (simsRef.current === null) {
-    simsRef.current = initSims();
+    simsRef.current = initSims(base);
   }
 
   const [tick, setTick] = useState(0);
@@ -833,6 +877,7 @@ export default function PathsGraph({
   }, [transform]);
 
   useEffect(() => {
+    if (!persist) return;
     const sims = simsRef.current;
     if (!sims) return;
     try {
@@ -878,7 +923,7 @@ export default function PathsGraph({
       }
       setTick((t) => t + 1);
     } catch {}
-  }, []);
+  }, [persist]);
 
   useEffect(() => {
     return () => {
@@ -889,6 +934,7 @@ export default function PathsGraph({
   }, []);
 
   const persistOffsets = useCallback(() => {
+    if (!persist) return;
     const sims = simsRef.current;
     if (!sims) return;
     try {
@@ -900,9 +946,10 @@ export default function PathsGraph({
       }
       localStorage.setItem(OFFSETS_STORAGE_KEY, JSON.stringify(offsets));
     } catch {}
-  }, []);
+  }, [persist]);
 
   const persistGlobalOffset = useCallback(() => {
+    if (!persist) return;
     try {
       const g = globalOffsetRef.current;
       if (g.x === 0 && g.y === 0) {
@@ -911,13 +958,29 @@ export default function PathsGraph({
         localStorage.setItem(GLOBAL_OFFSET_STORAGE_KEY, JSON.stringify(g));
       }
     } catch {}
-  }, []);
+  }, [persist]);
 
   const megaLayout = useMemo(
-    () => buildMegaLayout(simsRef.current!, getEffectiveGlobalOffset()),
+    () => buildMegaLayout(simsRef.current!, getEffectiveGlobalOffset(), base),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [tick]
+    [tick, base]
   );
+
+  // Compute the initial focus point from the layout if an initialFocusNodeId
+  // is provided. CanvasViewport uses this at mount to center + zoom on the
+  // specific node instead of running its default focusApeiron logic.
+  const initialFocusPoint = useMemo(() => {
+    if (!initialFocusNodeId) return null;
+    for (const g of megaLayout.pathGroups) {
+      for (const n of g.nodes) {
+        if (n.nodeId === initialFocusNodeId) {
+          return { x: n.x + n.width / 2, y: n.y + n.height / 2 };
+        }
+      }
+    }
+    return null;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialFocusNodeId, megaLayout]);
 
   const hasDrags = useMemo(() => {
     const sims = simsRef.current;
@@ -1190,6 +1253,8 @@ export default function PathsGraph({
           contentHeight={megaLayout.height}
           onResetLayout={handleResetLayout}
           hasDrags={hasDrags}
+          initialFocusPoint={initialFocusPoint}
+          hideControls={hideControls}
         >
           <MegaDiagram
             layout={megaLayout}
@@ -1199,6 +1264,7 @@ export default function PathsGraph({
             onNodeClick={handleNodeClick}
             onNodePointerDown={handleNodePointerDown}
             onApeironPointerDown={handleApeironPointerDown}
+            hideApeiron={hideApeiron}
           />
         </CanvasViewport>
       </div>
@@ -1218,6 +1284,9 @@ interface MegaDiagramProps {
     nodeKey: string
   ) => void;
   onApeironPointerDown: (e: React.PointerEvent) => void;
+  // When true, skip rendering Apeiron itself and its hub edges. Used by
+  // MiniPathDiagram where the single-path view doesn't need the root hub.
+  hideApeiron?: boolean;
 }
 
 function MegaDiagram({
@@ -1228,6 +1297,7 @@ function MegaDiagram({
   onNodeClick,
   onNodePointerDown,
   onApeironPointerDown,
+  hideApeiron,
 }: MegaDiagramProps) {
   const apeiron = layout.apeiron;
   return (
@@ -1241,21 +1311,23 @@ function MegaDiagram({
     >
       {/* Hub edges: Apeiron → each category pivot. Pivot is the rotation
           center, so these endpoints stay anchored no matter how a path tilts.
-          Wrapped per-edge so unfocused hubs can dim with their path. */}
-      {layout.hubEdges.map((edge) => (
-        <g
-          key={edge.key}
-          style={{
-            opacity:
-              draggingPathId == null || edge.pathId === draggingPathId
-                ? 1
-                : 0.35,
-            transition: "opacity 180ms ease",
-          }}
-        >
-          <EdgePath edge={edge} />
-        </g>
-      ))}
+          Wrapped per-edge so unfocused hubs can dim with their path.
+          Skipped entirely when Apeiron is hidden (mini view). */}
+      {!hideApeiron &&
+        layout.hubEdges.map((edge) => (
+          <g
+            key={edge.key}
+            style={{
+              opacity:
+                draggingPathId == null || edge.pathId === draggingPathId
+                  ? 1
+                  : 0.35,
+              transition: "opacity 180ms ease",
+            }}
+          >
+            <EdgePath edge={edge} />
+          </g>
+        ))}
       {/* Per-path groups, each rotated around its category top-center.
           While one path is being dragged, all others dim for focus. */}
       {layout.pathGroups.map((g) => {
@@ -1304,24 +1376,26 @@ function MegaDiagram({
       })}
       {/* Apeiron itself: never rotates, rendered on top. Grabbing it drags
           the whole diagram via a global offset. */}
-      <foreignObject
-        key={apeiron.key}
-        x={apeiron.x}
-        y={apeiron.y}
-        width={apeiron.width}
-        height={apeiron.height}
-        overflow="visible"
-      >
-        <NodeBox
-          node={apeiron}
-          real={undefined}
-          isSelected={false}
-          isDragging={false}
-          onClick={() => {}}
-          onNodePointerDown={onNodePointerDown}
-          onApeironPointerDown={onApeironPointerDown}
-        />
-      </foreignObject>
+      {!hideApeiron && (
+        <foreignObject
+          key={apeiron.key}
+          x={apeiron.x}
+          y={apeiron.y}
+          width={apeiron.width}
+          height={apeiron.height}
+          overflow="visible"
+        >
+          <NodeBox
+            node={apeiron}
+            real={undefined}
+            isSelected={false}
+            isDragging={false}
+            onClick={() => {}}
+            onNodePointerDown={onNodePointerDown}
+            onApeironPointerDown={onApeironPointerDown}
+          />
+        </foreignObject>
+      )}
     </svg>
   );
 }
@@ -1536,11 +1610,17 @@ interface CanvasViewportProps {
   contentHeight: number;
   onResetLayout: () => void;
   hasDrags: boolean;
+  // If set, the viewport centers + zooms on this content-space point at
+  // mount instead of running focusApeiron. Used by MiniPathDiagram to
+  // start zoomed on the currently-viewed node.
+  initialFocusPoint?: { x: number; y: number } | null;
+  hideControls?: boolean;
   children: React.ReactNode;
 }
 
 const MIN_SCALE = 0.15;
 const MAX_SCALE = 3;
+const INITIAL_FOCUS_SCALE = 0.8;
 
 function CanvasViewport({
   transform,
@@ -1549,6 +1629,8 @@ function CanvasViewport({
   contentHeight,
   onResetLayout,
   hasDrags,
+  initialFocusPoint,
+  hideControls,
   children,
 }: CanvasViewportProps) {
   const viewportRef = useRef<HTMLDivElement>(null);
@@ -1627,9 +1709,26 @@ function CanvasViewport({
 
   useLayoutEffect(() => {
     if (initialized) return;
+    // If the caller provided a specific content-space point to focus on,
+    // zoom + center on it. Otherwise fall back to the generic
+    // focusApeiron() logic used by the main view.
+    if (initialFocusPoint) {
+      const el = viewportRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return;
+      const scale = INITIAL_FOCUS_SCALE;
+      setTransform({
+        x: rect.width / 2 - initialFocusPoint.x * scale,
+        y: rect.height / 2 - initialFocusPoint.y * scale,
+        scale,
+      });
+      setInitialized(true);
+      return;
+    }
     focusApeiron();
     setInitialized(true);
-  }, [focusApeiron, initialized]);
+  }, [focusApeiron, initialized, initialFocusPoint, setTransform]);
 
   useEffect(() => {
     const el = viewportRef.current;
@@ -1812,15 +1911,17 @@ function CanvasViewport({
         {children}
       </div>
 
-      <ViewControls
-        scale={transform.scale}
-        onZoomIn={() => zoomAtCenter(1.2)}
-        onZoomOut={() => zoomAtCenter(1 / 1.2)}
-        onFit={fitToView}
-        onFocus={focusApeiron}
-        onResetLayout={onResetLayout}
-        hasDrags={hasDrags}
-      />
+      {!hideControls && (
+        <ViewControls
+          scale={transform.scale}
+          onZoomIn={() => zoomAtCenter(1.2)}
+          onZoomOut={() => zoomAtCenter(1 / 1.2)}
+          onFit={fitToView}
+          onFocus={focusApeiron}
+          onResetLayout={onResetLayout}
+          hasDrags={hasDrags}
+        />
+      )}
     </div>
   );
 }
