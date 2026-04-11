@@ -636,6 +636,7 @@ function MegaDiagram({
       width={layout.width}
       height={layout.height}
       viewBox={`0 0 ${layout.width} ${layout.height}`}
+      style={{ overflow: "visible" }}
       role="img"
       aria-label="Apeiron paths map"
     >
