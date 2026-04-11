@@ -42,6 +42,7 @@ const APEIRON_TOP_PADDING = 280;
 const CANVAS_BOTTOM_PADDING = 100;
 
 const OFFSETS_STORAGE_KEY = "apeiron-path-offsets";
+const GLOBAL_OFFSET_STORAGE_KEY = "apeiron-global-offset";
 
 type PointXY = { x: number; y: number };
 
@@ -129,6 +130,9 @@ interface MegaNode {
   color: string;
   title?: string;
   orderIndex?: number;
+  // CSS transform string (applied around the element's center via
+  // transform-origin). Combines velocity squish + settle bounce.
+  transform?: string;
 }
 
 interface MegaEdge {
@@ -198,6 +202,23 @@ const GRAVITY = 0.02;
 // Root nodes are light, leaves are heavier → ripple slows as it propagates.
 const DEPTH_MASS_COEFF = 0.35;
 
+// Per-frame speeds below this get no squish (avoids subpixel noise on
+// tiny residuals near rest).
+const SQUISH_THRESHOLD = 1;
+// Stretch factor per unit of speed past the threshold. Speed 10 → ~11% axis
+// stretch along the velocity direction; perpendicular axis compressed to
+// preserve area.
+const SQUISH_K = 0.012;
+// Hard cap on the stretch (0.15 ≈ 15% max axis distortion).
+const SQUISH_MAX = 0.15;
+
+// One-shot pop when a path transitions from hot → rest. Keeps the sim "hot"
+// for this many ms so the rAF loop drives the animation; playback is a
+// half-sine in the rendered scale.
+const BUMP_DURATION_MS = 280;
+// Peak scale amplitude at the apex of the half-sine (0.028 = 2.8% pop).
+const BUMP_AMP = 0.028;
+
 interface SimNode {
   key: string;
   pathId: string;
@@ -252,6 +273,10 @@ interface PathSim {
   // Computed as I_ref / inertia where I_ref is the average across all paths,
   // so the "typical" path keeps roughly the old feel.
   inertiaScale: number;
+  // Timestamp (performance.now()) at which this path landed from motion.
+  // While non-null and within BUMP_DURATION_MS, the sim is kept hot so the
+  // landing-bump scale animates; cleared afterward or if physics re-stirs.
+  bumpStart: number | null;
 }
 
 function initSims(): Map<string, PathSim> {
@@ -339,6 +364,7 @@ function initSims(): Map<string, PathSim> {
       angleVel: 0,
       inertia: inertia || 1,
       inertiaScale: 1, // filled in by the second pass below
+      bumpStart: null,
     });
   }
 
@@ -431,9 +457,13 @@ function applyInterCollisions(sims: Map<string, PathSim>): void {
   }
 }
 
-function stepSim(sim: PathSim): boolean {
-  const offX = sim.dragging ? sim.liveOffset.x : sim.committedOffset.x;
-  const offY = sim.dragging ? sim.liveOffset.y : sim.committedOffset.y;
+function stepSim(sim: PathSim, globalOffset: PointXY): boolean {
+  // Effective target offset is the path's own offset plus the global offset
+  // from an Apeiron drag. Both additively shift where each node wants to be.
+  const offX =
+    (sim.dragging ? sim.liveOffset.x : sim.committedOffset.x) + globalOffset.x;
+  const offY =
+    (sim.dragging ? sim.liveOffset.y : sim.committedOffset.y) + globalOffset.y;
   const pinKey = sim.dragging ? sim.pinnedKey : null;
 
   // Position spring: F = k·(target−pos), a = F/m → v += F·invMass.
@@ -471,7 +501,7 @@ function stepSim(sim: PathSim): boolean {
     n.vy += GRAVITY;
   }
 
-  let hot = sim.dragging;
+  let physicsHot = sim.dragging;
   for (const n of sim.nodes.values()) {
     if (n.key === pinKey) {
       n.x = n.bx + offX;
@@ -484,13 +514,16 @@ function stepSim(sim: PathSim): boolean {
     n.vy *= DAMPING;
     n.x += n.vx;
     n.y += n.vy;
+    // Gravity shifts the spring equilibrium below base by sagY, so the rest
+    // check must compare against (base + sag) or the sim would never go cold.
+    const sagY = GRAVITY / (POS_K * n.invMass);
     if (
       Math.abs(n.vx) > EPS ||
       Math.abs(n.vy) > EPS ||
       Math.abs(n.x - n.bx - offX) > EPS ||
-      Math.abs(n.y - n.by - offY) > EPS
+      Math.abs(n.y - n.by - offY - sagY) > EPS
     ) {
-      hot = true;
+      physicsHot = true;
     }
   }
 
@@ -513,14 +546,13 @@ function stepSim(sim: PathSim): boolean {
   sim.angleVel *= ANGLE_DAMP;
   sim.angle += sim.angleVel;
   if (Math.abs(sim.angle) > 0.0015 || Math.abs(sim.angleVel) > 0.0015) {
-    hot = true;
+    physicsHot = true;
   }
 
-  if (!hot) {
-    // Cold snap: we let the sim settle at (target + gravity sag) rather than
-    // exactly at target, since gravity is a constant force that shifts the
-    // spring equilibrium slightly below base. The sag magnitude per node is
-    // GRAVITY/(POS_K·invMass) — tiny with current constants.
+  if (!physicsHot) {
+    // Cold snap to the true equilibrium (target + gravity sag). This is what
+    // the hot-check above compares against, so a settled sim stays settled
+    // on the next tick.
     for (const n of sim.nodes.values()) {
       n.x = n.bx + offX;
       n.y = n.by + offY + GRAVITY / (POS_K * n.invMass);
@@ -531,18 +563,45 @@ function stepSim(sim: PathSim): boolean {
     sim.angleVel = 0;
   }
 
+  // Landing bump: when the sim transitions from physics-hot to rest, start a
+  // one-shot pop that keeps the loop alive for BUMP_DURATION_MS so the scale
+  // animation plays. Physical re-stirring (any physicsHot frame) cancels it.
+  const now = performance.now();
+  if (physicsHot) {
+    sim.bumpStart = null;
+  } else if (sim.hot && sim.bumpStart === null) {
+    sim.bumpStart = now;
+  }
+
+  let hot = physicsHot;
+  if (sim.bumpStart !== null) {
+    if (now - sim.bumpStart < BUMP_DURATION_MS) {
+      hot = true;
+    } else {
+      sim.bumpStart = null;
+    }
+  }
+
   sim.hot = hot;
   return hot;
 }
 
-function buildMegaLayout(sims: Map<string, PathSim>): MegaLayout {
+function buildMegaLayout(
+  sims: Map<string, PathSim>,
+  globalOffset: PointXY
+): MegaLayout {
+  // Apeiron is the only thing that renders at globalOffset directly — every
+  // other node's sim position already reflects the global shift via stepSim's
+  // target calculation.
+  const apeironX = BASE.apeiron.x + globalOffset.x;
+  const apeironY = BASE.apeiron.y + globalOffset.y;
   const apeiron: MegaNode = {
     key: APEIRON_ID,
     pathId: APEIRON_ID,
     nodeId: APEIRON_ID,
     kind: "apeiron",
-    x: BASE.apeiron.x,
-    y: BASE.apeiron.y,
+    x: apeironX,
+    y: apeironY,
     width: BASE.apeiron.width,
     height: BASE.apeiron.height,
     color: "#d8d8e0",
@@ -552,14 +611,43 @@ function buildMegaLayout(sims: Map<string, PathSim>): MegaLayout {
   const hubEdges: MegaEdge[] = [];
   const pathGroups: MegaPathGroup[] = [];
 
-  let maxX = BASE.apeiron.x + BASE.apeiron.width;
-  let maxY = BASE.apeiron.y + BASE.apeiron.height;
+  let maxX = apeironX + BASE.apeiron.width;
+  let maxY = apeironY + BASE.apeiron.height;
+
+  const now = performance.now();
 
   for (const sim of sims.values()) {
     const groupNodes: MegaNode[] = [];
     const groupEdges: MegaEdge[] = [];
 
+    // Uniform bump scale driven by sim.bumpStart. Half-sine from 0 → peak → 0
+    // across BUMP_DURATION_MS, peaking at 1 + BUMP_AMP.
+    let bumpScale = 1;
+    if (sim.bumpStart !== null) {
+      const t = (now - sim.bumpStart) / BUMP_DURATION_MS;
+      if (t >= 0 && t <= 1) {
+        bumpScale = 1 + BUMP_AMP * Math.sin(t * Math.PI);
+      }
+    }
+
     for (const n of sim.nodes.values()) {
+      // Velocity squish: stretch along velocity, compress perpendicular,
+      // area-preserving so the node's apparent size stays constant.
+      const speed = Math.hypot(n.vx, n.vy);
+      let transform: string | undefined;
+      if (speed > SQUISH_THRESHOLD) {
+        const s = Math.min(
+          1 + SQUISH_MAX,
+          1 + (speed - SQUISH_THRESHOLD) * SQUISH_K
+        );
+        const angleDeg = (Math.atan2(n.vy, n.vx) * 180) / Math.PI;
+        const sx = s * bumpScale;
+        const sy = (bumpScale / s);
+        transform = `rotate(${angleDeg}deg) scale(${sx}, ${sy}) rotate(${-angleDeg}deg)`;
+      } else if (bumpScale !== 1) {
+        transform = `scale(${bumpScale})`;
+      }
+
       groupNodes.push({
         key: n.key,
         pathId: n.pathId,
@@ -572,6 +660,7 @@ function buildMegaLayout(sims: Map<string, PathSim>): MegaLayout {
         color: n.color,
         title: n.title,
         orderIndex: n.orderIndex,
+        transform,
       });
       if (n.x + n.width > maxX) maxX = n.x + n.width;
       if (n.y + n.height > maxY) maxY = n.y + n.height;
@@ -635,8 +724,8 @@ function buildMegaLayout(sims: Map<string, PathSim>): MegaLayout {
           key: `hub->${sim.pathId}`,
           pathId: sim.pathId,
           color: sim.color,
-          x1: BASE.apeiron.x + BASE.apeiron.width / 2,
-          y1: BASE.apeiron.y + BASE.apeiron.height,
+          x1: apeironX + BASE.apeiron.width / 2,
+          y1: apeironY + BASE.apeiron.height,
           x2: cx,
           y2: cy,
           emphasis: "hub",
@@ -688,6 +777,19 @@ export default function PathsGraph({
   // click wrapper so that releasing after a drag doesn't also fire onClick.
   const dragOccurredRef = useRef(false);
 
+  // Global offset — set by dragging Apeiron, shifts every path's target
+  // position uniformly. Apeiron renders at base + global; paths render at
+  // their sim position (which physics pulls toward base + path + global).
+  const globalOffsetRef = useRef<PointXY>({ x: 0, y: 0 });
+  const globalLiveOffsetRef = useRef<PointXY>({ x: 0, y: 0 });
+  const draggingGlobalRef = useRef(false);
+
+  const getEffectiveGlobalOffset = useCallback((): PointXY => {
+    return draggingGlobalRef.current
+      ? globalLiveOffsetRef.current
+      : globalOffsetRef.current;
+  }, []);
+
   const rafRef = useRef<number | null>(null);
   const runningRef = useRef(false);
 
@@ -698,10 +800,11 @@ export default function PathsGraph({
       const sims = simsRef.current;
       let anyHot = false;
       if (sims) {
+        const globalOffset = getEffectiveGlobalOffset();
         // Collisions can wake cold sims — run first so stepSim then integrates them.
         applyInterCollisions(sims);
         for (const sim of sims.values()) {
-          if (sim.hot && stepSim(sim)) anyHot = true;
+          if (sim.hot && stepSim(sim, globalOffset)) anyHot = true;
         }
       }
       setTick((t) => t + 1);
@@ -713,7 +816,7 @@ export default function PathsGraph({
       }
     };
     rafRef.current = requestAnimationFrame(loop);
-  }, []);
+  }, [getEffectiveGlobalOffset]);
 
   useEffect(() => {
     transformRef.current = transform;
@@ -724,21 +827,43 @@ export default function PathsGraph({
     if (!sims) return;
     try {
       const saved = localStorage.getItem(OFFSETS_STORAGE_KEY);
-      if (!saved) return;
-      const parsed = JSON.parse(saved);
-      if (!parsed || typeof parsed !== "object") return;
-      for (const [pathId, val] of Object.entries(parsed)) {
-        const sim = sims.get(pathId);
-        if (!sim || !val || typeof val !== "object") continue;
-        const v = val as { x?: number; y?: number };
-        const off = { x: v.x ?? 0, y: v.y ?? 0 };
-        sim.committedOffset = off;
-        sim.liveOffset = { ...off };
-        for (const n of sim.nodes.values()) {
-          n.x = n.bx + off.x;
-          n.y = n.by + off.y;
-          n.vx = 0;
-          n.vy = 0;
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed && typeof parsed === "object") {
+          for (const [pathId, val] of Object.entries(parsed)) {
+            const sim = sims.get(pathId);
+            if (!sim || !val || typeof val !== "object") continue;
+            const v = val as { x?: number; y?: number };
+            const off = { x: v.x ?? 0, y: v.y ?? 0 };
+            sim.committedOffset = off;
+            sim.liveOffset = { ...off };
+            for (const n of sim.nodes.values()) {
+              n.x = n.bx + off.x;
+              n.y = n.by + off.y;
+              n.vx = 0;
+              n.vy = 0;
+            }
+          }
+        }
+      }
+      const savedGlobal = localStorage.getItem(GLOBAL_OFFSET_STORAGE_KEY);
+      if (savedGlobal) {
+        const parsed = JSON.parse(savedGlobal);
+        if (parsed && typeof parsed === "object") {
+          const v = parsed as { x?: number; y?: number };
+          const g = { x: v.x ?? 0, y: v.y ?? 0 };
+          globalOffsetRef.current = g;
+          globalLiveOffsetRef.current = { ...g };
+          // Snap every sim's live positions to the shifted rest so the
+          // reload doesn't trigger a physics "catch up" on mount.
+          for (const sim of sims.values()) {
+            for (const n of sim.nodes.values()) {
+              n.x = n.bx + sim.committedOffset.x + g.x;
+              n.y = n.by + sim.committedOffset.y + g.y;
+              n.vx = 0;
+              n.vy = 0;
+            }
+          }
         }
       }
       setTick((t) => t + 1);
@@ -767,8 +892,19 @@ export default function PathsGraph({
     } catch {}
   }, []);
 
+  const persistGlobalOffset = useCallback(() => {
+    try {
+      const g = globalOffsetRef.current;
+      if (g.x === 0 && g.y === 0) {
+        localStorage.removeItem(GLOBAL_OFFSET_STORAGE_KEY);
+      } else {
+        localStorage.setItem(GLOBAL_OFFSET_STORAGE_KEY, JSON.stringify(g));
+      }
+    } catch {}
+  }, []);
+
   const megaLayout = useMemo(
-    () => buildMegaLayout(simsRef.current!),
+    () => buildMegaLayout(simsRef.current!, getEffectiveGlobalOffset()),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [tick]
   );
@@ -776,6 +912,8 @@ export default function PathsGraph({
   const hasDrags = useMemo(() => {
     const sims = simsRef.current;
     if (!sims) return false;
+    const g = globalOffsetRef.current;
+    if (g.x !== 0 || g.y !== 0) return true;
     for (const sim of sims.values()) {
       if (sim.committedOffset.x !== 0 || sim.committedOffset.y !== 0) return true;
     }
@@ -907,6 +1045,112 @@ export default function PathsGraph({
     [ensureRunning, persistOffsets]
   );
 
+  const handleApeironPointerDown = useCallback(
+    (e: React.PointerEvent) => {
+      e.stopPropagation();
+      const sims = simsRef.current;
+      if (!sims) return;
+
+      const startClientX = e.clientX;
+      const startClientY = e.clientY;
+      const startOffset = { ...globalOffsetRef.current };
+
+      const DRAG_THRESHOLD = 4;
+      let dragActive = false;
+      dragOccurredRef.current = false;
+
+      let lastMoveTime = performance.now();
+      let lastMoveClientX = startClientX;
+      let lastMoveClientY = startClientY;
+      const cursorVel = { x: 0, y: 0 };
+
+      const markAllHot = () => {
+        for (const sim of sims.values()) sim.hot = true;
+      };
+
+      const activate = () => {
+        dragActive = true;
+        dragOccurredRef.current = true;
+        draggingGlobalRef.current = true;
+        globalLiveOffsetRef.current = { ...startOffset };
+        markAllHot();
+        ensureRunning();
+      };
+
+      const handleMove = (ev: PointerEvent) => {
+        const scale = transformRef.current.scale || 1;
+        const dxClient = ev.clientX - startClientX;
+        const dyClient = ev.clientY - startClientY;
+
+        if (!dragActive) {
+          if (Math.hypot(dxClient, dyClient) < DRAG_THRESHOLD) return;
+          activate();
+        }
+
+        globalLiveOffsetRef.current = {
+          x: startOffset.x + dxClient / scale,
+          y: startOffset.y + dyClient / scale,
+        };
+        markAllHot();
+
+        const now = performance.now();
+        const dt = Math.max(1, now - lastMoveTime);
+        const vx = (ev.clientX - lastMoveClientX) / dt / scale;
+        const vy = (ev.clientY - lastMoveClientY) / dt / scale;
+        const alpha = 0.35;
+        cursorVel.x = cursorVel.x * (1 - alpha) + vx * alpha;
+        cursorVel.y = cursorVel.y * (1 - alpha) + vy * alpha;
+        lastMoveTime = now;
+        lastMoveClientX = ev.clientX;
+        lastMoveClientY = ev.clientY;
+      };
+
+      const handleUp = () => {
+        window.removeEventListener("pointermove", handleMove);
+        window.removeEventListener("pointerup", handleUp);
+        window.removeEventListener("pointercancel", handleUp);
+
+        if (!dragActive) return;
+
+        const now = performance.now();
+        const stale = now - lastMoveTime > 60;
+        const vxMs = stale ? 0 : cursorVel.x;
+        const vyMs = stale ? 0 : cursorVel.y;
+
+        // Fling coast: commit the global offset forward along velocity so
+        // the whole diagram glides past the release point, then settles.
+        const FLING_COAST_MS = 180;
+        globalOffsetRef.current = {
+          x: globalLiveOffsetRef.current.x + vxMs * FLING_COAST_MS,
+          y: globalLiveOffsetRef.current.y + vyMs * FLING_COAST_MS,
+        };
+        globalLiveOffsetRef.current = { ...globalOffsetRef.current };
+
+        // Inject velocity into every node so the coast carries every path
+        // (otherwise they'd start from rest against the new coasted target).
+        const MS_PER_FRAME = 1000 / 60;
+        const vxFrame = vxMs * MS_PER_FRAME;
+        const vyFrame = vyMs * MS_PER_FRAME;
+        for (const sim of sims.values()) {
+          for (const n of sim.nodes.values()) {
+            n.vx += vxFrame;
+            n.vy += vyFrame;
+          }
+        }
+
+        draggingGlobalRef.current = false;
+        markAllHot();
+        persistGlobalOffset();
+        ensureRunning();
+      };
+
+      window.addEventListener("pointermove", handleMove);
+      window.addEventListener("pointerup", handleUp);
+      window.addEventListener("pointercancel", handleUp);
+    },
+    [ensureRunning, persistGlobalOffset]
+  );
+
   const handleResetLayout = useCallback(() => {
     const sims = simsRef.current;
     if (!sims) return;
@@ -915,16 +1159,20 @@ export default function PathsGraph({
       sim.liveOffset = { x: 0, y: 0 };
       sim.hot = true;
     }
+    globalOffsetRef.current = { x: 0, y: 0 };
+    globalLiveOffsetRef.current = { x: 0, y: 0 };
+    draggingGlobalRef.current = false;
     persistOffsets();
+    persistGlobalOffset();
     ensureRunning();
-  }, [ensureRunning, persistOffsets]);
+  }, [ensureRunning, persistOffsets, persistGlobalOffset]);
 
   return (
     <div
       className="absolute inset-0 overflow-hidden"
       style={{ backgroundColor: "var(--graph-bg, #262626)" }}
     >
-      <div className="hidden md:block absolute inset-0">
+      <div className="absolute inset-0">
         <CanvasViewport
           transform={transform}
           setTransform={setTransform}
@@ -940,23 +1188,9 @@ export default function PathsGraph({
             draggingPathId={draggingPathId}
             onNodeClick={handleNodeClick}
             onNodePointerDown={handleNodePointerDown}
+            onApeironPointerDown={handleApeironPointerDown}
           />
         </CanvasViewport>
-      </div>
-
-      <div className="block md:hidden absolute inset-0 overflow-y-auto panel-scroll">
-        <div className="px-4 pt-28 pb-24 space-y-10">
-          {READING_PATHS.map((path) => (
-            <MobileList
-              key={path.id}
-              path={path}
-              color={PATH_COLORS[path.id] ?? "#8a8a99"}
-              byId={byId}
-              selectedNodeId={selectedNodeId}
-              onNodeClick={onNodeClick}
-            />
-          ))}
-        </div>
       </div>
     </div>
   );
@@ -973,6 +1207,7 @@ interface MegaDiagramProps {
     pathId: string,
     nodeKey: string
   ) => void;
+  onApeironPointerDown: (e: React.PointerEvent) => void;
 }
 
 function MegaDiagram({
@@ -982,6 +1217,7 @@ function MegaDiagram({
   draggingPathId,
   onNodeClick,
   onNodePointerDown,
+  onApeironPointerDown,
 }: MegaDiagramProps) {
   const apeiron = layout.apeiron;
   return (
@@ -1055,7 +1291,8 @@ function MegaDiagram({
           </g>
         );
       })}
-      {/* Apeiron itself: never rotates, rendered on top. */}
+      {/* Apeiron itself: never rotates, rendered on top. Grabbing it drags
+          the whole diagram via a global offset. */}
       <foreignObject
         key={apeiron.key}
         x={apeiron.x}
@@ -1070,6 +1307,7 @@ function MegaDiagram({
           isDragging={false}
           onClick={() => {}}
           onNodePointerDown={onNodePointerDown}
+          onApeironPointerDown={onApeironPointerDown}
         />
       </foreignObject>
     </svg>
@@ -1160,6 +1398,7 @@ interface NodeBoxProps {
     pathId: string,
     nodeKey: string
   ) => void;
+  onApeironPointerDown?: (e: React.PointerEvent) => void;
 }
 
 function NodeBox({
@@ -1169,11 +1408,13 @@ function NodeBox({
   isDragging,
   onClick,
   onNodePointerDown,
+  onApeironPointerDown,
 }: NodeBoxProps) {
   if (node.kind === "apeiron") {
     return (
       <div
-        className="relative w-full h-full flex items-center justify-center gap-3 rounded-xl select-none"
+        onPointerDown={onApeironPointerDown}
+        className="relative w-full h-full flex items-center justify-center gap-3 rounded-xl select-none cursor-grab active:cursor-grabbing"
         style={{
           backgroundColor: `color-mix(in srgb, ${node.color} 18%, transparent)`,
           boxShadow: `inset 0 0 0 1.5px ${node.color}, 0 4px 28px color-mix(in srgb, ${node.color} 22%, transparent), 0 0 0 6px color-mix(in srgb, ${node.color} 8%, transparent)`,
@@ -1206,6 +1447,9 @@ function NodeBox({
           boxShadow: isDragging
             ? `inset 0 0 0 2px ${node.color}, 0 8px 24px color-mix(in srgb, ${node.color} 30%, transparent), 0 0 0 4px color-mix(in srgb, ${node.color} 15%, transparent)`
             : `inset 0 0 0 1.5px ${node.color}, 0 2px 12px color-mix(in srgb, ${node.color} 18%, transparent)`,
+          transform: node.transform,
+          transformOrigin: "center",
+          willChange: node.transform ? "transform" : undefined,
         }}
         aria-label={`Drag ${node.title} path`}
       >
@@ -1244,6 +1488,9 @@ function NodeBox({
         boxShadow: isSelected
           ? `inset 0 0 0 1.5px ${node.color}, 0 0 0 3px color-mix(in srgb, ${node.color} 22%, transparent)`
           : "inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 12%, transparent)",
+        transform: node.transform,
+        transformOrigin: "center",
+        willChange: node.transform ? "transform" : undefined,
       }}
       aria-label={isPhantom ? `${title} (not yet written)` : `Open ${title}`}
     >
@@ -1621,7 +1868,7 @@ function ViewControls({
     WebkitBackdropFilter: "blur(6px)",
   };
   return (
-    <div className="absolute bottom-6 right-6 flex items-center gap-1.5 pointer-events-auto">
+    <div className="hidden md:flex absolute bottom-6 right-6 items-center gap-1.5 pointer-events-auto">
       {hasDrags && (
         <button
           onClick={onResetLayout}
@@ -1715,89 +1962,3 @@ function ViewControls({
   );
 }
 
-interface MobileListProps {
-  path: ReadingPath;
-  color: string;
-  byId: Map<string, GraphNode>;
-  selectedNodeId: string | null;
-  onNodeClick: (id: string) => void;
-}
-
-function MobileList({
-  path,
-  color,
-  byId,
-  selectedNodeId,
-  onNodeClick,
-}: MobileListProps) {
-  return (
-    <section className="flex flex-col gap-3">
-      <header className="flex flex-col gap-1 px-1">
-        <div className="flex items-center gap-2">
-          <span
-            className="w-1.5 h-1.5 rounded-full shrink-0"
-            style={{ backgroundColor: color }}
-          />
-          <h2 className="text-[12px] font-medium tracking-[0.12em] uppercase text-text-secondary">
-            {path.title}
-          </h2>
-        </div>
-        <p className="text-[11px] text-text-muted/80 leading-relaxed pl-4 max-w-2xl">
-          {path.description}
-        </p>
-      </header>
-      <div className="relative pl-4">
-        <div
-          className="absolute left-[7px] top-3 bottom-3 w-px"
-          style={{
-            backgroundColor: `color-mix(in srgb, ${color} 40%, transparent)`,
-          }}
-        />
-        <div className="flex flex-col gap-1.5">
-          {path.nodes.map((pn, idx) => {
-            const real = byId.get(pn.id);
-            const isSelected = selectedNodeId === pn.id;
-            const isPhantom = !real;
-            return (
-              <button
-                key={pn.id}
-                onClick={() => !isPhantom && onNodeClick(pn.id)}
-                disabled={isPhantom}
-                className={`relative flex items-start gap-3 p-2.5 pr-3 text-left rounded-lg transition-all ${
-                  isPhantom ? "cursor-not-allowed opacity-45" : "cursor-pointer"
-                }`}
-                style={{
-                  backgroundColor:
-                    "color-mix(in srgb, var(--text-primary) 5%, transparent)",
-                  boxShadow: isSelected
-                    ? `inset 0 0 0 1.5px ${color}`
-                    : "inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 8%, transparent)",
-                }}
-              >
-                <span
-                  className="absolute -left-[11px] top-1/2 -translate-y-1/2 w-[9px] h-[9px] rounded-full border-2"
-                  style={{
-                    backgroundColor: "var(--graph-bg, #262626)",
-                    borderColor: isPhantom
-                      ? `color-mix(in srgb, var(--text-primary) 30%, transparent)`
-                      : real?.color ?? color,
-                  }}
-                />
-                <span className="text-[9px] text-text-muted/60 tabular-nums shrink-0 font-medium pt-[1px]">
-                  {String(idx + 1).padStart(2, "0")}
-                </span>
-                <span
-                  className={`text-[12px] leading-tight ${
-                    isSelected ? "text-text-primary" : "text-text-secondary"
-                  }`}
-                >
-                  {real?.title ?? pn.id}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
