@@ -44,7 +44,6 @@ const CANVAS_BOTTOM_PADDING = 100;
 const OFFSETS_STORAGE_KEY = "apeiron-path-offsets";
 
 type PointXY = { x: number; y: number };
-type PathOffsets = Record<string, PointXY>;
 
 interface BasePlacement {
   path: ReadingPath;
@@ -149,7 +148,183 @@ interface MegaLayout {
   height: number;
 }
 
-function computeMegaLayout(offsets: PathOffsets): MegaLayout {
+// Per-frame stiffness of the weak "return to base" position spring.
+// Low enough that the link-spring wave dominates during motion.
+const POS_K = 0.018;
+// Per-frame stiffness of the shape-preserving spring on each layout edge.
+// Main source of the jiggle — cursor yanks propagate through the link graph.
+const LINK_K = 0.065;
+// Velocity retained per frame (<1). Lower = overdamped, higher = more oscillation.
+const DAMPING = 0.86;
+// Sleep threshold in content pixels — sim halts per-path when below.
+const EPS = 0.08;
+
+interface SimNode {
+  key: string;
+  pathId: string;
+  nodeId: string;
+  kind: "category" | "node";
+  bx: number;
+  by: number;
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  width: number;
+  height: number;
+  color: string;
+  title?: string;
+  orderIndex?: number;
+}
+
+interface SimLink {
+  from: string;
+  to: string;
+  restDx: number;
+  restDy: number;
+}
+
+interface PathSim {
+  pathId: string;
+  color: string;
+  nodes: Map<string, SimNode>;
+  links: SimLink[];
+  categoryKey: string | null;
+  committedOffset: PointXY;
+  liveOffset: PointXY;
+  dragging: boolean;
+  hot: boolean;
+}
+
+function initSims(): Map<string, PathSim> {
+  const sims = new Map<string, PathSim>();
+  for (const p of BASE.placements) {
+    const nodes = new Map<string, SimNode>();
+    const byLocalId = new Map<string, SimNode>();
+    let categoryKey: string | null = null;
+
+    for (const n of p.layout.nodes) {
+      const key = `${p.path.id}::${n.id}`;
+      const bx = n.x + p.baseOffsetX;
+      const by = n.y + p.baseOffsetY;
+      const kind: "category" | "node" =
+        n.kind === "category" ? "category" : "node";
+      const sn: SimNode = {
+        key,
+        pathId: p.path.id,
+        nodeId: n.id,
+        kind,
+        bx,
+        by,
+        x: bx,
+        y: by,
+        vx: 0,
+        vy: 0,
+        width: p.layout.nodeWidth,
+        height: p.layout.nodeHeight,
+        color: p.color,
+        title: kind === "category" ? p.path.title : undefined,
+        orderIndex: kind === "category" ? undefined : p.orderMap.get(n.id),
+      };
+      nodes.set(key, sn);
+      byLocalId.set(n.id, sn);
+      if (kind === "category") categoryKey = key;
+    }
+
+    const links: SimLink[] = [];
+    for (const e of p.layout.edges) {
+      const a = byLocalId.get(e.from);
+      const b = byLocalId.get(e.to);
+      if (!a || !b) continue;
+      links.push({
+        from: a.key,
+        to: b.key,
+        restDx: b.bx - a.bx,
+        restDy: b.by - a.by,
+      });
+    }
+
+    sims.set(p.path.id, {
+      pathId: p.path.id,
+      color: p.color,
+      nodes,
+      links,
+      categoryKey,
+      committedOffset: { x: 0, y: 0 },
+      liveOffset: { x: 0, y: 0 },
+      dragging: false,
+      hot: false,
+    });
+  }
+  return sims;
+}
+
+function stepSim(sim: PathSim): boolean {
+  const offX = sim.dragging ? sim.liveOffset.x : sim.committedOffset.x;
+  const offY = sim.dragging ? sim.liveOffset.y : sim.committedOffset.y;
+  const catKey = sim.dragging ? sim.categoryKey : null;
+
+  for (const n of sim.nodes.values()) {
+    if (n.key === catKey) continue;
+    n.vx += (n.bx + offX - n.x) * POS_K;
+    n.vy += (n.by + offY - n.y) * POS_K;
+  }
+
+  for (const link of sim.links) {
+    const a = sim.nodes.get(link.from);
+    const b = sim.nodes.get(link.to);
+    if (!a || !b) continue;
+    const errX = b.x - a.x - link.restDx;
+    const errY = b.y - a.y - link.restDy;
+    const fx = errX * LINK_K;
+    const fy = errY * LINK_K;
+    if (a.key !== catKey) {
+      a.vx += fx;
+      a.vy += fy;
+    }
+    if (b.key !== catKey) {
+      b.vx -= fx;
+      b.vy -= fy;
+    }
+  }
+
+  let hot = sim.dragging;
+  for (const n of sim.nodes.values()) {
+    if (n.key === catKey) {
+      n.x = n.bx + offX;
+      n.y = n.by + offY;
+      n.vx = 0;
+      n.vy = 0;
+      continue;
+    }
+    n.vx *= DAMPING;
+    n.vy *= DAMPING;
+    n.x += n.vx;
+    n.y += n.vy;
+    if (
+      Math.abs(n.vx) > EPS ||
+      Math.abs(n.vy) > EPS ||
+      Math.abs(n.x - n.bx - offX) > EPS ||
+      Math.abs(n.y - n.by - offY) > EPS
+    ) {
+      hot = true;
+    }
+  }
+
+  if (!hot) {
+    for (const n of sim.nodes.values()) {
+      n.x = n.bx + offX;
+      n.y = n.by + offY;
+      n.vx = 0;
+      n.vy = 0;
+    }
+  }
+
+  sim.hot = hot;
+  return hot;
+}
+
+function buildMegaLayout(sims: Map<string, PathSim>): MegaLayout {
   const nodes: MegaNode[] = [];
   const edges: MegaEdge[] = [];
 
@@ -163,62 +338,59 @@ function computeMegaLayout(offsets: PathOffsets): MegaLayout {
     width: BASE.apeiron.width,
     height: BASE.apeiron.height,
     color: "#d8d8e0",
-    title: "Apeiron",
+    title: "Apeirron",
   });
 
   let maxX = BASE.apeiron.x + BASE.apeiron.width;
   let maxY = BASE.apeiron.y + BASE.apeiron.height;
 
-  for (const p of BASE.placements) {
-    const off = offsets[p.path.id] ?? { x: 0, y: 0 };
-    const ox = p.baseOffsetX + off.x;
-    const oy = p.baseOffsetY + off.y;
-
-    for (const n of p.layout.nodes) {
-      const absX = n.x + ox;
-      const absY = n.y + oy;
+  for (const sim of sims.values()) {
+    for (const n of sim.nodes.values()) {
       nodes.push({
-        key: `${p.path.id}::${n.id}`,
-        pathId: p.path.id,
-        nodeId: n.id,
-        kind: n.kind === "category" ? "category" : "node",
-        x: absX,
-        y: absY,
-        width: p.layout.nodeWidth,
-        height: p.layout.nodeHeight,
-        color: p.color,
-        title: n.kind === "category" ? p.path.title : undefined,
-        orderIndex:
-          n.kind === "category" ? undefined : p.orderMap.get(n.id),
+        key: n.key,
+        pathId: n.pathId,
+        nodeId: n.nodeId,
+        kind: n.kind,
+        x: n.x,
+        y: n.y,
+        width: n.width,
+        height: n.height,
+        color: n.color,
+        title: n.title,
+        orderIndex: n.orderIndex,
       });
-      if (absX + p.layout.nodeWidth > maxX) maxX = absX + p.layout.nodeWidth;
-      if (absY + p.layout.nodeHeight > maxY) maxY = absY + p.layout.nodeHeight;
+      if (n.x + n.width > maxX) maxX = n.x + n.width;
+      if (n.y + n.height > maxY) maxY = n.y + n.height;
     }
 
-    for (const e of p.layout.edges) {
+    for (const link of sim.links) {
+      const a = sim.nodes.get(link.from);
+      const b = sim.nodes.get(link.to);
+      if (!a || !b) continue;
       edges.push({
-        key: `${p.path.id}::${e.from}->${e.to}`,
-        color: p.color,
-        x1: e.x1 + ox,
-        y1: e.y1 + oy,
-        x2: e.x2 + ox,
-        y2: e.y2 + oy,
+        key: `${link.from}->${link.to}`,
+        color: sim.color,
+        x1: a.x + a.width / 2,
+        y1: a.y + a.height,
+        x2: b.x + b.width / 2,
+        y2: b.y,
         emphasis: "normal",
       });
     }
 
-    const cat = p.layout.nodes.find((n) => n.kind === "category");
-    if (cat) {
-      const catCenterX = cat.x + ox + p.layout.nodeWidth / 2;
-      edges.push({
-        key: `hub->${p.path.id}`,
-        color: p.color,
-        x1: BASE.apeiron.x + BASE.apeiron.width / 2,
-        y1: BASE.apeiron.y + BASE.apeiron.height,
-        x2: catCenterX,
-        y2: cat.y + oy,
-        emphasis: "hub",
-      });
+    if (sim.categoryKey) {
+      const cat = sim.nodes.get(sim.categoryKey);
+      if (cat) {
+        edges.push({
+          key: `hub->${sim.pathId}`,
+          color: sim.color,
+          x1: BASE.apeiron.x + BASE.apeiron.width / 2,
+          y1: BASE.apeiron.y + BASE.apeiron.height,
+          x2: cat.x + cat.width / 2,
+          y2: cat.y,
+          emphasis: "hub",
+        });
+      }
     }
   }
 
@@ -240,53 +412,141 @@ export default function PathsGraph({
     [graphData.nodes]
   );
 
-  const [pathOffsets, setPathOffsets] = useState<PathOffsets>({});
+  const simsRef = useRef<Map<string, PathSim> | null>(null);
+  if (simsRef.current === null) {
+    simsRef.current = initSims();
+  }
+
+  const [tick, setTick] = useState(0);
   const [draggingPathId, setDraggingPathId] = useState<string | null>(null);
   const [transform, setTransform] = useState({ x: 0, y: 0, scale: 1 });
   const transformRef = useRef(transform);
+
+  const rafRef = useRef<number | null>(null);
+  const runningRef = useRef(false);
+
+  const ensureRunning = useCallback(() => {
+    if (runningRef.current) return;
+    runningRef.current = true;
+    const loop = () => {
+      const sims = simsRef.current;
+      let anyHot = false;
+      if (sims) {
+        for (const sim of sims.values()) {
+          if (sim.hot && stepSim(sim)) anyHot = true;
+        }
+      }
+      setTick((t) => t + 1);
+      if (anyHot) {
+        rafRef.current = requestAnimationFrame(loop);
+      } else {
+        runningRef.current = false;
+        rafRef.current = null;
+      }
+    };
+    rafRef.current = requestAnimationFrame(loop);
+  }, []);
 
   useEffect(() => {
     transformRef.current = transform;
   }, [transform]);
 
   useEffect(() => {
+    const sims = simsRef.current;
+    if (!sims) return;
     try {
       const saved = localStorage.getItem(OFFSETS_STORAGE_KEY);
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        if (parsed && typeof parsed === "object") setPathOffsets(parsed);
+      if (!saved) return;
+      const parsed = JSON.parse(saved);
+      if (!parsed || typeof parsed !== "object") return;
+      for (const [pathId, val] of Object.entries(parsed)) {
+        const sim = sims.get(pathId);
+        if (!sim || !val || typeof val !== "object") continue;
+        const v = val as { x?: number; y?: number };
+        const off = { x: v.x ?? 0, y: v.y ?? 0 };
+        sim.committedOffset = off;
+        sim.liveOffset = { ...off };
+        for (const n of sim.nodes.values()) {
+          n.x = n.bx + off.x;
+          n.y = n.by + off.y;
+          n.vx = 0;
+          n.vy = 0;
+        }
       }
+      setTick((t) => t + 1);
     } catch {}
   }, []);
 
   useEffect(() => {
-    try {
-      localStorage.setItem(OFFSETS_STORAGE_KEY, JSON.stringify(pathOffsets));
-    } catch {}
-  }, [pathOffsets]);
+    return () => {
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+      runningRef.current = false;
+    };
+  }, []);
 
-  const megaLayout = useMemo(() => computeMegaLayout(pathOffsets), [pathOffsets]);
+  const persistOffsets = useCallback(() => {
+    const sims = simsRef.current;
+    if (!sims) return;
+    try {
+      const offsets: Record<string, PointXY> = {};
+      for (const [id, sim] of sims) {
+        if (sim.committedOffset.x !== 0 || sim.committedOffset.y !== 0) {
+          offsets[id] = { ...sim.committedOffset };
+        }
+      }
+      localStorage.setItem(OFFSETS_STORAGE_KEY, JSON.stringify(offsets));
+    } catch {}
+  }, []);
+
+  const megaLayout = useMemo(
+    () => buildMegaLayout(simsRef.current!),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [tick]
+  );
+
+  const hasDrags = useMemo(() => {
+    const sims = simsRef.current;
+    if (!sims) return false;
+    for (const sim of sims.values()) {
+      if (sim.committedOffset.x !== 0 || sim.committedOffset.y !== 0) return true;
+    }
+    return false;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tick]);
 
   const handleCategoryPointerDown = useCallback(
     (e: React.PointerEvent, pathId: string) => {
       e.stopPropagation();
+      const sims = simsRef.current;
+      if (!sims) return;
+      const sim = sims.get(pathId);
+      if (!sim) return;
+
       const startClientX = e.clientX;
       const startClientY = e.clientY;
-      const startOffset = pathOffsets[pathId] ?? { x: 0, y: 0 };
+      const startOffset = { ...sim.committedOffset };
+      sim.liveOffset = { ...startOffset };
+      sim.dragging = true;
+      sim.hot = true;
       setDraggingPathId(pathId);
+      ensureRunning();
 
       const handleMove = (ev: PointerEvent) => {
         const scale = transformRef.current.scale || 1;
         const dx = (ev.clientX - startClientX) / scale;
         const dy = (ev.clientY - startClientY) / scale;
-        setPathOffsets((prev) => ({
-          ...prev,
-          [pathId]: { x: startOffset.x + dx, y: startOffset.y + dy },
-        }));
+        sim.liveOffset = { x: startOffset.x + dx, y: startOffset.y + dy };
+        sim.hot = true;
       };
 
       const handleUp = () => {
+        sim.committedOffset = { ...sim.liveOffset };
+        sim.dragging = false;
+        sim.hot = true;
         setDraggingPathId(null);
+        persistOffsets();
+        ensureRunning();
         window.removeEventListener("pointermove", handleMove);
         window.removeEventListener("pointerup", handleUp);
         window.removeEventListener("pointercancel", handleUp);
@@ -296,12 +556,20 @@ export default function PathsGraph({
       window.addEventListener("pointerup", handleUp);
       window.addEventListener("pointercancel", handleUp);
     },
-    [pathOffsets]
+    [ensureRunning, persistOffsets]
   );
 
   const handleResetLayout = useCallback(() => {
-    setPathOffsets({});
-  }, []);
+    const sims = simsRef.current;
+    if (!sims) return;
+    for (const sim of sims.values()) {
+      sim.committedOffset = { x: 0, y: 0 };
+      sim.liveOffset = { x: 0, y: 0 };
+      sim.hot = true;
+    }
+    persistOffsets();
+    ensureRunning();
+  }, [ensureRunning, persistOffsets]);
 
   return (
     <div
@@ -315,7 +583,7 @@ export default function PathsGraph({
           contentWidth={megaLayout.width}
           contentHeight={megaLayout.height}
           onResetLayout={handleResetLayout}
-          hasDrags={Object.keys(pathOffsets).length > 0}
+          hasDrags={hasDrags}
         >
           <MegaDiagram
             layout={megaLayout}
