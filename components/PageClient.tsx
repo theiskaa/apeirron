@@ -7,9 +7,12 @@ import Navbar from "./Navbar";
 import TabBar, { type Tab } from "./TabBar";
 import NodeView from "./NodeView";
 import CommandPalette from "./CommandPalette";
-import ExplorerPanel from "./ExplorerPanel";
+import ViewModeToggle, { type ViewMode } from "./ViewModeToggle";
 
 const Graph = dynamic(() => import("./Graph"), { ssr: false });
+const PathsGraph = dynamic(() => import("./PathsGraph"), { ssr: false });
+
+const VIEW_MODE_STORAGE_KEY = "apeirron-view-mode";
 
 const GRAPH_TAB: Tab = { id: "graph", type: "graph" };
 
@@ -29,8 +32,24 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
     initialNodeId ? `node:${initialNodeId}` : "graph"
   );
   const [paletteOpen, setPaletteOpen] = useState(false);
-  const [explorerOpen, setExplorerOpen] = useState(false);
   const [focusNodeId, setFocusNodeId] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<ViewMode>("connections");
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(VIEW_MODE_STORAGE_KEY);
+      if (saved === "connections" || saved === "paths") {
+        setViewMode(saved);
+      }
+    } catch {}
+  }, []);
+
+  const handleViewModeChange = useCallback((mode: ViewMode) => {
+    setViewMode(mode);
+    try {
+      localStorage.setItem(VIEW_MODE_STORAGE_KEY, mode);
+    } catch {}
+  }, []);
 
   const activeTab = useMemo(
     () => tabs.find((t) => t.id === activeTabId) ?? GRAPH_TAB,
@@ -81,10 +100,6 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
         setPaletteOpen((v) => !v);
-      }
-      if ((e.metaKey || e.ctrlKey) && e.key === "b") {
-        e.preventDefault();
-        setExplorerOpen((v) => !v);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -137,23 +152,32 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
 
   const showGraph = activeTab.type === "graph";
   const openSearch = useCallback(() => setPaletteOpen(true), []);
-  const toggleExplorer = useCallback(() => setExplorerOpen((v) => !v), []);
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
       <div className={`absolute inset-0 ${showGraph ? "z-0" : "z-[-1] pointer-events-none"}`}>
-        <Graph
-          graphData={graphData}
-          onNodeClick={handleNodeClick}
-          selectedNodeId={selectedNodeOnGraph}
-          focusNodeId={focusNodeId}
-        />
+        {viewMode === "connections" ? (
+          <Graph
+            graphData={graphData}
+            onNodeClick={handleNodeClick}
+            selectedNodeId={selectedNodeOnGraph}
+            focusNodeId={focusNodeId}
+          />
+        ) : (
+          <PathsGraph
+            graphData={graphData}
+            onNodeClick={handleNodeClick}
+            selectedNodeId={selectedNodeOnGraph}
+            focusNodeId={focusNodeId}
+            paused={!showGraph}
+          />
+        )}
       </div>
 
       {activeNode && !showGraph && (
         <div className="absolute inset-0 bg-background overflow-hidden">
           <div className="flex flex-col h-full">
-            <Navbar onLogoClick={() => setActiveTabId("graph")} onSearchClick={openSearch} onExplorerToggle={toggleExplorer} explorerOpen={explorerOpen} />
+            <Navbar onLogoClick={() => setActiveTabId("graph")} onSearchClick={openSearch} />
             {hasNodeTabs && (
               <TabBar
                 tabs={tabs}
@@ -177,7 +201,7 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
 
       {showGraph && (
         <div className="absolute top-0 left-0 right-0 z-10">
-          <Navbar onLogoClick={() => setActiveTabId("graph")} onSearchClick={openSearch} onExplorerToggle={toggleExplorer} explorerOpen={explorerOpen} />
+          <Navbar onLogoClick={() => setActiveTabId("graph")} onSearchClick={openSearch} />
           {hasNodeTabs && (
             <TabBar
               tabs={tabs}
@@ -190,12 +214,11 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
         </div>
       )}
 
-      <ExplorerPanel
-        nodes={graphData.nodes}
-        open={explorerOpen}
-        onClose={() => setExplorerOpen(false)}
-        onNodeSelect={handleNodeClick}
-      />
+      {showGraph && (
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
+          <ViewModeToggle mode={viewMode} onChange={handleViewModeChange} />
+        </div>
+      )}
 
       <CommandPalette
         nodes={graphData.nodes}
