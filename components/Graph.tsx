@@ -44,13 +44,20 @@ interface Props {
   onNodeClick: (nodeId: string) => void;
   selectedNodeId: string | null;
   focusNodeId: string | null;
+  paused?: boolean;
 }
+
+// alphaTarget floor — keeps the sim subtly drifting forever instead of
+// decaying to a hard freeze. Library overrides this to 0 on drag-end so
+// we re-apply it in handleNodeDragEnd.
+const ALPHA_TARGET = 0.02;
 
 export default function Graph({
   graphData,
   onNodeClick,
   selectedNodeId,
   focusNodeId,
+  paused = false,
 }: Props) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const fgRef = useRef<any>(null);
@@ -60,6 +67,10 @@ export default function Graph({
   const hoveredNodeRef = useRef<string | null>(null);
   const tappedNodeRef = useRef<string | null>(null);
   const hoverStartTime = useRef<number>(0);
+  // Persists across effect re-runs so a width change during mount (which
+  // previously re-armed auto-fit with a fresh closure) can't override an
+  // interaction that already happened.
+  const userTookOverRef = useRef(false);
   const [graphBg, setGraphBg] = useState("#262626");
   const themeVars = useRef({
     line: "rgba(90,90,105,0.18)",
@@ -116,7 +127,10 @@ export default function Graph({
     return () => observer.disconnect();
   }, []);
 
-  // Configure forces on mount — scale physics based on screen size
+  // Force configuration — scales with viewport so mobile/desktop feel the
+  // same. Re-runs on width change. Deliberately does NOT schedule auto-fit
+  // or attach interaction listeners: those belong in a mount-only effect
+  // (below) so a stray width change can't re-arm them.
   useEffect(() => {
     const fg = fgRef.current;
     if (!fg) return;
@@ -131,8 +145,6 @@ export default function Graph({
     fg.d3Force("charge").strength(chargeStrength).distanceMax(chargeMax);
     fg.d3Force("link").distance(linkDist).strength(linkStr);
     fg.d3Force("center", null);
-    // Hard non-overlap. Collide uses the *max* zoom-inflated radius so circles
-    // never visually touch, even when zoomed out (where world-radius inflates).
     fg.d3Force(
       "collide",
       forceCollide()
@@ -144,20 +156,66 @@ export default function Graph({
         .strength(1)
         .iterations(3)
     );
-
-    const p = isMobile ? 40 : 120;
-    // Multiple fit passes to track the still-alive simulation as it spreads.
-    // With 100+ nodes the graph keeps expanding for several seconds — a single
-    // early fit leaves nodes drifting off-screen.
-    const t1 = setTimeout(() => fg.zoomToFit(400, p), 300);
-    const t2 = setTimeout(() => fg.zoomToFit(600, p), 1200);
-    const t3 = setTimeout(() => fg.zoomToFit(800, p), 2800);
-    const t4 = setTimeout(() => fg.zoomToFit(800, p), 5000);
-    const t5 = setTimeout(() => fg.zoomToFit(1000, p), 8000);
-
-    return () => { clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4); clearTimeout(t5); };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // Permanent alpha floor so the sim never decays to a hard freeze.
+    // Set imperatively because the prop isn't in the library's TS types.
+    fg.d3AlphaTarget?.(ALPHA_TARGET);
   }, [dimensions.width]);
+
+  // Mount-only: one auto-fit pass + capture-phase listeners that cancel it
+  // on the first genuine user interaction. userTookOverRef is module-scoped
+  // to this component instance so no closure reset can un-remember it.
+  useEffect(() => {
+    const container = containerRef.current;
+    let cancelled = false;
+    let fitTimer: number | null = null;
+    let rafId: number | null = null;
+
+    const schedule = () => {
+      const fg = fgRef.current;
+      if (!fg) {
+        rafId = requestAnimationFrame(schedule);
+        return;
+      }
+      const isMobile = window.innerWidth < 768;
+      const p = isMobile ? 40 : 120;
+      fitTimer = window.setTimeout(() => {
+        if (cancelled || userTookOverRef.current) return;
+        fg.zoomToFit(500, p);
+      }, 300);
+    };
+    rafId = requestAnimationFrame(schedule);
+
+    const takeOver = () => {
+      if (userTookOverRef.current) return;
+      userTookOverRef.current = true;
+      if (fitTimer !== null) clearTimeout(fitTimer);
+    };
+    const capture: AddEventListenerOptions = { capture: true, passive: true };
+    container?.addEventListener("wheel", takeOver, capture);
+    container?.addEventListener("pointerdown", takeOver, capture);
+    container?.addEventListener("touchstart", takeOver, capture);
+
+    return () => {
+      cancelled = true;
+      if (fitTimer !== null) clearTimeout(fitTimer);
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      container?.removeEventListener("wheel", takeOver, capture);
+      container?.removeEventListener("pointerdown", takeOver, capture);
+      container?.removeEventListener("touchstart", takeOver, capture);
+    };
+  }, []);
+
+  // Pause/resume the library's render loop when this graph is hidden by
+  // PageClient. Preserves node positions / alpha / velocities across toggles.
+  useEffect(() => {
+    const fg = fgRef.current;
+    if (!fg) return;
+    if (paused) {
+      fg.pauseAnimation?.();
+    } else {
+      fg.resumeAnimation?.();
+    }
+  }, [paused]);
 
   useEffect(() => {
     if (!focusNodeId || !fgRef.current) return;
@@ -205,14 +263,51 @@ export default function Graph({
     []
   );
 
-  // Drag end: release node — it's alive again, gently finds new equilibrium
-  // The simulation was already reheated by the drag, so connected nodes
-  // adjust around the new position. Low alpha decay means it settles slowly.
+  // Zero net linear momentum each tick. With alphaTarget > 0 the sim runs
+  // forever; tiny numerical asymmetries in charge/collide accumulate into a
+  // net velocity that slowly translates the whole graph. Subtracting the
+  // mean velocity every tick pins the centroid without altering relative
+  // motion, so layout still breathes in place.
+  const handleEngineTick = useCallback(() => {
+    // d3-force mutates the node objects we pass in as props, adding
+    // vx/vy/x/y in place — so reading graphData.nodes here is the live sim
+    // state, not a stale copy.
+    const nodes = graphData.nodes as unknown as Array<{
+      vx?: number;
+      vy?: number;
+      fx?: number | null;
+      fy?: number | null;
+    }>;
+    if (!nodes.length) return;
+    let sumVx = 0;
+    let sumVy = 0;
+    let count = 0;
+    for (const n of nodes) {
+      if (n.fx != null || n.fy != null) continue; // skip pinned (dragged)
+      sumVx += n.vx ?? 0;
+      sumVy += n.vy ?? 0;
+      count++;
+    }
+    if (!count) return;
+    const avgVx = sumVx / count;
+    const avgVy = sumVy / count;
+    for (const n of nodes) {
+      if (n.fx != null || n.fy != null) continue;
+      n.vx = (n.vx ?? 0) - avgVx;
+      n.vy = (n.vy ?? 0) - avgVy;
+    }
+  }, [graphData.nodes]);
+
+  // Drag end: release node, then restore the permanent alpha floor. The
+  // library stomps alphaTarget → 0 internally on dragEnd ("release engine
+  // low intensity") — without this re-apply, the sim would decay to a hard
+  // freeze after the first drag.
   const handleNodeDragEnd = useCallback(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (node: any) => {
       node.fx = undefined;
       node.fy = undefined;
+      fgRef.current?.d3AlphaTarget?.(ALPHA_TARGET);
     },
     []
   );
@@ -485,10 +580,11 @@ export default function Graph({
         onBackgroundClick={handleBackgroundClick}
         onNodeDrag={handleNodeDrag}
         onNodeDragEnd={handleNodeDragEnd}
+        onEngineTick={handleEngineTick}
         backgroundColor={graphBg}
         onRenderFramePre={paintBefore}
-        warmupTicks={150}
-        d3AlphaDecay={0.04}
+        warmupTicks={30}
+        d3AlphaDecay={0.008}
         d3AlphaMin={0}
         cooldownTime={Infinity}
         d3VelocityDecay={0.4}

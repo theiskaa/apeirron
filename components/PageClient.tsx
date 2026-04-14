@@ -155,23 +155,37 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
+      {/* Both graphs stay mounted; the inactive one is hidden via opacity
+          (not display:none, which would zero the container width and
+          re-trigger Graph's ResizeObserver / force-config effect). Each
+          receives a `paused` prop so its render loop halts while hidden. */}
       <div className={`absolute inset-0 ${showGraph ? "z-0" : "z-[-1] pointer-events-none"}`}>
-        {viewMode === "connections" ? (
+        <div
+          className={`absolute inset-0 transition-opacity duration-150 ${
+            viewMode === "connections" ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+        >
           <Graph
             graphData={graphData}
             onNodeClick={handleNodeClick}
             selectedNodeId={selectedNodeOnGraph}
             focusNodeId={focusNodeId}
+            paused={viewMode !== "connections" || !showGraph}
           />
-        ) : (
+        </div>
+        <div
+          className={`absolute inset-0 transition-opacity duration-150 ${
+            viewMode === "paths" ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+        >
           <PathsGraph
             graphData={graphData}
             onNodeClick={handleNodeClick}
             selectedNodeId={selectedNodeOnGraph}
             focusNodeId={focusNodeId}
-            paused={!showGraph}
+            paused={viewMode !== "paths" || !showGraph}
           />
-        )}
+        </div>
       </div>
 
       {activeNode && !showGraph && (
