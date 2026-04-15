@@ -191,16 +191,18 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
       {activeNode && !showGraph && (
         <div className="absolute inset-0 bg-background overflow-hidden">
           <div className="flex flex-col h-full">
-            <Navbar onLogoClick={() => setActiveTabId("graph")} onSearchClick={openSearch} />
-            {hasNodeTabs && (
-              <TabBar
-                tabs={tabs}
-                activeTabId={activeTabId}
-                nodes={graphData.nodes}
-                onSelectTab={handleSelectTab}
-                onCloseTab={handleCloseTab}
-              />
-            )}
+            <div className="chrome-surface sticky top-0 z-10" style={{ borderTop: "none", borderLeft: "none", borderRight: "none" }}>
+              <Navbar onLogoClick={() => setActiveTabId("graph")} onSearchClick={openSearch} />
+              {hasNodeTabs && (
+                <TabBar
+                  tabs={tabs}
+                  activeTabId={activeTabId}
+                  nodes={graphData.nodes}
+                  onSelectTab={handleSelectTab}
+                  onCloseTab={handleCloseTab}
+                />
+              )}
+            </div>
             <div className="flex-1 overflow-hidden">
               <NodeView
                 node={activeNode}
@@ -214,7 +216,10 @@ export default function PageClient({ graphData, initialNodeId }: Props) {
       )}
 
       {showGraph && (
-        <div className="absolute top-0 left-0 right-0 z-10">
+        <div
+          className="chrome-surface absolute top-0 left-0 right-0 z-10"
+          style={{ borderTop: "none", borderLeft: "none", borderRight: "none" }}
+        >
           <Navbar onLogoClick={() => setActiveTabId("graph")} onSearchClick={openSearch} />
           {hasNodeTabs && (
             <TabBar

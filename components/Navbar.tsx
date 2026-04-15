@@ -14,38 +14,34 @@ export default function Navbar({ onLogoClick, onSearchClick }: Props) {
       <span className="text-[15px] font-semibold tracking-[0.14em] text-text-primary leading-tight capitalize">
         Apeirron
       </span>
-      <span className="hidden md:block text-[10px] text-text-muted tracking-[0.06em]">
+      <span className="hidden md:block text-[10px] text-text-muted tracking-[0.06em] mt-0.5">
         Biggest questions humanity asks
       </span>
     </div>
   );
 
   return (
-    <nav className="relative z-10 flex items-center justify-between px-3 md:px-8 pt-10 md:pt-7 pb-4 shrink-0">
+    <nav className="relative z-10 flex items-center justify-between px-4 md:px-8 h-14 md:h-16 shrink-0">
       {onLogoClick ? (
         <button
           onClick={onLogoClick}
-          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+          className="flex items-center gap-3 rounded-lg px-1 -mx-1 hover:opacity-80 transition-opacity"
         >
           {logoContent}
         </button>
       ) : (
         <Link
           href="/"
-          className="flex items-center gap-3 hover:opacity-80 transition-opacity"
+          className="flex items-center gap-3 rounded-lg px-1 -mx-1 hover:opacity-80 transition-opacity"
         >
           {logoContent}
         </Link>
       )}
-      <div className="flex items-center gap-2 md:gap-4">
+      <div className="flex items-center gap-1.5 md:gap-2">
         {onSearchClick && (
           <button
             onClick={onSearchClick}
-            className="flex items-center justify-center gap-2 px-3 py-1.5 rounded-full text-text-muted hover:text-text-secondary transition-all text-[11px] tracking-wide leading-none"
-            style={{
-              backgroundColor: "color-mix(in srgb, var(--text-primary) 5%, transparent)",
-              boxShadow: "inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 10%, transparent)",
-            }}
+            className="chrome h-8 inline-flex items-center gap-2 px-3 rounded-full text-text-secondary hover:text-text-primary text-[12px] tracking-wide leading-none"
             aria-label="Search nodes"
           >
             <svg
@@ -62,16 +58,12 @@ export default function Navbar({ onLogoClick, onSearchClick }: Props) {
               <line x1="21" y1="21" x2="16.65" y2="16.65" />
             </svg>
             <span className="hidden sm:inline">Search</span>
-            <kbd className="hidden md:inline text-[10px] text-text-muted/70 ml-1">⌘K</kbd>
+            <kbd className="hidden md:inline text-[10px] text-text-muted ml-1 font-sans">⌘K</kbd>
           </button>
         )}
         <Link
           href="/contribute"
-          className="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-full text-text-muted hover:text-text-secondary transition-all text-[11px] tracking-wide leading-none"
-          style={{
-            backgroundColor: "color-mix(in srgb, var(--text-primary) 5%, transparent)",
-            boxShadow: "inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 10%, transparent)",
-          }}
+          className="chrome h-8 inline-flex items-center gap-1.5 px-3 rounded-full text-text-secondary hover:text-text-primary text-[12px] tracking-wide leading-none"
         >
           <svg
             width="12"
@@ -92,12 +84,12 @@ export default function Navbar({ onLogoClick, onSearchClick }: Props) {
           href="https://github.com/theiskaa/apeirron"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-text-muted hover:text-text-primary transition-colors"
+          className="chrome h-8 w-8 inline-flex items-center justify-center rounded-full text-text-secondary hover:text-text-primary"
           aria-label="GitHub repository"
         >
           <svg
-            width="18"
-            height="18"
+            width="15"
+            height="15"
             viewBox="0 0 24 24"
             fill="currentColor"
           >

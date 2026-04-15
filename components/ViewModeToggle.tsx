@@ -10,14 +10,8 @@ interface Props {
 export default function ViewModeToggle({ mode, onChange }: Props) {
   return (
     <div
-      className="pointer-events-auto inline-flex items-center gap-1 p-1 rounded-full"
-      style={{
-        backgroundColor: "color-mix(in srgb, var(--text-primary) 5%, transparent)",
-        boxShadow:
-          "inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 10%, transparent)",
-        backdropFilter: "blur(6px)",
-        WebkitBackdropFilter: "blur(6px)",
-      }}
+      className="chrome-surface pointer-events-auto inline-flex items-center gap-1 p-1 rounded-full"
+      style={{ boxShadow: "var(--chrome-shadow)" }}
     >
       <ModeButton
         active={mode === "connections"}
@@ -88,17 +82,15 @@ function ModeButton({ active, onClick, label, icon }: ButtonProps) {
   return (
     <button
       onClick={onClick}
-      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all text-[11px] tracking-wide leading-none ${
-        active
-          ? "text-text-secondary"
+      className={`h-7 inline-flex items-center gap-1.5 px-3 rounded-full text-[12px] tracking-wide leading-none transition-colors duration-[120ms]
+        ${active
+          ? "text-text-primary"
           : "text-text-muted hover:text-text-secondary"
-      }`}
+        }`}
       style={{
-        backgroundColor: active
-          ? "color-mix(in srgb, var(--text-primary) 9%, transparent)"
-          : "transparent",
+        backgroundColor: active ? "var(--accent-soft)" : "transparent",
         boxShadow: active
-          ? "inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 15%, transparent)"
+          ? "inset 0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent)"
           : "none",
       }}
       aria-pressed={active}

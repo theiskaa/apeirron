@@ -26,7 +26,11 @@ export default function TabBar({
   const nodeMap = new Map(nodes.map((n) => [n.id, n]));
 
   return (
-    <div role="tablist" aria-label="Open tabs" className="relative z-10 flex items-center gap-2 px-3 md:px-8 py-1.5 overflow-x-auto no-scrollbar">
+    <div
+      role="tablist"
+      aria-label="Open tabs"
+      className="relative z-10 flex items-center gap-1.5 px-4 md:px-8 py-2 overflow-x-auto no-scrollbar"
+    >
       {tabs.map((tab) => {
         const isActive = tab.id === activeTabId;
         const isGraph = tab.type === "graph";
@@ -39,30 +43,36 @@ export default function TabBar({
             aria-selected={isActive}
             aria-label={isGraph ? "Graph view" : node?.title ?? "Unknown node"}
             onClick={() => onSelectTab(tab.id)}
-            className={`group flex items-center gap-1.5 py-1 px-2.5 text-[11px] rounded-full shrink-0 transition-all duration-150
+            className={`group h-7 inline-flex items-center gap-1.5 px-3 text-[12px] rounded-full shrink-0 transition-colors duration-[120ms]
               ${isActive
-                ? "text-text-primary ring-1"
-                : "text-text-muted hover:text-text-secondary hover:bg-text-primary/[0.04]"
+                ? "text-text-primary"
+                : "text-text-muted hover:text-text-secondary"
               }
-              ${isActive ? "" : "max-w-[140px]"}
+              ${isActive ? "" : "max-w-[160px]"}
             `}
-            style={isActive ? (isGraph ? {
-              backgroundColor: "color-mix(in srgb, var(--text-primary) 7%, transparent)",
-              boxShadow: "inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 13%, transparent)",
-            } : {
-              backgroundColor: `${node?.color ?? "#666"}11`,
-              boxShadow: `inset 0 0 0 1px ${node?.color ?? "#666"}22`,
-            }) : undefined}
+            style={
+              isActive
+                ? isGraph
+                  ? {
+                      backgroundColor: "var(--chrome-fill-active)",
+                      boxShadow: "inset 0 0 0 1px var(--border-strong)",
+                    }
+                  : {
+                      backgroundColor: `${node?.color ?? "#666"}14`,
+                      boxShadow: `inset 0 0 0 1px ${node?.color ?? "#666"}33`,
+                    }
+                : undefined
+            }
           >
             {isGraph ? (
               <svg
-                width="10"
-                height="10"
+                width="11"
+                height="11"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2.5"
-                className="shrink-0 opacity-50"
+                className="shrink-0 opacity-60"
               >
                 <circle cx="6" cy="6" r="3" />
                 <circle cx="18" cy="18" r="3" />
@@ -72,7 +82,7 @@ export default function TabBar({
               </svg>
             ) : (
               <span
-                className="w-[6px] h-[6px] rounded-full shrink-0"
+                className="w-[7px] h-[7px] rounded-full shrink-0"
                 style={{ backgroundColor: node?.color ?? "#666" }}
               />
             )}
@@ -89,22 +99,22 @@ export default function TabBar({
                   e.stopPropagation();
                   onCloseTab(tab.id);
                 }}
-                className={`shrink-0 rounded-full flex items-center justify-center
+                className={`shrink-0 w-4 h-4 rounded-full inline-flex items-center justify-center
                   hover:bg-text-primary/10 hover:text-text-primary
-                  transition-all duration-200 origin-center
+                  transition-opacity duration-[120ms]
                   ${isActive
-                    ? "w-5 h-5 opacity-40 hover:opacity-100 scale-100 ml-0.5"
-                    : "w-0 h-0 opacity-0 scale-0 group-hover:w-5 group-hover:h-5 group-hover:opacity-40 group-hover:scale-100 group-hover:ml-0.5 hover:!opacity-100"
+                    ? "opacity-50 hover:opacity-100 ml-0.5"
+                    : "opacity-0 group-hover:opacity-50 group-hover:ml-0.5 hover:!opacity-100"
                   }
                 `}
               >
                 <svg
-                  width="8"
-                  height="8"
+                  width="9"
+                  height="9"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="3"
+                  strokeWidth="2.5"
                   strokeLinecap="round"
                   className="block"
                 >

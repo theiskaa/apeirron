@@ -6,10 +6,33 @@
 :root {
   --background: #ffffff;
   --surface: #f5f5f7;
+  --surface-elevated: #ffffff;
   --border: #e4e4e8;
+  --border-subtle: rgba(26, 26, 30, 0.08);
+  --border-strong: rgba(26, 26, 30, 0.16);
   --text-primary: #1a1a1e;
   --text-secondary: #5a5a6e;
   --text-muted: #9090a0;
+
+  /* Accent — cool blue, matches existing node-link color family */
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-soft: rgba(59, 130, 246, 0.09);
+  --accent-ring: rgba(59, 130, 246, 0.35);
+
+  /* Chrome — floating UI (navbar, toggle, modals) */
+  --chrome-bg: rgba(248, 248, 250, 0.72);
+  --chrome-border: rgba(26, 26, 30, 0.04);
+  --chrome-fill: rgba(26, 26, 30, 0.05);
+  --chrome-fill-hover: rgba(26, 26, 30, 0.08);
+  --chrome-fill-active: rgba(26, 26, 30, 0.1);
+  --chrome-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.08);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+  --dur-fast: 120ms;
+  --dur-base: 180ms;
+
   --graph-bg: #f8f8fa;
   --graph-line: rgba(100, 100, 120, 0.18);
   --graph-line-hover: rgba(80, 80, 100, 0.45);
@@ -24,13 +47,29 @@
 
 /* Dark theme */
 .dark {
-  --background: #262626;
-  --surface: #2e2e2e;
+  --background: #1b1b1d;
+  --surface: #232325;
+  --surface-elevated: #2a2a2d;
   --border: #3a3a3a;
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.14);
   --text-primary: #dcdcdc;
-  --text-secondary: #8888a0;
-  --text-muted: #55556a;
-  --graph-bg: #262626;
+  --text-secondary: #a0a0b0;
+  --text-muted: #6a6a7a;
+
+  --accent: #60a5fa;
+  --accent-hover: #93c5fd;
+  --accent-soft: rgba(96, 165, 250, 0.12);
+  --accent-ring: rgba(96, 165, 250, 0.4);
+
+  --chrome-bg: rgba(27, 27, 29, 0.92);
+  --chrome-border: rgba(255, 255, 255, 0.04);
+  --chrome-fill: rgba(255, 255, 255, 0.05);
+  --chrome-fill-hover: rgba(255, 255, 255, 0.08);
+  --chrome-fill-active: rgba(255, 255, 255, 0.11);
+  --chrome-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.4);
+
+  --graph-bg: #1b1b1d;
   --graph-line: rgba(90, 90, 105, 0.25);
   --graph-line-hover: rgba(150, 150, 165, 0.55);
   --graph-line-dim: rgba(70, 70, 80, 0.06);
@@ -217,9 +256,42 @@ body {
 }
 
 *:focus-visible {
-  outline: 2px solid var(--text-muted);
+  outline: 2px solid var(--accent-ring);
   outline-offset: 2px;
-  border-radius: 4px;
+  border-radius: 6px;
+}
+
+/* Reusable chrome primitive — applied to floating UI (buttons, toggles,
+   modals). Gives consistent surface hierarchy without repeating color-mix
+   inline. */
+.chrome {
+  background-color: var(--chrome-fill);
+  border: 1px solid var(--chrome-border);
+  transition: background-color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+.chrome:hover:not(:disabled) {
+  background-color: var(--chrome-fill-hover);
+  border-color: var(--border-strong);
+}
+.chrome:active:not(:disabled) {
+  background-color: var(--chrome-fill-active);
+  transform: scale(0.97);
+}
+.chrome[aria-pressed="true"],
+.chrome[data-active="true"] {
+  background-color: var(--chrome-fill-active);
+  border-color: var(--border-strong);
+}
+
+/* Floating surface — blurred, bordered, shadowed. For navbar + modals. */
+.chrome-surface {
+  background-color: var(--chrome-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--chrome-border);
 }
 
 /* Respect reduced motion preference */

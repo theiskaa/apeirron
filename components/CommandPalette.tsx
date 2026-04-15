@@ -110,7 +110,12 @@ export default function CommandPalette({ nodes, open, onClose, onSelect }: Props
       className="fixed inset-0 z-50 flex items-start justify-center pt-[18vh] transition-opacity duration-150"
       style={{ opacity: open ? 1 : 0 }}
     >
-      <div className="absolute inset-0 bg-black/15 dark:bg-black/30 backdrop-blur-sm" onClick={onClose} aria-hidden="true" />
+      <div
+        className="absolute inset-0 backdrop-blur-[2px]"
+        style={{ backgroundColor: "rgb(0 0 0 / 0.35)" }}
+        onClick={onClose}
+        aria-hidden="true"
+      />
 
       <div
         role="dialog"
@@ -144,7 +149,14 @@ export default function CommandPalette({ nodes, open, onClose, onSelect }: Props
           }
         }}
       >
-        <div className="flex items-center gap-3 px-5 h-12 bg-[var(--surface)] rounded-full shadow-2xl shadow-black/10 dark:shadow-black/30 ring-1 ring-black/[0.06] dark:ring-white/[0.08] focus-within:ring-2 focus-within:ring-black/[0.12] dark:focus-within:ring-white/[0.15] transition-shadow">
+        <div
+          className="flex items-center gap-3 px-5 h-12 rounded-full transition-shadow"
+          style={{
+            backgroundColor: "var(--surface-elevated)",
+            boxShadow: "var(--chrome-shadow)",
+            border: "1px solid var(--border-subtle)",
+          }}
+        >
           <svg
             width="16"
             height="16"
@@ -165,11 +177,18 @@ export default function CommandPalette({ nodes, open, onClose, onSelect }: Props
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search nodes..."
-            className="flex-1 bg-transparent text-[15px] text-text-primary placeholder:text-text-muted outline-none focus:outline-none focus:ring-0"
+            className="flex-1 bg-transparent text-[14px] text-text-primary placeholder:text-text-muted outline-none focus:outline-none focus:ring-0"
           />
         </div>
 
-        <div className="mt-2 bg-[var(--surface)] rounded-2xl shadow-2xl shadow-black/10 dark:shadow-black/30 ring-1 ring-black/[0.06] dark:ring-white/[0.08] overflow-hidden">
+        <div
+          className="mt-2 rounded-2xl overflow-hidden"
+          style={{
+            backgroundColor: "var(--surface-elevated)",
+            boxShadow: "var(--chrome-shadow)",
+            border: "1px solid var(--border-subtle)",
+          }}
+        >
           {hasNoResults ? (
             <div className="px-5 py-6 text-center text-sm text-text-muted">
               No matching nodes
@@ -180,26 +199,37 @@ export default function CommandPalette({ nodes, open, onClose, onSelect }: Props
                 let flatIdx = 0;
                 return grouped.map((group) => (
                   <div key={group.label}>
-                    <div className="flex items-center gap-2 px-4 pt-3 pb-1.5">
+                    <div className="flex items-center gap-2 px-4 pt-3 pb-1">
                       <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: group.color }} />
-                      <span className="text-[10px] font-semibold uppercase tracking-wider text-text-muted">
+                      <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-text-muted">
                         {group.label}
                       </span>
                     </div>
                     {group.nodes.map((node) => {
                       const idx = flatIdx++;
+                      const selected = idx === selectedIndex;
                       return (
                         <button
                           key={node.id}
                           role="option"
-                          aria-selected={idx === selectedIndex}
+                          aria-selected={selected}
                           onClick={() => handleSelect(node.id)}
                           onMouseEnter={() => setSelectedIndex(idx)}
-                          className={`w-full flex items-center gap-3 px-4 py-2 text-left transition-colors rounded-xl ${
-                            idx === selectedIndex ? "bg-black/[0.04] dark:bg-white/[0.06]" : ""
-                          }`}
+                          className="w-full flex items-center gap-3 px-4 py-2 text-left transition-colors rounded-xl"
+                          style={{
+                            backgroundColor: selected
+                              ? "var(--accent-soft)"
+                              : "transparent",
+                          }}
                         >
-                          <span className="text-[13px] text-text-primary truncate">
+                          <span
+                            className="text-[13px] truncate"
+                            style={{
+                              color: selected
+                                ? "var(--text-primary)"
+                                : "var(--text-secondary)",
+                            }}
+                          >
                             {node.title}
                           </span>
                         </button>
@@ -211,29 +241,42 @@ export default function CommandPalette({ nodes, open, onClose, onSelect }: Props
             </div>
           ) : (
             <div ref={listRef} role="listbox" className="max-h-72 overflow-y-auto py-1.5 px-1.5 no-scrollbar">
-              {filtered.map((node, i) => (
-                <button
-                  key={node.id}
-                  role="option"
-                  aria-selected={i === selectedIndex}
-                  onClick={() => handleSelect(node.id)}
-                  onMouseEnter={() => setSelectedIndex(i)}
-                  className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors rounded-xl ${
-                    i === selectedIndex ? "bg-black/[0.04] dark:bg-white/[0.06]" : ""
-                  }`}
-                >
-                  <span
-                    className="w-2 h-2 rounded-full shrink-0"
-                    style={{ backgroundColor: node.color }}
-                  />
-                  <span className="text-[14px] text-text-primary truncate">
-                    {node.title}
-                  </span>
-                  <span className="ml-auto text-[11px] text-text-muted shrink-0">
-                    {node.category.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
-                  </span>
-                </button>
-              ))}
+              {filtered.map((node, i) => {
+                const selected = i === selectedIndex;
+                return (
+                  <button
+                    key={node.id}
+                    role="option"
+                    aria-selected={selected}
+                    onClick={() => handleSelect(node.id)}
+                    onMouseEnter={() => setSelectedIndex(i)}
+                    className="w-full flex items-center gap-3 px-4 py-2 text-left transition-colors rounded-xl"
+                    style={{
+                      backgroundColor: selected
+                        ? "var(--accent-soft)"
+                        : "transparent",
+                    }}
+                  >
+                    <span
+                      className="w-2 h-2 rounded-full shrink-0"
+                      style={{ backgroundColor: node.color }}
+                    />
+                    <span
+                      className="text-[13px] truncate"
+                      style={{
+                        color: selected
+                          ? "var(--text-primary)"
+                          : "var(--text-secondary)",
+                      }}
+                    >
+                      {node.title}
+                    </span>
+                    <span className="ml-auto text-[11px] text-text-muted shrink-0">
+                      {node.category.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           )}
         </div>
