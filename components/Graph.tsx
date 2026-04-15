@@ -51,6 +51,10 @@ interface Props {
 // decaying to a hard freeze. Library overrides this to 0 on drag-end so
 // we re-apply it in handleNodeDragEnd.
 const ALPHA_TARGET = 0.02;
+// Number of initial ticks during which we recenter the centroid each frame.
+// At d3AlphaDecay=0.008 the sim reaches ~alphaTarget around ~250 ticks; this
+// covers the chaotic spread-out phase plus a safety margin.
+const RECENTER_TICKS = 300;
 
 export default function Graph({
   graphData,
@@ -71,6 +75,10 @@ export default function Graph({
   // previously re-armed auto-fit with a fresh closure) can't override an
   // interaction that already happened.
   const userTookOverRef = useRef(false);
+  // Counts ticks since mount. While below RECENTER_TICKS we pull the
+  // centroid back to the origin each tick; after that we only damp
+  // velocity, so drag-release doesn't snap the graph back.
+  const tickCountRef = useRef(0);
   const [graphBg, setGraphBg] = useState("#262626");
   const themeVars = useRef({
     line: "rgba(90,90,105,0.18)",
@@ -263,36 +271,54 @@ export default function Graph({
     []
   );
 
-  // Zero net linear momentum each tick. With alphaTarget > 0 the sim runs
-  // forever; tiny numerical asymmetries in charge/collide accumulate into a
-  // net velocity that slowly translates the whole graph. Subtracting the
-  // mean velocity every tick pins the centroid without altering relative
-  // motion, so layout still breathes in place.
+  // Zero net linear momentum each tick, and also recenter the position
+  // centroid during the first RECENTER_TICKS ticks. With alphaTarget > 0
+  // the sim runs forever; tiny numerical asymmetries in charge/collide
+  // accumulate into a net velocity that slowly translates the whole graph.
+  // Velocity damping pins future drift. The initial chaotic spread-out
+  // phase also shifts the centroid (random initial positions + strong
+  // charge), so during that window we additionally subtract the mean
+  // position. After the window we leave positions alone, so drag-release
+  // won't snap the graph back.
   const handleEngineTick = useCallback(() => {
     // d3-force mutates the node objects we pass in as props, adding
     // vx/vy/x/y in place — so reading graphData.nodes here is the live sim
     // state, not a stale copy.
     const nodes = graphData.nodes as unknown as Array<{
+      x?: number;
+      y?: number;
       vx?: number;
       vy?: number;
       fx?: number | null;
       fy?: number | null;
     }>;
     if (!nodes.length) return;
+    tickCountRef.current++;
+    const recenterPos = tickCountRef.current <= RECENTER_TICKS;
+    let sumX = 0;
+    let sumY = 0;
     let sumVx = 0;
     let sumVy = 0;
     let count = 0;
     for (const n of nodes) {
       if (n.fx != null || n.fy != null) continue; // skip pinned (dragged)
+      sumX += n.x ?? 0;
+      sumY += n.y ?? 0;
       sumVx += n.vx ?? 0;
       sumVy += n.vy ?? 0;
       count++;
     }
     if (!count) return;
+    const avgX = sumX / count;
+    const avgY = sumY / count;
     const avgVx = sumVx / count;
     const avgVy = sumVy / count;
     for (const n of nodes) {
       if (n.fx != null || n.fy != null) continue;
+      if (recenterPos) {
+        n.x = (n.x ?? 0) - avgX;
+        n.y = (n.y ?? 0) - avgY;
+      }
       n.vx = (n.vx ?? 0) - avgVx;
       n.vy = (n.vy ?? 0) - avgVy;
     }
@@ -583,7 +609,7 @@ export default function Graph({
         onEngineTick={handleEngineTick}
         backgroundColor={graphBg}
         onRenderFramePre={paintBefore}
-        warmupTicks={30}
+        warmupTicks={0}
         d3AlphaDecay={0.008}
         d3AlphaMin={0}
         cooldownTime={Infinity}
