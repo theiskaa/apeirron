@@ -41,7 +41,7 @@ export default function Navbar({ onLogoClick, onSearchClick }: Props) {
         {onSearchClick && (
           <button
             onClick={onSearchClick}
-            className="chrome h-8 inline-flex items-center gap-2 px-3 rounded-full text-text-secondary hover:text-text-primary text-[12px] tracking-wide leading-none"
+            className="chrome h-8 w-8 sm:w-auto inline-flex items-center justify-center sm:gap-2 sm:px-3 rounded-full text-text-secondary hover:text-text-primary text-[12px] tracking-wide leading-none"
             aria-label="Search nodes"
           >
             <svg
@@ -63,7 +63,7 @@ export default function Navbar({ onLogoClick, onSearchClick }: Props) {
         )}
         <Link
           href="/contribute"
-          className="chrome h-8 inline-flex items-center gap-1.5 px-3 rounded-full text-text-secondary hover:text-text-primary text-[12px] tracking-wide leading-none"
+          className="chrome h-8 w-8 sm:w-auto inline-flex items-center justify-center sm:gap-1.5 sm:px-3 rounded-full text-text-secondary hover:text-text-primary text-[12px] tracking-wide leading-none"
         >
           <svg
             width="12"
