@@ -1,4 +1,4 @@
-export type ThemeId = "light" | "dark" | "warm";
+export type ThemeId = "light" | "dark" | "warm" | "black";
 
 export interface ThemeDef {
   id: ThemeId;
@@ -9,6 +9,7 @@ export const THEMES: ThemeDef[] = [
   { id: "light", label: "Light" },
   { id: "dark", label: "Dark" },
   { id: "warm", label: "Warm" },
+  { id: "black", label: "Black" },
 ];
 
 export const DEFAULT_THEME: ThemeId = "light";

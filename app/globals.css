@@ -123,6 +123,44 @@
   --graph-traverse-head-rgb: 155, 110, 60;
 }
 
+/* True-black theme — pure #000, OLED-friendly */
+.black {
+  --background: #000000;
+  --surface: #0a0a0a;
+  --surface-elevated: #141414;
+  --border: #1f1f1f;
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.13);
+  --text-primary: #eaeaea;
+  --text-secondary: #9a9a9a;
+  --text-muted: #5e5e5e;
+
+  --accent: #60a5fa;
+  --accent-hover: #93c5fd;
+  --accent-soft: rgba(96, 165, 250, 0.1);
+  --accent-ring: rgba(96, 165, 250, 0.4);
+
+  --chrome-bg: rgba(0, 0, 0, 0.92);
+  --chrome-border: rgba(255, 255, 255, 0.03);
+  --chrome-fill: rgba(255, 255, 255, 0.04);
+  --chrome-fill-hover: rgba(255, 255, 255, 0.07);
+  --chrome-fill-active: rgba(255, 255, 255, 0.1);
+  --chrome-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.6);
+
+  --graph-bg: #000000;
+  --graph-line: rgba(130, 130, 150, 0.45);
+  --graph-line-hover: rgba(185, 185, 210, 0.75);
+  --graph-line-dim: rgba(110, 110, 130, 0.12);
+  --graph-node-dim: rgba(100, 100, 115, 0.38);
+  --graph-label: rgba(180, 180, 200, 0.65);
+  --graph-label-hover: rgba(240, 240, 250, 0.95);
+  --graph-label-dim: rgba(180, 180, 200, 0.14);
+  --graph-grid: rgba(170, 170, 190, 0.06);
+  --graph-ring: rgba(240, 240, 250, 0.45);
+  --graph-traverse-trail: rgba(110, 110, 130, 0.18);
+  --graph-traverse-head-rgb: 190, 190, 215;
+}
+
 html {
   color-scheme: light;
 }
@@ -133,6 +171,10 @@ html.dark {
 
 html.warm {
   color-scheme: light;
+}
+
+html.black {
+  color-scheme: dark;
 }
 
 body {
