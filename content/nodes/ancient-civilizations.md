@@ -25,6 +25,8 @@ connections:
     reason: "Pythagoras is the principal Greek witness for the alternative thesis — explicitly attributing his doctrines to Egyptian and Babylonian priesthoods whose own origins were already mysterious to the Greeks of his period."
   - target: "piri-reis-map"
     reason: "If Hapgood's reading of the Piri Reis map's southern coastline is correct, the underlying survey data predates the glaciation of Antarctica — making the map a surviving documentary artifact of exactly the kind of pre-Holocene maritime civilization the broader lost-civilization thesis requires."
+  - target: "thule-vril"
+    reason: "Ariosophy is the ethno-nationalist variant of the lost-civilization framework. Same anomalies, same evidentiary base as Hancock's universalist synthesis, but overlaid with a racial-mythological interpretation that identifies the destroyed predecessor specifically as the Aryan homeland. The specific case where esoteric lost-civilization material was successfully weaponized for political purposes."
 ---
 
 Around 11,600 years ago, the Earth changed. The Younger Dryas — a sudden, catastrophic return to ice-age conditions — ended as abruptly as it began. Sea levels rose dramatically. Coastlines that had been inhabited for millennia vanished under water. And somewhere in this cataclysm, something may have been lost.

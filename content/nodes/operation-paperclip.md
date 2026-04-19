@@ -27,6 +27,8 @@ connections:
     reason: "Paperclip absorbed the Nazis who surrendered; High Jump conspiracy theory concerns those who allegedly didn't — the Neuschwabenland/Base 211 Antarctic enclave — both addressing the postwar disposition of Reich personnel."
   - target: "project-monarch"
     reason: "Monarch theory traces its trauma-based techniques to Mengele's concentration camp experiments, and Paperclip is the institutional mechanism by which such transfer would have occurred."
+  - target: "thule-vril"
+    reason: "The Thule-Ariosophical substrate that produced the ideological frame for the Third Reich's scientific establishment is the upstream culture from which the Paperclip recruits came — the occult-inflected Völkisch-scientific milieu of the Ahnenerbe, the Peenemünde program, and the Luftwaffe research directorates. What crossed the 1945 boundary is partly documented and partly still classified."
 ---
 
 On May 22, 1945 — fourteen days after Germany's unconditional surrender — a thirty-three-year-old SS officer named Wernher von Braun sat in a military hospital in Reutte, Austria, his left arm in a cast from a car accident weeks earlier, and waited for the Americans to decide what to do with him. Von Braun had surrendered voluntarily, along with his brother Magnus and several hundred members of his rocket engineering team, choosing the Americans over the Soviets with the deliberate calculation of a man who understood that his skills were his only currency. He was right. Within months, von Braun and 118 of his colleagues were on their way to the United States under a program so secret that the President of the United States did not know the full truth about the men he had authorized to enter the country.

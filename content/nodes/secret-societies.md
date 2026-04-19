@@ -37,6 +37,8 @@ connections:
     reason: "Saturn worship — under the names El, Kronos, Moloch, and Saturn — is alleged to be the hidden religion threading through secret societies from the ancient mystery schools to modern elite orders, with the Black Cube as its recurring symbol across millennia."
   - target: "princess-diana"
     reason: "The symbolism of Pont de l'Alma ('bridge of the soul'), the 13th pillar, and esoteric readings of the crash site have produced a substantial occult literature."
+  - target: "thule-vril"
+    reason: "The Thule Society is the twentieth-century case where a small occult order successfully delivered its ideological substrate to a mass political movement that took state power — the documented working example of what every secret-society claim gestures toward, with catastrophic historical consequences."
   - target: "celebrity-27-club"
     reason: "The Faustian-bargain and blood-sacrifice narratives — Robert Johnson's crossroads as template — are central to the occult interpretation of the 27 Club."
 ---
