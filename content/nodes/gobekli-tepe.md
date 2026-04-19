@@ -13,6 +13,8 @@ connections:
     reason: "The geometric layout of Göbekli Tepe's enclosures — precise circles, consistent pillar spacing, and astronomical alignments to specific star systems — encodes the same mathematical relationships that appear in sacred geometry traditions thousands of years later."
   - target: "younger-dryas"
     reason: "Göbekli Tepe is the smoking gun of the Younger Dryas survivor-civilization thesis — built ~9,600 BCE, within decades of the Younger Dryas ending, by people the conventional account says were pre-agricultural hunter-gatherers with no architectural tradition. Too sophisticated, too early, too sudden to fit any other explanation."
+  - target: "piri-reis-map"
+    reason: "Parallel anomalies at opposite ends of the Holocene — Göbekli Tepe's impossible sophistication at its start, the Piri Reis map's impossible cartography at its end. Both require a source of technical knowledge the credited culture did not generate, and the same lost-predecessor framework accounts for both."
 ---
 
 In 1994, a German archaeologist named Klaus Schmidt visited a hilltop in southeastern Turkey that local farmers had been plowing around for generations. The hill was called Göbekli Tepe — "Potbelly Hill" in Turkish — a rounded mound rising about 15 meters above the surrounding plateau of the Germuş range, roughly 12 kilometers northeast of the city of Şanlıurfa. The site had been briefly surveyed in 1963 by a joint team from the University of Istanbul and the University of Chicago, who noted some broken limestone slabs protruding from the surface and classified them as the remnants of a medieval cemetery. They moved on. For thirty years, no one came back.

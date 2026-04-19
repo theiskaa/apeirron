@@ -23,6 +23,8 @@ connections:
     reason: "The Younger Dryas Impact Hypothesis is the scientific anchor for the entire alternative-history thesis — without it the anomalies are scattered; with it, an Ice Age civilization destroyed by comet impact at 12,800 BP becomes the unifying narrative."
   - target: "pythagoras"
     reason: "Pythagoras is the principal Greek witness for the alternative thesis — explicitly attributing his doctrines to Egyptian and Babylonian priesthoods whose own origins were already mysterious to the Greeks of his period."
+  - target: "piri-reis-map"
+    reason: "If Hapgood's reading of the Piri Reis map's southern coastline is correct, the underlying survey data predates the glaciation of Antarctica — making the map a surviving documentary artifact of exactly the kind of pre-Holocene maritime civilization the broader lost-civilization thesis requires."
 ---
 
 Around 11,600 years ago, the Earth changed. The Younger Dryas — a sudden, catastrophic return to ice-age conditions — ended as abruptly as it began. Sea levels rose dramatically. Coastlines that had been inhabited for millennia vanished under water. And somewhere in this cataclysm, something may have been lost.

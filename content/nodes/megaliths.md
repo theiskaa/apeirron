@@ -19,6 +19,8 @@ connections:
     reason: "The Nephilim tradition — Genesis 6, the Anakim and Rephaim, Og of Bashan, Goliath of Gath — is one of the principal sources of the modern claim that megalithic structures were built by giants whose physical capabilities exceeded those of ordinary humans. If the giants existed, Baalbek and the Great Pyramid become significantly easier to understand."
   - target: "younger-dryas"
     reason: "The unexplained engineering precision of the Great Pyramid, Baalbek, Puma Punku, and Tiahuanaco is hard to account for if those cultures had only just emerged from hunter-gatherer subsistence — but readily explained if they inherited their knowledge from a destroyed predecessor civilization the Younger Dryas catastrophe ended."
+  - target: "piri-reis-map"
+    reason: "Same inheritance question in a different medium. What the Great Pyramid preserves in stone, the Piri Reis map may preserve on parchment — technical output exceeding what the credited culture could produce from its own resources, pointing toward a prior source of knowledge the later culture only partially inherited."
 ---
 
 The Great Pyramid of Giza contains approximately 2.3 million stone blocks, averaging 2.5 tons each, with some granite blocks in the King's Chamber weighing over 80 tons. These were quarried, transported hundreds of miles, and placed with a precision of 1/50th of an inch. The base is level to within 2.1 centimeters across 13 acres. The sides are aligned to true north with an error of 3/60th of a degree — more accurate than the Royal Greenwich Observatory.
