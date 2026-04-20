@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contribute — Apeirron",
   description: "Propose a new node for the Apeirron knowledge graph.",
+  alternates: { canonical: "/contribute" },
 };
 
 interface Props {
