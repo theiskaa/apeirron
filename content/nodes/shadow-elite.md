@@ -65,6 +65,8 @@ connections:
     reason: "Churchill's Room 40 foreknowledge of U-20's position, the withdrawal of HMS Juno's escort, Grey's political need for an American entry incident, and JP Morgan's financial interest in Allied victory represent an Anglo-American elite network operating beyond democratic accountability."
   - target: "color-revolutions"
     reason: "NED, USAID, Freedom House, and Open Society Foundations are funded by and serve the transatlantic policy elite that operates through the CFR and Bilderberg. Color Revolution methodology is the export arm of shadow-elite preferences."
+  - target: "operation-glasnost"
+    reason: "The Harvard Institute for International Development's Russia Project (1992-97) — Sachs, Summers, Shleifer, USAID-funded, directing the voucher privatization and loans-for-shares auctions that created the oligarch class and transferred Soviet-era strategic assets at one-tenth of their five-year-later market value — produced, per UN and Russian Academy of Sciences figures, the largest non-wartime demographic collapse in modern European history. Janine Wedel's *Collision and Collusion* named it the textbook 'flex network' case: shadow-elite methodology applied at the scale of an entire state's strategic assets, with Harvard paying $26.5M to settle the federal fraud suit in 2005."
 ---
 
 In 1966, Carroll Quigley — a professor of history at Georgetown University's School of Foreign Service and mentor to a young Bill Clinton — published a 1,348-page book called *Tragedy and Hope: A History of the World in Our Time*. Buried in this massive academic history was a passage that would make Quigley the most cited author in conspiracy literature for the next half century:
