@@ -15,6 +15,7 @@ import type {
   GraphNode,
   GraphLink,
 } from "./types";
+import { getNodeGitDates } from "./git-dates";
 
 const CONTENT_DIR = path.join(process.cwd(), "content", "nodes");
 const CATEGORIES_PATH = path.join(process.cwd(), "content", "categories.json");
@@ -170,6 +171,7 @@ export async function buildGraphData(): Promise<GraphData> {
       const cat = categoryMap.get(node.frontmatter.category);
       let contentHtml = await markdownToHtml(node.content);
       contentHtml = resolveWikiLinks(contentHtml, nodeById, nodeByTitle, phantomIds);
+      const dates = getNodeGitDates(node.slug);
       return {
         id: node.frontmatter.id,
         title: node.frontmatter.title,
@@ -177,6 +179,8 @@ export async function buildGraphData(): Promise<GraphData> {
         color: cat?.color ?? "#666666",
         val: connectionCount.get(node.frontmatter.id) ?? 1,
         contentHtml,
+        publishedAt: dates.published.toISOString(),
+        updatedAt: dates.modified.toISOString(),
       };
     })
   );
