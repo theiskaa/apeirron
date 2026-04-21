@@ -5,16 +5,10 @@ initOpenNextCloudflareForDev();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "apeirron.com" }],
-        destination: "https://www.apeirron.com/:path*",
-        permanent: true,
-      },
-    ];
-  },
+  // NOTE: apex (apeirron.com) → www (www.apeirron.com) redirect is handled by
+  // a Cloudflare Redirect Rule at the edge, not here. @opennextjs/cloudflare
+  // does not fully interpret Next.js's path-to-regexp placeholders or `has`
+  // predicate — both would leak through as literal strings at runtime.
   async headers() {
     return [
       {
