@@ -11,6 +11,10 @@ const notoGeorgian = Noto_Sans_Georgian({
 
 export const viewport: Viewport = {
   viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8f8fa" },
+    { media: "(prefers-color-scheme: dark)", color: "#1b1b1d" },
+  ],
 };
 
 export const metadata: Metadata = {
