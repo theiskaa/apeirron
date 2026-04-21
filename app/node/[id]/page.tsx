@@ -106,8 +106,7 @@ export default async function NodePage({ params }: Props) {
       return s === id ? t : s;
     });
 
-  const jsonLd: Record<string, unknown> = {
-    "@context": "https://schema.org",
+  const article: Record<string, unknown> = {
     "@type": "Article",
     "@id": `${BASE_URL}/node/${id}#article`,
     headline: graphNode.title,
@@ -132,9 +131,39 @@ export default async function NodePage({ params }: Props) {
   };
 
   if (dates) {
-    jsonLd.datePublished = dates.published.toISOString();
-    jsonLd.dateModified = dates.modified.toISOString();
+    article.datePublished = dates.published.toISOString();
+    article.dateModified = dates.modified.toISOString();
   }
+
+  const breadcrumbs = {
+    "@type": "BreadcrumbList",
+    "@id": `${BASE_URL}/node/${id}#breadcrumbs`,
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: `${BASE_URL}/`,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: category?.label ?? graphNode.category,
+        item: `${BASE_URL}/nodes#category-${graphNode.category}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: graphNode.title,
+        item: `${BASE_URL}/node/${id}`,
+      },
+    ],
+  };
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [article, breadcrumbs],
+  };
 
   return (
     <>

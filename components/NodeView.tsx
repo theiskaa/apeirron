@@ -234,17 +234,22 @@ export default function NodeView({
         )}
 
         <div className="flex-1 min-w-0">
+          <Breadcrumbs
+            categoryId={node.category}
+            categoryLabel={formatCategoryLabel(node.category)}
+            title={node.title}
+          />
           <h1 className="text-3xl font-bold text-text-primary mb-2 leading-tight">
             {node.title}
           </h1>
           <span
-            className="inline-block text-xs font-medium mb-8"
+            className="inline-block text-xs font-medium"
             style={{ color: node.color }}
           >
-            {node.category
-              .replace(/-/g, " ")
-              .replace(/\b\w/g, (c) => c.toUpperCase())}
+            {formatCategoryLabel(node.category)}
           </span>
+          <NodeDates publishedAt={node.publishedAt} updatedAt={node.updatedAt} />
+          <div className="mb-8" />
 
           <div className="hidden lg:block float-right ml-10 mb-6 w-96 xl:w-[420px]">
             <div className="space-y-8">
@@ -824,6 +829,77 @@ function ReadNext({
           </Link>
         ))}
       </div>
+    </div>
+  );
+}
+
+function formatCategoryLabel(id: string): string {
+  return id.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+function Breadcrumbs({
+  categoryId,
+  categoryLabel,
+  title,
+}: {
+  categoryId: string;
+  categoryLabel: string;
+  title: string;
+}) {
+  return (
+    <nav
+      aria-label="Breadcrumb"
+      className="mb-4 text-[11px] flex items-center gap-1.5 flex-wrap"
+    >
+      <Link
+        href="/"
+        className="text-text-muted hover:text-text-secondary transition-colors"
+      >
+        Home
+      </Link>
+      <span aria-hidden="true" className="text-text-muted/40">›</span>
+      <Link
+        href={`/nodes#category-${categoryId}`}
+        className="text-text-muted hover:text-text-secondary transition-colors"
+      >
+        {categoryLabel}
+      </Link>
+      <span aria-hidden="true" className="text-text-muted/40">›</span>
+      <span className="text-text-secondary truncate" aria-current="page">
+        {title}
+      </span>
+    </nav>
+  );
+}
+
+function NodeDates({
+  publishedAt,
+  updatedAt,
+}: {
+  publishedAt?: string;
+  updatedAt?: string;
+}) {
+  if (!publishedAt && !updatedAt) return null;
+  const fmt = (iso: string) =>
+    new Date(iso).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      timeZone: "UTC",
+    });
+  const sameDay =
+    publishedAt && updatedAt && publishedAt.slice(0, 10) === updatedAt.slice(0, 10);
+  return (
+    <div className="mt-1.5 text-[11px] text-text-muted/70 flex items-center gap-2 flex-wrap">
+      {publishedAt && (
+        <time dateTime={publishedAt}>Published {fmt(publishedAt)}</time>
+      )}
+      {updatedAt && !sameDay && (
+        <>
+          <span aria-hidden="true" className="text-text-muted/40">·</span>
+          <time dateTime={updatedAt}>Updated {fmt(updatedAt)}</time>
+        </>
+      )}
     </div>
   );
 }
