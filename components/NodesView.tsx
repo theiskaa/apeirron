@@ -259,6 +259,7 @@ export default function NodesView({ groups, totalCount }: Props) {
                     <li key={node.id}>
                       <Link
                         href={`/node/${node.id}`}
+                        prefetch={false}
                         className="group flex items-baseline gap-2 py-[5px] text-[14px] leading-snug"
                         style={{ color: "var(--text-primary)" }}
                       >

@@ -111,7 +111,10 @@ export default async function Home() {
             <ul>
               {byCategory.get(cat.id)!.map((node) => (
                 <li key={node.frontmatter.id}>
-                  <Link href={`/node/${node.frontmatter.id}`}>
+                  <Link
+                    href={`/node/${node.frontmatter.id}`}
+                    prefetch={false}
+                  >
                     {node.frontmatter.title}
                   </Link>
                 </li>

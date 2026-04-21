@@ -402,6 +402,7 @@ function PhantomNodeView({
               <Link
                 key={r.id}
                 href={`/node/${r.id}`}
+                prefetch={false}
                 onClick={(e) => {
                   if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
                   e.preventDefault();
@@ -586,6 +587,7 @@ function ConnectionReasons({
           <Link
             key={r.id}
             href={`/node/${r.id}`}
+            prefetch={false}
             onClick={(e) => {
               if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
               e.preventDefault();
@@ -759,6 +761,7 @@ function ReadNext({
           <Link
             key={`${s.pathId}-${s.node.id}`}
             href={`/node/${s.node.id}`}
+            prefetch={false}
             onClick={(e) => {
               if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
               e.preventDefault();

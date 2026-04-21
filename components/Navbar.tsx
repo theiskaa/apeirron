@@ -16,6 +16,7 @@ export default function Navbar({ onLogoClick, onSearchClick }: Props) {
     <nav className="relative z-10 flex items-center justify-between px-4 md:px-8 pt-12 md:pt-0 h-24 md:h-16 shrink-0">
       <Link
         href="/"
+        prefetch={false}
         onClick={
           onLogoClick
             ? (e) => {
