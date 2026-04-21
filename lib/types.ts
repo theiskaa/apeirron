@@ -30,6 +30,8 @@ export interface GraphNode {
   val: number;
   contentHtml: string;
   phantom?: boolean;
+  publishedAt?: string;
+  updatedAt?: string;
 }
 
 export interface GraphLink {

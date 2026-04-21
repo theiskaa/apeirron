@@ -11,6 +11,10 @@ const notoGeorgian = Noto_Sans_Georgian({
 
 export const viewport: Viewport = {
   viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8f8fa" },
+    { media: "(prefers-color-scheme: dark)", color: "#1b1b1d" },
+  ],
 };
 
 export const metadata: Metadata = {
@@ -31,7 +35,10 @@ export const metadata: Metadata = {
     "deep dive",
     "interactive graph",
   ],
-  metadataBase: new URL("https://apeirron.com"),
+  metadataBase: new URL("https://www.apeirron.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Apeirron — Biggest questions humanity asks",
     description:

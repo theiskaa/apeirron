@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useEffect, useMemo, useState } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 import type { GraphNode, GraphLink } from "@/lib/types";
 import { READING_PATHS } from "@/lib/paths";
 
@@ -67,6 +68,9 @@ export default function NodeView({
     (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest("[data-node-link]");
       if (target) {
+        // Let the browser handle modifier-clicks (Cmd/Ctrl/Shift/middle) so
+        // users can open links in new tabs or windows.
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
         e.preventDefault();
         const nodeId = target.getAttribute("data-node-link");
         if (nodeId) onNodeClick(nodeId);
@@ -230,17 +234,22 @@ export default function NodeView({
         )}
 
         <div className="flex-1 min-w-0">
+          <Breadcrumbs
+            categoryId={node.category}
+            categoryLabel={formatCategoryLabel(node.category)}
+            title={node.title}
+          />
           <h1 className="text-3xl font-bold text-text-primary mb-2 leading-tight">
             {node.title}
           </h1>
           <span
-            className="inline-block text-xs font-medium mb-8"
+            className="inline-block text-xs font-medium"
             style={{ color: node.color }}
           >
-            {node.category
-              .replace(/-/g, " ")
-              .replace(/\b\w/g, (c) => c.toUpperCase())}
+            {formatCategoryLabel(node.category)}
           </span>
+          <NodeDates publishedAt={node.publishedAt} updatedAt={node.updatedAt} />
+          <div className="mb-8" />
 
           <div className="hidden lg:block float-right ml-10 mb-6 w-96 xl:w-[420px]">
             <div className="space-y-8">
@@ -395,9 +404,14 @@ function PhantomNodeView({
           </h3>
           <div className="space-y-2.5">
             {referencedBy.map((r) => (
-              <button
+              <Link
                 key={r.id}
-                onClick={() => onNodeClick(r.id)}
+                href={`/node/${r.id}`}
+                onClick={(e) => {
+                  if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+                  e.preventDefault();
+                  onNodeClick(r.id);
+                }}
                 className="block w-full text-left group cursor-pointer"
               >
                 <div className="flex gap-2">
@@ -423,7 +437,7 @@ function PhantomNodeView({
                     </span>
                   </div>
                 </div>
-              </button>
+              </Link>
             ))}
           </div>
         </div>
@@ -574,9 +588,14 @@ function ConnectionReasons({
       </h3>
       <div className="space-y-2.5">
         {reasons.map((r) => (
-          <button
+          <Link
             key={r.id}
-            onClick={() => onNodeClick(r.id)}
+            href={`/node/${r.id}`}
+            onClick={(e) => {
+              if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+              e.preventDefault();
+              onNodeClick(r.id);
+            }}
             className="block w-full text-left group cursor-pointer"
           >
             <div className="flex gap-2">
@@ -599,7 +618,7 @@ function ConnectionReasons({
                 </span>
               </div>
             </div>
-          </button>
+          </Link>
         ))}
       </div>
     </div>
@@ -742,9 +761,14 @@ function ReadNext({
         }}
       >
         {suggestions.map((s) => (
-          <button
+          <Link
             key={`${s.pathId}-${s.node.id}`}
-            onClick={() => onNodeClick(s.node.id)}
+            href={`/node/${s.node.id}`}
+            onClick={(e) => {
+              if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+              e.preventDefault();
+              onNodeClick(s.node.id);
+            }}
             className="group text-left rounded-xl p-4 transition-all duration-150 hover:scale-[1.01]"
             style={{
               backgroundColor:
@@ -802,9 +826,80 @@ function ReadNext({
             <p className="text-[12px] text-text-muted/60 group-hover:text-text-muted/80 transition-colors mt-1.5 ml-5 leading-snug">
               {s.hook}
             </p>
-          </button>
+          </Link>
         ))}
       </div>
+    </div>
+  );
+}
+
+function formatCategoryLabel(id: string): string {
+  return id.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+}
+
+function Breadcrumbs({
+  categoryId,
+  categoryLabel,
+  title,
+}: {
+  categoryId: string;
+  categoryLabel: string;
+  title: string;
+}) {
+  return (
+    <nav
+      aria-label="Breadcrumb"
+      className="mb-4 text-[11px] flex items-center gap-1.5 flex-wrap"
+    >
+      <Link
+        href="/"
+        className="text-text-muted hover:text-text-secondary transition-colors"
+      >
+        Home
+      </Link>
+      <span aria-hidden="true" className="text-text-muted/40">›</span>
+      <Link
+        href={`/nodes#category-${categoryId}`}
+        className="text-text-muted hover:text-text-secondary transition-colors"
+      >
+        {categoryLabel}
+      </Link>
+      <span aria-hidden="true" className="text-text-muted/40">›</span>
+      <span className="text-text-secondary truncate" aria-current="page">
+        {title}
+      </span>
+    </nav>
+  );
+}
+
+function NodeDates({
+  publishedAt,
+  updatedAt,
+}: {
+  publishedAt?: string;
+  updatedAt?: string;
+}) {
+  if (!publishedAt && !updatedAt) return null;
+  const fmt = (iso: string) =>
+    new Date(iso).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      timeZone: "UTC",
+    });
+  const sameDay =
+    publishedAt && updatedAt && publishedAt.slice(0, 10) === updatedAt.slice(0, 10);
+  return (
+    <div className="mt-1.5 text-[11px] text-text-muted/70 flex items-center gap-2 flex-wrap">
+      {publishedAt && (
+        <time dateTime={publishedAt}>Published {fmt(publishedAt)}</time>
+      )}
+      {updatedAt && !sameDay && (
+        <>
+          <span aria-hidden="true" className="text-text-muted/40">·</span>
+          <time dateTime={updatedAt}>Updated {fmt(updatedAt)}</time>
+        </>
+      )}
     </div>
   );
 }
