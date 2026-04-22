@@ -9,6 +9,8 @@ connections:
     reason: "Panpsychism tries to solve the hard problem by saying consciousness exists in all matter, so it never had to emerge from nothing."
   - target: "altered-states"
     reason: "Altered states show that subjective experience can change dramatically, which makes the hard problem harder to explain."
+  - target: "nature-of-time"
+    reason: "The felt passage of time has no correlate in fundamental physics, which is time-symmetric and, in the block-universe reading, static. The phenomenal flow is therefore a qualitative feature of experience without a physical basis — a specialized instance of the hard problem in which what needs explaining is not *why red looks red* but *why anything feels like it is happening at all*."
 ---
 
 In 1995, philosopher David Chalmers drew a line through the study of the mind. On one side he placed the "easy problems" — explaining how the brain processes information, integrates sensory data, controls behavior, and produces language. These are staggeringly complex engineering challenges, but they are *tractable*. We know, in principle, what a solution would look like. On the other side he placed a single question: why does any of this processing feel like something from the inside?
