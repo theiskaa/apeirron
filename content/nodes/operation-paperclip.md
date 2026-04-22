@@ -107,7 +107,7 @@ In 1950, the Army transferred von Braun and his core team to the Redstone Arsena
 
 In 1960, von Braun and his team were transferred from the Army to the newly created National Aeronautics and Space Administration. Von Braun was appointed director of NASA's Marshall Space Flight Center in Huntsville, where he led the development of the Saturn family of rockets. The Saturn V — 363 feet tall, generating 7.5 million pounds of thrust at liftoff, capable of delivering 130 tons to low Earth orbit — remains the most powerful operational launch vehicle ever built. It launched every Apollo Moon mission, every Skylab component, and carried the weight of American prestige during the most visible technological competition of the Cold War.
 
-On July 16, 1969, when Saturn V lifted Apollo 11 from Pad 39A at Kennedy Space Center, Wernher von Braun watched from the firing room. Four days later, Neil Armstrong walked on the Moon. The rocket that made it possible had been conceived in the mind of a man who had joined the SS, built weapons with slave labor, and been delivered to America by an intelligence program that falsified his records to make him admissible. The Moon landing is the triumph of Paperclip. It is also its most troubling monument.
+On July 16, 1969, when Saturn V lifted Apollo 11 from Pad 39A at Kennedy Space Center, Wernher von Braun watched from the firing room. Four days later, Neil Armstrong walked on the Moon. The rocket that made it possible had been conceived in the mind of a man who had joined the SS, built weapons with slave labor, and been delivered to America by an intelligence program that falsified his records to make him admissible. The [[moon-landing]] is the triumph of Paperclip. It is also its most troubling monument.
 
 ## The bioweapons pipeline
 
@@ -121,7 +121,7 @@ The biological and chemical weapons pipeline is less documented than the aerospa
 
 ## The mind control inheritance
 
-The most direct and disturbing legacy of Paperclip runs through the CIA's mind control programs. The connection is not speculative. It is documented in the Agency's own files, in congressional testimony, and in the work of historians who have traced the institutional lineage from Nazi interrogation research to the American programs that followed.
+The most direct and disturbing legacy of Paperclip runs through the CIA's mind control programs — the apparatus that became [[mkultra]]. The connection is not speculative. It is documented in the Agency's own files, in congressional testimony, and in the work of historians who have traced the institutional lineage from Nazi interrogation research to the American programs that followed.
 
 At Dachau, SS doctor Kurt Plotner conducted experiments using mescaline as an interrogation tool. Prisoners were given the drug without their knowledge and then questioned under its influence to determine whether it could be used as a "truth serum." The experiments were crude and the results inconclusive, but they produced data — data that was captured by American intelligence teams and incorporated into the earliest U.S. interrogation research programs.
 
