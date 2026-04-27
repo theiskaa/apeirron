@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Render one cover per category (books/assets/cover-<id>.png) at
+// Render one cover per category (public/books/cover-<id>.png) at
 // 1600×2400. Each cover follows the same template so the seven
 // volumes read as a series:
 //
@@ -24,7 +24,11 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const LOGO_PATH = path.join(ROOT, "public", "logo.svg");
 const CATEGORIES_FILE = path.join(ROOT, "content", "categories.json");
-const ASSETS_DIR = path.join(ROOT, "books", "assets");
+// Covers are written under public/books/ so Next.js serves them at
+// /books/cover-<id>.png with the rest of the static bundle. The PDF
+// and EPUB downloads stay in books/ and are fetched from GitHub raw
+// at view time, so the deployed site does not carry their weight.
+const ASSETS_DIR = path.join(ROOT, "public", "books");
 
 const W = 1600;
 const H = 2400;

@@ -296,7 +296,11 @@ function main() {
     // Cover path written relative to project root (where pandoc is
     // invoked from). Pandoc 3.x resolves cover-image against CWD and
     // ignores --resource-path for this metadata field specifically.
-    const coverRel = `books/assets/cover-${cat.id}.png`;
+    // Covers live under public/books/ so the Next.js app can serve
+    // them at /books/cover-<id>.png. Pandoc resolves cover-image
+    // relative to CWD (project root), and cover.tex bakes in the
+    // absolute path computed below — both work from the new location.
+    const coverRel = `public/books/cover-${cat.id}.png`;
     const coverAbs = path.join(ROOT, coverRel);
     const hasCover = fs.existsSync(coverAbs);
     fs.writeFileSync(
