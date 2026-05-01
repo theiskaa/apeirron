@@ -259,13 +259,15 @@ export default function PathsGraph({
   );
 
   // Content-space height that the default focus should fit into vertically.
-  // If there are 3+ rows, we aim to show rows 1 and 2 fully plus ~30% of
-  // row 3 as a "there's more below" hint. Otherwise, null → fit everything.
+  // Anchor on row 1 with a peek of row 2 so the entry categories stay big
+  // enough to read. With 10 dense paths, fitting more rows pushes scale to
+  // ~0.2 and the top titles become unreadable — looks like they're "cut off"
+  // even though they're rendered. If there's only one row, null → fit it.
   const focusHeight = useMemo(() => {
-    if (base.rowTops.length < 3) return null;
-    const row3Top = base.rowTops[2];
-    const peek = base.rowHeights[2] * 0.3;
-    return row3Top + peek;
+    if (base.rowTops.length < 2) return null;
+    const row2Top = base.rowTops[1];
+    const peek = base.rowHeights[1] * 0.3;
+    return row2Top + peek;
   }, [base]);
 
   // Compute the initial focus point from the layout if an initialFocusNodeId
