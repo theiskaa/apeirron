@@ -13,7 +13,7 @@ export default function Navbar({ onLogoClick, onSearchClick }: Props) {
   const logoContent = <Logo className="text-text-primary" height={26} />;
 
   return (
-    <nav className="relative z-10 flex items-center justify-between px-4 md:px-8 pt-12 md:pt-0 h-24 md:h-16 shrink-0">
+    <nav className="relative z-10 flex items-center justify-between px-4 md:px-8 pt-4 md:pt-0 h-16 shrink-0">
       <Link
         href="/"
         prefetch={false}
