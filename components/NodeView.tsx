@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useEffect, useMemo, useState } from "react";
+import { useCallback, useRef, useEffect, useMemo, useState, type ReactNode } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import type { GraphNode, GraphLink } from "@/lib/types";
@@ -235,7 +235,15 @@ export default function NodeView({
           >
             {formatCategoryLabel(node.category)}
           </span>
-          <NodeDates publishedAt={node.publishedAt} updatedAt={node.updatedAt} />
+          <NodeMeta
+            publishedAt={node.publishedAt}
+            updatedAt={node.updatedAt}
+            listen={
+              mainHtml ? (
+                <ListenButton key={node.id} title={node.title} html={mainHtml} />
+              ) : null
+            }
+          />
           <div className="mb-8" />
 
           <div className="hidden lg:block float-right ml-10 mb-6 w-96 xl:w-[420px]">
@@ -864,14 +872,16 @@ function ContentSkeleton() {
   );
 }
 
-function NodeDates({
+function NodeMeta({
   publishedAt,
   updatedAt,
+  listen,
 }: {
   publishedAt?: string;
   updatedAt?: string;
+  listen?: ReactNode;
 }) {
-  if (!publishedAt && !updatedAt) return null;
+  if (!publishedAt && !updatedAt && !listen) return null;
   const fmt = (iso: string) =>
     new Date(iso).toLocaleDateString("en-US", {
       year: "numeric",
@@ -881,17 +891,169 @@ function NodeDates({
     });
   const sameDay =
     publishedAt && updatedAt && publishedAt.slice(0, 10) === updatedAt.slice(0, 10);
+  const showUpdated = updatedAt && !sameDay;
   return (
     <div className="mt-1.5 text-[11px] text-text-muted/70 flex items-center gap-2 flex-wrap">
       {publishedAt && (
         <time dateTime={publishedAt}>Published {fmt(publishedAt)}</time>
       )}
-      {updatedAt && !sameDay && (
+      {showUpdated && (
         <>
           <span aria-hidden="true" className="text-text-muted/40">·</span>
           <time dateTime={updatedAt}>Updated {fmt(updatedAt)}</time>
         </>
       )}
+      {listen}
     </div>
+  );
+}
+
+function htmlToSpeech(html: string): string {
+  if (typeof document === "undefined") return "";
+  const div = document.createElement("div");
+  div.innerHTML = html;
+  div.querySelectorAll("pre, code, sup, .footnotes").forEach((el) => el.remove());
+  div
+    .querySelectorAll("h1, h2, h3, h4, h5, h6, p, li, blockquote, tr")
+    .forEach((el) => el.insertAdjacentText("afterend", ". "));
+  return (div.textContent || "")
+    .replace(/\.\s*\./g, ".")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function chunkForSpeech(text: string): string[] {
+  const sentences = text.match(/[^.!?]+[.!?]+|\S[^.!?]*$/g) || [text];
+  const chunks: string[] = [];
+  let buf = "";
+  for (const s of sentences) {
+    if (buf.length + s.length > 160 && buf) {
+      chunks.push(buf.trim());
+      buf = s;
+    } else {
+      buf += s;
+    }
+  }
+  if (buf.trim()) chunks.push(buf.trim());
+  return chunks;
+}
+
+function ListenButton({ title, html }: { title: string; html: string }) {
+  const [state, setState] = useState<"idle" | "playing" | "paused">("idle");
+  const [supported, setSupported] = useState(false);
+  const queueRef = useRef<string[]>([]);
+  const indexRef = useRef(0);
+  const cancelledRef = useRef(false);
+
+  useEffect(() => {
+    setSupported("speechSynthesis" in window);
+    return () => {
+      if ("speechSynthesis" in window) {
+        cancelledRef.current = true;
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, []);
+
+  const speakNext = useCallback(() => {
+    if (cancelledRef.current) return;
+    const synth = window.speechSynthesis;
+    if (indexRef.current >= queueRef.current.length) {
+      setState("idle");
+      return;
+    }
+    const u = new SpeechSynthesisUtterance(queueRef.current[indexRef.current]);
+    u.rate = 1.0;
+    u.pitch = 1.0;
+    u.onend = () => {
+      if (cancelledRef.current) return;
+      indexRef.current += 1;
+      // Small gap also dodges the Chrome queue-stall bug
+      setTimeout(speakNext, 60);
+    };
+    u.onerror = () => {
+      if (cancelledRef.current) return;
+      setState("idle");
+    };
+    synth.speak(u);
+  }, []);
+
+  const start = useCallback(() => {
+    const synth = window.speechSynthesis;
+    cancelledRef.current = true;
+    synth.cancel();
+    const text = `${title}. ${htmlToSpeech(html)}`;
+    if (!text.trim()) return;
+    queueRef.current = chunkForSpeech(text);
+    indexRef.current = 0;
+    setState("playing");
+    // Defer so cancel() settles before the first speak() in Chrome
+    setTimeout(() => {
+      cancelledRef.current = false;
+      speakNext();
+    }, 80);
+  }, [title, html, speakNext]);
+
+  const toggle = useCallback(() => {
+    if (!supported) return;
+    const synth = window.speechSynthesis;
+    if (state === "playing") {
+      synth.pause();
+      setState("paused");
+      return;
+    }
+    if (state === "paused") {
+      synth.resume();
+      setState("playing");
+      return;
+    }
+    start();
+  }, [state, supported, start]);
+
+  const stop = useCallback(() => {
+    if (typeof window === "undefined") return;
+    cancelledRef.current = true;
+    window.speechSynthesis.cancel();
+    setState("idle");
+  }, []);
+
+  if (!supported) return null;
+
+  const label =
+    state === "playing" ? "Pause" : state === "paused" ? "Resume" : "Listen";
+
+  return (
+    <span className="inline-flex items-center gap-1.5">
+      <button
+        type="button"
+        onClick={toggle}
+        aria-label={label}
+        className="inline-flex items-center gap-1 text-text-muted/70 hover:text-text-primary transition-colors"
+      >
+        {state === "playing" ? (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <rect x="6" y="5" width="4" height="14" rx="1" />
+            <rect x="14" y="5" width="4" height="14" rx="1" />
+          </svg>
+        ) : (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.29-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z" />
+          </svg>
+        )}
+        <span>{label}</span>
+      </button>
+      {state !== "idle" && (
+        <button
+          type="button"
+          onClick={stop}
+          aria-label="Stop"
+          className="inline-flex items-center text-text-muted/50 hover:text-text-primary transition-colors"
+        >
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <rect x="6" y="6" width="12" height="12" rx="1" />
+          </svg>
+        </button>
+      )}
+    </span>
   );
 }
