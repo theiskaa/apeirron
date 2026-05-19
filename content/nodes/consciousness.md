@@ -29,6 +29,8 @@ connections:
     reason: "McKenna's thesis names the political fact underneath consciousness research: the substances that most reliably alter it are the ones ruling powers have worked hardest to keep away from the public."
   - target: "skinwalker-ranch"
     reason: "The investigators who spent the most time on the property — Kelleher, Knapp, Lacatski — converged on what they called the trickster hypothesis: that the phenomena respond to observers' attention, target individuals rather than locations, and produce psychological after-effects, which is closer to a consciousness-anomaly model than to any external-object framework."
+  - target: "project-stargate"
+    reason: "Star Gate is the only sustained government-funded program ever to test non-local cognition operationally. Its statistical record is the strongest institutional evidence on offer that consciousness is not confined to the brain — and its 1995 termination is the cleanest demonstration of how that evidence gets buried rather than answered."
 ---
 
 There is something it is like to be you. Right now, reading these words, there is an experience happening — light hitting your eyes, meaning forming in your mind, a sense of being *here*. This is consciousness. And after centuries of philosophy and decades of neuroscience, nobody can explain why it exists.

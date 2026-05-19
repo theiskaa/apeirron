@@ -15,6 +15,8 @@ connections:
     reason: "Epicurus taught that everything is made of atoms, including the soul. There is no immaterial mind or afterlife."
   - target: "dennett"
     reason: "Dennett is the leading modern philosopher who argues that consciousness is entirely physical brain activity."
+  - target: "project-stargate"
+    reason: "Star Gate is materialism's most awkward empirical episode: a defense-intelligence program whose own commissioned statistician found a replicable above-chance effect that, if accepted, falsifies the brain-bound model materialism requires — produced inside the most thoroughly materialist institution in history."
 ---
 
 Materialism is the philosophical position that everything that exists is physical. There is no soul, no immaterial mind, no ghostly substance hiding behind the neurons. [[consciousness]] --- your felt experience of being alive, of seeing red, of feeling pain --- is entirely a product of matter in motion. When the brain dies, you die. There is nothing left over.
