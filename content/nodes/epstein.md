@@ -17,6 +17,8 @@ connections:
     reason: "The handler-controlled programmed-victim framework has been applied to Epstein's operation: trauma bonding, dissociative control, Acosta's 'belonged to intelligence' line."
   - target: "las-vegas-shooting"
     reason: "Paddock's high-roller casino lifestyle, unexplained wealth, and alleged arms-dealing place him in the same intelligence-adjacent casino/hospitality world Epstein operated in."
+  - target: "octopus-promis"
+    reason: "PROMIS is the documented intelligence-operation precedent the Epstein apparatus inherited, transmitted through Robert Maxwell — alleged principal salesman of the backdoored software — to his daughter Ghislaine. The tradecraft is identical: penetrate the target's environment with a concealed collection capability and harvest the take; only the product changed, from surveillance software to hidden-camera videotape."
 ---
 
 In the summer of 1955, a CIA officer named George Hunter White sat behind a two-way mirror in an apartment at 225 Chestnut Street in San Francisco's Telegraph Hill neighborhood. On the other side of the glass, a man who had been lured to the apartment by a prostitute on the Agency's payroll was consuming a drink laced with lysergic acid diethylamide. White watched from behind the mirror, a pitcher of martinis at his elbow, taking notes. The apartment was wired for sound. A camera captured what happened next. The man on the other side of the glass did not know he was being watched, did not know he had been drugged, and did not know that everything he did and said was being recorded by the Central Intelligence Agency of the United States.
