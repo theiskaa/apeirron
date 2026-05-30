@@ -17,6 +17,8 @@ connections:
     reason: "The reptilian theory is the most extreme version of the control system idea: every institution, war, and religion was designed by non-human intelligence to harvest human emotional energy."
   - target: "simulation-hypothesis"
     reason: "Icke's later work lines up with simulation theory. He claims the 'Matrix' is not a metaphor but a literal holographic fake reality trapping human consciousness."
+  - target: "protocols-of-zion"
+    reason: "Icke's source material is, in large part, the Protocols: critics have shown his global-cabal narrative reproduces the forgery's structure passage for passage, with shapeshifting reptilians inserted where the original text named the Jewish 'Elders.' The reptilian thesis is the Protocols with the racial target swapped for a species."
 ---
 
 In 2012, a Public Policy Polling survey found that four percent of registered American voters — roughly twelve million people — believed that "lizard people" control the world by taking on human form. The poll was designed partly as satire, a test of how many respondents would agree to anything. But the number was not zero. It was not a rounding error. Twelve million Americans, and by extension a proportional share of populations worldwide, were willing to tell a stranger on the telephone that the people running their government might not be human.

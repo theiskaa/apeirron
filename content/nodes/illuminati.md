@@ -15,6 +15,8 @@ connections:
     reason: "Skull and Bones was founded in 1832 by a Yale student who studied in Germany, where the university secret societies descended from the same Bavarian tradition that produced the Illuminati. Bones perfected the Illuminati model: infiltrate institutions by placing your people inside them."
   - target: "rothschild"
     reason: "Conspiracy literature has long linked Weishaupt and Mayer Amschel Rothschild as collaborators, but direct organizational evidence is thin to nonexistent. The persistent conflation is itself a case study in how documented fragments get assembled into structures the evidence does not support."
+  - target: "protocols-of-zion"
+    reason: "The Protocols took the Illuminati world-conspiracy template — a secret order steering history toward universal despotism — and recast its villains as a Jewish council. Its central scene of conspirators reporting their progress descends, through an 1868 German novel, from a fictional gathering of Cagliostro and the Bavarian order."
 ---
 
 On May 1, 1776 — the same year as the American Declaration of Independence, a coincidence that conspiracy theorists have never stopped noting — Adam Weishaupt, a 28-year-old professor of canon law at the University of Ingolstadt in Bavaria, founded the Order of the Illuminati. The name meant "the enlightened ones." The goal was the overthrow of everything.

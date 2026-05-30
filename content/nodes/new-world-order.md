@@ -37,6 +37,8 @@ connections:
     reason: "DIA's capstone is inscribed with the words 'New World Airport Commission' — a name found in no government registry — alongside Masonic symbols, and its murals depict a sequence from global genocide to a unified new order."
   - target: "operation-glasnost"
     reason: "Bush's September 11, 1990 address introducing the modern NWO vocabulary was delivered at the exact inflection point of the Soviet collapse, with Moscow's neutrality on the impending Gulf War already secured at Helsinki eight days earlier. The controlled dissolution of the USSR was the structural precondition that made the unipolar moment the speech announced — the NWO phrase and the Soviet endgame are the same political event described from two sides of the same operation."
+  - target: "protocols-of-zion"
+    reason: "The 1905 forgery is the urtext of the entire New World Order narrative, supplying the master script — hidden cabal, captured press, engineered crises, a march to one-world government — that every later version reruns with a different named enemy. The NWO theory is the Protocols with the antisemitic frame filed off."
 ---
 
 On the evening of September 11, 1990 — a date that would acquire a second and far more terrible significance exactly eleven years later — President George Herbert Walker Bush stood before a joint session of the United States Congress and delivered an address on the Persian Gulf crisis. Saddam Hussein had invaded Kuwait six weeks earlier, and the world was watching to see how the last remaining superpower would respond. Bush spoke of collective security, of international law, of a coalition of nations acting in concert against aggression. And then he said this:
