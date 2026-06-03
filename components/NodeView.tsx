@@ -226,15 +226,23 @@ export default function NodeView({
         )}
 
         <div className="flex-1 min-w-0">
-          <h1 className="text-3xl font-bold text-text-primary mb-2 leading-tight">
-            {node.title}
-          </h1>
           <span
-            className="inline-block text-xs font-medium"
+            className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] mb-3"
             style={{ color: node.color }}
           >
+            <span
+              className="inline-block w-1.5 h-1.5 rounded-full"
+              style={{ backgroundColor: node.color }}
+              aria-hidden="true"
+            />
             {formatCategoryLabel(node.category)}
           </span>
+          <h1
+            className="text-[2rem] sm:text-[2.6rem] leading-[1.05] tracking-tight text-text-primary mb-1"
+            style={{ fontFamily: "var(--font-serif)", fontWeight: 800 }}
+          >
+            {node.title}
+          </h1>
           <NodeMeta
             publishedAt={node.publishedAt}
             updatedAt={node.updatedAt}
@@ -408,7 +416,7 @@ function PhantomNodeView({
           >
             Referenced by
           </h3>
-          <div className="space-y-2.5">
+          <div className="space-y-2">
             {referencedBy.map((r) => (
               <Link
                 key={r.id}
@@ -419,31 +427,31 @@ function PhantomNodeView({
                   e.preventDefault();
                   onNodeClick(r.id);
                 }}
-                className="block w-full text-left group cursor-pointer"
+                className="group relative block rounded-lg p-3 pl-4 overflow-hidden transition-all duration-200 hover:-translate-y-px hover:shadow-[0_8px_20px_-12px_rgba(0,0,0,0.35)]"
+                style={{
+                  backgroundColor:
+                    "color-mix(in srgb, var(--text-primary) 3.5%, transparent)",
+                  border:
+                    "1px solid color-mix(in srgb, var(--text-primary) 8%, transparent)",
+                }}
               >
-                <div className="flex gap-2">
-                  <div className="flex flex-col items-center shrink-0 pt-[5px]">
-                    <span
-                      className="w-[5px] h-[5px] rounded-full shrink-0"
-                      style={{ backgroundColor: r.color }}
-                    />
-                    <span
-                      className="w-px flex-1 mt-1"
-                      style={{ backgroundColor: r.color, opacity: 0.25 }}
-                    />
-                  </div>
-                  <div className="pb-1">
-                    <span className="text-[12px] font-medium text-text-primary group-hover:underline block">
-                      {r.title}
-                    </span>
-                    <span
-                      className="block text-[11px] leading-relaxed mt-0.5"
-                      style={{ color: "rgba(144,144,160,0.65)" }}
-                    >
-                      {r.reason}
-                    </span>
-                  </div>
-                </div>
+                <span
+                  className="absolute left-0 top-0 h-full w-[2.5px]"
+                  style={{ backgroundColor: r.color, opacity: 0.9 }}
+                  aria-hidden="true"
+                />
+                <span
+                  className="block text-[13px] leading-snug text-text-primary group-hover:underline decoration-1 underline-offset-2"
+                  style={{ fontFamily: "var(--font-serif)", fontWeight: 700 }}
+                >
+                  {r.title}
+                </span>
+                <span
+                  className="block text-[11px] leading-relaxed mt-1"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  {r.reason}
+                </span>
               </Link>
             ))}
           </div>
@@ -456,7 +464,10 @@ function PhantomNodeView({
     <div className="h-full overflow-y-auto panel-scroll">
       <div className="max-w-[720px] mx-auto px-6 lg:px-12 py-8">
         <div className="flex items-center gap-3 mb-8">
-          <h1 className="text-3xl font-bold text-text-primary leading-tight">
+          <h1
+            className="text-[2rem] sm:text-[2.4rem] leading-[1.05] tracking-tight text-text-primary"
+            style={{ fontFamily: "var(--font-serif)", fontWeight: 800 }}
+          >
             {node.title}
           </h1>
           <span
@@ -593,7 +604,7 @@ function ConnectionReasons({
       <h3 className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-3">
         Why these connect
       </h3>
-      <div className="space-y-2.5">
+      <div className="space-y-2">
         {reasons.map((r) => (
           <Link
             key={r.id}
@@ -604,28 +615,31 @@ function ConnectionReasons({
               e.preventDefault();
               onNodeClick(r.id);
             }}
-            className="block w-full text-left group cursor-pointer"
+            className="group relative block rounded-lg p-3 pl-4 overflow-hidden transition-all duration-200 hover:-translate-y-px hover:shadow-[0_8px_20px_-12px_rgba(0,0,0,0.35)]"
+            style={{
+              backgroundColor:
+                "color-mix(in srgb, var(--text-primary) 3.5%, transparent)",
+              border:
+                "1px solid color-mix(in srgb, var(--text-primary) 8%, transparent)",
+            }}
           >
-            <div className="flex gap-2">
-              <div className="flex flex-col items-center shrink-0 pt-[5px]">
-                <span
-                  className="w-[5px] h-[5px] rounded-full shrink-0"
-                  style={{ backgroundColor: r.color }}
-                />
-                <span
-                  className="w-px flex-1 mt-1"
-                  style={{ backgroundColor: r.color, opacity: 0.25 }}
-                />
-              </div>
-              <div className="pb-1">
-                <span className="text-[12px] font-medium text-text-primary group-hover:underline block">
-                  {r.title}
-                </span>
-                <span className="block text-[11px] leading-relaxed mt-0.5" style={{ color: "rgba(144,144,160,0.65)" }}>
-                  {r.reason}
-                </span>
-              </div>
-            </div>
+            <span
+              className="absolute left-0 top-0 h-full w-[2.5px]"
+              style={{ backgroundColor: r.color, opacity: 0.9 }}
+              aria-hidden="true"
+            />
+            <span
+              className="block text-[13px] leading-snug text-text-primary group-hover:underline decoration-1 underline-offset-2"
+              style={{ fontFamily: "var(--font-serif)", fontWeight: 700 }}
+            >
+              {r.title}
+            </span>
+            <span
+              className="block text-[11px] leading-relaxed mt-1"
+              style={{ color: "var(--text-muted)" }}
+            >
+              {r.reason}
+            </span>
           </Link>
         ))}
       </div>
