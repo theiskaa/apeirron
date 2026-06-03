@@ -15,6 +15,12 @@ const PathsGraph = dynamic(() => import("./PathsGraph"), { ssr: false });
 const VIEW_MODE_STORAGE_KEY = "apeirron-view-mode";
 const MINI_VIEW_STORAGE_KEY = "apeirron-node-mini-view";
 
+// Paths are temporarily hidden from the main canvas. The Paths reading-flow now
+// lives on the newspaper-style index page (/nodes); the path data, PathsGraph
+// component, and per-node mini-path diagram all remain. Flip to `true` to bring
+// the on-canvas Connections/Paths toggle back.
+const SHOW_PATHS_ON_CANVAS = false;
+
 const GRAPH_TAB: Tab = { id: "graph", type: "graph" };
 
 interface Props {
@@ -96,7 +102,10 @@ export default function PageClient({
   useEffect(() => {
     try {
       const savedView = localStorage.getItem(VIEW_MODE_STORAGE_KEY);
-      if (savedView === "connections" || savedView === "paths") {
+      if (
+        savedView === "connections" ||
+        (savedView === "paths" && SHOW_PATHS_ON_CANVAS)
+      ) {
         setViewMode(savedView);
       }
       const savedMini = localStorage.getItem(MINI_VIEW_STORAGE_KEY);
@@ -248,24 +257,35 @@ export default function PageClient({
     }
 
     if (showGraph) {
-      if (viewMode !== "connections") {
-        acts.push({
-          id: "cmd:view-connections",
-          label: "Switch to Connections view",
-          hint: "View",
-          keywords: ["connections", "graph", "switch", "view"],
-          perform: () => handleViewModeChange("connections"),
-        });
+      if (SHOW_PATHS_ON_CANVAS) {
+        if (viewMode !== "connections") {
+          acts.push({
+            id: "cmd:view-connections",
+            label: "Switch to Connections view",
+            hint: "View",
+            keywords: ["connections", "graph", "switch", "view"],
+            perform: () => handleViewModeChange("connections"),
+          });
+        }
+        if (viewMode !== "paths") {
+          acts.push({
+            id: "cmd:view-paths",
+            label: "Switch to Paths view",
+            hint: "View",
+            keywords: ["paths", "diagram", "diagrams", "switch", "view"],
+            perform: () => handleViewModeChange("paths"),
+          });
+        }
       }
-      if (viewMode !== "paths") {
-        acts.push({
-          id: "cmd:view-paths",
-          label: "Switch to Paths view",
-          hint: "View",
-          keywords: ["paths", "diagram", "diagrams", "switch", "view"],
-          perform: () => handleViewModeChange("paths"),
-        });
-      }
+      acts.push({
+        id: "cmd:open-index",
+        label: "Open the index (all nodes)",
+        hint: "Navigation",
+        keywords: ["index", "nodes", "all", "browse", "front page", "read"],
+        perform: () => {
+          window.location.href = "/nodes";
+        },
+      });
     } else if (activeTab.type === "node") {
       if (miniView !== "graph") {
         acts.push({
@@ -317,19 +337,21 @@ export default function PageClient({
             paused={viewMode !== "connections" || !showGraph}
           />
         </div>
-        <div
-          className={`absolute inset-0 transition-opacity duration-150 ${
-            viewMode === "paths" ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
-        >
-          <PathsGraph
-            graphData={graphData}
-            onNodeClick={handleNodeClick}
-            selectedNodeId={selectedNodeOnGraph}
-            focusNodeId={focusNodeId}
-            paused={viewMode !== "paths" || !showGraph}
-          />
-        </div>
+        {SHOW_PATHS_ON_CANVAS && (
+          <div
+            className={`absolute inset-0 transition-opacity duration-150 ${
+              viewMode === "paths" ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            <PathsGraph
+              graphData={graphData}
+              onNodeClick={handleNodeClick}
+              selectedNodeId={selectedNodeOnGraph}
+              focusNodeId={focusNodeId}
+              paused={viewMode !== "paths" || !showGraph}
+            />
+          </div>
+        )}
       </div>
 
       {activeNode && !showGraph && (
@@ -383,7 +405,33 @@ export default function PageClient({
 
       {showGraph && (
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
-          <ViewModeToggle mode={viewMode} onChange={handleViewModeChange} />
+          {SHOW_PATHS_ON_CANVAS ? (
+            <ViewModeToggle mode={viewMode} onChange={handleViewModeChange} />
+          ) : (
+            <a
+              href="/nodes"
+              className="chrome-surface pointer-events-auto inline-flex items-center gap-2 h-9 px-4 rounded-full text-[12px] tracking-wide leading-none text-text-secondary hover:text-text-primary transition-colors"
+              style={{ boxShadow: "var(--chrome-shadow)" }}
+              aria-label="Open the index — read every node"
+            >
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="4" y1="6" x2="20" y2="6" />
+                <line x1="4" y1="12" x2="20" y2="12" />
+                <line x1="4" y1="18" x2="14" y2="18" />
+              </svg>
+              <span>Read the index</span>
+            </a>
+          )}
         </div>
       )}
 
