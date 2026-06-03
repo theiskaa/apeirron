@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Noto_Sans_Georgian } from "next/font/google";
+import { Inter, Noto_Sans_Georgian, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -7,6 +7,13 @@ const notoGeorgian = Noto_Sans_Georgian({
   subsets: ["latin"],
   axes: ["wdth"],
   variable: "--font-title",
+});
+// Newspaper headline serif. Used on the front-page index (/nodes) masthead and
+// article headlines; exposed as the --font-serif CSS variable.
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
 });
 
 export const viewport: Viewport = {
@@ -70,7 +77,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={notoGeorgian.variable} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${notoGeorgian.variable} ${playfair.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script
           dangerouslySetInnerHTML={{

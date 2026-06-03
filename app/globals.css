@@ -186,8 +186,10 @@ body {
 
 /* Prose styles for rendered markdown articles */
 .prose-apeirron h2 {
-  @apply text-xl font-semibold mt-8 mb-3 relative cursor-pointer;
+  @apply text-[1.45rem] font-semibold mt-9 mb-3 relative cursor-pointer;
   color: var(--text-primary);
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
 }
 
 .prose-apeirron h2::before {
@@ -207,8 +209,10 @@ body {
 }
 
 .prose-apeirron h3 {
-  @apply text-lg font-medium mt-6 mb-2 relative cursor-pointer;
+  @apply text-[1.2rem] font-semibold mt-6 mb-2 relative cursor-pointer;
   color: var(--text-primary);
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
 }
 
 .prose-apeirron h3::before {
