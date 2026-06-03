@@ -427,27 +427,29 @@ function PhantomNodeView({
                   e.preventDefault();
                   onNodeClick(r.id);
                 }}
-                className="group relative block rounded-lg p-3 pl-4 overflow-hidden transition-all duration-200 hover:-translate-y-px hover:shadow-[0_8px_20px_-12px_rgba(0,0,0,0.35)]"
-                style={{
-                  backgroundColor:
-                    "color-mix(in srgb, var(--text-primary) 3.5%, transparent)",
-                  border:
-                    "1px solid color-mix(in srgb, var(--text-primary) 8%, transparent)",
-                }}
+                className="group block rounded-lg px-3 py-2.5 -mx-3 transition-all duration-200 hover:bg-[color-mix(in_srgb,var(--text-primary)_5%,transparent)]"
               >
-                <span
-                  className="absolute left-0 top-0 h-full w-[2.5px]"
-                  style={{ backgroundColor: r.color, opacity: 0.9 }}
-                  aria-hidden="true"
-                />
-                <span
-                  className="block text-[13px] leading-snug text-text-primary group-hover:underline decoration-1 underline-offset-2"
-                  style={{ fontFamily: "var(--font-serif)", fontWeight: 700 }}
-                >
-                  {r.title}
+                <span className="flex items-center gap-2">
+                  <span
+                    className="inline-block w-1.5 h-1.5 rounded-full shrink-0"
+                    style={{ backgroundColor: r.color, opacity: 0.85 }}
+                    aria-hidden="true"
+                  />
+                  <span
+                    className="flex-1 text-[13px] leading-snug text-text-primary group-hover:underline decoration-1 underline-offset-2"
+                    style={{ fontFamily: "var(--font-serif)", fontWeight: 700 }}
+                  >
+                    {r.title}
+                  </span>
+                  <span
+                    className="text-text-muted opacity-0 -translate-x-1 transition-all group-hover:opacity-60 group-hover:translate-x-0 text-[11px]"
+                    aria-hidden="true"
+                  >
+                    →
+                  </span>
                 </span>
                 <span
-                  className="block text-[11px] leading-relaxed mt-1"
+                  className="block text-[11px] leading-relaxed mt-1 pl-[14px]"
                   style={{ color: "var(--text-muted)" }}
                 >
                   {r.reason}
@@ -604,7 +606,13 @@ function ConnectionReasons({
       <h3 className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-3">
         Why these connect
       </h3>
-      <div className="space-y-2">
+      <div
+        className="space-y-1 pl-4 border-l"
+        style={{
+          borderColor:
+            "color-mix(in srgb, var(--text-primary) 12%, transparent)",
+        }}
+      >
         {reasons.map((r) => (
           <Link
             key={r.id}
@@ -615,27 +623,29 @@ function ConnectionReasons({
               e.preventDefault();
               onNodeClick(r.id);
             }}
-            className="group relative block rounded-lg p-3 pl-4 overflow-hidden transition-all duration-200 hover:-translate-y-px hover:shadow-[0_8px_20px_-12px_rgba(0,0,0,0.35)]"
-            style={{
-              backgroundColor:
-                "color-mix(in srgb, var(--text-primary) 3.5%, transparent)",
-              border:
-                "1px solid color-mix(in srgb, var(--text-primary) 8%, transparent)",
-            }}
+            className="group block py-2 -ml-px"
           >
-            <span
-              className="absolute left-0 top-0 h-full w-[2.5px]"
-              style={{ backgroundColor: r.color, opacity: 0.9 }}
-              aria-hidden="true"
-            />
-            <span
-              className="block text-[13px] leading-snug text-text-primary group-hover:underline decoration-1 underline-offset-2"
-              style={{ fontFamily: "var(--font-serif)", fontWeight: 700 }}
-            >
-              {r.title}
+            <span className="flex items-center gap-2">
+              <span
+                className="inline-block w-1.5 h-1.5 rounded-full shrink-0"
+                style={{ backgroundColor: r.color, opacity: 0.85 }}
+                aria-hidden="true"
+              />
+              <span
+                className="flex-1 text-[13px] leading-snug text-text-primary group-hover:underline decoration-1 underline-offset-2"
+                style={{ fontFamily: "var(--font-serif)", fontWeight: 700 }}
+              >
+                {r.title}
+              </span>
+              <span
+                className="text-text-muted opacity-0 -translate-x-1 transition-all group-hover:opacity-60 group-hover:translate-x-0 text-[11px]"
+                aria-hidden="true"
+              >
+                →
+              </span>
             </span>
             <span
-              className="block text-[11px] leading-relaxed mt-1"
+              className="block text-[11px] leading-relaxed mt-1 pl-[14px]"
               style={{ color: "var(--text-muted)" }}
             >
               {r.reason}

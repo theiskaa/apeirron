@@ -300,12 +300,6 @@ export default function NodesView({ groups }: Props) {
                             "1px solid color-mix(in srgb, var(--text-primary) 9%, transparent)",
                         }}
                       >
-                        {/* category accent strip */}
-                        <span
-                          className="absolute left-0 top-0 h-full w-[3px]"
-                          style={{ backgroundColor: category.color, opacity: 0.9 }}
-                          aria-hidden="true"
-                        />
                         <span
                           className="flex items-center gap-1.5 text-[9px] uppercase tracking-[0.18em] mb-2"
                           style={{ color: category.color }}
