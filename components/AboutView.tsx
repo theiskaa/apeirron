@@ -43,20 +43,46 @@ export default function AboutView({ volumes }: Props) {
     <div className="h-screen flex flex-col overflow-hidden bg-background text-text-primary">
       <Navbar />
       <div className="flex-1 overflow-y-auto panel-scroll">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-8 flex flex-col lg:flex-row lg:gap-12">
+        <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 pb-16">
+          {/* ── Masthead (matches the index nameplate) ───────────────── */}
+          <header className="pt-10 sm:pt-14">
+            <div
+              className="border-b"
+              style={{
+                borderColor:
+                  "color-mix(in srgb, var(--text-primary) 18%, transparent)",
+              }}
+            >
+              <div className="pb-6 sm:pb-8 text-center">
+                <span
+                  className="block text-[10px] uppercase tracking-[0.22em] mb-4"
+                  style={{ color: "var(--text-muted)" }}
+                >
+                  Project Documentation
+                </span>
+                <h1
+                  className="leading-[0.95] tracking-tight text-text-primary text-[12vw] sm:text-[64px] lg:text-[76px]"
+                  style={{ fontFamily: "var(--font-serif)", fontWeight: 800 }}
+                >
+                  About Apeirron
+                </h1>
+              </div>
+            </div>
+            <p
+              className="text-center italic mt-5 mb-2 text-[15px] sm:text-base leading-relaxed mx-auto max-w-2xl"
+              style={{ fontFamily: "var(--font-serif)", color: "var(--text-secondary)" }}
+            >
+              An open-source knowledge graph that takes contested ideas seriously
+              enough to write deeply about them — and honestly enough to hold them
+              to the evidence.
+            </p>
+          </header>
+
+          {/* ── Body: essay + book rail ──────────────────────────────── */}
+          <div className="flex flex-col lg:flex-row lg:gap-12 mt-12">
           <article
             className="flex-1 min-w-0 max-w-[720px] prose-apeirron"
           >
-            <h1 className="text-3xl font-bold text-text-primary mb-2 leading-tight">
-              About Apeirron
-            </h1>
-            <span
-              className="inline-block text-xs font-medium mb-8"
-              style={{ color: "rgba(144,144,160,0.7)" }}
-            >
-              Project documentation
-            </span>
-
             <p>
               <em>Apeiron</em> (ἄπειρον) is the word Anaximander of Miletus
               reached for around 610 BCE when he tried to name what everything
@@ -590,6 +616,7 @@ export default function AboutView({ volumes }: Props) {
               ))}
             </ul>
           </aside>
+          </div>
         </div>
       </div>
     </div>
