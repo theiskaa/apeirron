@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAllNodes, getCategories } from "@/lib/content";
+import { getAllNodes, getCategories, getNodeExcerpt } from "@/lib/content";
 import NodesView from "@/components/NodesView";
 
 const BASE_URL = "https://www.apeirron.com";
@@ -40,6 +40,8 @@ export default function NodesIndexPage() {
       nodes: byCategory.get(category.id)!.map((n) => ({
         id: n.frontmatter.id,
         title: n.frontmatter.title,
+        excerpt: getNodeExcerpt(n.slug),
+        connectionCount: n.frontmatter.connections.length,
       })),
     }));
 
@@ -62,6 +64,7 @@ export default function NodesIndexPage() {
         position: i + 1,
         url: `${BASE_URL}/node/${n.id}`,
         name: n.title,
+        description: n.excerpt,
       })),
     },
   };
