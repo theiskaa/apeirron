@@ -407,6 +407,45 @@ body {
   color: var(--text-primary);
 }
 
+/* ── 404 / not-found: orphan-node masthead ─────────────────────────── */
+.nf-plate {
+  font-size: clamp(56px, 15vw, 104px);
+}
+.nf-digit {
+  font-size: 1em;
+  color: var(--text-primary);
+}
+.nf-node {
+  display: inline-block;
+  width: 0.82em;
+  height: 0.82em;
+  animation: nf-float 7s var(--ease-out) infinite;
+}
+.nf-ring {
+  transform-origin: 50% 50%;
+  animation: nf-pulse 3.2s ease-in-out infinite;
+}
+/* Each severed endpoint drifts out and fades, then resets — the connection
+   is forever almost-reattaching. Staggered via the inline --d delay. */
+.nf-edge {
+  transform-origin: 50% 50%;
+  animation: nf-sever 4.5s ease-in-out infinite;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes nf-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+@keyframes nf-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.18); opacity: 0; }
+}
+@keyframes nf-sever {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.06); opacity: 0.45; }
+}
+
 /* Respect reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
