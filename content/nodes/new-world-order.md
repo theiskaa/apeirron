@@ -30,7 +30,7 @@ connections:
   - target: "project-blue-beam"
     reason: "Monast's Blue Beam articulation was explicit on the operation's political objective: the manufactured event was to be the legitimating crisis justifying the dissolution of national sovereignty and the establishment of a planetary government — the central project of the NWO literature. The fake alien invasion is the proposed solution to how you dissolve governments without provoking the wars direct dissolution would cause."
   - target: "rockefeller"
-    reason: "David Rockefeller's 2002 *Memoirs* contain the most extraordinary first-person admission in the entire NWO literature: the charge that he was an internationalist conspiring to build a more integrated global political and economic structure — he stood guilty, and proud of it. The NWO project's principal architect wrote his own confession in a commercially published memoir."
+    reason: "No American family appears more often in the NWO literature than the Rockefellers, cast as the project's domestic engine: David founded the Trilateral Commission in 1973, chaired the CFR for fifteen years, and funded the internationalist institutions the theory treats as the machinery of integration."
   - target: "schwab-wef"
     reason: "Since 2020, the WEF and Schwab personally have become the principal contemporary objects of NWO discourse — the institutional name the conspiracy literature has settled on for the early-21st-century version of the project."
   - target: "denver-airport"

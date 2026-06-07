@@ -311,7 +311,6 @@ The Hotel de Bilderberg in Oosterbeek closed in 2003 and was converted into apar
 
 - Hutton, Will. "Bohemian Rhapsody." *The Observer*, April 28, 2002. A rare mainstream account of Bilderberg by a journalist who attended.
 
-- Vanderlip, Frank. "Farm Boy to Financier." *Saturday Evening Post*, February 9, 1935. Contains Vanderlip's acknowledgment of the Jekyll Island meeting.
 
 - Davignon, Etienne. Interview with BBC, 2005. One of the few on-the-record statements by a Bilderberg chairman about the group's function and purpose.
 
