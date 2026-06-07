@@ -13,6 +13,10 @@ connections:
     reason: "Relativity treats time as a curved dimension; quantum mechanics treats it as an external parameter — reconciling the two is theoretical physics' central unsolved problem. CERN's LHC produces the high-energy collision data on which the eventual answer will depend."
   - target: "hard-problem"
     reason: "The felt flow of time is one of the most basic facts of experience and has no explanation in the physics of time, which is time-symmetric and static. Time's passage is a specialized instance of the hard problem — a qualitative feature of consciousness with no physical correlate."
+  - target: "philadelphia-experiment"
+    reason: "The Philadelphia Experiment legend has sailors displaced through time, not merely space — the claim that the Navy was manipulating time itself, which is why it recurs wherever the physics of time is contested."
+  - target: "bermuda-triangle"
+    reason: "Bermuda Triangle accounts include time distortions — stopped watches, hours passing in minutes, clocks resetting — anomalies that, if real, would implicate the local behavior of time."
 ---
 
 You have never experienced the past. You have never experienced the future. You have only ever experienced *now*. The past exists as memory — a pattern in your brain, accessed in the present. The future exists as anticipation — another pattern, also accessed in the present. The flow of time, the sense that moments are arriving and departing, is the most fundamental feature of your experience. And physics says it may not be real.

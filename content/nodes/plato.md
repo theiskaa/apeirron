@@ -19,6 +19,8 @@ connections:
     reason: "In the Timaeus, Plato assigned the cube — the heaviest and most stable Platonic solid — to the element Earth. The Allegory of the Cave describes prisoners trapped watching shadows in a dark enclosure, which Gnostic and esoteric traditions read as a depiction of Saturn's prison."
   - target: "pythagoras"
     reason: "The entire Platonic tradition is, at depth, an elaboration of Pythagorean teaching. Plato studied with surviving Pythagorean communities in southern Italy; the *Timaeus* is essentially Pythagorean cosmology, and the Forms, recollection, and the role of mathematics descend directly from the brotherhood."
+  - target: "kant"
+    reason: "Kant inherits Plato's conviction that the senses alone cannot yield truth, but replaces the independent world of Forms with categories the mind itself supplies."
 ---
 
 Imagine prisoners chained in a cave since birth. Their legs and necks are fixed so that they can see only the wall directly in front of them. Behind them and above, a fire burns. Between the fire and the prisoners, a low wall runs along a walkway, and along this walkway people carry objects — statues of animals, vessels, figures of men — that cast shadows on the wall. The prisoners have never seen the objects. They have never seen the fire. They have never seen each other's faces. All they know are shadows, and the echoes of voices they take to be the voices of the shadows themselves. They name the shadows. They develop expertise in predicting which shadow will follow which. They award prizes to the best shadow-predictors. This is their entire reality, and they are perfectly satisfied with it.

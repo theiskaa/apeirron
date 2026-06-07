@@ -11,6 +11,10 @@ connections:
     reason: "People on psychedelics often report feeling that everything around them is conscious, which matches what panpsychism claims."
   - target: "jung"
     reason: "Jung's synchronicity, developed across thirty years of correspondence with Wolfgang Pauli, proposes that mind and matter are two aspects of a single underlying reality (the *unus mundus*) that occasionally manifests in both psychic and physical form simultaneously. Not strict panpsychism, but the same fundamental claim: mind is not epiphenomenal."
+  - target: "idealism"
+    reason: "Idealism and panpsychism both make consciousness fundamental rather than derivative, differing mainly on whether mind is all there is or a property woven through matter."
+  - target: "hermetic-tradition"
+    reason: "The Hermetic axiom that 'all is mind' and the cosmos is alive is the ancient form of the panpsychist claim that consciousness pervades everything."
 ---
 
 Here is the problem, stated as plainly as possible: we live in a universe made of matter. Matter, as physics describes it, is mindless — particles bouncing off particles according to mathematical laws, with no inner life, no experience, no point of view. And yet, somewhere in this mindless machinery, *experience* appears. You are made of atoms, and atoms are not conscious, and yet you are.

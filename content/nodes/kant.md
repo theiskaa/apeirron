@@ -11,6 +11,8 @@ connections:
     reason: "Kant picked up where Descartes left off, asking what the mind can actually know about reality."
   - target: "plato"
     reason: "Both Kant and Plato believed the senses alone cannot give us truth. But Kant rejected Plato's idea of a separate world of Forms."
+  - target: "simulation-hypothesis"
+    reason: "The simulation hypothesis recapitulates Kant's split between phenomena and noumena — rendered experience versus the substrate that produces it — denying direct access to the real."
 ---
 
 Immanuel Kant (1724--1804) never traveled more than ten miles from his hometown of Konigsberg, Prussia. He lived a life of rigid routine -- his daily afternoon walk was so punctual that neighbors reportedly set their clocks by it. He never married. He ate one meal a day, at precisely one o'clock, always with guests. He rose at five every morning, drank tea, smoked a pipe, and worked until his afternoon lecture. And from this small, ordered, almost absurdly provincial life, he produced a revolution in thought so complete that philosophy has never recovered. Every serious thinker after 1781 is either building on Kant or reacting against him. There is no third option.

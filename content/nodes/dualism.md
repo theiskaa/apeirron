@@ -13,6 +13,8 @@ connections:
     reason: "Descartes created the modern version of dualism by arguing that mind and body are two completely different substances."
   - target: "hard-problem"
     reason: "The hard problem asks why physical brain processes produce subjective experience. This is essentially the same question dualism raises."
+  - target: "plato"
+    reason: "Plato's division of reality into the eternal Forms and the physical world is the metaphysical seed of mind-body dualism, the two-world structure later turned inward onto mind and matter."
 ---
 
 You are, right now, having an experience. Light enters your eyes. Electrical signals traverse your neurons. Neurotransmitters cross synaptic gaps. All of this can be described in the language of physics and chemistry. And yet --- simultaneously, undeniably --- there is *something it is like* to be you. There is a felt quality to the color blue. There is pain that *hurts*, not merely signals that fire. There is the sense of being a someone.
