@@ -17,6 +17,8 @@ connections:
     reason: "The Hermetic tradition taught that mind and cosmos reflect each other. This is one of the earliest forms of idealist thinking, long before Berkeley."
   - target: "kant"
     reason: "Kant argued we never experience reality directly, only reality as structured by the mind. This is his version of idealism."
+  - target: "gnosticism"
+    reason: "Gnosticism is idealism turned cosmological and tragic: spirit is the only true reality and matter a degraded emanation, with the soul a fragment of mind exiled into a false material world it must awaken from."
 ---
 
 What if matter is not the foundation of reality? What if [[consciousness]] is?

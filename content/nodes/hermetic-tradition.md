@@ -33,6 +33,8 @@ connections:
     reason: "The Alexandrian Library is the proposed transmission pathway for both. The Hermetic corpus claims descent from Alexandrian scholarship preserving Egyptian temple knowledge; Piri Reis's source chain runs through the same Hellenistic cartographic tradition. Candidate vehicles for the same antediluvian knowledge pool in different domains — cosmological in one, geographical in the other."
   - target: "thule-vril"
     reason: "Ariosophy is a degenerated branch of the broader Theosophical-Hermetic transmission. Blavatsky drew on the Hermetic-Rosicrucian tradition; List and Lanz racialized the Blavatskyan framework; the Thule-Vril milieu inherited the racialized version. The case study of what happens when esoteric material is extracted from its universalist context and weaponized for political purposes."
+  - target: "gnosticism"
+    reason: "Gnosticism is the Hermetic tradition's dark twin from the same Alexandrian milieu — sharing the Demiurge and the trapped divine spark, but reading the material cosmos as a prison to escape rather than a living temple to ascend. The Hermetica's optimism and Gnosticism's pessimism are two answers drawn from one set of premises."
 ---
 
 In 1460, a monk named Leonardo da Pistoia brought a Greek manuscript to Cosimo de' Medici in Florence. Cosimo had spent decades — and a fortune — funding Marsilio Ficino's translation of the complete works of Plato. The manuscript was not Plato. It was something that Cosimo considered more important. He ordered Ficino to stop translating Plato immediately and translate the new manuscript first.
