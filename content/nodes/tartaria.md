@@ -14,7 +14,7 @@ connections:
   - target: "sacred-geometry"
     reason: "Tartaria theorists claim that Tartarian buildings used sacred geometry and free energy technology. They see the same geometric patterns in these buildings as in ancient temples around the world."
   - target: "mandela-effect"
-    reason: "If the Tartaria theory is right and history was rewritten, the Mandela Effect could be leftover memories from before the rewrite -- people remembering the real past that was erased."
+    reason: "If history was rewritten to erase Tartaria, the Mandela Effect is the predicted residue — fragments of the suppressed past surviving as 'false' memories that don't match the corrected record."
   - target: "freemasonry"
     reason: "Tartaria theorists claim the Freemasons took over Tartarian buildings and knowledge after the mud flood and then claimed credit for constructing them."
 ---
