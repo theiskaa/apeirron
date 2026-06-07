@@ -159,6 +159,14 @@ The RFK assassination is not a cold case. It is a warm case — one in which the
 
 The question is not whether there is evidence of conspiracy in the RFK assassination. The evidence is overwhelming. The question is why, after more than half a century, the institutions responsible for justice in the United States continue to refuse to examine it. The answer lies in what such an examination would reveal — not only about who killed Robert Kennedy, but about the nature of the [[control-systems]] that govern American political life, the [[shadow-elite]] networks that operate beyond democratic accountability, and the depth of the lie that has been maintained since two brothers from Massachusetts dared to challenge the invisible government and paid for it with their lives.
 
+## The case against a second gunman
+
+The strongest official account begins with what is not in dispute: Sirhan Sirhan was seized in the pantry of the Ambassador Hotel holding a .22 Iver Johnson revolver and firing it, and was subdued only after the gun was empty. His notebooks, written before the shooting, contain the repeated line "RFK must die" and obsessive references to June 5 — the anniversary of the start of the Six-Day War — supplying premeditation and motive in his own hand. He confessed and has never denied firing the shots.
+
+The principal conspiracy pillar — more bullets than the revolver could hold — turns on contested forensics. Sirhan's gun held eight rounds; the official reconstruction fits eight shots, and several claimed "extra bullet holes" in the doorframes are disputed by the very photographs offered as proof, with the frames destroyed before independent confirmation. The Pruszynski acoustic analysis said to reveal a second gun has been rejected by other audio specialists and by the courts that reviewed Sirhan's later appeals; the "girl in the polka-dot dress" was traced largely to witness confusion. The genuinely unresolved problem is the autopsy: Thomas Noguchi found the fatal shot was fired from behind at near-contact range, while most witnesses placed Sirhan in front — an anomaly that keeps the case open but does not by itself establish a second shooter.
+
+Notably, the investigative journalist Dan Moldea began his inquiry convinced of a conspiracy and, after re-examining the evidence and interviewing the officers involved, concluded that Sirhan acted alone.
+
 ## Sources
 
 - Noguchi, Thomas T., with Joseph DiMona. *Coroner*. New York: Simon & Schuster, 1983.
@@ -190,3 +198,5 @@ The question is not whether there is evidence of conspiracy in the RFK assassina
 - Ayton, Mel. *The Forgotten Terrorist: Sirhan Sirhan and the Assassination of Robert F. Kennedy*. Washington, D.C.: Potomac Books, 2007.
 
 - Talbot, David. *Brothers: The Hidden History of the Kennedy Years*. New York: Free Press, 2007.
+- Moldea, Dan E. *The Killing of Robert F. Kennedy: An Investigation of Motive, Means, and Opportunity*. New York: W. W. Norton, 1995. (Began convinced of conspiracy; concluded Sirhan acted alone.)
+- Kaiser, Robert Blair. *"R.F.K. Must Die!": A History of the Robert Kennedy Assassination and Its Aftermath*. New York: E. P. Dutton, 1970.

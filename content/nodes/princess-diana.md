@@ -145,6 +145,14 @@ Diana knew she was in danger. She said so. She wrote it down. She told multiple 
 
 Whether the crash in the Pont de l'Alma tunnel was an accident or an assassination, one thing is certain: the people who benefited most from Diana's death are the same people who controlled the investigation into it. That fact alone should be sufficient to keep the questions alive.
 
+## The case for a tragic accident
+
+The most thorough investigation of the crash, Operation Paget, was led by Lord Stevens, a former Commissioner of the Metropolitan Police; it ran three years, cost around £12.5 million, and produced an 832-page report in 2006. The 2008 London inquest jury, after six months of evidence, returned a verdict of unlawful killing through the grossly negligent driving of Henri Paul and of the pursuing photographers. The core finding is mundane and well-supported: Paul was driving at roughly twice the tunnel speed limit, his blood alcohol was about three times the French legal limit — confirmed by repeat and DNA-matched testing after the sample-swap claim was raised — and none of the occupants except the surviving bodyguard wore a seatbelt.
+
+The supporting anomalies weaken on examination. The white Fiat Uno was never conclusively shown to have caused the crash, and minor paint transfer is consistent with a glancing contact in a chaotic tunnel; the "bright flash" was not corroborated by any physical trace of a weapon; the toxicology and forensic record give no indication Diana was pregnant; and the irregular embalming followed from the practical logistics of repatriation rather than a plot to conceal a pregnancy. Serving MI6 officers testified to the inquiry, and Paget found no documentary or testimonial evidence of any plan to kill her.
+
+Mohamed Al-Fayed's grief-driven certainty and the establishment's evident discomfort with Diana are both real — but the physical reconstruction points overwhelmingly to a drunk, speeding driver pursued at high speed.
+
 ## Sources
 
 - Pontaut, Jean-Marie, and Jerome Dupuis. *Enquete sur la Mort de Diana*. Paris: Stock, 1998.
@@ -176,3 +184,5 @@ Whether the crash in the Pont de l'Alma tunnel was an accident or an assassinati
 - Fielding, Nick, and Ian Cobain. "MI6 'Halted Spy's Book to Hide Diana Link.'" *The Sunday Times*, June 30, 2002.
 
 - Campbell, Alastair. *The Blair Years: Extracts from the Alastair Campbell Diaries*. London: Hutchinson, 2007. (Contains entries from August-September 1997 documenting the government response to Diana's death.)
+- Metropolitan Police Service. *The Operation Paget Inquiry Report into the Allegation of Conspiracy to Murder Diana, Princess of Wales, and Dodi Al Fayed* (Lord Stevens). London, 2006.
+- *Coroner's Inquests into the Deaths of Diana, Princess of Wales, and Mr Dodi Al Fayed*: jury verdict of unlawful killing, April 7, 2008.

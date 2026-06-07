@@ -207,6 +207,14 @@ They deserve the truth. Twenty-seven years later, it has not been provided. The 
 
 The case of [[nine-eleven]] — which unfolded five years later, investigated by many of the same institutional actors, and subject to many of the same structural constraints — raises the obvious question: if the United States government was willing to suppress the truth about what destroyed TWA Flight 800 in 1996, what else was it willing to suppress in the years that followed? The answer to that question is not speculation. It is the documented history of the American national security state in the twenty-first century, and the architecture of [[mass-surveillance]] and media management rooted in [[operation-mockingbird]] that made such suppression possible.
 
+## The case for the fuel-tank explosion
+
+The NTSB's four-year investigation — the most expensive in the agency's history to that point — concluded that the center wing fuel tank exploded after its near-empty vapor space, heated by the air-conditioning packs running beneath it on a hot tarmac, was ignited by a short circuit in the aircraft's aging fuel-quantity wiring. The recovered debris was reconstructed into a partial three-dimensional fuselage in a Calverton hangar, and investigators found the outward petaling and fire signatures of an internal explosion, with no penetration pattern, no warhead fragmentation, and no chemical residue consistent with a missile or a bomb.
+
+The eyewitness "streak of light" — the strongest missile evidence — was addressed directly. After the center tank exploded and the burning nose separated, the lightened, still-fueled aircraft pitched up and climbed briefly while on fire; the NTSB and the CIA animation argued this is what witnesses saw ascending and misremembered as a rising missile, when it was in fact the already-stricken plane. The explosive traces found on parts of the wreckage were traced to an earlier canine-detection training exercise conducted on that same aircraft. The FBI, running a parallel criminal investigation, closed it without finding evidence of a criminal act.
+
+The offshore Navy exercise areas and the conviction of the witnesses are why the missile theory persists — but the physical reconstruction itself points to an internal explosion, not an external strike.
+
 ## Sources
 
 - **National Transportation Safety Board.** *Aircraft Accident Report: In-Flight Breakup Over the Atlantic Ocean, Trans World Airlines Flight 800, Boeing 747-131, N93119, Near East Moriches, New York, July 17, 1996.* NTSB/AAR-00/03. Washington, DC: NTSB, August 23, 2000.
@@ -238,3 +246,5 @@ The case of [[nine-eleven]] — which unfolded five years later, investigated by
 - **Reed, William.** *TWA 800: Accident or Incident?* Analysis of radar data presented to the NTSB, 2013.
 
 - **Stacey, Terrell.** Testimony and deposition materials from *United States v. James Sanders and Elizabeth Sanders*, Eastern District of New York, 1999.
+- National Transportation Safety Board. *Aircraft Accident Report: In-Flight Breakup Over the Atlantic Ocean, Trans World Airlines Flight 800* (NTSB/AAR-00/03). Washington, D.C., August 23, 2000.
+- Negroni, Christine. *Deadly Departure: Why the Experts Failed to Prevent the TWA Flight 800 Disaster*. New York: Cliff Street Books, 2000.

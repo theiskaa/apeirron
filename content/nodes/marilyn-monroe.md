@@ -277,6 +277,14 @@ The red diary has never been found. The phone records have never been released. 
 
 Marilyn Monroe — the woman who was found face-down on her bed with a phone in her hand, lethal concentrations of barbiturates in her blood and liver, and nothing in her stomach to explain how they got there — remains, more than sixty years later, a mystery that the American government and the American justice system have never had the will, the courage, or the honesty to solve.
 
+## The case for accident or suicide
+
+The official finding — "probable suicide" by acute barbiturate poisoning, ruled by Los Angeles County Chief Medical Examiner Theodore Curphey — has a stronger evidentiary basis than the homicide literature usually allows. Monroe had a documented history of barbiturate dependence and at least one prior overdose; the Nembutal and chloral hydrate levels measured were lethal and consistent with ingestion. The "Suicide Prevention Team" psychological autopsy conducted by Robert Litman, Norman Farberow, and Norman Tabachnick — pioneers of the method — judged the death consistent with suicide or accident given her psychiatric state.
+
+The most-cited forensic anomaly, the absence of pill residue in the stomach, has an innocuous explanation: barbiturates taken over a period of hours are absorbed from the small intestine and leave little gastric residue, an effect compounded when chloral hydrate first delays and then potentiates a Nembutal dose. Donald Spoto's biography argues for accidental death from precisely this drug interaction, possibly involving a sedative enema administered by those caring for her, with no intruder required; Eunice Murray and Dr. Greenson's movements that night fit a panic over an accidental overdose as readily as a cover-up. Coroner Thomas Noguchi examined the body for injection marks and reported finding none.
+
+This does not by itself account for the destroyed phone records or the documented Kennedy contacts — but it removes the central forensic pillar on which the murder thesis is built.
+
 ## Sources
 
 ### Books
@@ -315,3 +323,5 @@ Marilyn Monroe — the woman who was found face-down on her bed with a phone in 
 - Otash, Fred. Posthumously released files and papers, examined by investigators, 2017. (Surveillance logs and notes relating to Monroe's home and phone monitoring.)
 - "Say Goodbye to the President." BBC documentary, 1985. (Comprehensive documentary incorporating Murray's admission and other witness testimony.)
 - "Marilyn Monroe: Declassified." Various broadcast iterations examining the FBI and CIA files.
+- Spoto, Donald. *Marilyn Monroe: The Biography*. New York: HarperCollins, 1993. (Argues accidental overdose.)
+- Los Angeles County Office of the Chief Medical Examiner-Coroner. Autopsy Report (Marilyn Monroe), August 1962; Curphey "probable suicide" statement, August 1962.

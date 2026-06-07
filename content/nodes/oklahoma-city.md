@@ -177,6 +177,14 @@ None of this proves that the bombing was orchestrated by the [[deep-state]] or t
 
 This is the question that the official investigation was designed never to ask. And it is the question that, thirty years after 168 people were murdered in Oklahoma City — including nineteen children who were eating breakfast in a daycare center on the second floor of a federal building — remains unanswered.
 
+## The case for the truck bomb alone
+
+The strongest version of the official account rests on physical and structural evidence rather than on trusting the government. McVeigh rented the Ryder truck in Junction City as "Robert Kling," and the truck's rear axle, stamped with its VIN, was recovered from the blast and traced to him within days; Terry Nichols' purchases of ammonium nitrate and his stored detonation cord, blasting caps, and quarry-stolen Tovex tie the plot to the two men. The American Society of Civil Engineers' building-performance team and the structural analyst Eve Hinman concluded that a roughly two-ton ANFO truck bomb at the recorded standoff distance was fully sufficient to shear the Murrah Building's unreinforced columns and initiate progressive collapse, with no secondary charges required.
+
+The contested technical points have mainstream explanations. USGS seismologist Thomas Holzer attributed the "two seismic events" to the air blast followed by the building's collapse, not two detonations; the "John Doe #2" hunt was resolved as a misidentification of Todd Bunting, a soldier who had been in the same body shop a day after McVeigh; and the reports of unexploded "additional devices" reflected bomb-squad render-safe procedures amid the confusion of the morning. McVeigh himself, in the letters and interviews collected in *American Terrorist*, insisted on sole authorship and was contemptuous of the suggestion that he had needed help.
+
+The informant questions around Elohim City and the disputes over ATF foreknowledge remain genuinely unresolved — but the core physical case for the truck bomb is robust on its own terms.
+
 ## Sources
 
 - Michel, Lou, and Dan Herbeck. *American Terrorist: Timothy McVeigh and the Oklahoma City Bombing*. New York: Regan Books, 2001.
@@ -208,3 +216,5 @@ This is the question that the official investigation was designed never to ask. 
 - Transcript, KFOR-TV (Oklahoma City, NBC), live broadcast coverage, April 19, 1995. Archived footage.
 
 - Crothers, Lane. *Rage on the Right: The American Militia Movement from Ruby Ridge to the Department of Homeland Security*. Lanham, MD: Rowman & Littlefield, 2012.
+- American Society of Civil Engineers / FEMA. *The Oklahoma City Bombing: Improving Building Performance Through Multi-Hazard Mitigation* (FEMA 277). Washington, D.C., 1996.
+- Michel, Lou, and Dan Herbeck. *American Terrorist: Timothy McVeigh and the Oklahoma City Bombing*. New York: ReganBooks, 2001.

@@ -159,6 +159,14 @@ What makes the King assassination uniquely instructive is the existence of the 1
 
 Martin Luther King Jr. was not killed because he had a dream. He was killed because he was on the verge of making that dream operational -- of building a multiracial movement of the poor that would challenge the economic foundations of American power. The bullet that struck him on the balcony of the Lorraine Motel did not come from a lone racist with a mail-order rifle. It came from a system that had identified him as a threat, surveilled him for years, attempted to drive him to suicide, and -- when none of that worked -- eliminated him. The system then investigated itself, found itself innocent, and buried the evidence. When the evidence resurfaced anyway, the system ignored it. That is how power works. That is what the assassination of Martin Luther King Jr. teaches anyone willing to learn.
 
+## The case that Ray acted alone
+
+The mainstream account, stated at its strongest, does not require believing James Earl Ray was a criminal mastermind — only that he was a racist career criminal who seized an opportunity. Ray had escaped from Missouri State Penitentiary in 1967, demonstrating he could live under false identities; he bought the Remington Gamemaster rifle under the alias "Harvey Lowmeyer," rented the rooming-house room overlooking the Lorraine Motel as "John Willard," and his fingerprints were on the rifle, the scope, and the binoculars in the bundle dropped outside Canipe's Amusement Company. He then fled the country on a Canadian passport as "Ramon George Sneyd," reaching London by way of Toronto and Lisbon — a months-long international flight he financed and navigated himself.
+
+The Department of Justice reinvestigated the case in 1998–2000 at Attorney General Janet Reno's direction, specifically to test the Jowers and Pepper allegations. It found Jowers' account internally contradictory and commercially motivated — he first sold the story in a paid television arrangement — and found no credible evidence for "Raoul" or for government involvement. Gerald Posner's *Killing the Dream* reconstructs Ray as a lone, racially motivated drifter aware of segregationist bounty talk. The 1999 civil verdict the King family won is weaker than it looks: the defendant and the plaintiffs both wanted a conspiracy finding, the trial was effectively uncontested, and the civil jury applying a preponderance standard heard almost no adversarial cross-examination.
+
+None of this dissolves the genuine anomalies — the COINTELPRO campaign against King, the recanted guilty plea, the altered Memphis security arrangements — but it shows the lone-gunman account is not the impossibility the conspiracy framing needs it to be.
+
 ## Sources
 
 - Pepper, William F. *Orders to Kill: The Truth Behind the Murder of Martin Luther King Jr.* New York: Carroll & Graf, 1995.
@@ -190,3 +198,5 @@ Martin Luther King Jr. was not killed because he had a dream. He was killed beca
 - Weiner, Tim. *Enemies: A History of the FBI.* New York: Random House, 2012.
 
 - King, Martin Luther, Jr. "Beyond Vietnam: A Time to Break Silence." Speech delivered at Riverside Church, New York City, April 4, 1967.
+- United States Department of Justice, Civil Rights Division. *Investigation of Recent Allegations Regarding the Assassination of Dr. Martin Luther King, Jr.* Washington, D.C., June 2000.
+- Posner, Gerald. *Killing the Dream: James Earl Ray and the Assassination of Martin Luther King, Jr.* New York: Random House, 1998. (The strongest version of the lone-gunman account.)
