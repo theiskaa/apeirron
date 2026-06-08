@@ -88,7 +88,6 @@ export default function Graph({
     label: "rgba(160,160,175,0.5)",
     labelHover: "rgba(210,210,220,0.9)",
     labelDim: "rgba(160,160,175,0.08)",
-    grid: "rgba(120,120,140,0.04)",
     ring: "rgba(220,220,230,0.3)",
     traverseTrail: "rgba(90,90,105,0.08)",
     traverseHeadRgb: "160, 160, 180",
@@ -107,7 +106,6 @@ export default function Graph({
         label: g("--graph-label", "rgba(160,160,175,0.5)"),
         labelHover: g("--graph-label-hover", "rgba(210,210,220,0.9)"),
         labelDim: g("--graph-label-dim", "rgba(160,160,175,0.08)"),
-        grid: g("--graph-grid", "rgba(120,120,140,0.04)"),
         ring: g("--graph-ring", "rgba(220,220,230,0.3)"),
         traverseTrail: g("--graph-traverse-trail", "rgba(90,90,105,0.08)"),
         traverseHeadRgb: g("--graph-traverse-head-rgb", "160, 160, 180"),
@@ -558,41 +556,6 @@ export default function Graph({
     [selectedNodeId]
   );
 
-  const paintBefore = useCallback(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (ctx: CanvasRenderingContext2D, globalScale: number) => {
-      if (globalScale < 0.3) return;
-
-      const gridSize = 60;
-      ctx.strokeStyle = themeVars.current.grid;
-      ctx.lineWidth = 0.5 / globalScale;
-
-      const topLeft = fgRef.current?.screen2GraphCoords(0, 0);
-      const bottomRight = fgRef.current?.screen2GraphCoords(
-        dimensions.width,
-        dimensions.height
-      );
-      if (!topLeft || !bottomRight) return;
-
-      const startX = Math.floor(topLeft.x / gridSize) * gridSize;
-      const startY = Math.floor(topLeft.y / gridSize) * gridSize;
-      const endX = Math.ceil(bottomRight.x / gridSize) * gridSize;
-      const endY = Math.ceil(bottomRight.y / gridSize) * gridSize;
-
-      ctx.beginPath();
-      for (let x = startX; x <= endX; x += gridSize) {
-        ctx.moveTo(x, startY);
-        ctx.lineTo(x, endY);
-      }
-      for (let y = startY; y <= endY; y += gridSize) {
-        ctx.moveTo(startX, y);
-        ctx.lineTo(endX, y);
-      }
-      ctx.stroke();
-    },
-    [dimensions]
-  );
-
   return (
     <div ref={containerRef} role="img" aria-label="Interactive knowledge graph" className="w-full h-full absolute inset-0">
       <ForceGraph2D
@@ -612,7 +575,6 @@ export default function Graph({
         onNodeDragEnd={handleNodeDragEnd}
         onEngineTick={handleEngineTick}
         backgroundColor={graphBg}
-        onRenderFramePre={paintBefore}
         warmupTicks={0}
         d3AlphaDecay={0.008}
         d3AlphaMin={0}
