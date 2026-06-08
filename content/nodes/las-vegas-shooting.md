@@ -5,12 +5,8 @@ category: "modern"
 connections:
   - target: "mass-surveillance"
     reason: "Mandalay Bay's surveillance that can spot a card counter somehow missed Paddock moving 20+ firearms into a suite over days. After the shooting, the FBI vacuumed up the footage and transaction logs and released almost none of it. The gap between capability and disclosure is what drives the conspiracy theories."
-  - target: "nine-eleven"
-    reason: "Both investigations left foundational questions unanswered — the 9/11 Commission 'set up to fail,' the FBI closing Vegas with no motive identified. Both involved rapid classification of critical evidence, and both produced policy changes (Patriot Act, bump stock bans) framed by the same conspiracy-culture methodology."
   - target: "deep-state"
     reason: "The FBI closed its 20-month investigation with no final public report, no motive, and sealed warrants. Aaron Rouse, the agent in charge, later ran for Senate; Sheriff Lombardo, whose LVMPD changed the timeline three times, became Nevada's governor in 2022. The institutional players were promoted, not punished."
-  - target: "epstein"
-    reason: "Paddock's anomalous wealth — over 200 casino currency transaction reports on a retired accountant — and the arms-dealing theory place him in the same intelligence-adjacent shadow economy Epstein inhabited. In both cases the official investigation declined to explore how these men acquired their wealth."
 ---
 
 At 10:05 p.m. Pacific Daylight Time on Sunday, October 1, 2017, a 64-year-old man named Stephen Craig Paddock opened fire from the windows of Suite 32-135 on the 32nd floor of the Mandalay Bay Resort and Casino in Las Vegas, Nevada. His targets were the 22,000 concertgoers attending the Route 91 Harvest country music festival on the Las Vegas Strip, an open-air venue directly across Las Vegas Boulevard from the hotel, approximately 490 yards from his elevated position. The shooting lasted between ten and eleven minutes. Paddock fired more than 1,000 rounds using a collection of semiautomatic rifles fitted with bump stock devices that allowed them to simulate fully automatic fire. When it was over, 60 people were dead and 411 had been wounded by gunfire, with an additional 456 injured in the ensuing stampede — a total of 867 casualties. It was the deadliest mass shooting in modern American history, surpassing the Pulse nightclub massacre in Orlando just sixteen months earlier, and the deadliest incident of mass gun violence committed by a single individual in the nation's history.

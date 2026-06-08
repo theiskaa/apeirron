@@ -5,8 +5,6 @@ category: "power"
 connections:
   - target: "operation-ajax"
     reason: "Ajax was the CIA's 1953 template for regime change through hired mobs and manufactured unrest. Color Revolutions are its direct descendants — as NED co-founder Allen Weinstein admitted in 1991, 'A lot of what we do today was done covertly 25 years ago by the CIA.'"
-  - target: "operation-gladio"
-    reason: "Gladio maintained covert NATO networks of political assets embedded in media, academia, and parties across Europe. The Color Revolution infrastructure — NED, USAID, Open Society, IRI, NDI — performs the same structural function openly under 'democracy promotion,' targeting the post-Soviet space Gladio's successors had cultivated since the 1990s."
   - target: "bernays"
     reason: "Color Revolutions are applied Bernays at geopolitical scale — the color/flower branding (orange, rose, tulip) reduces each movement to an emotionally resonant symbol. Gene Sharp's 'From Dictatorship to Democracy' is essentially a handbook of Bernaysian techniques for political destabilization."
   - target: "shadow-elite"

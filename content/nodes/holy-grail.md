@@ -9,10 +9,6 @@ connections:
     reason: "The Templars, Cathars, Rosicrucians, and Freemasons have all been linked to guarding the Grail or its secrets. The Grail is the common thread connecting these different secret societies."
   - target: "freemasonry"
     reason: "Masonic rituals center on the Temple of Solomon and the search for lost sacred knowledge. These are the same themes as the Grail legends, and higher Masonic degrees explicitly reference the Templars and the Grail."
-  - target: "hermetic-tradition"
-    reason: "The Grail romances and the Hermetic revival both appeared in medieval Europe around the same time. Both carry the idea that sacred knowledge was hidden from the Church and preserved by secret keepers."
-  - target: "illuminati"
-    reason: "The Grail bloodline theory says a secret network has protected Christ's descendants for centuries. This is the same basic structure as the Illuminati theory: hidden groups preserving hidden knowledge across generations."
   - target: "sacred-geometry"
     reason: "Gothic cathedrals and Templar churches use precise sacred geometry in their design. Some researchers believe this mathematical knowledge came from the same tradition that the Grail legends describe."
 ---

@@ -13,8 +13,6 @@ connections:
     reason: "Epstein had alleged ties to the CIA and foreign intelligence services. If true, his blackmail operation was connected to deep state intelligence networks."
   - target: "mkultra"
     reason: "MKUltra included sexual entrapment operations to compromise targets. Epstein's hidden cameras served the same purpose: recording powerful people to use as leverage."
-  - target: "jfk"
-    reason: "Both cases involve powerful people who may have been protected by institutions. JFK's assassination and Epstein's death both raised questions about cover-ups at the highest levels."
   - target: "mass-surveillance"
     reason: "Epstein ran a private surveillance operation with hidden cameras in his properties. He used the same tools as government mass surveillance programs, but to collect blackmail material on elites."
   - target: "epstein"

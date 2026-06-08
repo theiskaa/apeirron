@@ -9,8 +9,6 @@ connections:
     reason: "The Grove's membership list reads like a directory of the shadow elite: presidents, defense secretaries, central bankers, CEOs, and intelligence chiefs, all socializing off the record in the California redwoods."
   - target: "control-systems"
     reason: "The Grove functions as an invisible control system: policy is discussed, alliances are formed, and decisions are made in a setting with no minutes, no press, and no accountability."
-  - target: "mkultra"
-    reason: "The CIA's presence at the Grove is well-documented. Agency directors from Allen Dulles onward have been members, and the Manhattan Project itself was allegedly discussed at the Grove in 1942 — raising questions about what other classified programs have been shaped under those redwoods."
   - target: "bilderberg"
     reason: "Bohemian Grove and Bilderberg share documented overlapping membership — David Rockefeller, Henry Kissinger, George Shultz, and other confirmed attendees of both. The Grove is the American domestic counterpart to Bilderberg's transatlantic meetings."
   - target: "skull-and-bones"

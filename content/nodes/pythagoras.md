@@ -17,8 +17,6 @@ connections:
     reason: "Pythagoras was the first Western thinker to articulate that consciousness and mathematical structure are intimately related — that the mind's capacity to apprehend mathematical truth implies a kinship between the structure of mind and the structure of reality. Modern questions about the 'unreasonable effectiveness of mathematics' are still asking his question."
   - target: "jung"
     reason: "Jung treated number itself as one of the core categories of the unconscious. *Number and Time*, developed by von Franz from his notes, argues that the small integers (one through four) function as archetypal structures — the same insight the historical Pythagorean tradition had partially articulated."
-  - target: "megaliths"
-    reason: "The geometric ratios in megalithic construction — the pi and phi relationships in the Great Pyramid, the integer ratios at Stonehenge — are the same ratios Pythagoras formalized in Greek philosophical language a millennium later. Pythagoras as the Greek formalization of insights the megalithic builders had already applied for thousands of years."
   - target: "synchronicity"
     reason: "Jung and Pauli argued the small integers are the most primitive ordering forms shared by psyche and matter — number as the archetype on which mind and world turn together. It is the Pythagorean doctrine that all things are number, recovered as the metaphysical foundation of acausal order."
 ---

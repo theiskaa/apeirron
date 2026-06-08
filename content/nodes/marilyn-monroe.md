@@ -5,14 +5,8 @@ category: "operations"
 connections:
   - target: "jfk"
     reason: "Monroe's affairs with both John and Robert Kennedy placed her at the intersection of the presidency and its secrets. Her death came weeks after she allegedly threatened to go public about what the Kennedys had told her."
-  - target: "mkultra"
-    reason: "Monroe's psychiatric treatment, her relationship with her psychiatrist Ralph Greenson, and the heavy sedation that defined her final years raise questions about whether she was subjected to — or a casualty of — mind control techniques being developed under MKUltra."
-  - target: "cia-drugs"
-    reason: "Monroe's death by barbiturate overdose occurred in a period when the CIA was actively studying the use of pharmaceuticals for incapacitation and assassination. The specific drug cocktail found in her system has raised questions among forensic experts."
   - target: "deep-state"
     reason: "The FBI and CIA files on Monroe — partially declassified, heavily redacted — confirm that she was surveilled by both agencies. The question is whether surveillance tipped into something more active."
-  - target: "kurt-cobain"
-    reason: "Both deaths officially ruled self-inflicted despite forensic anomalies, both surrounded by powerful people with motive, both had private investigators stonewalled by police."
 ---
 
 On the night of August 4, 1962, something happened inside a modest Spanish Colonial house at 12305 Fifth Helena Drive in the Brentwood neighborhood of Los Angeles. By the early morning hours of August 5, Marilyn Monroe — born Norma Jeane Mortenson, the most famous woman in the world, a person whose face and body had been transformed into a commodity worth hundreds of millions of dollars — was dead. She was thirty-six years old. Within forty-eight hours, the Los Angeles County Coroner had ruled the death a "probable suicide" by acute barbiturate poisoning. Within a week, her body had been interred at Westwood Village Memorial Park. Within a month, the official file was closed.

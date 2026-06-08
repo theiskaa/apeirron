@@ -17,12 +17,8 @@ connections:
     reason: "Tonkin was the political authorization. Phoenix is what the conventional war became when the conventional war was failing. By 1967 Westmoreland's attrition strategy could not produce victory through firepower alone, and the response was a CIA-run program of provincial-level political assassination directed at the Viet Cong civilian infrastructure — a category of operation the Tonkin Resolution had never publicly contemplated."
   - target: "iraq-wmds"
     reason: "Tonkin is the direct doctrinal predecessor of the 2002 Iraq AUMF — same mechanism (fabricated intelligence converted into near-unanimous congressional war authorization), same institutional players (intelligence community presenting reverse-engineered findings to support a policy already decided), same outcome (open-ended presidential war power that produced a decade-long conflict). NSA historian Robert Hanyok's classified study of Tonkin manipulation was suppressed in 2001, the same year PNAC alumni began assembling the second case."
-  - target: "reichstag-fire"
-    reason: "The Reichstag is the European prototype Tonkin re-enacts in twentieth-century American form. Both convert a single ambiguous or manufactured incident into a pre-drafted legal authorization that suspends ordinary deliberation, and both authorizations long outlive the emergencies they were invoked to address — the Reichstag Fire Decree governing Germany for twelve years, the Tonkin Resolution's operative legacy (the AUMF doctrine) governing American war powers into the present."
   - target: "pearl-harbor-foreknowledge"
     reason: "Pearl Harbor and Tonkin are the same mechanism a generation apart — an attack allowed or fabricated as the pretext for a war already chosen, with Congress stampeded into war powers on minimal dissent."
-  - target: "twa-flight-800"
-    reason: "Tonkin and TWA 800 are mirror images of one institutional reflex: Tonkin manufactured an attack that did not happen to start a war, while TWA 800 allegedly suppressed a possible attack to avoid one."
   - target: "uss-liberty"
     reason: "Tonkin and the Liberty share the same president, the same willingness to deceive Congress about attacks on U.S. warships, and the same agency — NSA intercepts manipulated in one, an NSA SIGINT ship targeted in the other."
 ---

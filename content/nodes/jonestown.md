@@ -5,8 +5,6 @@ category: "operations"
 connections:
   - target: "mkultra"
     reason: "Jonestown ran on the exact techniques the MKUltra files document — sleep deprivation, forced drugging, public confession, sensory and information isolation, the systematic dismantling of individual identity. Jim Jones had intelligence-adjacent ties, and the camp functioned as those methods applied to an entire population at once."
-  - target: "project-monarch"
-    reason: "Monarch is the alleged trauma-based programming successor to MKUltra, run on individuals; Jonestown is the same coercive engineering scaled to a thousand people. The 'White Night' suicide rehearsals are conditioning drills indistinguishable in structure from programmed-response training."
   - target: "control-systems"
     reason: "Jonestown was a sealed total-control system: a jungle settlement with no outside information, perpetual surveillance, manufactured fear of an external enemy, and rehearsed obedience unto death. It is the control-systems framework realized in its most absolute form on a captive population."
   - target: "pharmacratic-inquisition"

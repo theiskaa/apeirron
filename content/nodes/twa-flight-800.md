@@ -5,8 +5,6 @@ category: "modern"
 connections:
   - target: "nine-eleven"
     reason: "The same FBI counter-terrorism apparatus that managed TWA 800 — led by Assistant Director James Kallstrom out of the New York Field Office — became the backbone of the post-9/11 Bureau response. If TWA 800 was a missile, then reclassifying it as mechanical failure was the most consequential pre-9/11 intelligence suppression, ensuring the threat environment was never accurately assessed."
-  - target: "gulf-of-tonkin"
-    reason: "Tonkin and TWA 800 are mirror images of the same institutional reflex. Tonkin manufactured a North Vietnamese attack to justify war escalation; TWA 800 inverted the dynamic, reclassifying a possible external attack as internal mechanical failure. Both demonstrate the capacity to manufacture or suppress truth about a catalyzing event when the real story is politically inconvenient."
   - target: "operation-mockingbird"
     reason: "Despite 258+ eyewitnesses — including military pilots and commercial aviators — reporting a streak of light ascending toward the aircraft, the missile theory was marginalized in mainstream coverage. Journalist James Sanders, who obtained fabric samples testing positive for missile exhaust residue, was arrested with his wife under stolen property statutes — the criminalization of source-based reporting."
   - target: "mass-surveillance"

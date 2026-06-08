@@ -13,8 +13,6 @@ connections:
     reason: "The Hollow Earth theory offers an alternative to the ancient astronaut idea: the 'gods' ancient people described came from underground, not from space"
   - target: "bermuda-triangle"
     reason: "Some theorists claim the Bermuda Triangle's disappearances happen because there are openings in the Earth's crust there that lead to the interior"
-  - target: "consciousness"
-    reason: "The Hollow Earth legends of Shambhala and Agartha describe the inner world as a place of higher consciousness, not just a physical location"
   - target: "flat-earth"
     reason: "Flat Earth and Hollow Earth are competing alternative models of Earth's structure from overlapping communities, both rejecting mainstream geophysics. Both trace intellectual lineage to 19th-century alternative science movements, and some theorists attempt to reconcile the two models."
   - target: "operation-high-jump"

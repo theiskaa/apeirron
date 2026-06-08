@@ -3,14 +3,10 @@ id: "lusitania"
 title: "The Sinking of the Lusitania"
 category: "operations"
 connections:
-  - target: "operation-northwoods"
-    reason: "Northwoods explicitly proposed a 'Remember the Maine' sinking to generate 'a helpful wave of national indignation.' The Lusitania — civilian ship carrying munitions, escort withdrawn by Churchill's Admiralty — is the WWI instantiation of the same doctrine. Northwoods planners treated the Maine and the Lusitania as templates."
   - target: "federal-reserve"
     reason: "The Fed was created seventeen months before the Lusitania sank. JP Morgan served as sole Allied purchasing agent, arranging $3 billion in war contracts; Jekyll Island participant Henry Davison negotiated the $500 million Anglo-French loan. American entry, made politically possible by the Lusitania, guaranteed those loans would be repaid."
   - target: "shadow-elite"
     reason: "Churchill controlled Room 40, which was tracking U-20 in real time, and had written that it was 'most important to attract neutral shipping to our shores, in the hope especially of embroiling the United States with Germany.' The escort HMS Juno was withdrawn and no specific warning was sent — senior officials allowed a preventable catastrophe because its political consequences served them."
-  - target: "nine-eleven"
-    reason: "Both events share the same architecture: intelligence warnings that were not acted upon, followed by rapid political mobilization toward a war already determined to be necessary. Room 40 had the U-boat positions; the CIA had al-Qaeda warnings. Both official investigations assigned blame outward while foreclosing inquiry into domestic decisions."
 ---
 
 On the afternoon of May 7, 1915, the RMS Lusitania — the largest, fastest, and most luxurious ocean liner in the Atlantic service — was steaming eastward through the Celtic Sea off the southern coast of Ireland, eleven miles from the Old Head of Kinsale. She carried 1,959 souls: 1,257 passengers and 702 crew. She was eighteen hours from her destination of Liverpool. At 2:10 p.m., Kapitanleutnant Walther Schwieger, commanding the German submarine U-20, fired a single torpedo from a range of approximately 700 meters. The torpedo struck the Lusitania on the starboard side, just beneath the bridge, at the junction of the first and second funnels. Within seconds of the torpedo's detonation, a second, far more powerful explosion ripped through the ship's interior. The Lusitania listed immediately to starboard at an angle so severe that the lifeboats on the port side could not be launched. In eighteen minutes — a span of time almost unprecedented for a vessel of her size — the ship went down by the bow. Of the 1,959 people aboard, 1,198 died. Among the dead were 128 citizens of the United States, a nation that was technically neutral in the war that had been consuming Europe for nine months.

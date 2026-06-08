@@ -3,8 +3,6 @@ id: "rex-84"
 title: "Rex 84"
 category: "operations"
 connections:
-  - target: "operation-gladio"
-    reason: "Rex 84 is the American domestic counterpart to Gladio's European stay-behind networks — identical architecture of classified directives, civilian detention lists, and parallel command structures built to suspend the constitutional order they were ostensibly defending. Gladio was exposed in 1990; Rex 84 surfaced during Iran-Contra three years earlier."
   - target: "deep-state"
     reason: "Rex 84 is the deep state's literal contingency plan for overt rule — the COG blueprint for an unelected shadow government to assume executive authority, bypass Congress, and govern through FEMA and military command. Developed and maintained for decades without congressional knowledge, it proves institutions exist that operate accountable to no electorate."
   - target: "mass-surveillance"

@@ -3,8 +3,6 @@ id: "waco"
 title: "The Waco Siege"
 category: "modern"
 connections:
-  - target: "operation-northwoods"
-    reason: "The ATF fabricated a methamphetamine-lab allegation against the Davidians — the Texas DPS had already found the claim baseless — solely to trigger the Posse Comitatus drug exception and obtain military helicopters and Delta Force advisors. Like Northwoods, the agency determined its objective first and manufactured the legal justification after the fact."
   - target: "nine-eleven"
     reason: "McVeigh timed the Oklahoma City bombing to the second anniversary of the Mount Carmel fire — the deadliest domestic terror act until 9/11. The 1996 Antiterrorism and Effective Death Penalty Act passed in direct response, serving as the legislative template for the Patriot Act: the genealogy of expanding state power runs Waco to OKC to 9/11."
   - target: "mass-surveillance"

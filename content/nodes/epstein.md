@@ -11,12 +11,8 @@ connections:
     reason: "Epstein's documented social network — Clinton, Gates, Prince Andrew, Ehud Barak, Leon Black, Les Wexner — constitutes a map of the shadow elite. His operation functioned as an interface between extreme wealth, political power, and intelligence services."
   - target: "mkultra"
     reason: "MKUltra's Operation Midnight Climax was the direct precursor: a CIA program that used prostitutes in Agency-controlled apartments rigged with hidden cameras and two-way mirrors to film targets for blackmail. Epstein's operation used the same method — sexual compromise recorded by hidden surveillance — at industrial scale."
-  - target: "princess-diana"
-    reason: "Both cases involve global elite networks with intelligence-service overlap and the strategic management of compromising information about the powerful."
   - target: "project-monarch"
     reason: "The handler-controlled programmed-victim framework has been applied to Epstein's operation: trauma bonding, dissociative control, Acosta's 'belonged to intelligence' line."
-  - target: "las-vegas-shooting"
-    reason: "Paddock's high-roller casino lifestyle, unexplained wealth, and alleged arms-dealing place him in the same intelligence-adjacent casino/hospitality world Epstein operated in."
   - target: "octopus-promis"
     reason: "PROMIS is the documented intelligence-operation precedent the Epstein apparatus inherited, transmitted through Robert Maxwell — alleged principal salesman of the backdoored software — to his daughter Ghislaine. The tradecraft is identical: penetrate the target's environment with a concealed collection capability and harvest the take; only the product changed, from surveillance software to hidden-camera videotape."
 ---

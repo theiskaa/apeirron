@@ -15,10 +15,6 @@ connections:
     reason: "The Templars allegedly recovered Gnostic texts and Kabbalistic teachings in the Holy Land. This material fed directly into the Western Hermetic tradition."
   - target: "control-systems"
     reason: "The Templars invented international banking and answered to no king. They were the first to prove that financial power can be greater than political power."
-  - target: "rothschild"
-    reason: "The Templars and the Rothschilds are the two great archetypes of conspiracy thinking about banking dynasties — separated by five centuries but linked by an identical structural pattern: private financial networks operating across European states, extending credit to multiple sovereigns simultaneously, becoming (in the conspiratorial imagination of their eras) the secret rulers of the worlds they operated in."
-  - target: "vatican-jesuits"
-    reason: "The Templars (1119–1312) and the Jesuits (1540–1773–1814) are the two great cases of Catholic religious orders that grew too powerful for the papacy to tolerate and were destroyed by the same institution that chartered them. Identical pattern — with the Jesuits restored after 41 years where the Templars never were."
 ---
 
 In 1119, nine French knights led by Hugues de Payens presented themselves to King Baldwin II of Jerusalem with a singular offer: they would protect Christian pilgrims traveling to the Holy Land. Baldwin gave them quarters on the Temple Mount — the site where Solomon's Temple had stood, the holiest ground in Judaism, and one of the most contested pieces of real estate in human history. For the next nine years, the founding knights apparently recruited no new members, engaged in no military campaigns, and were never seen protecting any pilgrims.

@@ -7,8 +7,6 @@ connections:
     reason: "Gnosticism and Hermeticism are twin currents of the same second-century Alexandrian crucible, built from the same Platonic and Egyptian materials, and both turn on a Demiurge who fashions the lower world. But they invert each other: where the Hermetica calls the living cosmos divine and 'all is mind,' Gnosticism calls that same cosmos a prison built by a blind craftsman."
   - target: "saturn-black-cube"
     reason: "The Gnostic Demiurge — Yaldabaoth, the ignorant craftsman who believes he is the only god — is the figure later esoteric tradition fused with Saturn, the outermost planet and warden of the material threshold. The archons' cosmic prison and the Saturnian cube are the same image of reality as a cage."
-  - target: "control-systems"
-    reason: "The archons are the original invisible control system: cosmic administrators who govern each layer of the material prison and keep the divine spark ignorant of its origin through fate, fear, and false worship. Every modern theory of a hidden network managing perception is a secularized descendant of this architecture."
   - target: "simulation-hypothesis"
     reason: "Gnostic cosmology is the simulation argument with a malevolent programmer: the visible world is a counterfeit built by a lesser power to trap consciousness in false perception, and salvation is waking up to the substrate behind the render. The demiurge is the system administrator; gnosis is the glitch that reveals the code."
   - target: "idealism"

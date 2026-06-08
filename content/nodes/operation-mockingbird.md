@@ -11,8 +11,6 @@ connections:
     reason: "After the JFK assassination, major media outlets accepted the Warren Commission's lone-gunman conclusion with almost no pushback. Many of those outlets had CIA ties through Mockingbird."
   - target: "cia-drugs"
     reason: "Gary Webb exposed CIA involvement in drug trafficking. The newspapers that had Mockingbird-era CIA ties, like the Washington Post, led the effort to discredit him."
-  - target: "mkultra"
-    reason: "Mockingbird controlled what information reached the public through the press. MKUltra tried to control how people think through drugs and psychological manipulation. Both were secret CIA programs running at the same time."
   - target: "nine-eleven"
     reason: "After 9/11, major media outlets uniformly supported the Iraq War based on false WMD claims without serious investigation. This is the same pattern Mockingbird established: media repeating government talking points."
   - target: "predictive-programming"

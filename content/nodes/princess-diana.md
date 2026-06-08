@@ -3,8 +3,6 @@ id: "princess-diana"
 title: "The Death of Princess Diana"
 category: "operations"
 connections:
-  - target: "jfk"
-    reason: "Both were wildly popular figures who had become threats to entrenched power, both died in incidents that investigations (Warren Commission, Operation Paget) declared accidental or lone-actor, and both involved intelligence agencies with motive and opportunity — the CIA in Dallas, MI6 in Paris."
   - target: "shadow-elite"
     reason: "Diana married into the Anglo-European aristocracy and turned against it — attacking the landmine arms trade and planning to marry Dodi Fayed, a union Al-Fayed argued the shadow elite found intolerable on racial, religious, and dynastic grounds. Her death removed a figure with the platform to challenge them."
   - target: "deep-state"
@@ -13,8 +11,6 @@ connections:
     reason: "The unanimous post-crash narrative (reckless paparazzi, drunk driver) flooded the information space and precluded any serious look at the intelligence dimensions — exactly the Mockingbird pattern, enabled in Britain through D-notices and cultivated editorial ties between the press and the security services."
   - target: "secret-societies"
     reason: "The Pont de l'Alma ('Bridge of the Soul') was historically associated with Merovingian ritual, and Diana descended through the Spencers from the Stuart line with its Scottish Rite and Templar connections — fueling speculation that her death carried ritual symbolism beyond a simple political assassination."
-  - target: "epstein"
-    reason: "Both deaths share the same architecture: figures with damaging knowledge about the powerful, officially unexplained circumstances, and cascading 'failures' (broken cameras, missing evidence, compliant investigations). Prince Andrew links them directly — Diana's former brother-in-law was the royal most compromised by Epstein."
 ---
 
 On the night of August 30, 1997, Diana, Princess of Wales, and Emad "Dodi" Fayed dined at the Ritz Paris, the hotel owned by Dodi's father, Mohamed Al-Fayed. They had spent the preceding days together on Al-Fayed's yacht in the Mediterranean — Sardinia, then the French Riviera — photographed at every turn by a press corps that had made Diana the most relentlessly pursued human being on the planet. By the time they arrived at the Ritz that evening, paparazzi were massed outside the hotel entrance on the Place Vendome, cameras ready, motorcycles fueled for pursuit. The couple had dinner in the Imperial Suite. Shortly before midnight, a plan was set in motion to evade the press: instead of leaving through the front entrance in the regular car with the regular driver, Diana and Dodi would leave through the rear exit in a different vehicle, a black Mercedes-Benz S280 (registration number 688 LTV 75), driven by Henri Paul, the deputy head of security at the Ritz.

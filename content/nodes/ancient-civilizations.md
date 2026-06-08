@@ -7,8 +7,6 @@ connections:
     reason: "Megalithic structures around the world were built with techniques that mainstream history can't fully explain, suggesting a lost civilization with advanced construction knowledge"
   - target: "ancient-astronauts"
     reason: "If an advanced civilization existed before recorded history, ancient astronaut theory asks whether those people were human or visitors from somewhere else"
-  - target: "consciousness"
-    reason: "Ancient cultures across the world treated consciousness as the foundation of reality, not a byproduct of it, which suggests they may have understood something about the mind that we've forgotten"
   - target: "secret-societies"
     reason: "Secret societies claim their knowledge has been passed down in an unbroken chain from pre-flood civilizations. If those civilizations existed, these groups may be carrying their knowledge"
   - target: "atlantis"

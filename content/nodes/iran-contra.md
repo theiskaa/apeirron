@@ -5,8 +5,6 @@ category: "operations"
 connections:
   - target: "cia-drugs"
     reason: "North's Contra supply network used the same planes, pilots, and airstrips to fly weapons south and cocaine north — Barry Seal out of Mena being the clearest case. The Kerry Committee and Gary Webb's 'Dark Alliance' documented that the covert war and the narcotics pipeline shared a single logistical infrastructure."
-  - target: "operation-gladio"
-    reason: "North's 'Enterprise' and Gladio's NATO stay-behind networks were structurally identical — parallel command structures using cutouts, Swiss accounts, and right-wing recruits to execute policy legislatures had prohibited. Both embodied the same doctrine: anti-communism justifies permanent covert infrastructure beyond democratic oversight."
   - target: "shadow-elite"
     reason: "Casey, Bush, McFarlane, Poindexter, North, Abrams, Secord, and Hakim ran an entirely separate foreign policy from the White House basement. When exposed, the system protected its own — Bush pardoned Weinberger on Christmas Eve 1992, which Independent Counsel Walsh said 'completed the Iran-Contra cover-up.'"
   - target: "federal-reserve"

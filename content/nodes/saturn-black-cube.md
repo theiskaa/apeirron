@@ -11,12 +11,8 @@ connections:
     reason: "Saturn worship — under the names El, Kronos, Moloch, and Saturn — is alleged to be the hidden thread connecting ancient mystery schools, medieval occult orders, and modern elite rituals. The Black Cube appears in the symbolism of organizations across millennia."
   - target: "freemasonry"
     reason: "The Masonic checkered floor is a pattern of black and white squares — a flattened cube. The compass and square, Freemasonry's central symbols, generate the circle and the square — the two forms that define Saturn's geometry in esoteric tradition."
-  - target: "control-systems"
-    reason: "In the Gnostic framework, Saturn is the demiurge — the false creator who built the material world as a prison for divine sparks. This is the oldest version of the invisible control system: reality itself as a cage, maintained by a cosmic warden."
   - target: "plato"
     reason: "In the Timaeus, Plato assigned the cube to the element Earth — the heaviest, most stable, most confining of the four elements. His Allegory of the Cave describes prisoners trapped in a shadow-world, watching projections on a wall — a description that Gnostic and esoteric traditions have read as a depiction of Saturn's prison."
-  - target: "cern"
-    reason: "A two-meter bronze Shiva Nataraja stands at CERN's main entrance — Shiva and Saturn occupy the same cosmic-destroyer role, and placing the destroyer at the threshold of the highest-energy physics on Earth is the same kind of declaration Saturn worship has always made."
   - target: "gnosticism"
     reason: "The fullest articulation of Saturn-as-warden is Gnostic: Yaldabaoth the lion-faced Demiurge and his archons are the cosmic jailers the Black Cube symbolizes, reality rebuilt as a cage around the divine spark."
 ---

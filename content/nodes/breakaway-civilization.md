@@ -19,8 +19,6 @@ connections:
     reason: "AATIP is the most significant public-record evidence for the breakaway civilization thesis — black-budget funding via Reid, Bigelow Aerospace as the contractor, phenomena exceeding known human capability, deliberately concealed from the relevant senators. Whether the objects are extraterrestrial or human-built breakaway tech is unresolved."
   - target: "operation-high-jump"
     reason: "The Base 211/Neuschwabenland theory — that Nazi remnants established a technological enclave in Antarctica — is the earliest breakaway-civilization origin story."
-  - target: "piri-reis-map"
-    reason: "If the map preserves pre-glacial survey data from a destroyed maritime civilization, the continuity question follows: did that civilization's surviving knowledge feed an unbroken esoteric tradition that still inherits it? The breakaway frame extends the same question into the present — what knowledge exists now that is not publicly acknowledged to exist."
   - target: "thule-vril"
     reason: "The breakaway thesis requires a specific origin event for the classified-public divergence, and the Thule-Vril → Ahnenerbe → Paperclip pipeline is the most historically grounded candidate. If the Nazi occult-scientific establishment produced advances that were absorbed into the American black budget and kept classified, the divergence has a traceable founding moment in the 1945-47 window."
   - target: "skinwalker-ranch"

@@ -15,8 +15,6 @@ connections:
     reason: "The felt flow of time is one of the most basic facts of experience and has no explanation in the physics of time, which is time-symmetric and static. Time's passage is a specialized instance of the hard problem — a qualitative feature of consciousness with no physical correlate."
   - target: "philadelphia-experiment"
     reason: "The Philadelphia Experiment legend has sailors displaced through time, not merely space — the claim that the Navy was manipulating time itself, which is why it recurs wherever the physics of time is contested."
-  - target: "bermuda-triangle"
-    reason: "Bermuda Triangle accounts include time distortions — stopped watches, hours passing in minutes, clocks resetting — anomalies that, if real, would implicate the local behavior of time."
   - target: "synchronicity"
     reason: "Jung's third class of synchronistic event — a psychic state answering to a future that does not yet exist — requires meaning to organize the temporal order from outside the sequence, which only makes sense if the future is in some way already real. It is the block universe arriving from the side of depth psychology rather than physics."
 ---

@@ -13,8 +13,6 @@ connections:
     reason: "Pentagon UFO videos, congressional testimony, and whistleblower claims suggest aliens might already be here, which would answer Fermi's question directly"
   - target: "nibiru"
     reason: "If Sitchin's Nibiru is real — an inhabited planet on a 3,600-year orbit through our solar system — then Fermi's question is answered at the smallest possible scale: intelligent life is not light-years away but orbiting among us on a cycle longer than recorded history."
-  - target: "aatip-disclosure"
-    reason: "The post-2017 disclosures raise the possibility that the Fermi Paradox premise is wrong — that evidence of intelligence has in fact been observed by the US military across decades, and that the institutional decision not to disclose it is the principal reason the broader scientific community has been able to maintain the question in its conventional form."
 ---
 
 In the summer of 1950, the physicist Enrico Fermi sat down to lunch at Fuller Lodge in Los Alamos, New Mexico, with Edward Teller, Herbert York, and Emil Konopinski. The conversation turned to a *New Yorker* cartoon by Alan Dunn depicting aliens stealing New York City's trash cans, then to the probability of faster-than-light travel, then to the general question of extraterrestrial civilizations. The discussion moved on. Some minutes later, in the middle of lunch and without apparent context, Fermi looked up and asked his companions: *"But where is everybody?"* All three companions independently recalled, decades later, that everyone at the table instantly understood what he meant.

@@ -3,8 +3,6 @@ id: "boston-marathon"
 title: "The Boston Marathon Bombing"
 category: "modern"
 connections:
-  - target: "nine-eleven"
-    reason: "The FBI interviewed Tamerlan Tsarnaev in 2011 at FSB request, closed the case, and did not flag his six-month 2012 trip to Dagestan — mirroring the CIA's tracking of 9/11 hijackers al-Hazmi and al-Mihdhar without watch-listing them. In both cases, devastating attacks were carried out by individuals already known to the security services."
   - target: "mass-surveillance"
     reason: "The April 19, 2013 'shelter in place' order locked down nearly a million Boston-area residents while tactical teams conducted warrantless door-to-door searches in Watertown — the ACLU documented it as the largest Fourth Amendment suspension in U.S. domestic law enforcement history, and a proof-of-concept for the post-9/11 surveillance apparatus's domestic deployment."
   - target: "deep-state"

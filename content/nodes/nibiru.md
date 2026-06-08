@@ -9,8 +9,6 @@ connections:
     reason: "Sitchin claimed the Anunnaki from Nibiru directly created Sumerian civilization — teaching writing, agriculture, astronomy, and law. If true, the origin of human civilization is not indigenous development but extraterrestrial transplantation from Nibiru's inhabitants."
   - target: "fermi-paradox"
     reason: "If an inhabited planet follows a 3,600-year elliptical orbit through our own solar system, the Fermi question — 'where is everybody?' — is answered at the smallest possible scale: they are here, on a body we have not yet catalogued, passing through our neighborhood on a cycle longer than recorded history."
-  - target: "book-of-enoch"
-    reason: "Sitchin's Sumerian Anunnaki and Enoch's Hebrew Watchers are independently transmitted traditions describing structurally identical events — beings descending, taking human wives, teaching forbidden knowledge, producing giants destroyed by divine intervention."
   - target: "younger-dryas"
     reason: "Two incompatible mechanisms for the same event the Sumerian flood narratives may remember — Sitchin's 3,600-year-orbit planet, or the Younger Dryas comet impact at 12,800 BP. The latter has the substantial advantage of being grounded in geological evidence."
 ---

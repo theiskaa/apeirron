@@ -15,8 +15,6 @@ connections:
     reason: "The modern shadow elite (Bilderberg, CFR, Davos) are basically 20th-century secret societies that meet in conference rooms instead of hidden lodges."
   - target: "control-systems"
     reason: "Secret societies are the oldest form of invisible control. The idea that hidden networks run the world has existed for thousands of years, long before modern propaganda."
-  - target: "consciousness"
-    reason: "Secret societies have always claimed that normal human awareness is limited, and that their rituals and practices can expand it to see hidden truths."
   - target: "altered-states"
     reason: "From the ancient Eleusinian Mysteries to modern occult orders, initiation rituals use altered states of consciousness to reveal hidden knowledge to members."
   - target: "ancient-civilizations"
@@ -39,8 +37,6 @@ connections:
     reason: "The symbolism of Pont de l'Alma ('bridge of the soul'), the 13th pillar, and esoteric readings of the crash site have produced a substantial occult literature."
   - target: "thule-vril"
     reason: "The Thule Society is the twentieth-century case where a small occult order successfully delivered its ideological substrate to a mass political movement that took state power — the documented working example of what every secret-society claim gestures toward, with catastrophic historical consequences."
-  - target: "celebrity-27-club"
-    reason: "The Faustian-bargain and blood-sacrifice narratives — Robert Johnson's crossroads as template — are central to the occult interpretation of the 27 Club."
 ---
 
 In 1798, John Robison — professor of natural philosophy at the University of Edinburgh and fellow of the Royal Society — published *Proofs of a Conspiracy Against All the Religions and Governments of Europe*. His claim was specific: a network of secret societies, centered on the [[illuminati]] and infiltrating [[freemasonry]] lodges across Europe, had engineered the French Revolution. The book was not the work of a crank. Robison was one of the most respected scientists in Britain — he had been Joseph Black's collaborator on the latent-heat experiments that founded modern thermodynamics, had served as secretary to Admiral Sir Charles Knowles in the Russian Navy, and had translated key European scientific texts into English for British audiences. George Washington read *Proofs* and wrote in a letter dated October 24, 1798 that he did not doubt "the Doctrines of the Illuminati, and principles of Jacobinism had not spread in the United States." The Abbé Augustin Barruel, in France, published *Mémoires pour servir à l'histoire du Jacobinisme* across the same period, advancing a parallel thesis on independent evidence. The two books became, in subsequent decades, the founding documents of what would become the modern conspiracy literature.

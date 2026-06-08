@@ -3,8 +3,6 @@ id: "business-plot"
 title: "The Business Plot"
 category: "operations"
 connections:
-  - target: "reichstag-fire"
-    reason: "Reichstag and the Business Plot are the twin 1933 fascist attempts on Atlantic constitutional democracy — one executed by the regime already in power, one proposed by the financial establishment that wanted Roosevelt out. The Berlin operation succeeded because the chancellor was the plotter; the Washington operation stalled because the general the bankers approached refused. Same year, same fascist template, different outcomes turning on a single biographical contingency."
   - target: "skull-and-bones"
     reason: "The Plot's Wall Street cast overlaps directly with the Brown Brothers Harriman / Bonesman financial network. Grayson M.-P. Murphy ran a Morgan-affiliated brokerage; the Du Pont, Pew, and Pitcairn fortunes whose names surfaced in Gerald MacGuire's pitch sat inside the same Eastern establishment Skull and Bones had recruited from for a century, and Prescott Bush's banking partnership was three blocks from Robert Sterling Clark's office. The Plot is the closest the Bonesman financial network has come to attempting overt political seizure of the federal executive."
   - target: "deep-state"

@@ -11,8 +11,6 @@ connections:
     reason: "Base 211 — an autonomous Nazi technological enclave under the Antarctic ice — would be the earliest breakaway civilization in Dolan's sense: a self-sustaining, self-governing technologically advanced group invisible to the public. High Jump provides the breakaway thesis its origin story, predating the American black-budget divergence."
   - target: "ufos"
     reason: "High Jump sits at the intersection of the wartime 'foo fighters,' the alleged Haunebu/Vril disc craft, and Byrd's postwar statement about 'flying objects that could fly from pole to pole at tremendous speed.' This provides an alternative UFO origin: not extraterrestrial, but Nazi breakaway technology misidentified as alien ever since."
-  - target: "piri-reis-map"
-    reason: "Two readings of Antarctica as the repository of hidden history that bracket the same continent in different eras — the Piri Reis map pointing back toward pre-glacial survey data, High Jump pointing forward toward postwar Nazi concealment. Both frame the ice as cover for something the official record does not account for."
   - target: "thule-vril"
     reason: "The Base 211/Neuschwabenland mythology is the geographic terminus of the Thule-Vril framework — the Hyperborean polar symbolism translated into a postwar redoubt on the opposite pole. Whatever Highjump actually encountered, the Thule tradition is what made 'Nazi Antarctic base' a thinkable proposition in the first place."
 ---

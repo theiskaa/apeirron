@@ -3,8 +3,6 @@ id: "kurt-cobain"
 title: "The Death of Kurt Cobain"
 category: "modern"
 connections:
-  - target: "marilyn-monroe"
-    reason: "Both deaths were ruled self-inflicted with forensic evidence contradicting the finding (Monroe's empty stomach, Cobain's incapacitating heroin level), signs of staged scenes, and private investigators stonewalled by police. In both cases the deceased was worth more dead than divorced to a partner with documented motive."
   - target: "counterculture-psyop"
     reason: "Cobain was the voice of grunge — an authentically oppositional movement the industry had not created. Whatever its cause, his death decapitated it: after April 1994 grunge devolved from dissent into marketable flannel, mirroring how the 1960s counterculture survived as style once its political leaders were removed."
   - target: "control-systems"

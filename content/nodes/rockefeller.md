@@ -7,8 +7,6 @@ connections:
     reason: "Senator Nelson W. Aldrich, principal political architect of the Federal Reserve Act of 1913, was the father of Abby Aldrich Rockefeller — wife of John D. Rockefeller Jr. The marriage that fused the wealthiest American family of the period to the senator who built the central banking system."
   - target: "cfr-trilateral"
     reason: "David Rockefeller (1915–2017) was the central figure in constructing the postwar Atlanticist apparatus — CFR chairman from 1970 to 1985 (transforming it into the central node of American foreign-policy coordination), founder of the Trilateral Commission in 1973, continuous Bilderberg attendee. The CFR-Trilateral nexus is substantially a Rockefeller institutional creation."
-  - target: "rothschild"
-    reason: "Both families embody the same structural pattern — multi-generational private wealth that exceeded the institutional reach of any contemporary nation-state; Rothschilds in 19th-century Europe, Rockefellers in 20th-century America."
   - target: "shadow-elite"
     reason: "If shadow-elite has a single canonical American case study, it's the Rockefellers — 140 years at the center of the establishment via philanthropy, banking, and direct political office, from Standard Oil through David Rockefeller's CFR chairmanship."
   - target: "bilderberg"

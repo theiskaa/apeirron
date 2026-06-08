@@ -15,8 +15,6 @@ connections:
     reason: "Monast wrote in 1994 that HAARP was the technical basis for Blue Beam's third phase — projecting messages into the global population through ELF/VLF/LF radio waves modulated to interact with the human nervous system. The messaging claim isn't supported by current physics; HAARP itself is a real ionospheric facility."
   - target: "operation-mockingbird"
     reason: "Blue Beam isn't credible without Mockingbird as its precondition — any staged planetary event would need coordinated media framing without independent investigation, and Mockingbird's documented CIA penetration of postwar newsrooms is the historical case that such narrative compliance is institutionally achievable."
-  - target: "aatip-disclosure"
-    reason: "The post-2017 disclosure is the central object of interpretive dispute between the disclosure framework (gradual institutional acknowledgment of a real phenomenon) and the Blue Beam framework (controlled rollout of a cover story for an eventual staged event). Both readings are consistent with the public evidence and differ only in the predicted culmination."
   - target: "majestic-12"
     reason: "The sharpest reading of MJ-12 is neither real nor hoax but disinformation — genuine knowledge laundered through forged documents engineered to be debunked, so the truth is discredited along with the paper. That is Blue Beam's premise applied to documents: beliefs about extraterrestrials as something to be engineered and steered rather than merely discovered."
 ---

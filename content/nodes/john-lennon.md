@@ -9,8 +9,6 @@ connections:
     reason: "Jon Wiener's fourteen-year FOIA fight obtained 300+ pages showing the Nixon FBI and INS ran a sustained operation to surveil and deport Lennon from late 1971. Thurmond wrote Mitchell recommending deportation; informants were placed in Lennon's circle. Textbook COINTELPRO applied to a cultural icon."
   - target: "operation-mockingbird"
     reason: "The media consolidated around the lone-deranged-fan narrative and ignored Chapman's intelligence-linked background and Jose Perdomo — the Bay of Pigs veteran working the Dakota door. Bresler's 1989 book got heavy British coverage and was buried in America. Mae Brussell's early research was dismissed as conspiracy theory."
-  - target: "jfk"
-    reason: "Both assassinations share structural features: a lone gunman with unexplained intelligence connections (Oswald's defection, Chapman's YMCA travel), immediate consolidation around the lone-actor narrative, suppressed evidence, and peripheral intelligence-linked figures at the scene (Ruby in Dallas, Perdomo at the Dakota)."
   - target: "counterculture-psyop"
     reason: "Lennon refused to stay in the apolitical lane the counterculture had been steered toward — the bed-ins, Sinclair rally, and planned voter registration tour converted cultural power into political power. His assassination the moment he re-entered public life eliminated the figure most capable of reversing that depoliticization."
 ---

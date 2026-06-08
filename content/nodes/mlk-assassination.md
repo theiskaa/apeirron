@@ -5,16 +5,10 @@ category: "operations"
 connections:
   - target: "cointelpro"
     reason: "COINTELPRO ran a six-year campaign to 'neutralize' King, including wiretaps, the Hoover suicide letter, and systematic discrediting. When King was killed, the FBI — the very agency trying to destroy him — was handed the lead role in investigating his murder."
-  - target: "jfk"
-    reason: "Both were killed by supposed lone gunmen whose biographies disintegrate under scrutiny, and the 1979 House Select Committee on Assassinations concluded conspiracies were probable in both cases. The institutional architecture of cover-up was identical because the institutions doing the covering were the same."
   - target: "operation-mockingbird"
     reason: "Ray was convicted in the press within hours, and when the 1999 King family civil trial produced a jury verdict finding government agencies guilty of conspiracy, major US outlets gave it a single day of coverage followed by silence. William Pepper's decades of investigative work was systematically ignored."
-  - target: "shadow-elite"
-    reason: "King was killed just as his Poor People's Campaign and 'Beyond Vietnam' speech pivoted from civil rights to attacking the military-industrial complex and demanding wealth redistribution. The shadow elite had tolerated desegregated lunch counters; a King targeting the war economy was an existential threat."
   - target: "deep-state"
     reason: "Army intelligence surveilled King the day of his murder, Memphis PD's tactical squad was pulled back from the Lorraine hours before the shooting, and the FBI that had tried to destroy him ran the investigation. Every layer of the security state acted in ways that facilitated the assassination or obstructed the inquiry."
-  - target: "mkultra"
-    reason: "Ray's relationship with the mysterious 'Raoul' — who directed his movements, supplied money and false Canadian identities, and positioned him at the crime scene — mirrors the handler-subject dynamic MKUltra developed for controllable assets. His profile fits a programmed patsy rather than a self-directed assassin."
 ---
 
 On the evening of April 3, 1968, Martin Luther King Jr. stood at the pulpit of Mason Temple in Memphis, Tennessee, and delivered what would become his final sermon. A thunderstorm raged outside. King had almost not come -- he was exhausted, ill, and increasingly consumed by premonitions of his own death. But the crowd was waiting, and Ralph Abernathy had called to say they would not leave without hearing him. So King came, and he spoke, and what he said that night has the quality of prophecy that only hindsight can fully recognize:

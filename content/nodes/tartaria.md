@@ -7,8 +7,6 @@ connections:
     reason: "Unlike Atlantis or other ancient lost civilizations, Tartaria was supposedly erased from history only a few centuries ago. It extends the lost civilization idea into the modern era."
   - target: "control-systems"
     reason: "Tartaria theory claims the entire historical record was rewritten to erase a civilization. If true, it would mean the control system goes beyond media and politics -- it controls history itself."
-  - target: "atlantis"
-    reason: "Both Atlantis and Tartaria are said to be advanced civilizations destroyed by a catastrophic flood and then erased from official history. Atlantis was supposedly sunk by water, Tartaria buried by mud."
   - target: "megaliths"
     reason: "Tartaria theorists point to ornate buildings that seem too advanced for their supposed era. This is the same argument made about megaliths: the structures appear to be beyond the technology of their credited builders."
   - target: "sacred-geometry"

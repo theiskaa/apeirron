@@ -13,8 +13,6 @@ connections:
     reason: "The Younger Dryas Impact Hypothesis is the scientific anchor for the alternative-history thesis: that civilization is significantly older than Sumer, with an antediluvian phase destroyed by catastrophe and preserved fragmentarily in mythological literature and misdated archaeological remains. Without the impact mechanism, the alternative account is unexplained anomalies; with it, they cohere into a single narrative."
   - target: "ancient-astronauts"
     reason: "Two alternative explanations for the same unexplained features of early civilization — the sudden appearance of complex agriculture, the sophistication of early monumental architecture, the inherited astronomical knowledge. The ancient astronaut thesis attributes them to non-human visitors; the Younger Dryas thesis to a destroyed predecessor human civilization. Same starting observation, different agents."
-  - target: "book-of-enoch"
-    reason: "The Enochic antediluvian narrative and the Younger Dryas Impact Hypothesis describe the same kind of event in different vocabularies — a pre-catastrophe world with greater knowledge and capability than the post-catastrophe world that succeeded it, destroyed in a single global discontinuity. Recognizably the same event in Hebrew apocalyptic literature and in Greenland ice-core stratigraphy."
   - target: "nibiru"
     reason: "Two incompatible mechanisms for the same event the Sumerian flood narratives may remember — Sitchin's 3,600-year-orbit planet, or the Younger Dryas comet impact at 12,800 BP. The latter has the substantial advantage of being grounded in geological evidence (Greenland ice cores, platinum-group anomalies) rather than in contested cuneiform interpretation."
   - target: "piri-reis-map"

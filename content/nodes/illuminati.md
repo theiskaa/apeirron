@@ -13,8 +13,6 @@ connections:
     reason: "The Illuminati are gone, but today's power elite uses the same playbook: hidden coordination, institutional infiltration, and decision-making behind closed doors."
   - target: "skull-and-bones"
     reason: "Skull and Bones was founded in 1832 by a Yale student who studied in Germany, where the university secret societies descended from the same Bavarian tradition that produced the Illuminati. Bones perfected the Illuminati model: infiltrate institutions by placing your people inside them."
-  - target: "rothschild"
-    reason: "Conspiracy literature has long linked Weishaupt and Mayer Amschel Rothschild as collaborators, but direct organizational evidence is thin to nonexistent. The persistent conflation is itself a case study in how documented fragments get assembled into structures the evidence does not support."
   - target: "protocols-of-zion"
     reason: "The Protocols took the Illuminati world-conspiracy template — a secret order steering history toward universal despotism — and recast its villains as a Jewish council. Its central scene of conspirators reporting their progress descends, through an 1868 German novel, from a fictional gathering of Cagliostro and the Bavarian order."
 ---

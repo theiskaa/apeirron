@@ -9,8 +9,6 @@ connections:
     reason: "Ajax spent substantial budget on media manipulation: bribed Iranian editors, forged documents, and parallel Western press narratives fed through the same Mockingbird assets. Kenneth Love of the New York Times later admitted to Kermit Roosevelt that his Tehran reporting had actively aided the operation."
   - target: "cia-drugs"
     reason: "The Shah's SAVAK security apparatus became entangled with the Afghanistan-Iran-Turkey opium route to Europe, following the CIA's pattern across Southeast Asia and Central America: client regimes whose security forces traffic drugs are tolerated because they serve larger strategic objectives. Iran-Contra later linked Ajax's legacy to the Central American cocaine trade."
-  - target: "federal-reserve"
-    reason: "Mossadegh's 1951 nationalization of Anglo-Iranian Oil challenged the postwar Western financial order — the extractive arrangement in which developing-world resources were priced and profited from by City of London and Wall Street institutions. Ajax restored the financial order that the Fed and Bank of England existed to maintain."
   - target: "rockefeller"
     reason: "After the coup, the consortium replacing AIOC gave American oil companies — three of them Standard Oil descendants still under Rockefeller influence — a 40% stake in Iranian production they had not previously held. The Dulles brothers formulated the decision within the Rockefeller-connected CFR network."
   - target: "shadow-elite"

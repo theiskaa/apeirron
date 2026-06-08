@@ -3,8 +3,6 @@ id: "uss-liberty"
 title: "The USS Liberty Incident"
 category: "operations"
 connections:
-  - target: "operation-northwoods"
-    reason: "Northwoods (1962) explicitly proposed sinking a US Navy vessel and blaming Cuba to justify invasion — the exact mechanism Liberty researchers allege was intended five years later, with Egypt substituted for Cuba. The question is whether the doctrine Kennedy rejected on paper was executed in practice under Johnson, against a different designated enemy, using identical operational logic."
   - target: "gulf-of-tonkin"
     reason: "Both incidents involve the same president (Johnson), the same willingness to deceive Congress about attacks on American warships, and the NSA — in Tonkin, NSA intercepts were manipulated to support a false narrative; with the Liberty, an NSA SIGINT vessel was the target. The same administration that fabricated one naval attack to start a war is alleged to have orchestrated or permitted another to join one."
   - target: "mass-surveillance"

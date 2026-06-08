@@ -15,8 +15,6 @@ connections:
     reason: "In 1947, the press immediately accepted the military's weather balloon story and ignored contradicting witnesses for decades. This is the kind of uncritical reporting that Mockingbird was designed to produce."
   - target: "project-blue-beam"
     reason: "Whatever Roswell actually was in 1947, its function in the popular imagination across the subsequent eight decades has been to make the alien explanation culturally legible — seeding the readiness for the eventual large-scale staged event the Blue Beam thesis describes as the operation's culminating phase. The Roswell–Blue Beam axis is the foundational arc of postwar UFO culture."
-  - target: "aatip-disclosure"
-    reason: "The 2017 Pentagon UAP disclosure is the institutional bookend to 1947 — for the first time since Roswell, the national security apparatus formally acknowledged unexplained aerial phenomena were real and under investigation. The Roswell-2017 arc is the principal historical structure of the modern UFO question."
   - target: "majestic-12"
     reason: "The MJ-12 documents are the alleged paperwork of the Roswell cover-up — a leaked 1952 briefing describing the twelve-man committee formed in 1947 to manage the crashed disc and its recovered bodies. The crash-retrieval thesis stands or falls on whether these documents are genuine, and the identical lifted Truman signature is the strongest argument that they are not."
 ---

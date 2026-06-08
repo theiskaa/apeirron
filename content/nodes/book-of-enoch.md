@@ -3,8 +3,6 @@ id: "book-of-enoch"
 title: "The Book of Enoch & The Watchers"
 category: "origins"
 connections:
-  - target: "nibiru"
-    reason: "Two textually independent traditions describing structurally identical events — the Hebrew Watchers and the Sumerian Anunnaki, separated by language and geography, both with beings descending, taking human wives, teaching forbidden knowledge, producing giants destroyed by divine intervention."
   - target: "ancient-astronauts"
     reason: "The Book of Enoch is the strongest textual foundation for the ancient astronaut framework — the Watchers descending at Mount Hermon, the *Bene Elohim*, the Nephilim giants, the catalogue of forbidden knowledge taught by Azazel — preserved in detail where the canonical Hebrew Bible only alludes."
   - target: "hermetic-tradition"
@@ -17,8 +15,6 @@ connections:
     reason: "The Book of Enoch's antediluvian world — giants, fallen Watchers, lost sciences — is the Hebrew version of the broader claim that civilization is older than mainstream archaeology acknowledges. Aligns with the Sumerian pre-Flood Anunnaki kings, the Egyptian Zep Tepi, the Indian *yugas*, and Plato's Atlantis."
   - target: "saturn-black-cube"
     reason: "Mount Hermon — where the Watchers descended in the Enochic narrative — sits at approximately 33°N latitude, the recurring number in Saturnine esoteric symbolism. The Watchers taught astrology and the courses of the stars, and in several second-temple texts their chief (Semyaza/Azazel) carries planetary symbolism overlapping the Saturn-Kronos figure."
-  - target: "younger-dryas"
-    reason: "The Enochic antediluvian narrative and the Younger Dryas Impact Hypothesis describe the same kind of event in different vocabularies — a global discontinuity that ended a prior world (giants, fallen Watchers, lost sciences) and produced the impoverished post-catastrophe world that inherited only fragmentary memories. Hebrew apocalyptic literature and Greenland ice cores converging on the same event."
   - target: "gnosticism"
     reason: "The Gnostic archons are the conceptual heirs of Enoch's Watchers — intermediary powers that imprison and corrupt rather than liberate humanity — and both bodies of text were branded heretical and preserved outside the canon that condemned them."
 ---
