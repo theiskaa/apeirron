@@ -214,6 +214,7 @@ export const READING_PATHS: ReadingPath[] = [
       { id: "mandela-effect", hook: "Millions of people share the same false memories — glitch in the matrix or something stranger?", parents: ["altered-states"] },
       { id: "cern", hook: "And if reality itself is breaking — if the timeline has shifted under us — the place to look is the world's largest particle physics facility, with a two-meter bronze statue of Shiva the destroyer at its main entrance", parents: ["mandela-effect"] },
       { id: "nature-of-time", hook: "Physics treats past, present, and future as equally real — the block universe. So why does only the present feel like anything? The deepest open question in fundamental physics", parents: ["cern"] },
+      { id: "synchronicity", hook: "Jung's last and most dangerous idea, where the two threads meet. A beetle taps the window at the instant a patient describes the golden scarab she dreamed — meaningful coincidence as a fourth principle beside space, time, and cause. He built it on Rhine's ESP statistics and thirty years of letters with a Nobel physicist, and it stands or falls on a single wager: whether the meaning we find in the world is something we bring or something we discover", parents: ["jung", "nature-of-time"] },
     ],
   },
 ];

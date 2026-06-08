@@ -15,6 +15,8 @@ connections:
     reason: "Idealism and panpsychism both make consciousness fundamental rather than derivative, differing mainly on whether mind is all there is or a property woven through matter."
   - target: "hermetic-tradition"
     reason: "The Hermetic axiom that 'all is mind' and the cosmos is alive is the ancient form of the panpsychist claim that consciousness pervades everything."
+  - target: "synchronicity"
+    reason: "Synchronicity's *unus mundus* — one underlying reality of which mind and matter are dual aspects — is a form of dual-aspect monism, the same structural move panpsychism makes to close the mind-matter gap. The Pauli-Jung conjecture is, in effect, panpsychism's twentieth-century parapsychological wing."
 ---
 
 Here is the problem, stated as plainly as possible: we live in a universe made of matter. Matter, as physics describes it, is mindless — particles bouncing off particles according to mathematical laws, with no inner life, no experience, no point of view. And yet, somewhere in this mindless machinery, *experience* appears. You are made of atoms, and atoms are not conscious, and yet you are.

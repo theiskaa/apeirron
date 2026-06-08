@@ -15,6 +15,8 @@ connections:
     reason: "Puthoff carried the Star Gate consciousness-anomaly methodology directly onto Robert Bigelow's NIDS scientific advisory board, making the ranch investigation the institutional successor of the remote-viewing program — the same researcher, the same observer-dependent framework, the same private-contractor pathway."
   - target: "deep-state"
     reason: "Star Gate ran deniably for twenty-three years across five agencies and three program names, then was publicly killed in 1995 via a selective release of its own commissioned review — the textbook pattern of an apparatus that conceals a program's existence and then controls the terms of its disclosure."
+  - target: "synchronicity"
+    reason: "Star Gate's research lineage runs back to J. B. Rhine's Duke parapsychology — the same card-guessing statistics Jung leaned on as proof the psyche transcends space and time. The remote-viewing program is the Cold War defense establishment quietly funding the empirical claim Jung's acausal principle depended on."
 ---
 
 Sometime in March 1979, a Soviet Tupolev reconnaissance aircraft went down in dense jungle in Zaire. The United States wanted the wreckage — its sensors, its film, its electronics — before Moscow could recover it. The National Security Agency could not find it. The reconnaissance satellites, retasked over hundreds of square miles of equatorial canopy, returned nothing usable. At Fort George G. Meade in Maryland, a small Army unit operating under the codename GRILL FLAME was handed the problem. One of its personnel, working from nothing but the knowledge that a plane was down somewhere in central Africa, produced a location near a particular bend in a river. A search team went to the coordinates. The aircraft was there.
