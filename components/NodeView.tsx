@@ -603,9 +603,6 @@ function ConnectionReasons({
 
   return (
     <div className="mt-6">
-      <h3 className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-3">
-        Why these connect
-      </h3>
       <div
         className="space-y-1 pl-4 border-l"
         style={{
