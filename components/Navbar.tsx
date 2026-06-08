@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import ThemePicker from "./ThemePicker";
+import { useSearch } from "./SearchProvider";
 
 interface Props {
   onLogoClick?: () => void;
-  onSearchClick?: () => void;
 }
 
-export default function Navbar({ onLogoClick, onSearchClick }: Props) {
+export default function Navbar({ onLogoClick }: Props) {
+  const { openSearch } = useSearch();
   const logoContent = (
     <span
       className="text-text-primary text-[22px] leading-none tracking-tight"
@@ -37,29 +38,27 @@ export default function Navbar({ onLogoClick, onSearchClick }: Props) {
         {logoContent}
       </Link>
       <div className="flex items-center gap-1.5 md:gap-2">
-        {onSearchClick && (
-          <button
-            onClick={onSearchClick}
-            className="chrome h-8 w-8 sm:w-auto inline-flex items-center justify-center sm:gap-2 sm:px-3 rounded-full text-text-secondary hover:text-text-primary text-[12px] tracking-wide leading-none"
-            aria-label="Search nodes"
+        <button
+          onClick={openSearch}
+          className="chrome h-8 w-8 sm:w-auto inline-flex items-center justify-center sm:gap-2 sm:px-3 rounded-full text-text-secondary hover:text-text-primary text-[12px] tracking-wide leading-none"
+          aria-label="Search nodes"
+        >
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
-            <svg
-              width="13"
-              height="13"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-            <span className="hidden sm:inline">Search</span>
-            <kbd className="hidden md:inline text-[10px] text-text-muted ml-1 font-sans">⌘K</kbd>
-          </button>
-        )}
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <span className="hidden sm:inline">Search</span>
+          <kbd className="hidden md:inline text-[10px] text-text-muted ml-1 font-sans">⌘K</kbd>
+        </button>
         <Link
           href="/nodes"
           className="chrome h-8 w-8 sm:w-auto inline-flex items-center justify-center sm:gap-1.5 sm:px-3 rounded-full text-text-secondary hover:text-text-primary text-[12px] tracking-wide leading-none"

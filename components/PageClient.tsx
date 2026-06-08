@@ -6,7 +6,8 @@ import type { GraphData } from "@/lib/types";
 import Navbar from "./Navbar";
 import TabBar, { type Tab } from "./TabBar";
 import NodeView, { type MiniView } from "./NodeView";
-import CommandPalette, { type CommandAction } from "./CommandPalette";
+import { type CommandAction } from "./CommandPalette";
+import { useSearch } from "./SearchProvider";
 import ViewModeToggle, { type ViewMode } from "./ViewModeToggle";
 
 const Graph = dynamic(() => import("./Graph"), { ssr: false });
@@ -43,7 +44,6 @@ export default function PageClient({
   const [activeTabId, setActiveTabId] = useState(
     initialNodeId ? `node:${initialNodeId}` : "graph"
   );
-  const [paletteOpen, setPaletteOpen] = useState(false);
   const [focusNodeId, setFocusNodeId] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<ViewMode>("connections");
   const [miniView, setMiniView] = useState<MiniView>("graph");
@@ -174,17 +174,6 @@ export default function PageClient({
     return () => window.removeEventListener("popstate", handlePopState);
   }, [ensureContentLoaded]);
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
-        e.preventDefault();
-        setPaletteOpen((v) => !v);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
-
   const handleNodeClick = useCallback(
     (nodeId: string) => {
       const tabId = `node:${nodeId}`;
@@ -238,7 +227,7 @@ export default function PageClient({
   }, [activeTab]);
 
   const showGraph = activeTab.type === "graph";
-  const openSearch = useCallback(() => setPaletteOpen(true), []);
+  const { setNodeSelectHandler, setActionsGetter } = useSearch();
 
   // Commands surfaced by the palette. Built per-render from current state so
   // the visible set always reflects context (e.g. "Switch to Paths" only
@@ -317,6 +306,20 @@ export default function PageClient({
     handleMiniViewChange,
   ]);
 
+  // Register the graph-aware behavior with the global search palette while this
+  // view is mounted: selecting a node focuses it on the canvas (or opens a node
+  // tab), and the palette surfaces the graph-specific commands. On unmount the
+  // provider falls back to its universal defaults (navigate to the article).
+  useEffect(() => {
+    setNodeSelectHandler(handlePaletteSelect);
+    return () => setNodeSelectHandler(null);
+  }, [setNodeSelectHandler, handlePaletteSelect]);
+
+  useEffect(() => {
+    setActionsGetter(() => paletteActions);
+    return () => setActionsGetter(null);
+  }, [setActionsGetter, paletteActions]);
+
   return (
     <div className="relative w-screen h-screen overflow-hidden">
       {/* Both graphs stay mounted; the inactive one is hidden via opacity
@@ -358,7 +361,7 @@ export default function PageClient({
         <div className="absolute inset-0 bg-background overflow-hidden">
           <div className="flex flex-col h-full">
             <div className="sticky top-0 z-10 bg-background">
-              <Navbar onLogoClick={() => setActiveTabId("graph")} onSearchClick={openSearch} />
+              <Navbar onLogoClick={() => setActiveTabId("graph")} />
               {hasNodeTabs && (
                 <TabBar
                   tabs={tabs}
@@ -390,7 +393,7 @@ export default function PageClient({
 
       {showGraph && (
         <div className="absolute top-0 left-0 right-0 z-10 bg-background">
-          <Navbar onLogoClick={() => setActiveTabId("graph")} onSearchClick={openSearch} />
+          <Navbar onLogoClick={() => setActiveTabId("graph")} />
           {hasNodeTabs && (
             <TabBar
               tabs={tabs}
@@ -434,14 +437,6 @@ export default function PageClient({
           )}
         </div>
       )}
-
-      <CommandPalette
-        nodes={graphData.nodes}
-        actions={paletteActions}
-        open={paletteOpen}
-        onClose={() => setPaletteOpen(false)}
-        onSelectNode={handlePaletteSelect}
-      />
     </div>
   );
 }
