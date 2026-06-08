@@ -60,28 +60,6 @@ export default function Navbar({ onLogoClick }: Props) {
           <kbd className="hidden md:inline text-[10px] text-text-muted ml-1 font-sans">⌘K</kbd>
         </button>
         <Link
-          href="/nodes"
-          className="chrome h-8 w-8 sm:w-auto inline-flex items-center justify-center sm:gap-1.5 sm:px-3 rounded-full text-text-secondary hover:text-text-primary text-[12px] tracking-wide leading-none"
-          aria-label="Index — browse every node"
-        >
-          <svg
-            width="13"
-            height="13"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <line x1="4" y1="6" x2="20" y2="6" />
-            <line x1="4" y1="12" x2="20" y2="12" />
-            <line x1="4" y1="18" x2="14" y2="18" />
-          </svg>
-          <span className="hidden sm:inline">Index</span>
-        </Link>
-        <Link
           href="/contribute"
           className="chrome h-8 w-8 sm:w-auto inline-flex items-center justify-center sm:gap-1.5 sm:px-3 rounded-full text-text-secondary hover:text-text-primary text-[12px] tracking-wide leading-none"
         >
@@ -101,8 +79,8 @@ export default function Navbar({ onLogoClick }: Props) {
         </Link>
         <ThemePicker />
         <Link
-          href="/about"
-          aria-label="About Apeirron"
+          href="/nodes"
+          aria-label="Index — browse every node"
           className="chrome h-8 w-8 inline-flex items-center justify-center rounded-full text-text-secondary hover:text-text-primary"
         >
           <svg
@@ -114,10 +92,11 @@ export default function Navbar({ onLogoClick }: Props) {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
+            aria-hidden="true"
           >
-            <circle cx="12" cy="12" r="10" />
-            <line x1="12" y1="16" x2="12" y2="12" />
-            <line x1="12" y1="8" x2="12.01" y2="8" />
+            <line x1="4" y1="6" x2="20" y2="6" />
+            <line x1="4" y1="12" x2="20" y2="12" />
+            <line x1="4" y1="18" x2="14" y2="18" />
           </svg>
         </Link>
       </div>

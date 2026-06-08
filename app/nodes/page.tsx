@@ -4,6 +4,18 @@ import NodesView from "@/components/NodesView";
 
 const BASE_URL = "https://www.apeirron.com";
 
+// Subject blurbs per category — what reads beside each volume's label.
+// Editorial, not generated, so hardcoded.
+const VOLUME_DESCRIPTIONS: Record<string, string> = {
+  mind: "Consciousness, philosophy of mind, altered states, philosophical traditions.",
+  origins: "Pre-history, lost civilizations, ancient mysteries, esoteric tradition.",
+  cosmos: "UFOs, UAPs, the Fermi paradox, the Pentagon disclosure arc.",
+  power: "Hidden power structures, secret societies, the deep state, dynastic finance.",
+  operations: "Documented intelligence operations, assassinations, false flags.",
+  modern: "Twenty-first-century cases, contested deaths, contemporary disinformation.",
+  reality: "Foundational physics, the Mandela effect, the simulation hypothesis, flat-earth epistemology.",
+};
+
 export const metadata: Metadata = {
   title: "All nodes — Apeirron",
   description:
@@ -46,6 +58,14 @@ export default function NodesIndexPage() {
     }));
 
   const flatNodes = groups.flatMap((g) => g.nodes);
+
+  // One typeset volume per category that has nodes; chapters = node count.
+  const volumes = groups.map(({ category, nodes }) => ({
+    id: category.id,
+    label: category.label,
+    description: VOLUME_DESCRIPTIONS[category.id] ?? "",
+    chapters: nodes.length,
+  }));
 
   const collectionPage = {
     "@type": "CollectionPage",
@@ -99,7 +119,7 @@ export default function NodesIndexPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <NodesView groups={groups} totalCount={nodes.length} />
+      <NodesView groups={groups} totalCount={nodes.length} volumes={volumes} />
     </>
   );
 }
