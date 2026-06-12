@@ -126,6 +126,7 @@ export const READING_PATHS: ReadingPath[] = [
       { id: "covid-lab-leak", hook: "The question they called a conspiracy theory in 2020 and a legitimate hypothesis by 2023", parents: ["nine-eleven"] },
       { id: "dead-internet", hook: "What if most of what you read online isn't written by humans anymore?", parents: ["covid-lab-leak"] },
       { id: "pizzagate", hook: "The 2016 conspiracy that walked a man with an AR-15 into a DC pizzeria, looking for a basement that didn't exist — the precursor that taught the conspiracy theorist class how viral suspicion converts to physical action", parents: ["epstein"] },
+      { id: "franklin-scandal", hook: "Rewind thirty years to the case Pizzagate was unknowingly reaching for. Omaha, 1988: a credit union collapses with $40 million gone, and underneath the embezzlement an alleged child-trafficking ring reaching national political figures — investigated by a state legislature, its lead investigator dead with his son in an unexplained plane crash, its documentary pulled before air, and its one litigated claim won in federal court. Not fantasy, not proven: the unresolved file the modern theories inherited", parents: ["epstein", "pizzagate"] },
       { id: "qanon", hook: "When conspiracy theories become a political movement — how 'trust the plan' captured millions", parents: ["epstein", "pizzagate"] },
       { id: "election-fraud", hook: "From Tammany Hall to Diebold to Dominion — a century of allegations that the infrastructure of democracy is itself the vulnerability", parents: ["qanon"] },
     ],
