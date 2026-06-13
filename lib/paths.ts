@@ -155,6 +155,7 @@ export const READING_PATHS: ReadingPath[] = [
     nodes: [
       { id: "tesla-suppressed-tech", hook: "The genius who lit the world — then the FBI seized his papers and his name was erased from textbooks" },
       { id: "philadelphia-experiment", hook: "The Navy allegedly made a ship invisible in 1943 — the sailors who survived were never the same" },
+      { id: "montauk-project", hook: "Now watch the legend metastasize. The 1943 experiment supposedly didn't end — it went underground and resurfaced beneath a decommissioned radar base on Long Island, where the story claims the government ran mind control at population scale and engineered a time tunnel in 1983. There is no documentation, only a frozen 70-foot antenna over a sealed bunker — and that turns out to be enough. The case study in how a real strange place and a real terrible history (MKUltra) breed a myth that outlives every debunking, all the way to Stranger Things", parents: ["philadelphia-experiment"] },
       { id: "haarp", hook: "180 antennas in Alaska that can heat the ionosphere — weather research or weather weapon?" },
       { id: "chemtrails", hook: "The government has confirmed it sprayed cities with chemicals in secret — the question is whether they stopped" },
       { id: "flat-earth", hook: "The hypothesis that NASA, every government, and every airline pilot are colluding to hide a flat Earth — the limit case for what 'they could be lying about anything' looks like at the extreme", parents: ["chemtrails"] },

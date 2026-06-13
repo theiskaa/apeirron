@@ -5,6 +5,8 @@ category: "operations"
 connections:
   - target: "nature-of-time"
     reason: "The Philadelphia Experiment allegedly displaced sailors through time, not just space. If any part of the story is true, it means the military was experimenting with time itself."
+  - target: "montauk-project"
+    reason: "Montauk is the legend's continuation: the claim that the 1943 experiment was only the first phase of a program that resurfaced at Camp Hero, with Al Bielek's alleged time-jump from the Eldridge to 1983 Montauk as the narrative weld. Where the Philadelphia story has one ship and one night, Montauk extends it into forty years of off-books research into time and mind."
 ---
 
 In the autumn of 1955, a copy of a recently published paperback arrived at the Office of Naval Research in Washington, D.C. The book was *The Case for the UFO*, written by Morris K. Jessup, a former astronomy instructor and astrophysics researcher who had turned his attention to unidentified flying objects and the propulsion systems that might explain them. The copy had been mailed to the ONR anonymously. It was not the book itself that drew attention — Jessup's work was speculative, marginally popular, and of no particular interest to naval intelligence. What drew attention was the writing in the margins.

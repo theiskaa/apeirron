@@ -11,6 +11,8 @@ connections:
     reason: "On an editable-timeline or block-universe reading, the Mandela Effect is the trace of a retroactive change — memory carried across an alteration to a past that, for everyone else, was always the new version."
   - target: "cern"
     reason: "The dominant conspiracy framework for the Mandela Effect since ~2010 holds that LHC operations have shifted the structure of reality, and that collective false memories are residual traces of a previous timeline. The major waves correlate loosely with periods of intense LHC activity."
+  - target: "montauk-project"
+    reason: "Where CERN is the high-tech culprit for an altered timeline, Montauk is the retro one: its 'time tunnel' is cited as the off-books experiment that split or rewrote reality, leaving collective false memories as residue. Montauk supplies a named human agent for the anomaly the Mandela Effect can otherwise only describe."
 ---
 
 In 2009, a paranormal researcher named Fiona Broome attended Dragon Con, the massive science fiction and fantasy convention in Atlanta, and struck up a conversation about Nelson Mandela. Broome mentioned her vivid memory of Mandela dying in a South African prison in the 1980s. She remembered the news coverage. She remembered a funeral. She remembered a speech by Winnie Mandela, grieving and dignified. The memory was detailed, textured, and completely wrong. Nelson Mandela had not died in prison. He had been released in 1990, had become the first Black president of South Africa in 1994, and was, at the time of Broome's conversation, still alive. He would not die until December 5, 2013, at the age of 95, in his home in Johannesburg.
