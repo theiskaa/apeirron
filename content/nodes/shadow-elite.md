@@ -81,6 +81,8 @@ connections:
     reason: "The Octopus is the shadow-elite thesis reached not through theory but through a reporter following document trails until they converged — a transnational web of intelligence officers, financiers, arms dealers, and organized crime that Casolaro believed had operated together since Vietnam, beyond any election or oversight committee. He died before he could publish the map."
   - target: "franklin-scandal"
     reason: "Franklin is the shadow elite alleged at its most predatory and intimate — a procurement network running from an Omaha credit union to named national political figures, generating the sexual-compromise leverage by which a hidden apparatus holds the people who staff visible institutions. It is the blackmail logic of elite power described from the side of its victims."
+  - target: "pope-john-paul-i"
+    reason: "John Paul I is the reformer alleged to have moved against the Gelli–Sindona–Calvi–Marcinkus network's grip on the Vatican Bank and to have died before he could act. His 33 days are the case where the question of whether an entrenched financial-criminal elite removes those who threaten it is posed at the very summit of the Church."
 ---
 
 In 1966, Carroll Quigley — a professor of history at Georgetown University's School of Foreign Service and mentor to a young Bill Clinton — published a 1,348-page book called *Tragedy and Hope: A History of the World in Our Time*. Buried in this massive academic history was a passage that would make Quigley the most cited author in conspiracy literature for the next half century:

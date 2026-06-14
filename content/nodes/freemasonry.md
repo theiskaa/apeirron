@@ -31,6 +31,8 @@ connections:
     reason: "Pope Clement XII's 1738 bull excommunicated any Catholic who joined a Masonic lodge — an antagonism every subsequent pope renewed. The 1981 P2 lodge scandal then exposed Vatican Bank officials inside the lodge, collapsing the official opposition at the operational level."
   - target: "protocols-of-zion"
     reason: "The Protocols crowned the 'Judeo-Masonic conspiracy' charge, casting Masonic lodges as the unwitting front through which a hidden Jewish directorate supposedly operates. It is the most influential modern expression of the centuries-old anti-Masonic claim that the lodges are the operational arm of a concealed inner circle."
+  - target: "pope-john-paul-i"
+    reason: "The murder theory of John Paul I turns on a list of clerics secretly belonging to Masonic lodges — including the illegal P2 — that the pope is said to have intended to act on. The 1979 assassination of Mino Pecorelli, who had published such a list, makes the alleged Masonic infiltration of the Curia the motive at the center of the case."
 ---
 
 On June 24, 1717 — the Feast of St. John the Baptist — four London lodges met at the Goose and Gridiron Ale House near St Paul's Cathedral and formed the Grand Lodge of England. This is the conventional origin date of modern Freemasonry. But the conventional date is almost certainly wrong — not in the sense that the meeting didn't happen, but in the sense that what happened that evening was not a beginning. It was a formalization. The thing itself was already ancient.
