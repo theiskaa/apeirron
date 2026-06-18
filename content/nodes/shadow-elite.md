@@ -85,6 +85,8 @@ connections:
     reason: "John Paul I is the reformer alleged to have moved against the Gelli–Sindona–Calvi–Marcinkus network's grip on the Vatican Bank and to have died before he could act. His 33 days are the case where the question of whether an entrenched financial-criminal elite removes those who threaten it is posed at the very summit of the Church."
   - target: "p2-banco-ambrosiano"
     reason: "The lodge, the two banks, and the Vatican together are the most thoroughly documented shadow-elite operation of the twentieth century — the case where the membership roster of a supranational financial-criminal network was physically recovered from a villa and read into the parliamentary record. It is the empirical proof-of-concept this node's thesis points to, and the demonstration that even total exposure convicted almost no one."
+  - target: "bcci-nugan-hand"
+    reason: "BCCI's secret capture of First American, the largest bank in Washington, with former Defense Secretary Clark Clifford installed as its public face, is the shadow elite's banking utility made literal. The bank survived for years because it was useful to too many powerful institutions to be allowed to fail — the network protecting its own instrument."
 ---
 
 In 1966, Carroll Quigley — a professor of history at Georgetown University's School of Foreign Service and mentor to a young Bill Clinton — published a 1,348-page book called *Tragedy and Hope: A History of the World in Our Time*. Buried in this massive academic history was a passage that would make Quigley the most cited author in conspiracy literature for the next half century:
