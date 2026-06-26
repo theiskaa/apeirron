@@ -24,11 +24,24 @@ interface Volume {
   chapters: number;
 }
 
+interface RoadmapItem {
+  id: string;
+  title: string;
+  excerpt: string;
+  connectionCount: number;
+  categoryLabel: string;
+  categoryColor: string;
+}
+
 interface Props {
   groups: CategoryWithNodes[];
   totalCount: number;
   volumes: Volume[];
+  roadmap: RoadmapItem[];
+  roadmapCuratedCount: number;
 }
+
+type SortMode = "category" | "roadmap";
 
 const SERIF = { fontFamily: "var(--font-serif)" } as const;
 
@@ -40,10 +53,41 @@ const coverUrl = (id: string) => `/books/cover-${id}.png`;
 const pdfUrl = (id: string) => `${RAW_BASE}/apeirron-${id}.pdf`;
 const epubUrl = (id: string) => `${RAW_BASE}/apeirron-${id}.epub`;
 
-export default function NodesView({ groups, volumes }: Props) {
+export default function NodesView({
+  groups,
+  volumes,
+  roadmap,
+  roadmapCuratedCount,
+}: Props) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const [activeId, setActiveId] = useState<string>("_top");
+  const [sort, setSort] = useState<SortMode>("category");
+
+  // Honour ?sort=roadmap on mount (shareable links), then keep the URL in sync.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("sort") === "roadmap") setSort("roadmap");
+  }, []);
+
+  const changeSort = useCallback((next: SortMode) => {
+    setSort(next);
+    const url = new URL(window.location.href);
+    if (next === "roadmap") {
+      url.searchParams.set("sort", "roadmap");
+      url.hash = "";
+    } else {
+      url.searchParams.delete("sort");
+    }
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+    if (next === "roadmap") {
+      scrollRef.current?.scrollTo({ top: 0, behavior: "auto" });
+      setActiveId("_top");
+    }
+  }, []);
+
+  const curatedPath = roadmap.slice(0, roadmapCuratedCount);
+  const beyondPath = roadmap.slice(roadmapCuratedCount);
 
   const tocIds = useMemo(
     () => [
@@ -54,6 +98,7 @@ export default function NodesView({ groups, volumes }: Props) {
   );
 
   useEffect(() => {
+    if (sort !== "category") return;
     const scroll = scrollRef.current;
     const content = contentRef.current;
     if (!scroll || !content) return;
@@ -125,7 +170,7 @@ export default function NodesView({ groups, volumes }: Props) {
       scroll.removeEventListener("scroll", onScroll);
       if (urlTimer) clearTimeout(urlTimer);
     };
-  }, [tocIds]);
+  }, [tocIds, sort]);
 
   const handleTocClick = useCallback((id: string) => {
     if (id === "_top") {
@@ -192,38 +237,84 @@ export default function NodesView({ groups, volumes }: Props) {
               </Link>
               .
             </p>
-            <div className="mt-5 flex flex-wrap justify-center gap-1.5 xl:hidden">
-              {volumes.length > 0 && (
-                <button
-                  onClick={() => handleTocClick("books")}
-                  className="chrome inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] text-text-secondary"
-                >
-                  Books
-                  <span className="text-text-muted/60 tabular-nums">
-                    {volumes.length}
-                  </span>
-                </button>
-              )}
-              {groups.map(({ category, nodes }) => (
-                <button
-                  key={category.id}
-                  onClick={() => handleTocClick(`category-${category.id}`)}
-                  className="chrome inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] text-text-secondary"
-                >
-                  <span
-                    className="inline-block w-1.5 h-1.5 rounded-full"
-                    style={{ backgroundColor: category.color }}
-                    aria-hidden="true"
-                  />
-                  {category.label}
-                  <span className="text-text-muted/60 tabular-nums">
-                    {nodes.length}
-                  </span>
-                </button>
-              ))}
+            <div className="mt-5 flex justify-center">
+              <div
+                role="tablist"
+                aria-label="Sort nodes"
+                className="inline-flex items-center gap-0.5 rounded-full p-0.5"
+                style={{
+                  backgroundColor:
+                    "color-mix(in srgb, var(--text-primary) 5%, transparent)",
+                  border:
+                    "1px solid color-mix(in srgb, var(--text-primary) 10%, transparent)",
+                }}
+              >
+                {(
+                  [
+                    { id: "category", label: "By category" },
+                    { id: "roadmap", label: "Roadmap" },
+                  ] as const
+                ).map((opt) => {
+                  const active = sort === opt.id;
+                  return (
+                    <button
+                      key={opt.id}
+                      role="tab"
+                      aria-selected={active}
+                      onClick={() => changeSort(opt.id)}
+                      className="px-3.5 py-1 rounded-full text-[11.5px] tracking-wide transition-colors"
+                      style={{
+                        backgroundColor: active
+                          ? "color-mix(in srgb, var(--text-primary) 12%, transparent)"
+                          : "transparent",
+                        color: active
+                          ? "var(--text-primary)"
+                          : "var(--text-muted)",
+                        fontWeight: active ? 600 : 400,
+                      }}
+                    >
+                      {opt.label}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
+
+            {sort === "category" && (
+              <div className="mt-5 flex flex-wrap justify-center gap-1.5 xl:hidden">
+                {volumes.length > 0 && (
+                  <button
+                    onClick={() => handleTocClick("books")}
+                    className="chrome inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] text-text-secondary"
+                  >
+                    Books
+                    <span className="text-text-muted/60 tabular-nums">
+                      {volumes.length}
+                    </span>
+                  </button>
+                )}
+                {groups.map(({ category, nodes }) => (
+                  <button
+                    key={category.id}
+                    onClick={() => handleTocClick(`category-${category.id}`)}
+                    className="chrome inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] text-text-secondary"
+                  >
+                    <span
+                      className="inline-block w-1.5 h-1.5 rounded-full"
+                      style={{ backgroundColor: category.color }}
+                      aria-hidden="true"
+                    />
+                    {category.label}
+                    <span className="text-text-muted/60 tabular-nums">
+                      {nodes.length}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
           </header>
 
+          {sort === "category" && (
           <div className="flex gap-0 mt-10">
             <nav
               aria-label="Sections"
@@ -543,6 +634,184 @@ export default function NodesView({ groups, volumes }: Props) {
               </div>
             </div>
           </div>
+          )}
+
+          {sort === "roadmap" && (
+            <div className="mt-10 max-w-3xl mx-auto">
+              <div className="flex items-center gap-3 mb-4">
+                <span
+                  className="inline-block w-2.5 h-2.5 rounded-full shrink-0"
+                  style={{ backgroundColor: "var(--text-primary)" }}
+                  aria-hidden="true"
+                />
+                <h2
+                  className="uppercase tracking-[0.16em] text-[13px] font-semibold shrink-0"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  The Path — zero to hero
+                </h2>
+                <span
+                  className="h-px flex-1"
+                  style={{
+                    backgroundColor:
+                      "color-mix(in srgb, var(--text-primary) 16%, transparent)",
+                  }}
+                  aria-hidden="true"
+                />
+                <span className="text-[11px] text-text-muted/70 tabular-nums shrink-0">
+                  {curatedPath.length}
+                </span>
+              </div>
+
+              <p className="text-[12.5px] leading-relaxed text-text-secondary mb-7 max-w-2xl">
+                New here? Read in this order. A guided route that starts with the
+                biggest, most accessible questions and builds outward — through
+                documented operations, the structures of power, the modern world,
+                and into the deeper waters of origins and mind.
+              </p>
+
+              <ol className="space-y-2.5">
+                {curatedPath.map((node, i) => (
+                  <li key={node.id}>
+                    <Link
+                      href={`/node/${node.id}`}
+                      prefetch={false}
+                      className="group relative flex gap-4 rounded-xl p-4 sm:p-5 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-14px_rgba(0,0,0,0.4)]"
+                      style={{
+                        backgroundColor:
+                          "color-mix(in srgb, var(--text-primary) 3.5%, transparent)",
+                        border:
+                          "1px solid color-mix(in srgb, var(--text-primary) 9%, transparent)",
+                      }}
+                    >
+                      <span
+                        className="shrink-0 tabular-nums leading-none text-[26px] sm:text-[30px] w-9 sm:w-11 text-right"
+                        style={{
+                          ...SERIF,
+                          fontWeight: 700,
+                          color: node.categoryColor,
+                        }}
+                        aria-hidden="true"
+                      >
+                        {i + 1}
+                      </span>
+                      <div className="flex flex-col min-w-0">
+                        <span
+                          className="flex items-center gap-1.5 text-[9px] uppercase tracking-[0.18em] mb-1.5"
+                          style={{ color: node.categoryColor }}
+                        >
+                          <span
+                            className="inline-block w-1.5 h-1.5 rounded-full"
+                            style={{ backgroundColor: node.categoryColor }}
+                            aria-hidden="true"
+                          />
+                          {node.categoryLabel}
+                        </span>
+                        <h3
+                          className="text-[18px] sm:text-[20px] leading-[1.15] mb-1.5 text-text-primary decoration-1 underline-offset-[3px] group-hover:underline"
+                          style={{ ...SERIF, fontWeight: 700 }}
+                        >
+                          {node.title}
+                        </h3>
+                        <p
+                          className="text-[12.5px] leading-[1.5]"
+                          style={{ color: "var(--text-secondary)" }}
+                        >
+                          {node.excerpt}
+                        </p>
+                        <span
+                          className="mt-2.5 inline-flex items-center gap-1 text-[10px] uppercase tracking-[0.14em]"
+                          style={{ color: "var(--text-muted)" }}
+                        >
+                          {node.connectionCount} connections
+                          <span
+                            className="transition-transform group-hover:translate-x-0.5"
+                            aria-hidden="true"
+                          >
+                            →
+                          </span>
+                        </span>
+                      </div>
+                    </Link>
+                  </li>
+                ))}
+              </ol>
+
+              {beyondPath.length > 0 && (
+                <section className="mt-12">
+                  <div className="flex items-center gap-3 mb-5">
+                    <h2
+                      className="uppercase tracking-[0.16em] text-[12px] font-semibold shrink-0"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      Beyond the path
+                    </h2>
+                    <span
+                      className="h-px flex-1"
+                      style={{
+                        backgroundColor:
+                          "color-mix(in srgb, var(--text-primary) 12%, transparent)",
+                      }}
+                      aria-hidden="true"
+                    />
+                    <span className="text-[11px] text-text-muted/70 tabular-nums shrink-0">
+                      {beyondPath.length}
+                    </span>
+                  </div>
+                  <p className="text-[12px] leading-relaxed text-text-muted mb-5 max-w-2xl">
+                    Everything not on the curated route, ordered by how connected
+                    it is to the rest of the graph.
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {beyondPath.map((node) => (
+                      <Link
+                        key={node.id}
+                        href={`/node/${node.id}`}
+                        prefetch={false}
+                        className="group flex items-baseline gap-2.5 rounded-lg px-3.5 py-2.5 transition-colors"
+                        style={{
+                          border:
+                            "1px solid color-mix(in srgb, var(--text-primary) 8%, transparent)",
+                        }}
+                      >
+                        <span
+                          className="inline-block w-1.5 h-1.5 rounded-full shrink-0 translate-y-[-1px]"
+                          style={{ backgroundColor: node.categoryColor }}
+                          aria-hidden="true"
+                        />
+                        <span
+                          className="text-[14px] leading-snug text-text-secondary group-hover:text-text-primary transition-colors decoration-1 underline-offset-2 group-hover:underline"
+                          style={SERIF}
+                        >
+                          {node.title}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              <div
+                className="mt-10 pt-8"
+                style={{
+                  borderTop:
+                    "1px solid color-mix(in srgb, var(--text-primary) 12%, transparent)",
+                }}
+              >
+                <p className="text-[13px] text-text-secondary">
+                  This route is hand-curated and opinionated. Prefer to browse?
+                  Switch to{" "}
+                  <button
+                    onClick={() => changeSort("category")}
+                    className="underline underline-offset-2 hover:opacity-80"
+                  >
+                    by category
+                  </button>
+                  .
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

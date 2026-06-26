@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
-import { getAllNodes, getCategories, getNodeExcerpt } from "@/lib/content";
+import {
+  getAllNodes,
+  getCategories,
+  getNodeExcerpt,
+  getNodeWeights,
+} from "@/lib/content";
 import NodesView from "@/components/NodesView";
+import { buildRoadmapOrder } from "@/lib/roadmap";
 
 const BASE_URL = "https://www.apeirron.com";
 
@@ -58,6 +64,35 @@ export default function NodesIndexPage() {
     }));
 
   const flatNodes = groups.flatMap((g) => g.nodes);
+
+  // Roadmap ("zero to hero") — a curated, ordered reading path that weaves
+  // across categories. The shared helper places the curated path (content/
+  // roadmap.json) first, then every remaining node by connectivity. Using the
+  // same helper + the same `val` weights the client uses keeps this order
+  // identical to the per-node "Read next" suggestion. The view renders the
+  // curated head as a numbered path and the tail as a "beyond the path" grid.
+  const catById = new Map(categories.map((c) => [c.id, c]));
+  const nodeById = new Map(nodes.map((n) => [n.frontmatter.id, n]));
+  const weights = getNodeWeights();
+  const { order: roadmapOrder, curatedCount: roadmapCuratedCount } =
+    buildRoadmapOrder(
+      nodes.map((n) => ({
+        id: n.frontmatter.id,
+        weight: weights.get(n.frontmatter.id) ?? n.frontmatter.connections.length,
+      }))
+    );
+  const roadmapNodes = roadmapOrder.map((id) => {
+    const n = nodeById.get(id)!;
+    const cat = catById.get(n.frontmatter.category);
+    return {
+      id: n.frontmatter.id,
+      title: n.frontmatter.title,
+      excerpt: getNodeExcerpt(n.slug),
+      connectionCount: n.frontmatter.connections.length,
+      categoryLabel: cat?.label ?? n.frontmatter.category,
+      categoryColor: cat?.color ?? "var(--text-muted)",
+    };
+  });
 
   // One typeset volume per category that has nodes; chapters = node count.
   const volumes = groups.map(({ category, nodes }) => ({
@@ -119,7 +154,13 @@ export default function NodesIndexPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <NodesView groups={groups} totalCount={nodes.length} volumes={volumes} />
+      <NodesView
+        groups={groups}
+        totalCount={nodes.length}
+        volumes={volumes}
+        roadmap={roadmapNodes}
+        roadmapCuratedCount={roadmapCuratedCount}
+      />
     </>
   );
 }

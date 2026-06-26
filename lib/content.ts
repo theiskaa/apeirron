@@ -86,6 +86,14 @@ export function getNodeExcerpt(slug: string): string {
   return _meta.nodes.find((n) => n.slug === slug)?.excerpt ?? "";
 }
 
+/**
+ * Connectivity weight (graph degree, the same `val` the canvas uses) per node id.
+ * Drives the roadmap tail ordering so the index page and "Read next" agree.
+ */
+export function getNodeWeights(): Map<string, number> {
+  return new Map(_meta.nodes.map((n) => [n.id, n.val]));
+}
+
 export function getPhantomNodeIds(): string[] {
   return _meta.phantomNodes.map((p) => p.id);
 }
