@@ -21,6 +21,16 @@ connections:
     reason: "The plant medicines that most reliably induce altered states — psilocybin, ayahuasca, peyote, the Eleusinian kykeon — are precisely the ones that centuries of ruling powers have worked to criminalize and erase."
   - target: "skinwalker-ranch"
     reason: "Investigators on the Utah ranch report the same phenomenology that altered-states research has documented in DMT, near-death, and meditative contexts — precognitive experiences, telepathic 'downloads,' temporary psi capabilities, hallucinatory entity encounters. Kelleher's framing is that the site induces these states rather than merely being observed from them."
+  - target: "pineal-gland"
+    reason: "If the pineal secretes endogenous DMT, it is the body's own gateway to the visionary states otherwise reached through plants and meditation."
+  - target: "kundalini"
+    reason: "Kundalini awakening is a drug-free technology for inducing the same dissolution-and-illumination reported from psychedelics and deep trance."
+  - target: "illusion-of-self"
+    reason: "Ego dissolution under psychedelics and meditation is the experiential proof that the self can switch off while awareness remains."
+  - target: "wilhelm-reich"
+    reason: "Reich located liberation in the body's energetic discharge — a somatic route to altered states adjacent to the chemical and meditative ones."
+  - target: "stoned-ape"
+    reason: "McKenna's thesis makes the altered state not a curiosity but the engine of human cognition itself."
 ---
 
 In 1954, Aldous Huxley swallowed four-tenths of a gram of mescaline, sat down in his garden in Los Angeles, and wrote what would become one of the most influential documents in the history of consciousness research. *The Doors of Perception* described not hallucination but *revelation* — the sense that ordinary perception is a filter, and the drug had opened it. "The man who comes back through the Door in the Wall," Huxley wrote, "will never be quite the same as the man who went out."

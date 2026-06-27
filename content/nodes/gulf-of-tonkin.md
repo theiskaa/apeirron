@@ -21,6 +21,8 @@ connections:
     reason: "Pearl Harbor and Tonkin are the same mechanism a generation apart — an attack allowed or fabricated as the pretext for a war already chosen, with Congress stampeded into war powers on minimal dissent."
   - target: "uss-liberty"
     reason: "Tonkin and the Liberty share the same president, the same willingness to deceive Congress about attacks on U.S. warships, and the same agency — NSA intercepts manipulated in one, an NSA SIGINT ship targeted in the other."
+  - target: "military-industrial-complex"
+    reason: "A manufactured naval incident escalated into a decade of war and contractor revenue — the clearest case of threat-inflation feeding the complex."
 ---
 
 At 3:40 p.m. on August 4, 1964, President Lyndon Baines Johnson picked up the telephone in the White House and called Robert McNamara, his Secretary of Defense. The conversation lasted several minutes. By the time Johnson hung up, the decision had been made: the United States would launch retaliatory air strikes against North Vietnam that night. The justification was that North Vietnamese torpedo boats had, for the second time in three days, attacked American destroyers in the Gulf of Tonkin in an unprovoked act of aggression on the high seas. Johnson went on national television at 11:36 p.m. Eastern Time to inform the American people. "Repeated acts of violence against the armed forces of the United States must be met not only with alert defense, but with positive reply," the President declared. "That reply is being given as I speak to you tonight."

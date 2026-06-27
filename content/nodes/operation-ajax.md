@@ -15,6 +15,12 @@ connections:
     reason: "CIA Director Allen Dulles and Secretary of State John Foster Dulles were Sullivan and Cromwell partners whose firm represented AIOC and oil multinational clients. They brought those corporate loyalties directly into the offices that authorized Ajax — the canonical case of the shadow elite using state power to advance their previous clients' interests."
   - target: "bay-of-pigs"
     reason: "The Bay of Pigs was the attempt to scale the Ajax-Guatemala model — small force, propaganda, bribed local assets, dramatic moment of regime collapse — into a paramilitary invasion. Bissell, who had run PBSUCCESS in Guatemala, ran the same template against Cuba and discovered the model did not transfer when the target government had popular legitimacy and a battle-tested military."
+  - target: "economic-hitman"
+    reason: "The 1953 Mossadegh coup is the proto-template Perkins says economic hit men were invented to make unnecessary — until escalation requires the jackals again."
+  - target: "petrodollar"
+    reason: "Seizing Iranian oil in 1953 established the Anglo-American oil-and-currency hegemony the petrodollar later formalized."
+  - target: "shock-doctrine"
+    reason: "Tehran 1953 is the shock doctrine's prototype: engineered crisis as the opening for externally favorable economic restructuring."
 ---
 
 On March 15, 1951, the Iranian parliament — the Majlis — voted unanimously to nationalize the Anglo-Iranian Oil Company. The vote was the culmination of a political struggle that had convulsed Iran for years, and it represented the most direct challenge to Western control of Middle Eastern petroleum resources that had yet been mounted by any sovereign government. The man who had driven the nationalization campaign to its parliamentary conclusion was Mohammad Mossadegh, a seventy-year-old aristocrat, lawyer, and parliamentarian who had spent the better part of three decades fighting for Iranian sovereignty against the intertwined power of the British Empire and the Pahlavi monarchy. Six weeks later, on April 28, 1951, Mossadegh was appointed Prime Minister of Iran by Shah Mohammad Reza Pahlavi — an appointment the Shah made reluctantly and under enormous popular pressure, because Mossadegh was the only political figure in Iran with the authority and the popular mandate to manage the crisis that nationalization had created.

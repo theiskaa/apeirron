@@ -19,6 +19,16 @@ connections:
     reason: "Jung's third class of synchronistic event — a psychic state answering to a future that does not yet exist — requires meaning to organize the temporal order from outside the sequence, which only makes sense if the future is in some way already real. It is the block universe arriving from the side of depth psychology rather than physics."
   - target: "montauk-project"
     reason: "Montauk takes the open physics question of whether time is traversable and asserts it as operational hardware — a stable tunnel opened on August 12, 1983, looping back to 1943 on a twenty-year cycle. It is closed timelike curves and the block universe claimed as a black project rather than left as theory."
+  - target: "cymatics"
+    reason: "Frequency is periodicity; a vibratory cosmos is one whose very substance is rhythm, making time the medium of form."
+  - target: "the-aether"
+    reason: "Whether space is empty or a medium bears directly on what spacetime is made of."
+  - target: "holographic-universe"
+    reason: "In Bohm's implicate order, past and future are enfolded together; time becomes the unfolding of a deeper timeless whole."
+  - target: "morphic-resonance"
+    reason: "Morphic resonance makes the past directly present, influencing the now through similarity across time rather than mere causal chains."
+  - target: "stoned-ape"
+    reason: "McKenna's Timewave Zero recasts time as a fractal flow of novelty rushing toward a singular endpoint."
 ---
 
 You have never experienced the past. You have never experienced the future. You have only ever experienced *now*. The past exists as memory — a pattern in your brain, accessed in the present. The future exists as anticipation — another pattern, also accessed in the present. The flow of time, the sense that moments are arriving and departing, is the most fundamental feature of your experience. And physics says it may not be real.

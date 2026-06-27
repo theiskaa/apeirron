@@ -23,6 +23,12 @@ connections:
     reason: "Jung's empirical observation from thousands of patient drawings was that the symbol of psychic wholeness — the Self — appears spontaneously as a mandala: a geometric figure organized around a center, often combining circle and square. The same form appears in Tibetan Buddhism, Gothic rose windows, Aztec calendar stones, Navajo sand paintings. Sacred geometry as a structural property of the psyche, not a cultural convention."
   - target: "pythagoras"
     reason: "Pythagoras is the foundational figure of Western sacred geometry — his discovery that musical consonance corresponds to integer ratios extended into the doctrine that mathematical relationships are not descriptions of reality but its underlying structure. Every later sacred-geometry tradition descends from this."
+  - target: "kundalini"
+    reason: "The chakras, yantras, and subtle body are mapped as a precise geometric architecture of energy."
+  - target: "cymatics"
+    reason: "Cymatics is the empirical demonstration that frequency generates geometric form, giving the sacred-geometry tradition a physical mechanism."
+  - target: "the-aether"
+    reason: "Esoteric aetheric physics maps the vacuum onto geometric lattices."
 ---
 
 There is a moment in the education of every mathematician — usually early, usually unexpected — when the subject stops feeling like a human invention and starts feeling like a discovery. The shift is subtle but irreversible. You are not constructing these relationships. You are uncovering them. The ratio of a circle's circumference to its diameter is not pi because someone decided it should be. It is pi because the universe is built that way. The sum of the angles in a triangle is not 180 degrees because Euclid declared it so. It is 180 degrees because the geometry of flat space demands it. The Fibonacci sequence does not produce spirals in sunflower heads because sunflowers have read Fibonacci. It produces spirals because the mathematics of optimal packing — the most efficient arrangement of seeds in a circular space — converges inevitably on the golden angle, which is derived from the golden ratio, which is embedded in the Fibonacci sequence, which is a consequence of the simplest possible recursive relationship: each number is the sum of the two before it.

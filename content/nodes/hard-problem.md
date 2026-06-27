@@ -19,6 +19,12 @@ connections:
     reason: "Dualism is one answer to the hard problem: if physical process cannot account for subjective experience, experience must belong to a different kind of thing."
   - target: "simulation-hypothesis"
     reason: "The simulation hypothesis sharpens the hard problem — if experience can be computed, whether simulated experience is real experience is the explanatory gap restated in code."
+  - target: "maya-nonduality"
+    reason: "If awareness is fundamental and matter derivative, the explanatory gap dissolves from the other side."
+  - target: "illusion-of-self"
+    reason: "Locating the illusion in the self, not in experience, sharpens rather than solves the hard problem of why there is awareness at all."
+  - target: "quantum-consciousness"
+    reason: "Penrose invokes quantum gravity precisely because he thinks no classical-computational account can bridge the explanatory gap."
 ---
 
 In 1995, philosopher David Chalmers drew a line through the study of the mind. On one side he placed the "easy problems" — explaining how the brain processes information, integrates sensory data, controls behavior, and produces language. These are staggeringly complex engineering challenges, but they are *tractable*. We know, in principle, what a solution would look like. On the other side he placed a single question: why does any of this processing feel like something from the inside?

@@ -17,6 +17,8 @@ connections:
     reason: "Kant takes up Descartes' question of what the mind can know, but relocates certainty from the thinking substance to the structure the mind imposes on all experience."
   - target: "simulation-hypothesis"
     reason: "Descartes' evil demon of the 1641 Meditations is the direct ancestor of the simulation argument — a systematic deceiver feeding a mind fabricated experience, with Bostrom's computer standing in for the demon."
+  - target: "pineal-gland"
+    reason: "Descartes named the pineal the single point where the immaterial soul acts on the body — making this gland the literal hinge of Cartesian dualism."
 ---
 
 In the winter of 1619, Rene Descartes -- a 23-year-old French soldier and mathematician -- locked himself in a heated room (*poele*) in southern Germany and resolved to doubt everything. Every belief he had ever held. Every sensation. Every memory. The existence of the external world. The reliability of his own senses. He emerged with three dreams that he took as divine visions, and a conviction that he would rebuild all of human knowledge from a single unshakeable foundation. It took him twenty years to write it down. The result was the *Meditations on First Philosophy* (1641), six short meditations that broke the history of philosophy in half.

@@ -25,6 +25,14 @@ connections:
     reason: "Kant's distinction between phenomena (how things appear) and noumena (things in themselves) is the same structural split the simulation hypothesis makes between rendered experience and whatever substrate produces it. Both frameworks deny direct access to the real."
   - target: "gnosticism"
     reason: "Gnosticism states the simulation hypothesis two thousand years early and with a moral charge: the world is a fabricated copy built by a deceiving power, and gnosis is the recognition that pierces it. It supplies the answer to the question Bostrom's version raises but cannot — who built it, and why."
+  - target: "maya-nonduality"
+    reason: "'The world is maya' is the ancient intuition the simulation argument restates in computational vocabulary: the experienced world is a rendering, not the base layer."
+  - target: "quantum-consciousness"
+    reason: "The observer-dependence of quantum outcomes is read as a clue that reality is rendered only when measured."
+  - target: "holographic-universe"
+    reason: "If the universe's information lives on a boundary surface, reality is literally encoded — the strongest physics-adjacent support for the simulation intuition."
+  - target: "transhumanism"
+    reason: "Mind uploading presupposes that consciousness is computation, the same premise the simulation argument runs on."
 ---
 
 In 2003, the Oxford philosopher Nick Bostrom published a fifteen-page paper in *Philosophical Quarterly* titled "Are You Living in a Computer Simulation?" The paper did not claim that we *are* living in a simulation. It claimed something more precise and more unsettling: that a specific logical trilemma forces us to accept one of three options, the third of which is the simulation hypothesis itself, and that the other two are surprisingly difficult to defend. The argument was not science fiction. It was probability theory applied to the plausible trajectory of any technological civilization, including our own.

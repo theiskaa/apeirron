@@ -17,6 +17,12 @@ connections:
     reason: "The Hermetic axiom that 'all is mind' and the cosmos is alive is the ancient form of the panpsychist claim that consciousness pervades everything."
   - target: "synchronicity"
     reason: "Synchronicity's *unus mundus* — one underlying reality of which mind and matter are dual aspects — is a form of dual-aspect monism, the same structural move panpsychism makes to close the mind-matter gap. The Pauli-Jung conjecture is, in effect, panpsychism's twentieth-century parapsychological wing."
+  - target: "illusion-of-self"
+    reason: "If the self is constructed but awareness is not, consciousness may be a basic feature of nature rather than a self's possession."
+  - target: "quantum-consciousness"
+    reason: "If consciousness is woven into quantum process, it may be a basic ingredient of nature rather than a late biological arrival."
+  - target: "morphic-resonance"
+    reason: "Morphic fields imply a nature that is intrinsically habit-forming and memory-bearing — a cousin of the view that mind is woven into matter."
 ---
 
 Here is the problem, stated as plainly as possible: we live in a universe made of matter. Matter, as physics describes it, is mindless — particles bouncing off particles according to mathematical laws, with no inner life, no experience, no point of view. And yet, somewhere in this mindless machinery, *experience* appears. You are made of atoms, and atoms are not conscious, and yet you are.

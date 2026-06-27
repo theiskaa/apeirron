@@ -21,6 +21,14 @@ connections:
     reason: "Jonestown stockpiled enough Thorazine, Quaaludes, and sedatives to tranquilize its entire population — a pharmacy stocked for chemical control, not patient care, with dissenters drugged into compliance. It is the pharmacratic principle, medicine as an instrument of obedience, taken to its endpoint."
   - target: "gnosticism"
     reason: "Gnosticism is the archetypal target of the inquisitional reflex: a tradition of direct, experiential knowing that bypasses institutional mediation, hunted by Irenaeus and the proto-orthodox exactly as later authorities would criminalize the unmediated states they could not control."
+  - target: "astrotheology"
+    reason: "The Church that criminalized plant sacraments is the same authority that buried the pagan-astral origins of its own savior narrative — suppression of forbidden knowledge in two registers."
+  - target: "pineal-gland"
+    reason: "DMT, the molecule the pineal is theorized to produce, is Schedule I: the body may manufacture what the state criminalizes possessing."
+  - target: "wilhelm-reich"
+    reason: "Reich's prosecution and book-burning is the same inquisitional reflex — the state criminalizing a forbidden access to the body and its energies."
+  - target: "stoned-ape"
+    reason: "If psilocybin made us human, the prohibition of it is the suppression of humanity's own origin technology."
 ---
 
 In 1992, the ethnobotanist and lecturer Terence McKenna published *Food of the Gods: The Search for the Original Tree of Knowledge*, a book that argued something most of his contemporaries were not prepared to say out loud. The book's thesis was that human beings are, in a biological and cultural sense, the species that ate the mushroom — that psychoactive plants had been the catalyst for symbolic cognition, religious imagination, and the very invention of meaning. But nested inside that larger argument was a smaller, more political claim. Somewhere between the late Roman Empire and the reign of Harry Anslinger, McKenna wrote, Western civilization had conducted a thousand-year war against the plants that had made it possible. It had called the war many things — heresy, witchcraft, addiction, degeneracy, public health — but it was, at every stage, the same war. Those who held political power understood that a population which could alter its own [[consciousness]] at will was a population that could not be fully controlled. So the keys were taken away, and the rooms they opened were declared not to exist.

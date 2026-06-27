@@ -23,6 +23,10 @@ connections:
     reason: "Jung's 1936 essay 'Wotan' read Nazism as the eruption of the repressed Germanic storm-god archetype into collective consciousness — explaining the mass ecstatic phenomenology of the rallies, the runic symbolism, the sense of collective possession. The Thule-Vril framework is the deliberate elite cultivation of what Jung saw as the spontaneous mass manifestation of the same underlying archetype."
   - target: "synchronicity"
     reason: "Synchronicity is the capstone and the most dangerous of Jung's doctrines — the one he sat on for decades and released only in 1952. It is where his clinical psychology of the unconscious openly becomes a metaphysics of mind and matter, developed across thirty years of correspondence with Wolfgang Pauli."
+  - target: "kundalini"
+    reason: "Jung read the chakra ascent as a symbolic map of individuation, treating kundalini as the psyche's own developmental process."
+  - target: "noosphere"
+    reason: "Teilhard's planetary mind rhymes with Jung's collective unconscious — a shared layer of mind beneath and beyond the individual."
 ---
 
 In October 1913, at the age of thirty-eight, Carl Gustav Jung was traveling alone on a train through the Swiss countryside when he experienced a waking vision. He saw a monstrous flood covering the lowlands of Europe between the North Sea and the Alps. He saw the bodies of countless thousands floating in the water. He saw rubble, ruined cities, drowned civilization. The vision lasted approximately an hour. When it ended, Jung was profoundly disturbed. He was not a man given to hallucinations, and at the time of the vision he had been one of the leading figures in European psychiatry — director of the Burghölzli psychiatric clinic in Zurich, professor at the University of Zurich, the designated heir to Sigmund Freud's psychoanalytic movement. He suspected he was on the verge of psychosis. He told no one at first. Two weeks later, the vision returned. Then again. And again. By the time the visions stopped, Jung had become convinced that he was either losing his mind or witnessing something whose nature he did not yet understand.

@@ -35,6 +35,8 @@ connections:
     reason: "The murder theory of John Paul I turns on a list of clerics secretly belonging to Masonic lodges — including the illegal P2 — that the pope is said to have intended to act on. The 1979 assassination of Mino Pecorelli, who had published such a list, makes the alleged Masonic infiltration of the Curia the motive at the center of the case."
   - target: "p2-banco-ambrosiano"
     reason: "Propaganda Due is freemasonry's hardest case — the documented instance of a lodge functioning as a parallel state, examined here in full through the bank collapses and deaths it produced. Roberto Calvi was left hanging beneath Blackfriars Bridge in what was read as the Craft's own symbolic language: the frati neri, the bricks, the bridge of the black friars."
+  - target: "georgia-guidestones"
+    reason: "The Rosicrucian R.C. Christian pseudonym and the monument's astronomical design place it squarely in the esoteric-fraternal tradition."
 ---
 
 On June 24, 1717 — the Feast of St. John the Baptist — four London lodges met at the Goose and Gridiron Ale House near St Paul's Cathedral and formed the Grand Lodge of England. This is the conventional origin date of modern Freemasonry. But the conventional date is almost certainly wrong — not in the sense that the meeting didn't happen, but in the sense that what happened that evening was not a beginning. It was a formalization. The thing itself was already ancient.

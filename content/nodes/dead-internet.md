@@ -23,6 +23,12 @@ connections:
     reason: "Viral spread of Sandy Hook content became the landmark test case for platform content moderation — YouTube, Facebook, Twitter all eventually banned denial content."
   - target: "election-fraud"
     reason: "2020 election fraud claims spread through the same bot networks and algorithmic amplification mechanisms characteristic of the dead internet."
+  - target: "manufacturing-consent"
+    reason: "Algorithmic curation and bot amplification are a sixth filter, automating the boundary-setting the original five performed by hand."
+  - target: "hypernormalisation"
+    reason: "Both describe a managed, increasingly synthetic information space where the real has been quietly replaced by a maintained performance."
+  - target: "noosphere"
+    reason: "The dead-internet thesis is what the utopian planetary mind looks like once bots and manipulation hollow it out."
 ---
 
 In the summer of 2021, an anonymous user with the handle IlluminatiPirate posted a long, unsettling essay on Agora Road's Macintosh Café — a small, retro-themed online forum dedicated to vaporwave aesthetics and internet nostalgia. The essay bore a title that, in any previous era of the internet, might have seemed like the ravings of a paranoid mind: "Dead Internet Theory: Most of the Internet is Fake." The thesis was blunt. The internet, as a space of genuine human connection and organic discourse, had died sometime around 2016 or 2017. What remained — the websites, the social media feeds, the comment sections, the trending topics, the viral content — was largely a simulation of human activity, generated and maintained by bots, artificial intelligence, algorithmic curation, and coordinated manipulation campaigns operated by governments, corporations, and intelligence agencies. The humans were still there, somewhere, but they were outnumbered, outpaced, and increasingly irrelevant. The internet had become a puppet show, and most of the audience did not realize they were watching puppets.

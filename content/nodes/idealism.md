@@ -19,6 +19,12 @@ connections:
     reason: "Kant argued we never experience reality directly, only reality as structured by the mind. This is his version of idealism."
   - target: "gnosticism"
     reason: "Gnosticism is idealism turned cosmological and tragic: spirit is the only true reality and matter a degraded emanation, with the soul a fragment of mind exiled into a false material world it must awaken from."
+  - target: "maya-nonduality"
+    reason: "Advaita is the oldest and most radical idealism: not 'mind shapes reality' but 'only awareness is real, and the world is its appearance.'"
+  - target: "holographic-universe"
+    reason: "The holographic paradigm is read as support for reality being information- or mind-like rather than fundamentally material."
+  - target: "law-of-attraction"
+    reason: "The Law of Attraction is a folk idealism — consciousness as prior to and shaping matter, stripped of rigor and sold as technique."
 ---
 
 What if matter is not the foundation of reality? What if [[consciousness]] is?

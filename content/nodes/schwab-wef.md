@@ -19,6 +19,12 @@ connections:
     reason: "Schwab's 2016 *The Fourth Industrial Revolution* and his 2018 sequel articulate a future in which biometric surveillance, ubiquitous data collection, and the integration of human biology with computational systems become the operational basis of social organization. Schwab himself has been candid about the implications — digital identity, brain-computer interfaces, biometric authentication all published in his own words."
   - target: "control-systems"
     reason: "The WEF is the principal venue where the engineering of international consent is conducted in the early 21st century — Davos produces consensus framings on climate, global health, AI governance, and monetary structure, disseminated through the major media outlets and the Young Global Leaders alumni in dozens of cabinets. Bernays's techniques, at planetary scale."
+  - target: "agenda-21"
+    reason: "The WEF operationalizes the SDG agenda through public-private 'stakeholder' partnerships — the bridge between the UN plan and corporate power."
+  - target: "technocracy"
+    reason: "The WEF's Fourth Industrial Revolution and its faith in data-driven governance is technocracy rebranded for the digital age."
+  - target: "transhumanism"
+    reason: "Schwab's Fourth Industrial Revolution explicitly folds human augmentation into elite economic planning, turning a fringe philosophy into a Davos agenda."
 ---
 
 In April 2017, Klaus Schwab — the German-born economist who had founded the European Management Forum at the Swiss alpine resort of Davos in January 1971, renamed it the World Economic Forum in 1987, and built it across forty-six years of continuous institutional development into one of the most influential supranational organizations of the early twenty-first century — gave a public lecture at the John F. Kennedy School of Government at Harvard University. The lecture was a routine event of the kind that senior international figures regularly give at Harvard. Schwab was approximately seventy-nine years old at the time. He had been the chairman of the WEF for forty-six years. He was, by any reasonable standard, one of the most institutionally consequential private individuals in the world. The Kennedy School audience consisted of graduate students, faculty members, and visiting scholars who had come to hear a senior figure discuss the work of his institution. The lecture was conducted in the standard format. There was a moderated question-and-answer session afterward.

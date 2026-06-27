@@ -11,6 +11,8 @@ connections:
     reason: "Dennett argued the hard problem is not a real problem. He believed once you explain what the brain does, there is nothing left to explain."
   - target: "descartes"
     reason: "Dennett's main target was Descartes' idea that there is a central 'observer' inside the brain watching experience happen."
+  - target: "illusion-of-self"
+    reason: "Dennett's center of narrative gravity is the canonical deflationary account: the self is a useful abstraction the brain spins, not an inner witness."
 ---
 
 Daniel Clement Dennett (1942--2024) was the most formidable materialist philosopher of the late twentieth and early twenty-first century. For over five decades, he argued -- with wit, rigor, and relentless clarity -- that [[consciousness]] is not mysterious, not non-physical, and not a "hard problem." It is what brains do. There is nothing left over to explain. And if you think there is, you are in the grip of what he called a "zombic hunch" -- an intuition so deep and so wrong that it has derailed the entire field.

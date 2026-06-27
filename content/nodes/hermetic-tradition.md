@@ -35,6 +35,14 @@ connections:
     reason: "Gnosticism is the Hermetic tradition's dark twin from the same Alexandrian milieu — sharing the Demiurge and the trapped divine spark, but reading the material cosmos as a prison to escape rather than a living temple to ascend. The Hermetica's optimism and Gnosticism's pessimism are two answers drawn from one set of premises."
   - target: "synchronicity"
     reason: "Synchronicity is the hermetic doctrine of correspondence — 'as above, so below' — restated in the vocabulary of twentieth-century depth psychology and physics. Jung took the term *unus mundus* directly from the alchemist Gerardus Dorn, carrying the hermetic vision of a sympathetic cosmos into the age of quantum mechanics."
+  - target: "astrotheology"
+    reason: "The zodiac-and-precession cosmology is the Hermetic substrate the astrotheologists read the Gospels through — 'as above, so below' applied to scripture."
+  - target: "kundalini"
+    reason: "Kundalini is the Eastern inner-alchemy counterpart to the Hermetic ascent; both encode a transmutation of the practitioner."
+  - target: "cymatics"
+    reason: "Cymatics is invoked to literalize the Hermetic Principle of Vibration — nothing rests, everything vibrates."
+  - target: "law-of-attraction"
+    reason: "The Law of Attraction is New Thought's popularization of the Hermetic Principle of Mentalism — the All is Mind."
 ---
 
 In 1460, a monk named Leonardo da Pistoia brought a Greek manuscript to Cosimo de' Medici in Florence. Cosimo had spent decades — and a fortune — funding Marsilio Ficino's translation of the complete works of Plato. The manuscript was not Plato. It was something that Cosimo considered more important. He ordered Ficino to stop translating Plato immediately and translate the new manuscript first.

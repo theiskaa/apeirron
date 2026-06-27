@@ -17,6 +17,10 @@ connections:
     reason: "Mount Hermon — where the Watchers descended in the Enochic narrative — sits at approximately 33°N latitude, the recurring number in Saturnine esoteric symbolism. The Watchers taught astrology and the courses of the stars, and in several second-temple texts their chief (Semyaza/Azazel) carries planetary symbolism overlapping the Saturn-Kronos figure."
   - target: "gnosticism"
     reason: "The Gnostic archons are the conceptual heirs of Enoch's Watchers — intermediary powers that imprison and corrupt rather than liberate humanity — and both bodies of text were branded heretical and preserved outside the canon that condemned them."
+  - target: "astrotheology"
+    reason: "The Enochic astronomical book and Watchers material is the Second-Temple star-religion stratum feeding the same lineage astrotheology traces."
+  - target: "anunnaki"
+    reason: "The Anunnaki who descend and interbreed map onto the Watchers and Nephilim — the same descent-of-the-gods motif in a Sumerian key."
 ---
 
 In November 1773, a Scottish traveler named James Bruce arrived in Marseille after a six-year expedition through Egypt, Sudan, and Ethiopia. He had been searching for the source of the Blue Nile, which he claimed (incorrectly, as it turned out — the source had been visited by earlier Portuguese Jesuits) to have located at Lake Tana in the Ethiopian highlands. He had also been collecting manuscripts. Among the materials he brought back to Europe were three copies of a Ge'ez-language text that he identified, with extraordinary precision, as the Book of Enoch — a document that the Western Church had not seen, in any complete form, for approximately fourteen hundred years. One of the manuscripts went to the royal library at Paris. Another went to the Bodleian Library at Oxford. The third Bruce kept for himself. The text they contained was one of the most consequential lost documents of the ancient world, and its rediscovery would transform the study of early Jewish and Christian apocalyptic literature when scholars finally understood what they were looking at.

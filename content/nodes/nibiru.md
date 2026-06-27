@@ -11,6 +11,8 @@ connections:
     reason: "If an inhabited planet follows a 3,600-year elliptical orbit through our own solar system, the Fermi question — 'where is everybody?' — is answered at the smallest possible scale: they are here, on a body we have not yet catalogued, passing through our neighborhood on a cycle longer than recorded history."
   - target: "younger-dryas"
     reason: "Two incompatible mechanisms for the same event the Sumerian flood narratives may remember — Sitchin's 3,600-year-orbit planet, or the Younger Dryas comet impact at 12,800 BP. The latter has the substantial advantage of being grounded in geological evidence."
+  - target: "anunnaki"
+    reason: "Sitchin's twelfth planet Nibiru is the literal source of the modern doomsday Planet X mythology; the Anunnaki node is its textual origin."
 ---
 
 On a spring day in 1976, a book appeared on the shelves of American bookstores that proposed, with meticulous footnotes and an air of absolute conviction, that everything we thought we knew about the origin of human civilization was wrong. The book was *The 12th Planet*. Its author was Zecharia Sitchin, a journalist and self-taught scholar of ancient languages who had spent thirty years studying Sumerian cuneiform tablets and had arrived at a conclusion that the academic establishment would spend the next five decades trying to ignore: that the Sumerians — the first known civilization, the inventors of writing, the builders of the first cities — were not describing myths when they wrote of gods descending from the sky. They were writing history. And the place the gods came from had a name.

@@ -17,6 +17,10 @@ connections:
     reason: "Condor's institutional architecture — provincial intelligence committees, paramilitary 'neutralization' units, interrogation centers using MKUltra-derived techniques — was the Phoenix template, taught to Latin American officers at the School of the Americas through SOA curricula that incorporated Vietnam-era counterinsurgency doctrine. Pinochet's DINA, Argentina's ESMA, and Brazil's DOI-CODI all reproduced Phoenix's operational structure."
   - target: "p2-banco-ambrosiano"
     reason: "Licio Gelli's P2 extended into the Southern Cone — he held honorary office under Perón and seeded lodges in Buenos Aires and Montevideo that overlapped the juntas Condor coordinated, while Calvi's Banco Ambrosiano laundered through the same Latin American shell network. Stefano Delle Chiaie, who shot Bernardo Leighton in Rome on DINA's behalf, moved inside Gelli's orbit."
+  - target: "economic-hitman"
+    reason: "Condor's killing apparatus enforced the economic order the economic hit men negotiated — the violent backstop to the debt."
+  - target: "shock-doctrine"
+    reason: "The terror Condor industrialized was the precondition for the Chicago Boys' free-market program: with the opposition disappeared, the shock could be imposed."
 ---
 
 On September 21, 1976, at 9:35 in the morning, a car bomb detonated on Sheridan Circle in the Embassy Row district of Washington, DC — less than fourteen blocks from the White House. The bomb had been fixed to the undercarriage of a 1976 Chevrolet Chevelle driven by Orlando Letelier, the former Chilean Ambassador to the United States, former Minister of Defense, and former Minister of Foreign Affairs under the democratically elected government of Salvador Allende. Letelier was killed instantly. His American colleague, Ronni Karpen Moffitt, a twenty-five-year-old researcher at the Institute for Policy Studies who had been riding in the passenger seat, died choking on her own blood after shrapnel severed her carotid artery. Her husband, Michael Moffitt, riding in the back seat, survived with injuries.

@@ -15,6 +15,8 @@ connections:
     reason: "In the Timaeus, Plato assigned the cube to the element Earth — the heaviest, most stable, most confining of the four elements. His Allegory of the Cave describes prisoners trapped in a shadow-world, watching projections on a wall — a description that Gnostic and esoteric traditions have read as a depiction of Saturn's prison."
   - target: "gnosticism"
     reason: "The fullest articulation of Saturn-as-warden is Gnostic: Yaldabaoth the lion-faced Demiurge and his archons are the cosmic jailers the Black Cube symbolizes, reality rebuilt as a cage around the divine spark."
+  - target: "astrotheology"
+    reason: "The cult of Saturn and Kronos is the planetary-deity layer beneath the solar myth; both decode worship as encoded astronomy."
 ---
 
 On November 12, 1980, NASA's Voyager 1 spacecraft passed within 124,000 kilometers of Saturn's cloud tops and transmitted the first high-resolution images of the planet's north pole back to Earth. The images revealed something that no one had predicted. At the center of Saturn's north polar region, embedded in the cloud layer and rotating with the planet, was a geometric structure — a hexagonal pattern of cloud bands, each side approximately 13,800 kilometers long, enclosing an area large enough to contain nearly four Earths. The hexagon was stable, persistent, and almost perfectly regular. It had six sides. Its angles were close to 120 degrees. It was, to every appearance, a hexagon — one of the most fundamental forms in [[sacred-geometry]] — carved into the atmosphere of a gas giant by forces that atmospheric scientists have spent four decades attempting to explain.

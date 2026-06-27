@@ -49,6 +49,12 @@ connections:
     reason: "The Vatican's handling of John Paul I's death — falsifying who found the body and what he was holding, embalming within a day without autopsy, refusing any independent inquest — is narrative control by a closed sovereign. Lying reflexively about the trivial manufactures suspicion of the grave, regardless of the underlying truth."
   - target: "amerithrax"
     reason: "The anthrax letters were printed to read as jihadist — 'Death to America, Allah is great' — while the spores themselves came from a U.S. Army facility, engineering a biological threat that pointed the public's fear at a chosen enemy. It is the manufacture of terror to produce political consent, with the staged threat and the real source aimed in opposite directions."
+  - target: "shock-doctrine"
+    reason: "The shock doctrine is a control system in time: domination achieved in the disorientation of crisis, when resistance is impossible."
+  - target: "frankfurt-school"
+    reason: "The culture industry is described as a control system — domination through entertainment and consumption rather than force."
+  - target: "hypernormalisation"
+    reason: "Hypernormalisation is a control system made of narrative: domination by foreclosing the imaginable."
 ---
 
 In 1928, Edward Bernays — nephew of Sigmund Freud and the father of modern public relations — published a book called *Propaganda*. Its opening paragraph is remarkably candid: "The conscious and intelligent manipulation of the organized habits and opinions of the masses is an important element in democratic society. Those who manipulate this unseen mechanism of society constitute an invisible government which is the true ruling power of our country." He was not confessing a secret. He was advertising a service. By the time the book appeared, Bernays had already helped sell American participation in the First World War to a reluctant public through the Committee on Public Information, invented the modern corporate press release, and established the principle — which has governed every American presidential administration since — that manufactured consent is cheaper and more durable than coercion.
