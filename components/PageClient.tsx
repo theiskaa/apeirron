@@ -5,22 +5,11 @@ import dynamic from "next/dynamic";
 import type { GraphData } from "@/lib/types";
 import Navbar from "./Navbar";
 import TabBar, { type Tab } from "./TabBar";
-import NodeView, { type MiniView } from "./NodeView";
+import NodeView from "./NodeView";
 import { type CommandAction } from "./CommandPalette";
 import { useSearch } from "./SearchProvider";
-import ViewModeToggle, { type ViewMode } from "./ViewModeToggle";
 
 const Graph = dynamic(() => import("./Graph"), { ssr: false });
-const PathsGraph = dynamic(() => import("./PathsGraph"), { ssr: false });
-
-const VIEW_MODE_STORAGE_KEY = "apeirron-view-mode";
-const MINI_VIEW_STORAGE_KEY = "apeirron-node-mini-view";
-
-// Paths are temporarily hidden from the main canvas. The Paths reading-flow now
-// lives on the newspaper-style index page (/nodes); the path data, PathsGraph
-// component, and per-node mini-path diagram all remain. Flip to `true` to bring
-// the on-canvas Connections/Paths toggle back.
-const SHOW_PATHS_ON_CANVAS = false;
 
 const GRAPH_TAB: Tab = { id: "graph", type: "graph" };
 
@@ -45,8 +34,6 @@ export default function PageClient({
     initialNodeId ? `node:${initialNodeId}` : "graph"
   );
   const [focusNodeId, setFocusNodeId] = useState<string | null>(null);
-  const [viewMode, setViewMode] = useState<ViewMode>("connections");
-  const [miniView, setMiniView] = useState<MiniView>("graph");
 
   // Per-node HTML content fetched on demand from /content/<slug>.json.
   // Seeded with `initialContent` from the Server Component (direct node-page
@@ -98,36 +85,6 @@ export default function PageClient({
     },
     [contentCache, graphData.nodes]
   );
-
-  useEffect(() => {
-    try {
-      const savedView = localStorage.getItem(VIEW_MODE_STORAGE_KEY);
-      if (
-        savedView === "connections" ||
-        (savedView === "paths" && SHOW_PATHS_ON_CANVAS)
-      ) {
-        setViewMode(savedView);
-      }
-      const savedMini = localStorage.getItem(MINI_VIEW_STORAGE_KEY);
-      if (savedMini === "graph" || savedMini === "path") {
-        setMiniView(savedMini);
-      }
-    } catch {}
-  }, []);
-
-  const handleViewModeChange = useCallback((mode: ViewMode) => {
-    setViewMode(mode);
-    try {
-      localStorage.setItem(VIEW_MODE_STORAGE_KEY, mode);
-    } catch {}
-  }, []);
-
-  const handleMiniViewChange = useCallback((v: MiniView) => {
-    setMiniView(v);
-    try {
-      localStorage.setItem(MINI_VIEW_STORAGE_KEY, v);
-    } catch {}
-  }, []);
 
   const activeTab = useMemo(
     () => tabs.find((t) => t.id === activeTabId) ?? GRAPH_TAB,
@@ -206,19 +163,17 @@ export default function PageClient({
 
   const handlePaletteSelect = useCallback(
     (nodeId: string) => {
-      // Focus-on-graph only makes sense in the connections viewMode — that's
-      // where the focus animation is implemented. On paths (or any node tab),
-      // opening the node directly is what the user expects.
-      const onConnectionsGraph =
-        activeTabId === "graph" && viewMode === "connections";
-      if (onConnectionsGraph) {
+      // Focus-on-graph only makes sense on the graph tab — that's where the
+      // focus animation is implemented. On a node tab, opening the node
+      // directly is what the user expects.
+      if (activeTabId === "graph") {
         setFocusNodeId(nodeId);
         setTimeout(() => setFocusNodeId(null), 1000);
       } else {
         handleNodeClick(nodeId);
       }
     },
-    [activeTabId, viewMode, handleNodeClick]
+    [activeTabId, handleNodeClick]
   );
 
   const selectedNodeOnGraph = useMemo(() => {
@@ -246,26 +201,6 @@ export default function PageClient({
     }
 
     if (showGraph) {
-      if (SHOW_PATHS_ON_CANVAS) {
-        if (viewMode !== "connections") {
-          acts.push({
-            id: "cmd:view-connections",
-            label: "Switch to Connections view",
-            hint: "View",
-            keywords: ["connections", "graph", "switch", "view"],
-            perform: () => handleViewModeChange("connections"),
-          });
-        }
-        if (viewMode !== "paths") {
-          acts.push({
-            id: "cmd:view-paths",
-            label: "Switch to Paths view",
-            hint: "View",
-            keywords: ["paths", "diagram", "diagrams", "switch", "view"],
-            perform: () => handleViewModeChange("paths"),
-          });
-        }
-      }
       acts.push({
         id: "cmd:open-index",
         label: "Open the index (all nodes)",
@@ -275,36 +210,10 @@ export default function PageClient({
           window.location.href = "/nodes";
         },
       });
-    } else if (activeTab.type === "node") {
-      if (miniView !== "graph") {
-        acts.push({
-          id: "cmd:mini-graph",
-          label: "Side panel: Connections",
-          hint: "View",
-          keywords: ["mini", "side", "panel", "connections", "graph"],
-          perform: () => handleMiniViewChange("graph"),
-        });
-      }
-      if (miniView !== "path") {
-        acts.push({
-          id: "cmd:mini-path",
-          label: "Side panel: Path diagram",
-          hint: "View",
-          keywords: ["mini", "side", "panel", "path", "diagram"],
-          perform: () => handleMiniViewChange("path"),
-        });
-      }
     }
 
     return acts;
-  }, [
-    showGraph,
-    viewMode,
-    miniView,
-    activeTab.type,
-    handleViewModeChange,
-    handleMiniViewChange,
-  ]);
+  }, [showGraph]);
 
   // Register the graph-aware behavior with the global search palette while this
   // view is mounted: selecting a node focuses it on the canvas (or opens a node
@@ -322,39 +231,18 @@ export default function PageClient({
 
   return (
     <div className="relative w-screen h-screen overflow-hidden">
-      {/* Both graphs stay mounted; the inactive one is hidden via opacity
-          (not display:none, which would zero the container width and
-          re-trigger Graph's ResizeObserver / force-config effect). Each
-          receives a `paused` prop so its render loop halts while hidden. */}
+      {/* The graph stays mounted even while a node tab is active (hidden behind
+          it via z-index, not display:none — which would zero the container
+          width and re-trigger Graph's ResizeObserver / force-config effect).
+          The `paused` prop halts its render loop while it's not the active tab. */}
       <div className={`absolute inset-0 ${showGraph ? "z-0" : "z-[-1] pointer-events-none"}`}>
-        <div
-          className={`absolute inset-0 transition-opacity duration-150 ${
-            viewMode === "connections" ? "opacity-100" : "opacity-0 pointer-events-none"
-          }`}
-        >
-          <Graph
-            graphData={graphData}
-            onNodeClick={handleNodeClick}
-            selectedNodeId={selectedNodeOnGraph}
-            focusNodeId={focusNodeId}
-            paused={viewMode !== "connections" || !showGraph}
-          />
-        </div>
-        {SHOW_PATHS_ON_CANVAS && (
-          <div
-            className={`absolute inset-0 transition-opacity duration-150 ${
-              viewMode === "paths" ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
-          >
-            <PathsGraph
-              graphData={graphData}
-              onNodeClick={handleNodeClick}
-              selectedNodeId={selectedNodeOnGraph}
-              focusNodeId={focusNodeId}
-              paused={viewMode !== "paths" || !showGraph}
-            />
-          </div>
-        )}
+        <Graph
+          graphData={graphData}
+          onNodeClick={handleNodeClick}
+          selectedNodeId={selectedNodeOnGraph}
+          focusNodeId={focusNodeId}
+          paused={!showGraph}
+        />
       </div>
 
       {activeNode && !showGraph && (
@@ -383,8 +271,6 @@ export default function PageClient({
                 links={graphData.links}
                 allNodes={graphData.nodes}
                 onNodeClick={handleNodeClick}
-                miniView={miniView}
-                onMiniViewChange={handleMiniViewChange}
               />
             </div>
           </div>
@@ -408,33 +294,29 @@ export default function PageClient({
 
       {showGraph && (
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 pointer-events-none">
-          {SHOW_PATHS_ON_CANVAS ? (
-            <ViewModeToggle mode={viewMode} onChange={handleViewModeChange} />
-          ) : (
-            <a
-              href="/nodes"
-              className="chrome-surface pointer-events-auto inline-flex items-center gap-2 h-9 px-4 rounded-full text-[12px] tracking-wide leading-none text-text-secondary hover:text-text-primary transition-colors"
-              style={{ boxShadow: "var(--chrome-shadow)" }}
-              aria-label="Open the index — read every node"
+          <a
+            href="/nodes"
+            className="chrome-surface pointer-events-auto inline-flex items-center gap-2 h-9 px-4 rounded-full text-[12px] tracking-wide leading-none text-text-secondary hover:text-text-primary transition-colors"
+            style={{ boxShadow: "var(--chrome-shadow)" }}
+            aria-label="Open the index — read every node"
+          >
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
             >
-              <svg
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <line x1="4" y1="6" x2="20" y2="6" />
-                <line x1="4" y1="12" x2="20" y2="12" />
-                <line x1="4" y1="18" x2="14" y2="18" />
-              </svg>
-              <span>Read the index</span>
-            </a>
-          )}
+              <line x1="4" y1="6" x2="20" y2="6" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="4" y1="18" x2="14" y2="18" />
+            </svg>
+            <span>Read the index</span>
+          </a>
         </div>
       )}
     </div>

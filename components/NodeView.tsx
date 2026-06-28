@@ -7,11 +7,6 @@ import type { GraphNode, GraphLink } from "@/lib/types";
 import { buildRoadmapOrder } from "@/lib/roadmap";
 
 const MiniGraph = dynamic(() => import("./MiniGraph"), { ssr: false });
-const MiniPathDiagram = dynamic(() => import("./MiniPathDiagram"), {
-  ssr: false,
-});
-
-export type MiniView = "graph" | "path";
 
 interface TocItem {
   id: string;
@@ -26,8 +21,6 @@ interface Props {
   links: GraphLink[];
   allNodes: GraphNode[];
   onNodeClick: (nodeId: string) => void;
-  miniView: MiniView;
-  onMiniViewChange: (v: MiniView) => void;
 }
 
 const GITHUB_REPO = "https://github.com/theiskaa/apeirron";
@@ -39,8 +32,6 @@ export default function NodeView({
   links,
   allNodes,
   onNodeClick,
-  miniView,
-  onMiniViewChange,
 }: Props) {
   if (node.phantom) {
     return (
@@ -257,29 +248,15 @@ export default function NodeView({
           <div className="hidden lg:block float-right ml-10 mb-6 w-96 xl:w-[420px]">
             <div className="space-y-8">
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-[11px] font-semibold text-text-muted uppercase tracking-wider">
-                    {miniView === "graph" ? "Connections" : "Path"}
-                  </h3>
-                  <MiniViewToggle
-                    value={miniView}
-                    onChange={onMiniViewChange}
-                  />
-                </div>
-                {miniView === "graph" ? (
-                  <MiniGraph
-                    currentNodeId={node.id}
-                    allNodes={allNodes}
-                    allLinks={links}
-                    onNodeClick={onNodeClick}
-                  />
-                ) : (
-                  <MiniPathDiagram
-                    currentNodeId={node.id}
-                    allNodes={allNodes}
-                    onNodeClick={onNodeClick}
-                  />
-                )}
+                <h3 className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-3">
+                  Connections
+                </h3>
+                <MiniGraph
+                  currentNodeId={node.id}
+                  allNodes={allNodes}
+                  allLinks={links}
+                  onNodeClick={onNodeClick}
+                />
                 <ConnectionReasons
                   nodeId={node.id}
                   links={links}
@@ -331,29 +308,15 @@ export default function NodeView({
 
           <div className="lg:hidden mt-10 space-y-8">
             <div>
-              <div className="flex items-center justify-between mb-3">
-                <h3 className="text-[11px] font-semibold text-text-muted uppercase tracking-wider">
-                  {miniView === "graph" ? "Connections" : "Path"}
-                </h3>
-                <MiniViewToggle
-                  value={miniView}
-                  onChange={onMiniViewChange}
-                />
-              </div>
-              {miniView === "graph" ? (
-                <MiniGraph
-                  currentNodeId={node.id}
-                  allNodes={allNodes}
-                  allLinks={links}
-                  onNodeClick={onNodeClick}
-                />
-              ) : (
-                <MiniPathDiagram
-                  currentNodeId={node.id}
-                  allNodes={allNodes}
-                  onNodeClick={onNodeClick}
-                />
-              )}
+              <h3 className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-3">
+                Connections
+              </h3>
+              <MiniGraph
+                currentNodeId={node.id}
+                allNodes={allNodes}
+                allLinks={links}
+                onNodeClick={onNodeClick}
+              />
               <ConnectionReasons
                 nodeId={node.id}
                 links={links}
@@ -384,7 +347,7 @@ function PhantomNodeView({
   links,
   allNodes,
   onNodeClick,
-}: Omit<Props, "contentHtml" | "loading" | "miniView" | "onMiniViewChange">) {
+}: Omit<Props, "contentHtml" | "loading">) {
   const nodeMap = useMemo(
     () => new Map(allNodes.map((n) => [n.id, n])),
     [allNodes]
@@ -650,57 +613,6 @@ function ConnectionReasons({
           </Link>
         ))}
       </div>
-    </div>
-  );
-}
-
-function MiniViewToggle({
-  value,
-  onChange,
-}: {
-  value: MiniView;
-  onChange: (v: MiniView) => void;
-}) {
-  const options: { id: MiniView; label: string }[] = [
-    { id: "graph", label: "Graph" },
-    { id: "path", label: "Path" },
-  ];
-  return (
-    <div
-      className="flex items-center gap-0.5 p-0.5 rounded-full"
-      style={{
-        backgroundColor:
-          "color-mix(in srgb, var(--text-primary) 5%, transparent)",
-        boxShadow:
-          "inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 8%, transparent)",
-      }}
-    >
-      {options.map((opt) => {
-        const active = value === opt.id;
-        return (
-          <button
-            key={opt.id}
-            onClick={() => onChange(opt.id)}
-            className={`px-2.5 py-1 rounded-full text-[10px] font-medium tracking-wide uppercase leading-none transition-all ${
-              active
-                ? "text-text-primary"
-                : "text-text-muted hover:text-text-secondary"
-            }`}
-            style={
-              active
-                ? {
-                    backgroundColor:
-                      "color-mix(in srgb, var(--surface) 90%, transparent)",
-                    boxShadow:
-                      "0 1px 3px rgba(0,0,0,0.06), 0 0 0 1px color-mix(in srgb, var(--text-primary) 8%, transparent)",
-                  }
-                : undefined
-            }
-          >
-            {opt.label}
-          </button>
-        );
-      })}
     </div>
   );
 }
