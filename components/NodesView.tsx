@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Navbar from "./Navbar";
+import { useSearch } from "./SearchProvider";
 import type { Category } from "@/lib/types";
 
 interface NodeListItem {
@@ -85,6 +86,42 @@ export default function NodesView({
       setActiveId("_top");
     }
   }, []);
+
+  // Register this page's command-palette actions, replacing the universal
+  // defaults ("Go to the graph" / "Browse all nodes"). Keeps the graph link and
+  // swaps "Browse all nodes" for a single toggle between the two sort modes,
+  // re-labelled to match the current view. Re-runs on `sort` so the offered
+  // action always points at the other mode.
+  const { setActionsGetter } = useSearch();
+  useEffect(() => {
+    setActionsGetter(() => [
+      {
+        id: "cmd:go-graph",
+        label: "Go to the graph",
+        hint: "Navigation",
+        keywords: ["home", "graph", "map", "main"],
+        perform: () => {
+          window.location.href = "/";
+        },
+      },
+      sort === "roadmap"
+        ? {
+            id: "cmd:view-index",
+            label: "Switch to Index",
+            hint: "View",
+            keywords: ["index", "category", "categories", "browse", "all"],
+            perform: () => changeSort("category"),
+          }
+        : {
+            id: "cmd:view-roadmap",
+            label: "Switch to Roadmap",
+            hint: "View",
+            keywords: ["roadmap", "reading", "path", "order", "start"],
+            perform: () => changeSort("roadmap"),
+          },
+    ]);
+    return () => setActionsGetter(null);
+  }, [sort, changeSort, setActionsGetter]);
 
   const curatedPath = roadmap.slice(0, roadmapCuratedCount);
   const beyondPath = roadmap.slice(roadmapCuratedCount);

@@ -210,6 +210,15 @@ export default function PageClient({
           window.location.href = "/nodes";
         },
       });
+      acts.push({
+        id: "cmd:open-roadmap",
+        label: "Open the roadmap (reading path)",
+        hint: "Navigation",
+        keywords: ["roadmap", "reading", "path", "order", "start", "zero to hero"],
+        perform: () => {
+          window.location.href = "/nodes?sort=roadmap";
+        },
+      });
     }
 
     return acts;
