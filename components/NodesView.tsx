@@ -288,7 +288,7 @@ export default function NodesView({
               >
                 {(
                   [
-                    { id: "category", label: "By category" },
+                    { id: "category", label: "Index" },
                     { id: "roadmap", label: "Roadmap" },
                   ] as const
                 ).map((opt) => {
@@ -685,7 +685,7 @@ export default function NodesView({
                   className="uppercase tracking-[0.16em] text-[13px] font-semibold shrink-0"
                   style={{ color: "var(--text-primary)" }}
                 >
-                  The Path — zero to hero
+                  The Reading Path
                 </h2>
                 <span
                   className="h-px flex-1"
@@ -837,12 +837,12 @@ export default function NodesView({
               >
                 <p className="text-[13px] text-text-secondary">
                   This route is hand-curated and opinionated. Prefer to browse?
-                  Switch to{" "}
+                  Switch to the{" "}
                   <button
                     onClick={() => changeSort("category")}
                     className="underline underline-offset-2 hover:opacity-80"
                   >
-                    by category
+                    Index
                   </button>
                   .
                 </p>
