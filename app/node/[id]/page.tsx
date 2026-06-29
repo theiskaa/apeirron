@@ -17,11 +17,6 @@ interface Props {
   params: Promise<{ id: string }>;
 }
 
-// generateStaticParams is exhaustive (every real + phantom node id), so any
-// other /node/* is genuinely unknown — 404 it at the router instead of running
-// the Server Component and calling notFound().
-export const dynamicParams = false;
-
 export async function generateStaticParams() {
   const nodes = getAllNodes();
   const phantomIds = getPhantomNodeIds();
