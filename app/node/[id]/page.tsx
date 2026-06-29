@@ -9,6 +9,7 @@ import {
 } from "@/lib/content";
 import { getNodeGitDates } from "@/lib/git-dates";
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageClient from "@/components/PageClient";
 
 const BASE_URL = "https://www.apeirron.com";
@@ -100,17 +101,25 @@ export default async function NodePage({ params }: Props) {
 
   const dates = sourceNode ? getNodeGitDates(sourceNode.slug) : null;
   const activeContent = graphNode.phantom ? "" : await getNodeContent(id);
-  const connectedIds = graphData.links
-    .filter((l) => {
-      const s = typeof l.source === "string" ? l.source : (l.source as { id: string }).id;
-      const t = typeof l.target === "string" ? l.target : (l.target as { id: string }).id;
-      return s === id || t === id;
-    })
+  // Full reciprocal connection set for this node, resolved to title + reason.
+  // Built from the undirected graph links (NOT frontmatter.connections, which is
+  // one-directional and would miss ~half the edges). Rendered server-side as an
+  // sr-only anchor list below so crawlers/LLMs can follow connections without JS
+  // — the visible interactive panel (NodeView) loads the graph client-side.
+  const norm = (v: string | { id: string }) =>
+    typeof v === "string" ? v : v.id;
+  const nodeById = new Map(graphData.nodes.map((n) => [n.id, n]));
+  const connections = graphData.links
+    .filter((l) => norm(l.source) === id || norm(l.target) === id)
     .map((l) => {
-      const s = typeof l.source === "string" ? l.source : (l.source as { id: string }).id;
-      const t = typeof l.target === "string" ? l.target : (l.target as { id: string }).id;
-      return s === id ? t : s;
+      const otherId = norm(l.source) === id ? norm(l.target) : norm(l.source);
+      return {
+        id: otherId,
+        title: nodeById.get(otherId)?.title ?? otherId,
+        reason: l.reason,
+      };
     });
+  const connectedIds = connections.map((c) => c.id);
 
   const article: Record<string, unknown> = {
     "@type": "Article",
@@ -189,6 +198,28 @@ export default async function NodePage({ params }: Props) {
             : undefined
         }
       />
+
+      {/*
+        Server-rendered connection list. The interactive Connections panel loads
+        the graph client-side (after hydration), so this sr-only block is what
+        crawlers and non-JS LLM bots actually follow — the reasoned edges between
+        nodes, with real <a href> anchors and the reason for each link.
+      */}
+      {connections.length > 0 && (
+        <nav className="sr-only" aria-label={`Connections from ${graphNode.title}`}>
+          <h2>Connected nodes</h2>
+          <ul>
+            {connections.map((c) => (
+              <li key={c.id}>
+                <Link href={`/node/${c.id}`} prefetch={false}>
+                  {c.title}
+                </Link>
+                {c.reason ? ` — ${c.reason}` : ""}
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
     </>
   );
 }
