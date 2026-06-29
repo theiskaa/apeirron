@@ -9,8 +9,10 @@ import {
   useRef,
   useState,
 } from "react";
-import type { GraphNode } from "@/lib/types";
-import CommandPalette, { type CommandAction } from "./CommandPalette";
+import CommandPalette, {
+  type CommandAction,
+  type PaletteNode,
+} from "./CommandPalette";
 
 type NodeSelectHandler = (nodeId: string) => void;
 type ActionsGetter = () => CommandAction[];
@@ -75,13 +77,31 @@ const defaultActions: ActionsGetter = () => [
 ];
 
 export default function SearchProvider({
-  nodes,
   children,
 }: {
-  nodes: GraphNode[];
   children: React.ReactNode;
 }) {
   const [open, setOpen] = useState(false);
+
+  // The palette index is static data — fetched once on mount from /nodes.json
+  // (a CDN-served asset) rather than serialized into every page's RSC payload.
+  // Prefetching on mount keeps the first ⌘K instant.
+  const [nodes, setNodes] = useState<PaletteNode[]>([]);
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/nodes.json")
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((data: PaletteNode[]) => {
+        if (!cancelled) setNodes(data);
+      })
+      .catch(() => {
+        // Leave empty; the palette still offers command actions, and search
+        // degrades to "No matching nodes" rather than breaking.
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
   // Bumped whenever a handler/actions getter is (un)registered, so the palette
   // re-reads the refs. Children are passed as a stable prop, so neither this
   // nor `open` re-renders the page subtree below the provider.

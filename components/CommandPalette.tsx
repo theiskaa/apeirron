@@ -3,6 +3,10 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import type { GraphNode } from "@/lib/types";
 
+// The palette only ever reads these four fields, so it accepts a slim node shape
+// fetched from /nodes.json (see SearchProvider) rather than the full GraphNode.
+export type PaletteNode = Pick<GraphNode, "id" | "title" | "category" | "color">;
+
 export interface CommandAction {
   id: string;
   label: string;
@@ -12,7 +16,7 @@ export interface CommandAction {
 }
 
 interface Props {
-  nodes: GraphNode[];
+  nodes: PaletteNode[];
   actions: CommandAction[];
   open: boolean;
   onClose: () => void;
@@ -21,7 +25,7 @@ interface Props {
 
 type FlatItem =
   | { kind: "action"; action: CommandAction }
-  | { kind: "node"; node: GraphNode };
+  | { kind: "node"; node: PaletteNode };
 
 export default function CommandPalette({
   nodes,
@@ -63,7 +67,7 @@ export default function CommandPalette({
 
   const grouped = useMemo(() => {
     if (query.trim()) return null;
-    const map = new Map<string, { label: string; color: string; nodes: GraphNode[] }>();
+    const map = new Map<string, { label: string; color: string; nodes: PaletteNode[] }>();
     for (const n of nodes) {
       if (!map.has(n.category)) {
         map.set(n.category, {
@@ -375,7 +379,7 @@ function NodeRow({
   onClick,
   onHover,
 }: {
-  node: GraphNode;
+  node: PaletteNode;
   selected: boolean;
   showCategory: boolean;
   onClick: () => void;
@@ -422,7 +426,7 @@ function BrowseGroups({
   onClick,
   onHover,
 }: {
-  groups: { label: string; color: string; nodes: GraphNode[] }[];
+  groups: { label: string; color: string; nodes: PaletteNode[] }[];
   baseIdx: number;
   selectedIndex: number;
   onClick: (idx: number) => void;

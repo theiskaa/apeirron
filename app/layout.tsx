@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Sans_Georgian, Playfair_Display } from "next/font/google";
 import "./globals.css";
-import { buildGraphData } from "@/lib/content";
 import SearchProvider from "@/components/SearchProvider";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -62,16 +61,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // Lightweight, module-cached node metadata (id/title/category/color/val) for
-  // the global search palette. Passed via the RSC payload so the palette is
-  // available on every route without importing server-only content on the client.
-  const { nodes } = await buildGraphData();
-
   return (
     <html
       lang="en"
@@ -86,7 +80,7 @@ export default async function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <SearchProvider nodes={nodes}>{children}</SearchProvider>
+        <SearchProvider>{children}</SearchProvider>
       </body>
     </html>
   );
