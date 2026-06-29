@@ -1,11 +1,10 @@
 import Link from "next/link";
-import { buildGraphData, getAllNodes, getCategories } from "@/lib/content";
+import { getAllNodes, getCategories } from "@/lib/content";
 import PageClient from "@/components/PageClient";
 
 const BASE_URL = "https://www.apeirron.com";
 
 export default async function Home() {
-  const graphData = await buildGraphData();
   const nodes = getAllNodes();
   const categories = getCategories();
 
@@ -77,7 +76,7 @@ export default async function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
 
-      <PageClient graphData={graphData} />
+      <PageClient />
 
       {/*
         Semantic content block for screen readers and search engines. The

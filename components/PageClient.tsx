@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
-import type { GraphData } from "@/lib/types";
+import type { GraphData, GraphNode } from "@/lib/types";
 import Navbar from "./Navbar";
 import TabBar, { type Tab } from "./TabBar";
 import NodeView from "./NodeView";
@@ -14,16 +14,44 @@ const Graph = dynamic(() => import("./Graph"), { ssr: false });
 const GRAPH_TAB: Tab = { id: "graph", type: "graph" };
 
 interface Props {
-  graphData: GraphData;
+  /**
+   * The active node's metadata, supplied by the node-page Server Component so
+   * the article renders immediately on a direct visit — before the full graph
+   * (fetched client-side) arrives.
+   */
+  initialNode?: GraphNode;
   initialNodeId?: string;
   initialContent?: { nodeId: string; contentHtml: string };
 }
 
 export default function PageClient({
-  graphData,
+  initialNode,
   initialNodeId,
   initialContent,
 }: Props) {
+  // The full graph (~782KB) is static data, fetched once on mount from the
+  // CDN-served /graph.json rather than serialized into the RSC payload on every
+  // request. The canvas (Graph) is already client-only (ssr:false), so nothing
+  // here was ever server-rendered.
+  const [graphData, setGraphData] = useState<GraphData | null>(null);
+  const graphFetched = useRef(false);
+  useEffect(() => {
+    if (graphFetched.current) return;
+    graphFetched.current = true;
+    let cancelled = false;
+    fetch("/graph.json")
+      .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+      .then((data: GraphData) => {
+        if (!cancelled) setGraphData(data);
+      })
+      .catch(() => {
+        // Leave null; the graph renders a placeholder and node tabs still show
+        // the active article via `initialNode` + fetched content.
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
   const [tabs, setTabs] = useState<Tab[]>(() => {
     if (initialNodeId) {
       return [GRAPH_TAB, { id: `node:${initialNodeId}`, type: "node", nodeId: initialNodeId }];
@@ -49,8 +77,8 @@ export default function PageClient({
   const ensureContentLoaded = useCallback(
     (nodeId: string) => {
       if (!nodeId) return;
-      const node = graphData.nodes.find((n) => n.id === nodeId);
-      if (!node || node.phantom) return; // phantoms have no content file
+      const node = graphData?.nodes.find((n) => n.id === nodeId);
+      if (node?.phantom) return; // phantoms have no content file
       if (contentCache.has(nodeId)) return;
       if (inFlightRef.current.has(nodeId)) return;
       inFlightRef.current.add(nodeId);
@@ -83,7 +111,7 @@ export default function PageClient({
           });
         });
     },
-    [contentCache, graphData.nodes]
+    [contentCache, graphData]
   );
 
   const activeTab = useMemo(
@@ -93,8 +121,11 @@ export default function PageClient({
 
   const activeNode = useMemo(() => {
     if (activeTab.type !== "node" || !activeTab.nodeId) return null;
-    return graphData.nodes.find((n) => n.id === activeTab.nodeId) ?? null;
-  }, [activeTab, graphData.nodes]);
+    return (
+      graphData?.nodes.find((n) => n.id === activeTab.nodeId) ??
+      (initialNode?.id === activeTab.nodeId ? initialNode : null)
+    );
+  }, [activeTab, graphData, initialNode]);
 
   const hasNodeTabs = tabs.some((t) => t.type === "node");
 
@@ -245,13 +276,18 @@ export default function PageClient({
           width and re-trigger Graph's ResizeObserver / force-config effect).
           The `paused` prop halts its render loop while it's not the active tab. */}
       <div className={`absolute inset-0 ${showGraph ? "z-0" : "z-[-1] pointer-events-none"}`}>
-        <Graph
-          graphData={graphData}
-          onNodeClick={handleNodeClick}
-          selectedNodeId={selectedNodeOnGraph}
-          focusNodeId={focusNodeId}
-          paused={!showGraph}
-        />
+        {graphData ? (
+          <Graph
+            graphData={graphData}
+            onNodeClick={handleNodeClick}
+            selectedNodeId={selectedNodeOnGraph}
+            focusNodeId={focusNodeId}
+            paused={!showGraph}
+          />
+        ) : (
+          // Placeholder while /graph.json loads — the canvas never SSR'd anyway.
+          <div className="w-full h-full bg-graph-bg" aria-busy="true" />
+        )}
       </div>
 
       {activeNode && !showGraph && (
@@ -263,7 +299,7 @@ export default function PageClient({
                 <TabBar
                   tabs={tabs}
                   activeTabId={activeTabId}
-                  nodes={graphData.nodes}
+                  nodes={graphData?.nodes ?? (initialNode ? [initialNode] : [])}
                   onSelectTab={handleSelectTab}
                   onCloseTab={handleCloseTab}
                 />
@@ -277,8 +313,8 @@ export default function PageClient({
                   !contentCache.has(activeNode.id) &&
                   loadingIds.has(activeNode.id)
                 }
-                links={graphData.links}
-                allNodes={graphData.nodes}
+                links={graphData?.links ?? []}
+                allNodes={graphData?.nodes ?? (initialNode ? [initialNode] : [])}
                 onNodeClick={handleNodeClick}
               />
             </div>
@@ -293,7 +329,7 @@ export default function PageClient({
             <TabBar
               tabs={tabs}
               activeTabId={activeTabId}
-              nodes={graphData.nodes}
+              nodes={graphData?.nodes ?? (initialNode ? [initialNode] : [])}
               onSelectTab={handleSelectTab}
               onCloseTab={handleCloseTab}
             />

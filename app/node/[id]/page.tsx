@@ -186,8 +186,8 @@ export default async function NodePage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <PageClient
-        graphData={graphData}
         initialNodeId={id}
+        initialNode={graphNode}
         initialContent={
           activeContent
             ? { nodeId: id, contentHtml: activeContent }
