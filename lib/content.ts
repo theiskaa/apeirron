@@ -102,7 +102,9 @@ let _graphDataCache: GraphData | null = null;
 
 /**
  * Builds metadata-only graph data — no contentHtml.
- * Intentionally lightweight so it can be passed as a prop to the client.
+ * Used server-side (node-page JSON-LD + notFound check). The SAME projection is
+ * emitted to public/graph.json by scripts/generate-content.mjs for the client
+ * canvas — keep the node/link field sets in sync.
  */
 export async function buildGraphData(): Promise<GraphData> {
   if (_graphDataCache) return _graphDataCache;

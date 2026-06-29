@@ -24,6 +24,7 @@ const CONTENT_DIR = path.join(ROOT, "content", "nodes");
 const CATEGORIES_PATH = path.join(ROOT, "content", "categories.json");
 const METADATA_PATH = path.join(ROOT, "lib", "generated", "graph-metadata.json");
 const CONTENT_OUT_DIR = path.join(ROOT, "public", "content");
+const PUBLIC_DIR = path.join(ROOT, "public");
 
 const markdownProcessor = unified()
   .use(remarkParse)
@@ -224,7 +225,52 @@ writeFileSync(
   })
 );
 
+// Client-fetchable static assets. These keep the heavy graph/node data OUT of
+// the server-rendered RSC payload: the canvas (components/Graph.tsx, ssr:false)
+// fetches /graph.json and the command palette (components/CommandPalette.tsx)
+// fetches /nodes.json on the client. The projections below MUST mirror
+// buildGraphData() in lib/content.ts (real-node and phantom-node field sets) so
+// the client receives byte-identical data.
+const graphNodes = [
+  ...metadataNodes.map((n) => ({
+    id: n.id,
+    title: n.title,
+    category: n.category,
+    color: n.color,
+    val: n.val,
+    publishedAt: n.publishedAt,
+    updatedAt: n.updatedAt,
+  })),
+  ...phantomNodes.map((p) => ({
+    id: p.id,
+    title: p.title,
+    category: p.category,
+    color: p.color,
+    val: p.val,
+    phantom: true,
+  })),
+];
+writeFileSync(
+  path.join(PUBLIC_DIR, "graph.json"),
+  JSON.stringify({ nodes: graphNodes, links })
+);
+
+// Slim index for the command palette — real nodes only, and only the four
+// fields CommandPalette reads (id/title/category/color). Fetched on every route.
+const paletteNodes = metadataNodes.map((n) => ({
+  id: n.id,
+  title: n.title,
+  category: n.category,
+  color: n.color,
+}));
+writeFileSync(
+  path.join(PUBLIC_DIR, "nodes.json"),
+  JSON.stringify(paletteNodes)
+);
+
 console.log(
   `generate-content: ${metadataNodes.length} nodes (+ ${phantomNodes.length} phantom) · ` +
-    `${links.length} links · metadata ${(statSync(METADATA_PATH).size / 1024).toFixed(1)} KB`
+    `${links.length} links · metadata ${(statSync(METADATA_PATH).size / 1024).toFixed(1)} KB · ` +
+    `graph.json ${(statSync(path.join(PUBLIC_DIR, "graph.json")).size / 1024).toFixed(1)} KB · ` +
+    `nodes.json ${(statSync(path.join(PUBLIC_DIR, "nodes.json")).size / 1024).toFixed(1)} KB`
 );

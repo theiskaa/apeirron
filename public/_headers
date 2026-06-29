@@ -3,3 +3,10 @@
 # the new file on any subsequent page load that triggers a fresh fetch.)
 /content/*
   Cache-Control: public, max-age=3600, s-maxage=31536000
+
+# Static graph + palette index fetched by the client (Graph canvas / command
+# palette). Regenerated each build; same caching tradeoff as /content/* above.
+/graph.json
+  Cache-Control: public, max-age=3600, s-maxage=31536000
+/nodes.json
+  Cache-Control: public, max-age=3600, s-maxage=31536000
