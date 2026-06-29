@@ -50,6 +50,18 @@ export default async function Home() {
     sameAs: ["https://github.com/theiskaa/apeirron"],
   };
 
+  // Editorial author entity. Referenced as `author` by every node's Article
+  // schema via the `#editor` @id (publisher stays the Organization). Defined
+  // here on the home page so the cross-document @id reference resolves.
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": `${BASE_URL}/#editor`,
+    name: "Apeirron",
+    url: `${BASE_URL}/`,
+    sameAs: ["https://github.com/theiskaa/apeirron"],
+  };
+
   return (
     <>
       <script
@@ -59,6 +71,10 @@ export default async function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
 
       <PageClient graphData={graphData} />

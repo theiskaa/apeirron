@@ -17,6 +17,11 @@ interface Props {
   params: Promise<{ id: string }>;
 }
 
+// generateStaticParams is exhaustive (every real + phantom node id), so any
+// other /node/* is genuinely unknown — 404 it at the router instead of running
+// the Server Component and calling notFound().
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const nodes = getAllNodes();
   const phantomIds = getPhantomNodeIds();
@@ -43,6 +48,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: `${title} — Apeirron`,
         description: `${title} is a proposed topic in the Apeirron knowledge graph. Contribute to help build this node.`,
         alternates: { canonical: `/node/${id}` },
+        // Phantom nodes are unwritten stubs ("proposed topic — contribute").
+        // Keep them crawlable/contributable but out of the index so they don't
+        // register as thin pages as the graph grows.
+        robots: { index: false, follow: true },
       };
     }
     return { title: "Not Found — Apeirron" };
@@ -76,7 +85,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: node.frontmatter.title,
+      title,
       description,
     },
   };
@@ -118,10 +127,13 @@ export default async function NodePage({ params }: Props) {
     inLanguage: "en",
     isPartOf: { "@id": `${BASE_URL}/#website` },
     publisher: { "@id": `${BASE_URL}/#organization` },
-    author: { "@id": `${BASE_URL}/#organization` },
+    author: { "@id": `${BASE_URL}/#editor` },
     image: {
       "@type": "ImageObject",
-      url: `${BASE_URL}/og.jpg`,
+      // Per-node generated OG image (app/node/[id]/opengraph-image.tsx). The
+      // route handler serves the PNG with or without Next's ?<hash> cache-bust
+      // query, so the stable hashless path is safe to reference here.
+      url: `${BASE_URL}/node/${id}/opengraph-image/default`,
       width: 1200,
       height: 630,
     },
