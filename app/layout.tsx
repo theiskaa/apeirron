@@ -33,17 +33,6 @@ export const metadata: Metadata = {
   },
   description:
     "An interactive knowledge graph mapping the biggest questions humanity asks — consciousness, ancient civilizations, the nature of reality, and many more",
-  keywords: [
-    "knowledge graph",
-    "consciousness",
-    "simulation theory",
-    "ancient civilizations",
-    "fermi paradox",
-    "panpsychism",
-    "philosophy",
-    "deep dive",
-    "interactive graph",
-  ],
   metadataBase: new URL("https://www.apeirron.com"),
   alternates: {
     canonical: "/",
