@@ -35,6 +35,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.apeirron.com"),
   alternates: {
     canonical: "/",
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
   },
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],

@@ -514,7 +514,14 @@ export default function AboutView() {
                   rel="noopener noreferrer"
                 >
                   Source on GitHub
-                </a>
+                </a>{" "}
+                ·{" "}
+                <a href="/feed.xml">RSS feed</a>
+              </p>
+              <p className="mt-2 text-[12px] text-text-muted">
+                New nodes land in the <a href="/feed.xml">RSS feed</a> as they
+                are merged, newest first — subscribe to follow the graph as it
+                grows.
               </p>
             </div>
           </article>

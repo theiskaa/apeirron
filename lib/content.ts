@@ -110,6 +110,39 @@ export function getPhantomNodeIds(): string[] {
   return _meta.phantomNodes.map((p) => p.id);
 }
 
+export interface FeedNode {
+  id: string;
+  slug: string;
+  title: string;
+  category: string;
+  description: string;
+  publishedAt: string;
+  updatedAt: string;
+}
+
+/**
+ * All nodes shaped for the RSS feed, sorted newest-first by publish date so the
+ * most recently added node sits at the top. Ties (same timestamp) fall back to
+ * title order for a stable ordering.
+ */
+export function getNodesForFeed(): FeedNode[] {
+  return _meta.nodes
+    .map((n) => ({
+      id: n.id,
+      slug: n.slug,
+      title: n.title,
+      category: n.category,
+      description: n.description || n.excerpt || "",
+      publishedAt: n.publishedAt,
+      updatedAt: n.updatedAt,
+    }))
+    .sort((a, b) => {
+      const diff =
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+      return diff !== 0 ? diff : a.title.localeCompare(b.title);
+    });
+}
+
 let _graphDataCache: GraphData | null = null;
 
 /**

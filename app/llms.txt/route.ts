@@ -44,6 +44,7 @@ Each node below is a self-contained investigation, primary-sourced and interlink
 - Contribute: ${BASE_URL}/contribute
 - Source code: https://github.com/theiskaa/apeirron
 - Sitemap: ${BASE_URL}/sitemap.xml
+- RSS feed (newest nodes first): ${BASE_URL}/feed.xml
 
 ${sections.join("\n\n")}
 `;

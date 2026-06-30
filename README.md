@@ -13,6 +13,10 @@ The site is a force-directed graph. Each node is a topic — written as a narrat
 
 All content lives as Markdown files in the [`content/nodes/`](./content/nodes) directory. The graph, connections, and site are generated automatically from these files at build time. No database, no CMS — just Markdown and Git.
 
+## RSS feed
+
+New nodes are published to an RSS feed at [`/feed.xml`](https://www.apeirron.com/feed.xml), ordered by date added with the newest node on top. Subscribe to follow the graph as it grows.
+
 ## Books
 
 The same content is also available as a typeset edition: seven EPUB and PDF volumes, one per category, generated from the same nodes. See [`books/`](./books) for the build pipeline and details.
