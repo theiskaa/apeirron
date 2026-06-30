@@ -16,6 +16,14 @@ connections:
     reason: "The defense contractor is the corporate person fused directly to state violence — a profit-maximizing externalizing machine whose product is war, whose customer is the Treasury, and whose lobbying secures the demand Eisenhower warned would acquire 'unwarranted influence.'"
   - target: "manufacturing-consent"
     reason: "Corporate media ownership is the first of Herman and Chomsky's five filters — the propaganda model begins with the observation that the news is produced by profit-seeking corporations dependent on advertising, so the corporate person's interests structure what a population is permitted to know."
+  - target: "vaccine-autism"
+    reason: "The vaccine affair runs on corporate-liability machinery from both ends: Wakefield's research was funded through a class action against the MMR manufacturers, while the US 1986 Vaccine Injury Act shielded those same corporate defendants from ordinary tort liability. That special legal immunity — a privilege of the corporate person — is cited by campaigners as structural proof the product cannot be trusted."
+  - target: "water-fluoridation"
+    reason: "Fluoridation turned an industrial liability into a revenue line: the fluorosilicic acid dosed into municipal water is captured waste from phosphate-fertilizer and aluminum production. It is externalization inverted — the public pays to ingest what the corporation would otherwise pay to dispose of."
+  - target: "gmo-monsanto"
+    reason: "Monsanto is the externalizing-machine thesis with a name and a verdict — the documentary's own case study, from rBGH to Roundup. Its litigation produced the roughly $11 billion settlement that shows the fine landing on the entity in real dollars, and its absorption into Bayer is the corporate form outliving the firm that incurred the harm."
+  - target: "climate-denial"
+    reason: "Exxon is the externalizing machine caught in the act: its own scientists confirmed fossil-fuel warming in 1977–82, and the corporation then spent decades funding the doubt that kept the cost external. Climate denial is shareholder-primacy defending the largest externality ever socialized — the atmosphere as a free dumping ground."
 ---
 
 The most consequential sentence in American corporate law was not written by a judge, and it was not part of any ruling. On May 10, 1886, the Supreme Court decided *Santa Clara County v. Southern Pacific Railroad Company*, a dispute over whether the state of California could tax a railroad's property including the fences along its right-of-way. The Court resolved it on narrow, technical grounds and said nothing about constitutional rights. But before oral argument, Chief Justice Morrison Waite had remarked to counsel that the justices did not wish to hear argument on whether the Fourteenth Amendment's Equal Protection Clause applied to corporations, because "we are all of opinion that it does."

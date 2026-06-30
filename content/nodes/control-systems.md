@@ -56,6 +56,12 @@ connections:
     reason: "The culture industry is described as a control system — domination through entertainment and consumption rather than force."
   - target: "hypernormalisation"
     reason: "Hypernormalisation is a control system made of narrative: domination by foreclosing the imaginable."
+  - target: "water-fluoridation"
+    reason: "Fluoridation is one of Bernays's own named campaigns: he sold the public on drinking the aluminum industry's fluoride waste as a health measure, using the same physician-laundering technique that moved cigarettes and bacon. It is the worked example of consent manufactured for an industrial client through trusted authorities and no visible coercion."
+  - target: "gmo-monsanto"
+    reason: "The Monsanto Papers are the Bernays method applied to a molecule: ghostwriting safety reviews for outside scientists to sign, planting a Monsanto-drafted column under an academic's byline in Forbes, and running a documented campaign to discredit the IARC scientists who classified glyphosate a probable carcinogen. Consent manufactured for an industrial client, exactly as the framework describes."
+  - target: "climate-denial"
+    reason: "The organized-denial campaign is the Bernays method ported from tobacco to fossil fuels: the 1998 API 'victory' memo and the 2002 Luntz memo both prescribe manufacturing the perception of scientific uncertainty so that — as Luntz wrote — the public never comes to believe 'the scientific issues are settled.' It is consent for inaction engineered through trusted experts and balanced-seeming media, 'doubt' sold as a product exactly as the tobacco playbook prescribed."
 ---
 
 In 1928, Edward Bernays — nephew of Sigmund Freud and the father of modern public relations — published a book called *Propaganda*. Its opening paragraph is remarkably candid: "The conscious and intelligent manipulation of the organized habits and opinions of the masses is an important element in democratic society. Those who manipulate this unseen mechanism of society constitute an invisible government which is the true ruling power of our country." He was not confessing a secret. He was advertising a service. By the time the book appeared, Bernays had already helped sell American participation in the First World War to a reluctant public through the Committee on Public Information, invented the modern corporate press release, and established the principle — which has governed every American presidential administration since — that manufactured consent is cheaper and more durable than coercion.

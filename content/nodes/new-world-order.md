@@ -46,6 +46,8 @@ connections:
     reason: "The Club's search for a unifying global threat in The First Global Revolution is read as the founding logic of governance-by-crisis."
   - target: "georgia-guidestones"
     reason: "The Guidestones are treated as the NWO's only public monument — a depopulation-and-governance creed carved in granite."
+  - target: "water-fluoridation"
+    reason: "Fluoridation is the original mass-medication conspiracy — the Cold War's communist-plot-in-the-water that Dr. Strangelove satirized and Alex Jones revived. It supplied the template the NWO literature reuses for chemtrails and vaccines: an elite pacifying the population through infrastructure no one can opt out of."
 ---
 
 On the evening of September 11, 1990 — a date that would acquire a second and far more terrible significance exactly eleven years later — President George Herbert Walker Bush stood before a joint session of the United States Congress and delivered an address on the Persian Gulf crisis. Saddam Hussein had invaded Kuwait six weeks earlier, and the world was watching to see how the last remaining superpower would respond. Bush spoke of collective security, of international law, of a coalition of nations acting in concert against aggression. And then he said this:
