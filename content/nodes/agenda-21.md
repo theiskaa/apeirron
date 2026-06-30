@@ -18,6 +18,8 @@ connections:
     reason: "The Guidestones' first commandment — 'maintain humanity under 500,000,000 in perpetual balance with nature' — is read as the same depopulation-via-sustainability logic Agenda 21 is accused of encoding, carved into granite instead of a UN annex."
   - target: "climate-denial"
     reason: "The denial movement supplies the scientific payload the Agenda 21 anxiety runs on: if the warming is fabricated or exaggerated, then carbon budgets, fifteen-minute cities, and emissions rules read as a control apparatus built on a hoax. Climate denial is the science front of the same argument Agenda 21 fights on the policy front."
+  - target: "directed-energy-wildfires"
+    reason: "The wildfire-weapon theory supplies Agenda 21 with a method. Towns like Lahaina are said to be burned to clear land for 'smart city' and '15-minute city' redevelopment, the fire serving the depopulation-and-rezoning plan the sustainability agenda is accused of encoding."
 ---
 
 On June 14, 1992, in a convention hall on the edge of Rio de Janeiro, a seventy-two-year-old Canadian businessman named Maurice Strong gaveled to a close the largest diplomatic gathering the world had ever seen. The United Nations Conference on Environment and Development — the Earth Summit — had drawn delegations from 178 governments, more than a hundred heads of state, and some seventeen thousand people to a parallel forum of activists and NGOs spread across the city. Strong, the conference's secretary-general, was a self-made oilman who had run Power Corporation and Petro-Canada before reinventing himself as the planet's foremost environmental diplomat, the man who had also convened the first such summit in Stockholm twenty years earlier.

@@ -80,6 +80,12 @@ connections:
     reason: "An intelligence bank is the deep state's circulatory system — money beyond appropriation, beyond audit, beyond any elected body's reach. That the same model recurred across two decades and two banks, protected by the agencies it served until each became useless, is evidence of a permanent capability that outlives the operations it funds."
   - target: "military-industrial-complex"
     reason: "The permanent national-security bureaucracy is the political body in which the complex's interests are institutionalized across administrations."
+  - target: "clinton-body-count"
+    reason: "The body count personalizes the deep-state thesis at its most lethal: not bureaucratic sabotage but wet work, an unseen apparatus willing to kill to shield a protected political dynasty. It is the deep state imagined as an assassin rather than a saboteur."
+  - target: "lockerbie"
+    reason: "The blame for Pan Am 103 shifted from Iran and Syria to Libya exactly as the 1990–91 Gulf War coalition needed Damascus and Tehran onside — a criminal verdict tracking state interest rather than running independent of it. Lockerbie is the deep state shaping not a policy but a court's conclusion."
+  - target: "havana-syndrome"
+    reason: "Havana Syndrome turned the intelligence community against itself: the victims are its own officers, the official assessment calls adversary involvement 'very unlikely,' and dissenting insiders accuse the agencies of burying the cause to dodge liability. The institution is victim, investigator, and accused at once."
 ---
 
 In January 2014, a retired congressional staffer named Mike Lofgren published an essay on Bill Moyers's website titled "Anatomy of the Deep State." Lofgren had spent twenty-eight years working on the Senate and House Budget Committees, watching the federal government from the inside with the particular clarity that comes from handling the money. His thesis was simple and devastating: there exists within the United States government a permanent, largely unaccountable infrastructure of national security agencies, military contractors, Wall Street firms, and Silicon Valley surveillance companies that operates regardless of which party holds the White House or Congress. Elections change the figureheads. They do not change the policy. "It is the red thread," Lofgren wrote, "that runs through the war on terrorism, the ## financialization and deindustrialization of the American economy, the rise of a plutocratic social structure and political dysfunction."

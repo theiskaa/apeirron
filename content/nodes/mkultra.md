@@ -42,6 +42,8 @@ connections:
     reason: "Dianetics is the privately built counterpart to MKUltra's ambition — a proprietary technology for erasing 'engrams' and rewriting a mind, arrived at from pulp science rather than intelligence tradecraft. Both treat the psyche as reprogrammable, and both generate a dossier of compromise as a byproduct: MKUltra's case files, Scientology's auditing folders."
   - target: "shock-doctrine"
     reason: "Ewen Cameron's CIA-funded electroshock depatterning is the literal model Naomi Klein maps onto economic shock therapy — the search for a psychological blank slate."
+  - target: "havana-syndrome"
+    reason: "Project Pandora — the U.S. study of the 'Moscow Signal' microwave beam the Soviets aimed at the embassy — is MKUltra's sibling in treating the nervous system as a target for beamed energy. Havana Syndrome inherits that documented history, which is what keeps its weapon hypothesis from being dismissed outright."
 ---
 
 On August 3, 1977, Senator Ted Kennedy opened a joint hearing of the Senate Select Committee on Intelligence and the Subcommittee on Health and Scientific Research. His opening statement was measured in tone and devastating in content. The CIA, Kennedy told the chamber, had conducted a twenty-year program of experiments on unwitting American citizens — experiments involving drugs, electroshock, radiation, sensory deprivation, hypnosis, and psychological torture — in an effort to develop techniques of mind control. The program was called MKUltra. It had been authorized at the highest levels of the intelligence community. Most of its records had been deliberately destroyed. And the American public had known nothing about it.

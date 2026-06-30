@@ -8,6 +8,8 @@ connections:
     reason: "The Bimini Road, an underwater rock formation found in the Bahamas, and Edgar Cayce's prophecies both place Atlantis inside the Bermuda Triangle. Some theorists think Atlantean technology on the ocean floor causes the Triangle's anomalies."
   - target: "ufos"
     reason: "There have been reports of unidentified submerged objects (USOs) in the Bermuda Triangle. Some researchers think these could be evidence of underwater alien bases in the area."
+  - target: "crop-circles"
+    reason: "Both are textbook cases of a phenomenon with documented prosaic causes — human hoaxers and scavengers there, weather and human error here — inflated into the paranormal by counting the strange cases and never the ordinary ones. The structure of the error is shared even where the subject is not."
 ---
 
 On the afternoon of December 5, 1945, five torpedo bombers lifted off from the Naval Air Station at Fort Lauderdale, Florida, on a routine training mission designated Navigation Problem Number One. The flight was known as Flight 19. It consisted of five TBM Avenger aircraft, crewed by fourteen men — thirteen students and one instructor, Lieutenant Charles Carroll Taylor, a veteran pilot with over 2,500 hours of flight time. The mission was simple: fly east, conduct a practice bombing run over Hen and Chickens Shoals, continue east and then north, turn southwest, and return to base. The entire exercise was expected to take approximately two hours. The weather was fair. The seas were moderate. There was no reason for anything to go wrong.
