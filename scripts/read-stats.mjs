@@ -13,6 +13,14 @@
  * Usage:  node scripts/read-stats.mjs [days]      (days defaults to 30)
  */
 
+// Auto-load a local .env (CF_ACCOUNT_ID, CF_API_TOKEN) if present. Node doesn't
+// read .env on its own; this avoids needing `node --env-file=.env`.
+try {
+  process.loadEnvFile();
+} catch {
+  // No .env file — fall back to whatever is already in the environment.
+}
+
 const accountId = process.env.CF_ACCOUNT_ID;
 const token = process.env.CF_API_TOKEN;
 const days = Number(process.argv[2] || 30);
