@@ -216,10 +216,10 @@ export default function NodeView({
 
   return (
     <div ref={scrollRef} className="h-full overflow-y-auto panel-scroll">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-[104px] sm:pt-[116px] pb-8 flex gap-0">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-8 flex gap-0">
         {tocItems.length > 0 && (
           <nav className="hidden xl:block w-52 2xl:w-60 shrink-0 pt-20 pr-6">
-            <div className="sticky top-[116px]">
+            <div className="sticky top-8">
               <ul className="space-y-0.5">
                 {tocItems.map((item) => (
                   <li key={item.id}>
@@ -460,7 +460,7 @@ function PhantomNodeView({
 
   return (
     <div className="h-full overflow-y-auto panel-scroll">
-      <div className="max-w-[720px] mx-auto px-6 lg:px-12 pt-[104px] sm:pt-[116px] pb-8">
+      <div className="max-w-[720px] mx-auto px-6 lg:px-12 py-8">
         <div className="flex items-center gap-3 mb-8">
           <h1
             className="text-[2rem] sm:text-[2.4rem] leading-[1.05] tracking-tight text-text-primary"

@@ -8,6 +8,7 @@ import TabBar, { type Tab } from "./TabBar";
 import NodeView from "./NodeView";
 import { type CommandAction } from "./CommandPalette";
 import { useSearch } from "./SearchProvider";
+import { readStoredTabs, writeStoredTabs } from "@/lib/tabs";
 
 const Graph = dynamic(() => import("./Graph"), { ssr: false });
 
@@ -85,6 +86,9 @@ export default function PageClient({
     initialNodeId ? `node:${initialNodeId}` : "graph"
   );
   const [focusNodeId, setFocusNodeId] = useState<string | null>(null);
+  // Gate persistence: don't write the (bare, server-derived) initial tab set to
+  // storage before the post-mount rehydration has merged in the saved workspace.
+  const hydratedRef = useRef(false);
 
   // Per-node HTML content fetched on demand from /content/<slug>.json.
   // Seeded with `initialContent` from the Server Component (direct node-page
@@ -190,6 +194,80 @@ export default function PageClient({
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
   }, [ensureContentLoaded, initialNodeId, loadFullGraph]);
+
+  // Rehydrate the persisted tab workspace once, post-mount (localStorage isn't
+  // available during SSR, and reading it in render would risk a hydration
+  // mismatch). Merge the saved open node tabs with the route's server-derived
+  // initial tab, then pick the active tab per the persistence rules.
+  useEffect(() => {
+    const stored = readStoredTabs();
+    if (stored) {
+      const merged: Tab[] = [GRAPH_TAB];
+      const seen = new Set<string>([GRAPH_TAB.id]);
+      const pushNode = (nodeId: string) => {
+        const id = `node:${nodeId}`;
+        if (seen.has(id)) return;
+        seen.add(id);
+        merged.push({ id, type: "node", nodeId });
+      };
+      stored.nodes.forEach(pushNode);
+      // Ensure the deep-linked / current-route node is present (append if the
+      // saved set didn't already include it).
+      if (initialNodeId) pushNode(initialNodeId);
+
+      // Active tab: a direct node visit wins (the linked node opens active,
+      // saved tabs restored alongside); otherwise restore the last active tab
+      // if it still exists, else fall back to the graph.
+      const active = initialNodeId
+        ? `node:${initialNodeId}`
+        : merged.some((t) => t.id === stored.active)
+          ? stored.active
+          : "graph";
+
+      setTabs(merged);
+      setActiveTabId(active);
+
+      // Restored node tabs aren't in initialNeighbors, so load the full graph to
+      // resolve their titles/colors in the tab bar; fetch the active node's
+      // content so it renders without a click.
+      if (merged.some((t) => t.type === "node")) loadFullGraph();
+      const activeNodeId = active.startsWith("node:") ? active.slice(5) : null;
+      if (activeNodeId) ensureContentLoaded(activeNodeId);
+    }
+    hydratedRef.current = true;
+    // Run once on mount; the referenced callbacks are stable for the lifetime
+    // of this instance.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Persist the open tab set + active tab whenever they change (after
+  // hydration). Debounced so rapid tab switching doesn't thrash localStorage.
+  useEffect(() => {
+    if (!hydratedRef.current) return;
+    const t = setTimeout(() => {
+      writeStoredTabs({
+        nodes: tabs.filter((tab) => tab.type === "node").map((tab) => tab.nodeId!),
+        active: activeTabId,
+      });
+    }, 300);
+    return () => clearTimeout(t);
+  }, [tabs, activeTabId]);
+
+  // Once the full graph is loaded, drop any restored tab whose node no longer
+  // exists (renamed/deleted). Skip while graphData is null — initialNeighbors is
+  // only a partial set and would prune valid tabs.
+  useEffect(() => {
+    if (!graphData) return;
+    const ids = new Set(graphData.nodes.map((n) => n.id));
+    setTabs((prev) => {
+      const next = prev.filter((t) => t.type !== "node" || ids.has(t.nodeId!));
+      if (next.length === prev.length) return prev;
+      setActiveTabId((current) =>
+        next.some((t) => t.id === current) ? current : "graph"
+      );
+      return next;
+    });
+  }, [graphData]);
 
   const handleNodeClick = useCallback(
     (nodeId: string) => {
@@ -330,14 +408,11 @@ export default function PageClient({
         )}
       </div>
 
-      {/* Node article fills the screen behind the floating header. NodeView's own
-          scroll container runs full-height so the article scrolls UNDER the
-          blurred header (like the graph canvas) — the header-clearing top
-          padding lives inside that scroller, not as a fixed band above it that
-          read as a seam cutting the page. */}
+      {/* Node article fills the screen behind the floating header. The top
+          padding clears the header (navbar + tabs) so content isn't hidden. */}
       {activeNode && !showGraph && (
         <div className="absolute inset-0 z-10 bg-background overflow-hidden">
-          <div className="h-full">
+          <div className="h-full pt-[104px] sm:pt-[116px]">
             <NodeView
               node={activeNode}
               contentHtml={contentCache.get(activeNode.id) ?? ""}
