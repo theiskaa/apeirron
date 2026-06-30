@@ -35,7 +35,7 @@ export default function Navbar({ onLogoClick, articleInset }: Props) {
   return (
     <div className="pt-3 sm:pt-4">
       <div className={headerColumnClass(articleInset)}>
-        <nav className="chrome-surface navbar-pill pointer-events-auto flex h-10 w-full items-center justify-between rounded-full pl-5 pr-2.5 sm:h-12">
+        <nav className="chrome-surface navbar-pill pointer-events-auto flex h-8 w-full items-center justify-between rounded-full pl-4 pr-2 sm:h-10">
           <Link
             href="/"
             prefetch={false}
@@ -52,12 +52,12 @@ export default function Navbar({ onLogoClick, articleInset }: Props) {
             aria-label="Apeirron — home"
           >
             <span
-              className="text-text-primary text-[17px] sm:text-[19px] leading-none"
+              className="text-text-primary text-[14px] sm:text-[16px] leading-none"
               style={{
                 fontFamily: "var(--font-serif)",
                 fontWeight: 700,
                 letterSpacing: "-0.01em",
-                transform: "translateY(-1.5px)",
+                transform: "translateY(-1px)",
               }}
             >
               Apeirron
@@ -67,12 +67,12 @@ export default function Navbar({ onLogoClick, articleInset }: Props) {
           <div className="flex items-center gap-0.5">
             <button
               onClick={openSearch}
-              className="nav-action h-8 w-8 sm:h-9 sm:w-auto sm:gap-2 sm:px-3 text-[12.5px] tracking-wide leading-none"
+              className="nav-action h-7 w-7 sm:h-8 sm:w-auto sm:gap-2 sm:px-2.5 text-[11.5px] tracking-wide leading-none"
               aria-label="Search nodes"
             >
               <svg
-                width="14"
-                height="14"
+                width="12"
+                height="12"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -91,12 +91,12 @@ export default function Navbar({ onLogoClick, articleInset }: Props) {
 
             <Link
               href="/contribute"
-              className="nav-action h-8 w-8 sm:h-9 sm:w-auto sm:gap-1.5 sm:px-3 text-[12.5px] tracking-wide leading-none"
+              className="nav-action h-7 w-7 sm:h-8 sm:w-auto sm:gap-1.5 sm:px-2.5 text-[11.5px] tracking-wide leading-none"
               aria-label="Propose a new node"
             >
               <svg
-                width="13"
-                height="13"
+                width="12"
+                height="12"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -110,7 +110,7 @@ export default function Navbar({ onLogoClick, articleInset }: Props) {
             </Link>
 
             <span
-              className="mx-0.5 sm:mx-1 h-4 sm:h-5 w-px shrink-0"
+              className="mx-0.5 sm:mx-1 h-3.5 sm:h-4 w-px shrink-0"
               style={{ backgroundColor: "var(--chrome-border)" }}
               aria-hidden="true"
             />
@@ -120,11 +120,11 @@ export default function Navbar({ onLogoClick, articleInset }: Props) {
             <Link
               href="/nodes"
               aria-label="Index — browse every node"
-              className="nav-action h-8 w-8 sm:h-9 sm:w-9"
+              className="nav-action h-7 w-7 sm:h-8 sm:w-8"
             >
               <svg
-                width="15"
-                height="15"
+                width="14"
+                height="14"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
