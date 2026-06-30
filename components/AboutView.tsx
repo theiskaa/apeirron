@@ -98,9 +98,9 @@ export default function AboutView() {
               connection exists, and the entire site — the interactive graph,
               the reading view, the search, the sitemap, the per-node
               metadata — is generated from those files at build time. There is
-              no database, no content management system, no analytics platform,
-              no editorial backend hidden behind a login. If you can read this
-              page, you can read every byte that produced it.
+              no database, no content management system, no editorial backend
+              hidden behind a login. If you can read this page, you can read
+              every byte that produced it.
             </p>
             <p>
               Philosophically, it is an attempt to do something that neither
@@ -430,14 +430,17 @@ export default function AboutView() {
 
             <h2 id="privacy">Privacy, analytics, AI</h2>
             <p>
-              Apeirron uses no tracking cookies, no analytics pixels, no
-              behavioural profiling, no fingerprinting, and no third-party
-              scripts of any kind. The site is statically generated and
-              served through a content delivery network. The CDN&rsquo;s
-              standard access logs are the only automatic record of visits.
-              There is no mailing list. There is no session. There is no user
-              account. If you close the tab, there is no state on Apeirron&rsquo;s
-              side that records you were here.
+              Apeirron uses no tracking cookies, no behavioural profiling, no
+              fingerprinting, no advertising networks, and no cross-site
+              tracking. What it does collect is deliberately minimal and fully
+              anonymous: privacy-respecting page analytics through the content
+              delivery network, plus a small set of first-party, aggregate
+              counters — how often each node is opened, read to the end, and
+              listened to. These are recorded without cookies and without any
+              identifier; they record that a node was read, never who read it.
+              There is no mailing list, no session, and no user account. Close
+              the tab and nothing on Apeirron&rsquo;s side records that you,
+              specifically, were here — only an anonymous, per-node tally.
             </p>
             <p>
               The site&rsquo;s posture toward AI crawlers is the inverse of the
