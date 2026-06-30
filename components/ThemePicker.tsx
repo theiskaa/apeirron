@@ -152,7 +152,7 @@ export default function ThemePicker() {
       <button
         ref={triggerRef}
         onClick={() => setOpen((v) => !v)}
-        className="chrome h-8 w-8 inline-flex items-center justify-center rounded-full text-text-secondary hover:text-text-primary"
+        className="nav-action h-8 w-8 sm:h-9 sm:w-9"
         aria-label="Change theme"
         aria-haspopup="menu"
         aria-expanded={open}

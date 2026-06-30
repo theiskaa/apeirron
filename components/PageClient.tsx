@@ -330,68 +330,57 @@ export default function PageClient({
         )}
       </div>
 
+      {/* Node article fills the screen behind the floating header. The top
+          padding clears the header (navbar + tabs) so content isn't hidden. */}
       {activeNode && !showGraph && (
-        <div className="absolute inset-0 bg-background overflow-hidden">
-          <div className="flex flex-col h-full">
-            <div className="sticky top-0 z-10 bg-background">
-              <Navbar onLogoClick={() => setActiveTabId("graph")} />
-              {hasNodeTabs && (
-                <TabBar
-                  tabs={tabs}
-                  activeTabId={activeTabId}
-                  nodes={
-                    graphData?.nodes ??
-                    initialNeighbors?.nodes ??
-                    (initialNode ? [initialNode] : [])
-                  }
-                  onSelectTab={handleSelectTab}
-                  onCloseTab={handleCloseTab}
-                />
-              )}
-            </div>
-            <div className="flex-1 overflow-hidden">
-              <NodeView
-                node={activeNode}
-                contentHtml={contentCache.get(activeNode.id) ?? ""}
-                loading={
-                  !contentCache.has(activeNode.id) &&
-                  loadingIds.has(activeNode.id)
-                }
-                links={graphData?.links ?? initialNeighbors?.links ?? []}
-                allNodes={
-                  graphData?.nodes ??
-                  initialNeighbors?.nodes ??
-                  (initialNode ? [initialNode] : [])
-                }
-                // With the full graph present, NodeView computes Read-next from
-                // the global node set; before then, use the server-precomputed
-                // value (null means "no next node", distinct from "compute it").
-                readNext={graphData ? undefined : initialReadNext}
-                onNodeClick={handleNodeClick}
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
-      {showGraph && (
-        <div className="absolute top-0 left-0 right-0 z-10 bg-background">
-          <Navbar onLogoClick={() => setActiveTabId("graph")} />
-          {hasNodeTabs && (
-            <TabBar
-              tabs={tabs}
-              activeTabId={activeTabId}
-              nodes={
+        <div className="absolute inset-0 z-10 bg-background overflow-hidden">
+          <div className="h-full pt-[104px] sm:pt-[116px]">
+            <NodeView
+              node={activeNode}
+              contentHtml={contentCache.get(activeNode.id) ?? ""}
+              loading={
+                !contentCache.has(activeNode.id) &&
+                loadingIds.has(activeNode.id)
+              }
+              links={graphData?.links ?? initialNeighbors?.links ?? []}
+              allNodes={
                 graphData?.nodes ??
                 initialNeighbors?.nodes ??
                 (initialNode ? [initialNode] : [])
               }
-              onSelectTab={handleSelectTab}
-              onCloseTab={handleCloseTab}
+              // With the full graph present, NodeView computes Read-next from the
+              // global node set; before then, use the server-precomputed value
+              // (null means "no next node", distinct from "compute it").
+              readNext={graphData ? undefined : initialReadNext}
+              onNodeClick={handleNodeClick}
             />
-          )}
+          </div>
         </div>
       )}
+
+      {/* One persistent header: navbar + tabs share an animated centered column
+          and morph between compact (graph) and expanded (node, title-aligned).
+          Floats over the canvas/article; pointer-events handled per-child. */}
+      <div className="absolute top-0 left-0 right-0 z-20 pointer-events-none">
+        <Navbar
+          onLogoClick={() => setActiveTabId("graph")}
+          articleInset={!showGraph && !!activeNode}
+        />
+        {hasNodeTabs && (
+          <TabBar
+            tabs={tabs}
+            activeTabId={activeTabId}
+            nodes={
+              graphData?.nodes ??
+              initialNeighbors?.nodes ??
+              (initialNode ? [initialNode] : [])
+            }
+            onSelectTab={handleSelectTab}
+            onCloseTab={handleCloseTab}
+            articleInset={!showGraph && !!activeNode}
+          />
+        )}
+      </div>
 
       {showGraph && (
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 pointer-events-none">

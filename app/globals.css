@@ -380,12 +380,66 @@ body {
   border-color: var(--border-strong);
 }
 
+/* Flat action button — lives INSIDE a chrome-surface (e.g. the navbar pill), so
+   it carries no border/fill of its own; only a subtle wash on hover/active.
+   Keeps a multi-button bar reading as one cohesive unit. */
+.nav-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  color: var(--text-secondary);
+  transition: background-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+.nav-action:hover:not(:disabled) {
+  color: var(--text-primary);
+  background-color: var(--chrome-fill);
+}
+.nav-action:active:not(:disabled) {
+  background-color: var(--chrome-fill-active);
+  transform: scale(0.96);
+}
+.nav-action[aria-expanded="true"],
+.nav-action[data-active="true"] {
+  color: var(--text-primary);
+  background-color: var(--chrome-fill);
+}
+
 /* Floating surface — blurred, bordered, shadowed. For navbar + modals. */
 .chrome-surface {
   background-color: var(--chrome-bg);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--chrome-border);
+}
+
+/* Open-node tab pill. Carries its node's color (--tc) as a faint always-on tint
+   + hairline ring; the ACTIVE tab is set apart by a stronger tint and a solid
+   color ring rather than by being the only colored one. */
+.tab {
+  background-color: color-mix(in srgb, var(--tc) 6%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--tc) 18%, transparent);
+  transition: background-color var(--dur-fast) var(--ease-out),
+              box-shadow var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out),
+              max-width 240ms var(--ease-out);
+}
+.tab:hover {
+  background-color: color-mix(in srgb, var(--tc) 13%, transparent);
+}
+.tab[aria-selected="true"] {
+  background-color: color-mix(in srgb, var(--tc) 16%, transparent);
+  box-shadow: inset 0 0 0 1.5px var(--tc);
+}
+
+/* Navbar pill — a near-solid frosted panel (the generic chrome-bg is too
+   see-through in the light themes). Override bg + blur; no drop shadow. */
+.navbar-pill {
+  background-color: color-mix(in srgb, var(--surface-elevated) 94%, transparent);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
 }
 
 /* Theme picker row items — circular, CSS-only hover/active */
