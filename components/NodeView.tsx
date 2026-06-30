@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import type { GraphNode, GraphLink } from "@/lib/types";
 import { buildRoadmapOrder } from "@/lib/roadmap";
+import { track } from "@/lib/analytics";
 
 const MiniGraph = dynamic(() => import("./MiniGraph"), { ssr: false });
 
@@ -84,6 +85,12 @@ export default function NodeView({
     setActiveId(null);
   }, [node.id]);
 
+  // Anonymous, first-party read analytics (no cookies/PII — see lib/analytics).
+  // `track` dedupes per session, so view/read/listen each count once per node.
+  useEffect(() => {
+    track(node.id, "view");
+  }, [node.id]);
+
   const { mainHtml, sourcesHtml } = useMemo(() => {
     const html = contentHtml;
     const sourcesMatch = html.match(
@@ -97,6 +104,14 @@ export default function NodeView({
     }
     return { mainHtml: html, sourcesHtml: "" };
   }, [contentHtml]);
+
+  // Count a "read" once the reader dwells ~30s on a node with real content.
+  // The scroll-to-end check below also fires "read"; `track` dedupes either way.
+  useEffect(() => {
+    if (!mainHtml) return;
+    const t = setTimeout(() => track(node.id, "read"), 30000);
+    return () => clearTimeout(t);
+  }, [node.id, mainHtml]);
 
   const tocItems = useMemo(() => {
     const items: TocItem[] = [
@@ -135,6 +150,11 @@ export default function NodeView({
 
         const scrollTop = scroll.scrollTop;
         const offset = 120;
+
+        // Reached the end of the article → count it as a read (deduped).
+        if (scrollTop + scroll.clientHeight >= scroll.scrollHeight - 80) {
+          track(node.id, "read");
+        }
 
         if (headings.length === 0 || headings[0].offsetTop - scroll.offsetTop > scrollTop + offset) {
           setActiveId("_top");
@@ -239,7 +259,12 @@ export default function NodeView({
             updatedAt={node.updatedAt}
             listen={
               mainHtml ? (
-                <ListenButton key={node.id} title={node.title} html={mainHtml} />
+                <ListenButton
+                  key={node.id}
+                  title={node.title}
+                  html={mainHtml}
+                  onStart={() => track(node.id, "listen")}
+                />
               ) : null
             }
           />
@@ -824,7 +849,15 @@ function chunkForSpeech(text: string): string[] {
   return chunks;
 }
 
-function ListenButton({ title, html }: { title: string; html: string }) {
+function ListenButton({
+  title,
+  html,
+  onStart,
+}: {
+  title: string;
+  html: string;
+  onStart?: () => void;
+}) {
   const [state, setState] = useState<"idle" | "playing" | "paused">("idle");
   const [supported, setSupported] = useState(false);
   const queueRef = useRef<string[]>([]);
@@ -873,12 +906,13 @@ function ListenButton({ title, html }: { title: string; html: string }) {
     queueRef.current = chunkForSpeech(text);
     indexRef.current = 0;
     setState("playing");
+    onStart?.();
     // Defer so cancel() settles before the first speak() in Chrome
     setTimeout(() => {
       cancelledRef.current = false;
       speakNext();
     }, 80);
-  }, [title, html, speakNext]);
+  }, [title, html, speakNext, onStart]);
 
   const toggle = useCallback(() => {
     if (!supported) return;

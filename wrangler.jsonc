@@ -25,6 +25,12 @@
   "observability": {
     "enabled": true
   },
+  "analytics_engine_datasets": [
+    {
+      "binding": "READ_EVENTS",
+      "dataset": "apeirron_reads"
+    }
+  ],
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
