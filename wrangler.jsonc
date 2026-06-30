@@ -25,14 +25,10 @@
   "observability": {
     "enabled": true
   },
-  // Explicit CPU ceiling so a pathological per-request render fails loudly with
-  // a logged `exceededCpu` outcome (visible via `wrangler tail`) instead of
-  // silently hanging toward the 30s default — the failure mode that made the
-  // earlier outage hard to diagnose. Generous: no legitimate render (pages, or
-  // a dynamic OG PNG) approaches 5s of CPU, so this only trips on a runaway.
-  "limits": {
-    "cpu_ms": 5000
-  },
+  // NOTE: an explicit `limits.cpu_ms` ceiling (fail-fast observability) was
+  // tried here but Cloudflare rejects it on the Free plan (error 100328). Re-add
+  //   "limits": { "cpu_ms": 5000 }
+  // after upgrading to a paid Workers plan.
   "analytics_engine_datasets": [
     {
       "binding": "READ_EVENTS",
