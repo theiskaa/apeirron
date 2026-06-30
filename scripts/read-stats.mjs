@@ -21,13 +21,16 @@ try {
   // No .env file — fall back to whatever is already in the environment.
 }
 
-const accountId = process.env.CF_ACCOUNT_ID;
-const token = process.env.CF_API_TOKEN;
+// Prefer the current Cloudflare env-var names (CF_* are deprecated and make
+// wrangler/next print a deprecation warning); fall back to CF_* for compat.
+const accountId =
+  process.env.CLOUDFLARE_ACCOUNT_ID || process.env.CF_ACCOUNT_ID;
+const token = process.env.CLOUDFLARE_API_TOKEN || process.env.CF_API_TOKEN;
 const days = Number(process.argv[2] || 30);
 
 if (!accountId || !token) {
   console.error(
-    "Missing CF_ACCOUNT_ID and/or CF_API_TOKEN. See the header of this file for setup."
+    "Missing CLOUDFLARE_ACCOUNT_ID and/or CLOUDFLARE_API_TOKEN. See the header of this file for setup."
   );
   process.exit(1);
 }
