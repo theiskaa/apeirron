@@ -8,7 +8,9 @@ import {
   getNodeContent,
 } from "@/lib/content";
 import { getNodeGitDates } from "@/lib/git-dates";
+import { buildRoadmapOrder } from "@/lib/roadmap";
 import type { Metadata } from "next";
+import type { ReadNextData } from "@/lib/types";
 import Link from "next/link";
 import PageClient from "@/components/PageClient";
 
@@ -121,6 +123,40 @@ export default async function NodePage({ params }: Props) {
     });
   const connectedIds = connections.map((c) => c.id);
 
+  // Tiny per-node payload for the interactive Connections panel (MiniGraph +
+  // ConnectionReasons + phantom referencedBy). Those need only this node plus
+  // its direct neighbors and the links among that set — a few KB — so node-page
+  // visitors don't fetch the full ~292 KB graph.json unless they open the graph
+  // canvas or navigate to a second node. (See PageClient's lazy loadFullGraph.)
+  const includedIds = new Set<string>([id, ...connectedIds]);
+  const neighborNodes = graphData.nodes.filter((n) => includedIds.has(n.id));
+  const neighborLinks = graphData.links.filter(
+    (l) => includedIds.has(norm(l.source)) && includedIds.has(norm(l.target))
+  );
+
+  // "Read next" follows the single global roadmap order. ReadNext normally
+  // computes this from the full node set; precompute it here so the suggestion
+  // renders without the full graph. Mirrors ReadNext's logic exactly.
+  let readNext: ReadNextData | null = null;
+  {
+    const realNodes = graphData.nodes.filter((n) => !n.phantom);
+    const { order, curatedCount } = buildRoadmapOrder(
+      realNodes.map((n) => ({ id: n.id, weight: n.val }))
+    );
+    const idx = order.indexOf(id);
+    if (idx !== -1 && idx < order.length - 1) {
+      const nextNode = graphData.nodes.find((n) => n.id === order[idx + 1]);
+      if (nextNode) {
+        const onPath = idx + 1 < curatedCount;
+        readNext = {
+          node: nextNode,
+          kicker: onPath ? "The Path" : "Beyond the path",
+          label: onPath ? `${idx + 2} of ${curatedCount}` : "",
+        };
+      }
+    }
+  }
+
   const article: Record<string, unknown> = {
     "@type": "Article",
     "@id": `${BASE_URL}/node/${id}#article`,
@@ -197,6 +233,8 @@ export default async function NodePage({ params }: Props) {
             ? { nodeId: id, contentHtml: activeContent }
             : undefined
         }
+        initialNeighbors={{ nodes: neighborNodes, links: neighborLinks }}
+        initialReadNext={readNext}
       />
 
       {/*

@@ -3,7 +3,7 @@
 import { useCallback, useRef, useEffect, useMemo, useState, type ReactNode } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import type { GraphNode, GraphLink } from "@/lib/types";
+import type { GraphNode, GraphLink, ReadNextData } from "@/lib/types";
 import { buildRoadmapOrder } from "@/lib/roadmap";
 import { track } from "@/lib/analytics";
 
@@ -22,6 +22,12 @@ interface Props {
   links: GraphLink[];
   allNodes: GraphNode[];
   onNodeClick: (nodeId: string) => void;
+  /**
+   * Server-precomputed "Read next". When provided (incl. `null` = no next
+   * node), it's used directly; when `undefined`, ReadNext computes it from
+   * `allNodes` — correct only once the full graph is loaded.
+   */
+  readNext?: ReadNextData | null;
 }
 
 const GITHUB_REPO = "https://github.com/theiskaa/apeirron";
@@ -33,6 +39,7 @@ export default function NodeView({
   links,
   allNodes,
   onNodeClick,
+  readNext,
 }: Props) {
   if (node.phantom) {
     return (
@@ -326,6 +333,7 @@ export default function NodeView({
           <ReadNext
             nodeId={node.id}
             allNodes={allNodes}
+            precomputed={readNext}
             onNodeClick={onNodeClick}
           />
 
@@ -645,10 +653,12 @@ function ConnectionReasons({
 function ReadNext({
   nodeId,
   allNodes,
+  precomputed,
   onNodeClick,
 }: {
   nodeId: string;
   allNodes: GraphNode[];
+  precomputed?: ReadNextData | null;
   onNodeClick: (id: string) => void;
 }) {
   const nodeMap = useMemo(
@@ -660,7 +670,9 @@ function ReadNext({
   // same sequence the /nodes "Roadmap" sort renders. The curated path comes
   // first; once past it, the tail is ordered by connectivity. Phantom nodes are
   // excluded so the order matches the index page (which never lists phantoms).
-  const next = useMemo(() => {
+  // This is only correct when `allNodes` is the full graph; on a direct node
+  // visit (neighbor subset only) the server passes `precomputed` instead.
+  const computed = useMemo(() => {
     const { order, curatedCount } = buildRoadmapOrder(
       allNodes
         .filter((n) => !n.phantom)
@@ -677,6 +689,8 @@ function ReadNext({
       label: onPath ? `${idx + 2} of ${curatedCount}` : "",
     };
   }, [nodeId, nodeMap, allNodes]);
+
+  const next = precomputed !== undefined ? precomputed : computed;
 
   if (!next) return null;
 

@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
-import type { GraphData, GraphNode } from "@/lib/types";
+import type { GraphData, GraphNode, ReadNextData } from "@/lib/types";
 import Navbar from "./Navbar";
 import TabBar, { type Tab } from "./TabBar";
 import NodeView from "./NodeView";
@@ -22,35 +22,58 @@ interface Props {
   initialNode?: GraphNode;
   initialNodeId?: string;
   initialContent?: { nodeId: string; contentHtml: string };
+  /**
+   * Per-node neighbor subset (this node + direct neighbors + links among them),
+   * supplied by the node-page Server Component so the Connections panel renders
+   * without the full graph. The full graph.json is fetched lazily — only when
+   * the graph canvas is opened or the visitor navigates to a second node.
+   */
+  initialNeighbors?: GraphData;
+  /** Precomputed "Read next" for the initial node (full graph not needed). */
+  initialReadNext?: ReadNextData | null;
 }
 
 export default function PageClient({
   initialNode,
   initialNodeId,
   initialContent,
+  initialNeighbors,
+  initialReadNext = null,
 }: Props) {
-  // The full graph (~782KB) is static data, fetched once on mount from the
-  // CDN-served /graph.json rather than serialized into the RSC payload on every
-  // request. The canvas (Graph) is already client-only (ssr:false), so nothing
-  // here was ever server-rendered.
+  // The full graph (~292 KB) is static data fetched from the CDN-served
+  // /graph.json, NOT serialized into the RSC payload. It's deferred until
+  // actually needed (loadFullGraph): the homepage's graph tab is active at
+  // mount so it loads immediately, but a direct node-page visit renders the
+  // article + Connections from `initialNeighbors` and fetches nothing until the
+  // reader opens the canvas or navigates to another node.
   const [graphData, setGraphData] = useState<GraphData | null>(null);
   const graphFetched = useRef(false);
+  const aliveRef = useRef(true);
   useEffect(() => {
+    aliveRef.current = true;
+    return () => {
+      aliveRef.current = false;
+    };
+  }, []);
+  const loadFullGraph = useCallback(() => {
     if (graphFetched.current) return;
     graphFetched.current = true;
-    let cancelled = false;
-    fetch("/graph.json")
-      .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
-      .then((data: GraphData) => {
-        if (!cancelled) setGraphData(data);
-      })
-      .catch(() => {
-        // Leave null; the graph renders a placeholder and node tabs still show
-        // the active article via `initialNode` + fetched content.
-      });
-    return () => {
-      cancelled = true;
-    };
+    const run = () =>
+      fetch("/graph.json")
+        .then((res) => (res.ok ? res.json() : Promise.reject(res.status)))
+        .then((data: GraphData) => {
+          if (aliveRef.current) setGraphData(data);
+        })
+        .catch(() => {
+          // Leave null; the Connections panel keeps using initialNeighbors and
+          // the graph canvas shows its placeholder.
+        });
+    // Defer to idle so the fetch never competes with first paint / hydration.
+    if (typeof requestIdleCallback === "function") {
+      requestIdleCallback(() => run(), { timeout: 2000 });
+    } else {
+      setTimeout(run, 0);
+    }
   }, []);
   const [tabs, setTabs] = useState<Tab[]>(() => {
     if (initialNodeId) {
@@ -77,7 +100,9 @@ export default function PageClient({
   const ensureContentLoaded = useCallback(
     (nodeId: string) => {
       if (!nodeId) return;
-      const node = graphData?.nodes.find((n) => n.id === nodeId);
+      const node =
+        graphData?.nodes.find((n) => n.id === nodeId) ??
+        initialNeighbors?.nodes.find((n) => n.id === nodeId);
       if (node?.phantom) return; // phantoms have no content file
       if (contentCache.has(nodeId)) return;
       if (inFlightRef.current.has(nodeId)) return;
@@ -111,7 +136,7 @@ export default function PageClient({
           });
         });
     },
-    [contentCache, graphData]
+    [contentCache, graphData, initialNeighbors]
   );
 
   const activeTab = useMemo(
@@ -123,9 +148,10 @@ export default function PageClient({
     if (activeTab.type !== "node" || !activeTab.nodeId) return null;
     return (
       graphData?.nodes.find((n) => n.id === activeTab.nodeId) ??
+      initialNeighbors?.nodes.find((n) => n.id === activeTab.nodeId) ??
       (initialNode?.id === activeTab.nodeId ? initialNode : null)
     );
-  }, [activeTab, graphData, initialNode]);
+  }, [activeTab, graphData, initialNeighbors, initialNode]);
 
   const hasNodeTabs = tabs.some((t) => t.type === "node");
 
@@ -153,6 +179,9 @@ export default function PageClient({
         });
         setActiveTabId(tabId);
         ensureContentLoaded(nodeId);
+        // Navigating to a node other than the initial one needs the full graph
+        // (its own neighbors aren't in initialNeighbors).
+        if (nodeId !== initialNodeId) loadFullGraph();
       } else {
         setActiveTabId("graph");
       }
@@ -160,7 +189,7 @@ export default function PageClient({
     };
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
-  }, [ensureContentLoaded]);
+  }, [ensureContentLoaded, initialNodeId, loadFullGraph]);
 
   const handleNodeClick = useCallback(
     (nodeId: string) => {
@@ -171,8 +200,11 @@ export default function PageClient({
       });
       setActiveTabId(tabId);
       ensureContentLoaded(nodeId);
+      // The clicked node's own neighbors live in the full graph, not in the
+      // initial node's neighbor subset — load it now (no-op if already loaded).
+      if (nodeId !== initialNodeId) loadFullGraph();
     },
-    [ensureContentLoaded]
+    [ensureContentLoaded, initialNodeId, loadFullGraph]
   );
 
   const handleSelectTab = useCallback((tabId: string) => {
@@ -213,6 +245,14 @@ export default function PageClient({
   }, [activeTab]);
 
   const showGraph = activeTab.type === "graph";
+
+  // The graph canvas needs the full graph. Load it when the graph tab is active
+  // — at mount on the homepage (graph tab default), or the moment a node-page
+  // visitor switches to it. (loadFullGraph is idempotent.)
+  useEffect(() => {
+    if (showGraph) loadFullGraph();
+  }, [showGraph, loadFullGraph]);
+
   const { setNodeSelectHandler, setActionsGetter } = useSearch();
 
   // Commands surfaced by the palette. Built per-render from current state so
@@ -299,7 +339,11 @@ export default function PageClient({
                 <TabBar
                   tabs={tabs}
                   activeTabId={activeTabId}
-                  nodes={graphData?.nodes ?? (initialNode ? [initialNode] : [])}
+                  nodes={
+                    graphData?.nodes ??
+                    initialNeighbors?.nodes ??
+                    (initialNode ? [initialNode] : [])
+                  }
                   onSelectTab={handleSelectTab}
                   onCloseTab={handleCloseTab}
                 />
@@ -313,8 +357,16 @@ export default function PageClient({
                   !contentCache.has(activeNode.id) &&
                   loadingIds.has(activeNode.id)
                 }
-                links={graphData?.links ?? []}
-                allNodes={graphData?.nodes ?? (initialNode ? [initialNode] : [])}
+                links={graphData?.links ?? initialNeighbors?.links ?? []}
+                allNodes={
+                  graphData?.nodes ??
+                  initialNeighbors?.nodes ??
+                  (initialNode ? [initialNode] : [])
+                }
+                // With the full graph present, NodeView computes Read-next from
+                // the global node set; before then, use the server-precomputed
+                // value (null means "no next node", distinct from "compute it").
+                readNext={graphData ? undefined : initialReadNext}
                 onNodeClick={handleNodeClick}
               />
             </div>
@@ -329,7 +381,11 @@ export default function PageClient({
             <TabBar
               tabs={tabs}
               activeTabId={activeTabId}
-              nodes={graphData?.nodes ?? (initialNode ? [initialNode] : [])}
+              nodes={
+                graphData?.nodes ??
+                initialNeighbors?.nodes ??
+                (initialNode ? [initialNode] : [])
+              }
               onSelectTab={handleSelectTab}
               onCloseTab={handleCloseTab}
             />

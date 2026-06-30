@@ -43,3 +43,14 @@ export interface GraphData {
   nodes: GraphNode[];
   links: GraphLink[];
 }
+
+/**
+ * The "Read next" suggestion for a node — precomputed server-side (from the
+ * global roadmap order) so node pages don't need the full graph to render it.
+ * Mirrors the shape `ReadNext` builds in components/NodeView.tsx.
+ */
+export interface ReadNextData {
+  node: GraphNode;
+  kicker: string;
+  label: string;
+}
