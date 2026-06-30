@@ -1,6 +1,7 @@
 ---
 id: "book-of-enoch"
 title: "The Book of Enoch & The Watchers"
+description: "The Book of Enoch is the text, cut from the canon, describing the Watchers who descended to Earth and fathered the Nephilim giants. Its world and its legacy."
 category: "origins"
 connections:
   - target: "ancient-astronauts"

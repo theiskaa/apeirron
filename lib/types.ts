@@ -8,6 +8,12 @@ export interface NodeFrontmatter {
   title: string;
   category: string;
   connections: NodeConnection[];
+  /**
+   * Optional hand-written SEO meta description (≈150–160 chars). When present it
+   * overrides the auto-generated excerpt for the page's <meta description> and
+   * social cards. See scripts/generate-content.mjs and app/node/[id]/page.tsx.
+   */
+  description?: string;
 }
 
 export interface NodeData {

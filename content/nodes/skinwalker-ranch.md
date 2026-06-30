@@ -1,6 +1,7 @@
 ---
 id: "skinwalker-ranch"
 title: "Skinwalker Ranch"
+description: "Skinwalker Ranch, the Utah property tied to UFO sightings, cattle mutilations, and paranormal claims. Its history, the investigations, and the enduring mystery."
 category: "cosmos"
 connections:
   - target: "aatip-disclosure"

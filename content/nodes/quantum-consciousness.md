@@ -1,6 +1,7 @@
 ---
 id: "quantum-consciousness"
 title: "Quantum Consciousness & The Observer"
+description: "Quantum consciousness theories propose that mind arises from quantum processes, tying awareness to observation. A deep dive into Orch-OR and the observer problem."
 category: "mind"
 connections:
   - target: "consciousness"

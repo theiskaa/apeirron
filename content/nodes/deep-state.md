@@ -1,6 +1,7 @@
 ---
 id: "deep-state"
 title: "The Deep State"
+description: "The 'deep state' theory holds that unelected officials secretly steer government. Its real basis in bureaucratic power, and how the term became a weapon."
 category: "power"
 connections:
   - target: "shadow-elite"

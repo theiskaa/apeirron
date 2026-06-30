@@ -1,6 +1,7 @@
 ---
 id: "hard-problem"
 title: "The Hard Problem"
+description: "The hard problem of consciousness asks why brain processes produce subjective experience at all. A deep dive into the explanatory gap and the attempts to close it."
 category: "mind"
 connections:
   - target: "consciousness"

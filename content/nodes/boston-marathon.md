@@ -1,6 +1,7 @@
 ---
 id: "boston-marathon"
 title: "The Boston Marathon Bombing"
+description: "The Boston Marathon bombing killed three on April 15, 2013, triggering an unprecedented metropolitan lockdown. A deep dive into the attack and the manhunt."
 category: "modern"
 connections:
   - target: "mass-surveillance"

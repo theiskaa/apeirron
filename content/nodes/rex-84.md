@@ -1,6 +1,7 @@
 ---
 id: "rex-84"
 title: "Rex 84"
+description: "Rex 84 was a secret 1980s government plan for mass detention during a national emergency. What the record confirms, what's speculation, and why it alarmed Congress."
 category: "operations"
 connections:
   - target: "deep-state"

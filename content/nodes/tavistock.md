@@ -1,6 +1,7 @@
 ---
 id: "tavistock"
 title: "The Tavistock Institute"
+description: "The Tavistock Institute, the British research body cast in conspiracy lore as a mass mind-control engine. Its real work in psychology, and how the myth grew."
 category: "power"
 connections:
   - target: "bernays"

@@ -1,6 +1,7 @@
 ---
 id: "epstein"
 title: "Epstein & The Blackmail Network"
+description: "Jeffrey Epstein ran an alleged sexual-blackmail network tied to the powerful and to intelligence. A deep dive into the tradecraft, MKUltra precedents, and his death."
 category: "operations"
 connections:
   - target: "pizzagate"

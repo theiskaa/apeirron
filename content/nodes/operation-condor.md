@@ -1,6 +1,7 @@
 ---
 id: "operation-condor"
 title: "Operation Condor"
+description: "Operation Condor was the 1970s campaign of cross-border assassination and repression by South American dictatorships, backed by the US. The documented history."
 category: "operations"
 connections:
   - target: "operation-gladio"

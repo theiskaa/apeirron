@@ -1,6 +1,7 @@
 ---
 id: "simulation-hypothesis"
 title: "The Simulation Hypothesis"
+description: "The simulation hypothesis argues our reality may be a computed program run by a higher intelligence. A deep dive into the argument and what could test it."
 category: "reality"
 connections:
   - target: "consciousness"

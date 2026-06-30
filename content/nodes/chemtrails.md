@@ -1,6 +1,7 @@
 ---
 id: "chemtrails"
 title: "Chemtrails"
+description: "Chemtrails is the theory that aircraft trails are deliberate chemical spraying, not condensation. A deep dive into the science, the claims, and the programs."
 category: "operations"
 connections:
   - target: "haarp"

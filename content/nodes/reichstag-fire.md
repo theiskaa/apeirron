@@ -1,6 +1,7 @@
 ---
 id: "reichstag-fire"
 title: "The Reichstag Fire"
+description: "The 1933 Reichstag Fire let the Nazis pass emergency decrees suspending civil liberties, long suspected as a manufactured pretext. A deep dive into the event."
 category: "operations"
 connections:
   - target: "control-systems"

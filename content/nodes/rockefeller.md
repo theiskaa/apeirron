@@ -1,6 +1,7 @@
 ---
 id: "rockefeller"
 title: "The Rockefeller Dynasty"
+description: "The Rockefeller dynasty built unmatched power through Standard Oil, banking, and philanthropy across 140 years. A deep dive into its place in shadow-elite theory."
 category: "power"
 connections:
   - target: "federal-reserve"

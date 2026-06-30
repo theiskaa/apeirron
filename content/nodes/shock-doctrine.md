@@ -1,6 +1,7 @@
 ---
 id: "shock-doctrine"
 title: "The Shock Doctrine & Neoliberalism"
+description: "Naomi Klein's thesis holds that crises are exploited to push through free-market reforms publics would otherwise reject. A deep dive into the pattern and its cases."
 category: "power"
 connections:
   - target: "operation-condor"

@@ -1,6 +1,7 @@
 ---
 id: "philadelphia-experiment"
 title: "The Philadelphia Experiment"
+description: "The Philadelphia Experiment is the legend that in 1943 the US Navy made the USS Eldridge invisible and teleported it. A deep dive into the story and its origins."
 category: "operations"
 connections:
   - target: "nature-of-time"

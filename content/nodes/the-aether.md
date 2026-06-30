@@ -1,6 +1,7 @@
 ---
 id: "the-aether"
 title: "The Aether & Zero-Point Energy"
+description: "The aether was physics' rejected universal medium, revived today in zero-point energy claims. A deep dive into the concept and the free-energy theories."
 category: "reality"
 connections:
   - target: "tesla-suppressed-tech"

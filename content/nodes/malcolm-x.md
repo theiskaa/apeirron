@@ -1,6 +1,7 @@
 ---
 id: "malcolm-x"
 title: "The Assassination of Malcolm X"
+description: "The 1965 assassination of Malcolm X: the official story, the wrongful convictions later overturned, and the unanswered questions about who was really behind it."
 category: "operations"
 connections:
   - target: "cointelpro"

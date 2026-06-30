@@ -1,6 +1,7 @@
 ---
 id: "las-vegas-shooting"
 title: "The Las Vegas Shooting"
+description: "In October 2017 Stephen Paddock killed 60 people at a Las Vegas concert in the deadliest US mass shooting. A deep dive into the absent motive and the questions left."
 category: "modern"
 connections:
   - target: "mass-surveillance"

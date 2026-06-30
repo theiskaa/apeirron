@@ -1,6 +1,7 @@
 ---
 id: "area-51"
 title: "Area 51"
+description: "Area 51, the secret Nevada base behind decades of UFO lore. Its real role testing aircraft like the U-2 and SR-71, and where the alien conspiracy theories began."
 category: "cosmos"
 connections:
   - target: "ufos"

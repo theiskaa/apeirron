@@ -27,6 +27,7 @@ Apeirron is a graph of contested ideas — conspiracy, philosophy, lost history,
 ---
 id: "slug-with-hyphens"
 title: "Display Title"
+description: "One- to two-sentence SEO meta description, ~150–160 chars — see 'Meta description' below."
 category: "mind" | "origins" | "cosmos" | "power" | "operations" | "modern" | "reality"
 connections:
   - target: "other-node-slug"
@@ -36,8 +37,27 @@ connections:
 
 - `id` must exactly match the filename without `.md`.
 - `title` is display-cased and may differ from the slug (e.g., `saturn-black-cube` → `"Saturn & The Black Cube"`).
+- `description` is the search/social meta description (see the dedicated section below). Always write one for a new node.
 - `category` must match an entry in `content/categories.json`.
 - **Connections: 4–8 entries.** Fewer than 4 leaves the node a graph dead-end; more than ~10 dilutes. Pick the strongest links, not every plausible one. (CONTRIBUTING.md says 2–5; the existing corpus runs higher and the editorial bar follows the corpus.)
+
+## Meta description (SEO)
+
+The frontmatter `description` becomes the page's `<meta name="description">` — the snippet Google shows in search results — and the OpenGraph/Twitter card text, wired through `getNodeDescription()` in `lib/content.ts`. Once a node ranks, this line is the single highest-leverage lever for click-through. If you omit it, the build falls back to an auto-generated excerpt of the opening (`scripts/generate-content.mjs`) — serviceable, but always write a real one for a new node.
+
+Rules:
+- **Two sentences, ~150–160 characters (hard max 165).** Google truncates near 160; longer text is wasted. Check: `node -e "console.log(process.argv[1].length)" "<description>"`.
+- **Pattern by node type:**
+  - *Event / theory node* → lead with what it is or claims, then what the deep dive covers.
+  - *Philosophy / concept node* → state the idea, then what's explored.
+- **Neutral and attributive** — match the node's both-sides posture. Never assert a contested claim as fact: use "the theory claims…", "alleged…", "some argue…".
+- **No "Apeirron", no clickbait, no question hooks.** Plain declarative. The brand suffix (`"{Title} — Apeirron"`) is added automatically — don't repeat the title or the brand.
+- **Straight quotes** (`'`/`"`), not curly. Ground every detail in the actual node content — no invented dates or names.
+
+Examples (match this voice and length):
+- *(event)* `"MKUltra was the CIA's real Cold War program of mind-control experiments using LSD, hypnosis, and torture. The documented history, the victims, and the destroyed files."`
+- *(theory)* `"The Tartaria theory claims a global empire was erased from history only centuries ago and buried by a 'mud flood.' A deep dive into its origins and claims."`
+- *(philosophy)* `"Materialism is the view that everything, including consciousness, is physical. A deep dive into the arguments for and against, and the hard problem it must answer."`
 
 ## Connection quality — the hardest part
 
@@ -145,6 +165,7 @@ Every node ends with `## Sources`. No sources = PR rejected.
 - [ ] Long-form story-telling essay — opening narrative hook, 3–6 subsections, real argument, dense prose. Not a summary, not a listicle, not encyclopedic.
 - [ ] Every non-obvious claim traces to a source in the list (≥5 sources, ideally more).
 - [ ] 3+ inline `[[wiki-links]]` woven into prose, not clustered in one section.
+- [ ] `description` frontmatter written — 2 sentences, ~150–160 chars, neutral/attributive, no brand/clickbait.
 - [ ] Each connection reason names a *mechanism* in 1–2 sentences, present tense, declarative.
 - [ ] 4–8 connections; every target either resolves to an existing file or is a deliberate phantom.
 - [ ] **Reciprocal entry added in every target node**, with a reason written from that node's POV (not copy-pasted).

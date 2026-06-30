@@ -1,6 +1,7 @@
 ---
 id: "kurt-cobain"
 title: "The Death of Kurt Cobain"
+description: "Did Kurt Cobain really die by suicide in 1994? A deep dive into the evidence, the unanswered questions, and the murder theories surrounding his death."
 category: "modern"
 connections:
   - target: "counterculture-psyop"

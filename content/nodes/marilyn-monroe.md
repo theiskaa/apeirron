@@ -1,6 +1,7 @@
 ---
 id: "marilyn-monroe"
 title: "Marilyn Monroe"
+description: "Marilyn Monroe was found dead in August 1962, ruled a probable suicide despite a tampered scene. A deep dive into the forensic gaps and the Kennedy ties."
 category: "operations"
 connections:
   - target: "jfk"

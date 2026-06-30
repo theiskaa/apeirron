@@ -1,6 +1,7 @@
 ---
 id: "wilhelm-reich"
 title: "Wilhelm Reich & Orgone Energy"
+description: "Wilhelm Reich claimed to discover orgone, a universal life energy, and died in prison as the state burned his books. A deep dive into his work and its prosecution."
 category: "reality"
 connections:
   - target: "tesla-suppressed-tech"

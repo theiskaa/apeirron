@@ -1,6 +1,7 @@
 ---
 id: "waco"
 title: "The Waco Siege"
+description: "The 1993 Waco siege ended with the fiery deaths of 76 Branch Davidians after a 51-day federal standoff. A deep dive into the raid and the contested evidence."
 category: "modern"
 connections:
   - target: "nine-eleven"

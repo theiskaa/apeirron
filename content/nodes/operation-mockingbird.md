@@ -1,6 +1,7 @@
 ---
 id: "operation-mockingbird"
 title: "Operation Mockingbird"
+description: "Operation Mockingbird is the alleged CIA program to recruit journalists and shape the news. What the record shows, what's myth, and how deep the media ties ran."
 category: "operations"
 connections:
   - target: "control-systems"

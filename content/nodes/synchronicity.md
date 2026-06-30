@@ -1,6 +1,7 @@
 ---
 id: "synchronicity"
 title: "Synchronicity"
+description: "Synchronicity is Jung's claim that meaningful coincidence is a real acausal principle beyond chance. A deep dive into the idea and the materialist rebuttal."
 category: "mind"
 connections:
   - target: "jung"

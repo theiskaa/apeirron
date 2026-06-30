@@ -1,6 +1,7 @@
 ---
 id: "celebrity-27-club"
 title: "The 27 Club"
+description: "The 27 Club is the pattern of rock icons—Hendrix, Joplin, Morrison, Cobain—dead at twenty-seven. A deep dive into the deaths, the theories, and the industry."
 category: "power"
 connections:
   - target: "kurt-cobain"

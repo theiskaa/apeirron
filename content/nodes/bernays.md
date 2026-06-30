@@ -1,6 +1,7 @@
 ---
 id: "bernays"
 title: "Edward Bernays & The Engineering of Consent"
+description: "Edward Bernays, the 'father of public relations,' engineered consent for governments and corporations. His methods, campaigns, and lasting influence."
 category: "power"
 connections:
   - target: "control-systems"

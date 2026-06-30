@@ -1,6 +1,7 @@
 ---
 id: "operation-cyclone"
 title: "Operation Cyclone"
+description: "Operation Cyclone was the CIA's covert program to arm the Afghan mujahideen against the Soviet Union. A deep dive into its history, the heroin trade, and blowback."
 category: "operations"
 connections:
   - target: "operation-glasnost"

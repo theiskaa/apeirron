@@ -1,6 +1,7 @@
 ---
 id: "control-systems"
 title: "Invisible Control Systems"
+description: "Invisible control systems shape what people think through propaganda, media, and symbols rather than force. A deep dive into the theory from Bernays to Tavistock."
 category: "power"
 connections:
   - target: "consciousness"

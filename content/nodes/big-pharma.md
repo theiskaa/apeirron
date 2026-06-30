@@ -1,6 +1,7 @@
 ---
 id: "big-pharma"
 title: "Big Pharma and the Vaccine Conspiracy"
+description: "The Big Pharma conspiracy claims the drug industry captures its regulators and suppresses harm for profit, with vaccines a focal point. The claims and the evidence."
 category: "modern"
 connections:
   - target: "control-systems"

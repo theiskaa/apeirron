@@ -1,6 +1,7 @@
 ---
 id: "consciousness"
 title: "Consciousness"
+description: "Consciousness is the felt fact of experience no theory has fully explained. A deep dive into the hard problem, the brain, and whether mind extends beyond it."
 category: "mind"
 connections:
   - target: "hard-problem"

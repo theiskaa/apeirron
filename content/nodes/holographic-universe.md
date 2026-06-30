@@ -1,6 +1,7 @@
 ---
 id: "holographic-universe"
 title: "The Holographic Universe"
+description: "The holographic universe draws on physics' holographic principle to suggest reality is information on a boundary surface. The science and its mystical readings."
 category: "reality"
 connections:
   - target: "simulation-hypothesis"

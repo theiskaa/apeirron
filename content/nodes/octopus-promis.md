@@ -1,6 +1,7 @@
 ---
 id: "octopus-promis"
 title: "The Octopus & PROMIS"
+description: "PROMIS was software the government allegedly stole and backdoored to spy on foreign agencies. A deep dive into the Inslaw affair and the Octopus network."
 category: "operations"
 connections:
   - target: "iran-contra"

@@ -1,6 +1,7 @@
 ---
 id: "flat-earth"
 title: "The Flat Earth"
+description: "The Flat Earth movement rejects the spherical planet confirmed since antiquity, treating it as epistemology, not astronomy. A deep dive into how the belief survives."
 category: "reality"
 connections:
   - target: "moon-landing"

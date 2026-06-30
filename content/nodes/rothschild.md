@@ -1,6 +1,7 @@
 ---
 id: "rothschild"
 title: "The Rothschild Dynasty"
+description: "The Rothschild banking dynasty and the theories of secret world control. The real history of their power, the Waterloo myth, and where antisemitic tropes enter."
 category: "power"
 connections:
   - target: "federal-reserve"

@@ -1,6 +1,7 @@
 ---
 id: "nine-eleven"
 title: "9/11"
+description: "9/11 was the September 11, 2001 attacks that killed 3,000 people and reshaped the world. A deep dive into the official account and the questions skeptics raise."
 category: "operations"
 connections:
   - target: "control-systems"

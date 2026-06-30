@@ -1,6 +1,7 @@
 ---
 id: "iraq-wmds"
 title: "The Iraq WMDs & PNAC"
+description: "The Iraq WMD case was the intelligence used to justify the 2003 invasion, tied to PNAC’s prior call for regime change. The fabrication, the press, and the fallout."
 category: "operations"
 connections:
   - target: "nine-eleven"

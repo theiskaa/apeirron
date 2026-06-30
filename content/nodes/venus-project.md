@@ -1,6 +1,7 @@
 ---
 id: "venus-project"
 title: "The Venus Project & Resource-Based Economy"
+description: "The Venus Project is Jacque Fresco's blueprint for a money-free, resource-based economy run by automation. A deep dive into the vision and its technocratic roots."
 category: "modern"
 connections:
   - target: "great-reset"

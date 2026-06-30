@@ -1,6 +1,7 @@
 ---
 id: "mandela-effect"
 title: "The Mandela Effect"
+description: "The Mandela Effect names shared false memories, like a death that never happened, held by many people. A deep dive into the theory and its competing explanations."
 category: "reality"
 connections:
   - target: "simulation-hypothesis"

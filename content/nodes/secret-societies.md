@@ -1,6 +1,7 @@
 ---
 id: "secret-societies"
 title: "Secret Societies"
+description: "Secret societies, from the Templars to Freemasonry and the Illuminati, anchor the idea that hidden networks steer history. A deep dive into the archetype."
 category: "power"
 connections:
   - target: "knights-templar"

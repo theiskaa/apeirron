@@ -1,6 +1,7 @@
 ---
 id: "frankfurt-school"
 title: "The Frankfurt School & The Culture Industry"
+description: "The Frankfurt School was a group of Marxist exiles whose 'culture industry' thesis argued mass media manufactures consent. The theory and the conspiracy built on it."
 category: "power"
 connections:
   - target: "counterculture-psyop"

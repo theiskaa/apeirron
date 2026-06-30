@@ -1,6 +1,7 @@
 ---
 id: "breakaway-civilization"
 title: "The Breakaway Civilization"
+description: "The breakaway civilization theory claims a secret elite built an advanced parallel society from postwar black-budget tech. Its origins, its logic, and the evidence."
 category: "power"
 connections:
   - target: "area-51"

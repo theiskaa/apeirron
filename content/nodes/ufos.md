@@ -1,6 +1,7 @@
 ---
 id: "ufos"
 title: "UFOs & UAPs"
+description: "UFOs, now officially termed UAPs, are unidentified objects some allege are non-human craft hidden by governments. A deep dive into the evidence and the secrecy."
 category: "cosmos"
 connections:
   - target: "fermi-paradox"

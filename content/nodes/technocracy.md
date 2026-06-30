@@ -1,6 +1,7 @@
 ---
 id: "technocracy"
 title: "Technocracy"
+description: "Technocracy is the idea of rule by engineers and experts who allocate resources by measurement, not price. A deep dive into the movement and its modern echoes."
 category: "power"
 connections:
   - target: "great-reset"

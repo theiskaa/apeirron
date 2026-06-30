@@ -1,6 +1,7 @@
 ---
 id: "princess-diana"
 title: "The Death of Princess Diana"
+description: "The 1997 death of Princess Diana in a Paris car crash: the official findings, Mohamed Al-Fayed's claims, and the conspiracy theories that still endure."
 category: "operations"
 connections:
   - target: "shadow-elite"

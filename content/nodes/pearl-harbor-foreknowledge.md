@@ -1,6 +1,7 @@
 ---
 id: "pearl-harbor-foreknowledge"
 title: "Pearl Harbor Foreknowledge"
+description: "The Pearl Harbor foreknowledge theory claims US leaders knew the 1941 Japanese attack was coming and let it happen. A deep dive into the evidence and the debate."
 category: "operations"
 connections:
   - target: "operation-northwoods"

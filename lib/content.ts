@@ -27,6 +27,8 @@ interface MetadataNode {
   publishedAt: string;
   updatedAt: string;
   excerpt: string;
+  /** SEO meta description: hand-written frontmatter.description, else excerpt. */
+  description: string;
 }
 
 interface MetadataPhantom {
@@ -84,6 +86,16 @@ export function getAllNodes(): NodeData[] {
 /** Look up a node's excerpt for metadata tags (description, llms.txt). */
 export function getNodeExcerpt(slug: string): string {
   return _meta.nodes.find((n) => n.slug === slug)?.excerpt ?? "";
+}
+
+/**
+ * Node's SEO meta description — the hand-written frontmatter `description` when
+ * present, otherwise the auto-generated excerpt. Used for <meta description>,
+ * og/twitter, and llms.txt.
+ */
+export function getNodeDescription(slug: string): string {
+  const node = _meta.nodes.find((n) => n.slug === slug);
+  return node?.description || node?.excerpt || "";
 }
 
 /**

@@ -1,6 +1,7 @@
 ---
 id: "cbdc"
 title: "CBDCs & The Cashless Society"
+description: "CBDCs are central-bank digital currencies critics fear could turn money into a fully surveilled, programmable instrument of control. The technology and the fears."
 category: "modern"
 connections:
   - target: "mass-surveillance"

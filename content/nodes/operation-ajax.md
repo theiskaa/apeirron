@@ -1,6 +1,7 @@
 ---
 id: "operation-ajax"
 title: "Operation Ajax"
+description: "Operation Ajax was the 1953 CIA- and MI6-backed coup that overthrew Iran's elected PM Mossadegh over oil. The documented history and its long aftermath."
 category: "operations"
 connections:
   - target: "operation-gladio"

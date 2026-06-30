@@ -1,6 +1,7 @@
 ---
 id: "vatican-jesuits"
 title: "The Vatican & The Jesuit Order"
+description: "The Vatican and its Jesuit order sit at the center of theories about hidden global power. A deep dive into the world's oldest institution, its scandals, and claims."
 category: "power"
 connections:
   - target: "secret-societies"

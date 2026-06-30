@@ -1,6 +1,7 @@
 ---
 id: "saturn-black-cube"
 title: "Saturn & The Black Cube"
+description: "Saturn and the black cube: the esoteric theory linking the planet's hexagon, ancient worship, and hidden symbolism. Its origins and the claims behind it."
 category: "origins"
 connections:
   - target: "sacred-geometry"

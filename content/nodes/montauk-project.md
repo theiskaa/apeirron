@@ -1,6 +1,7 @@
 ---
 id: "montauk-project"
 title: "The Montauk Project"
+description: "The Montauk Project alleges secret government experiments at Camp Hero in mind control, time travel, and psychic warfare. A deep dive into its origins and claims."
 category: "operations"
 connections:
   - target: "philadelphia-experiment"

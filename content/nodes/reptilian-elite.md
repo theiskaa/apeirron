@@ -1,6 +1,7 @@
 ---
 id: "reptilian-elite"
 title: "The Reptilian Elite"
+description: "The reptilian elite theory claims shape-shifting aliens secretly rule humanity. Its origins with David Icke, the psychology behind it, and what it really means."
 category: "power"
 connections:
   - target: "illuminati"

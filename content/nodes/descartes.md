@@ -1,6 +1,7 @@
 ---
 id: "descartes"
 title: "Descartes & Cartesian Dualism"
+description: "Descartes split mind from body and made 'I think, therefore I am' the one certainty. A deep dive into the Meditations, the evil demon, and the dualism he founded."
 category: "mind"
 connections:
   - target: "dualism"

@@ -1,6 +1,7 @@
 ---
 id: "kant"
 title: "Kant & Transcendental Idealism"
+description: "Kant argued the mind actively shapes all experience, leaving the thing-in-itself beyond reach. A deep dive into transcendental idealism, phenomena and noumena."
 category: "mind"
 connections:
   - target: "idealism"

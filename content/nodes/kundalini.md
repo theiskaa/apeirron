@@ -1,6 +1,7 @@
 ---
 id: "kundalini"
 title: "Kundalini & The Serpent Power"
+description: "Kundalini is the dormant 'serpent power' said to rise through the chakras toward illumination. A deep dive into the awakening and its links to altered states."
 category: "mind"
 connections:
   - target: "hermetic-tradition"

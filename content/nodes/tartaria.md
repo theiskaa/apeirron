@@ -1,6 +1,7 @@
 ---
 id: "tartaria"
 title: "Tartaria and the Mud Flood"
+description: "The Tartaria theory claims a global empire was erased from history only centuries ago and buried by a 'mud flood.' A deep dive into its origins and claims."
 category: "origins"
 connections:
   - target: "ancient-civilizations"

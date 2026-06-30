@@ -1,6 +1,7 @@
 ---
 id: "moon-landing"
 title: "The Moon Landing Hoax"
+description: "The moon landing hoax theory claims NASA faked the 1969 Apollo 11 mission and staged the footage. A deep dive into the claims, the evidence, and why it persists."
 category: "cosmos"
 connections:
   - target: "control-systems"

@@ -1,6 +1,7 @@
 ---
 id: "stoicism"
 title: "Stoicism"
+description: "Stoicism, founded by Zeno around 300 BCE, is a philosophy of virtue, reason, and a thoroughly material soul. A deep dive into its theory of mind and influence."
 category: "mind"
 connections:
   - target: "materialism"

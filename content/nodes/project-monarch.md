@@ -1,6 +1,7 @@
 ---
 id: "project-monarch"
 title: "Project Monarch"
+description: "Project Monarch is the theory that the CIA's MKUltra evolved into a covert trauma-based mind-control program. Its origins, the claims, and the evidence examined."
 category: "mind"
 connections:
   - target: "mkultra"

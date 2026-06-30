@@ -1,6 +1,7 @@
 ---
 id: "bilderberg"
 title: "The Bilderberg Group"
+description: "The Bilderberg Group: the secretive annual meeting of Western elites since 1954, and the shadow-government conspiracy theories it fuels. The facts and the claims."
 category: "power"
 connections:
   - target: "shadow-elite"

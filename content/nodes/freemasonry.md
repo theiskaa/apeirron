@@ -1,6 +1,7 @@
 ---
 id: "freemasonry"
 title: "Freemasonry"
+description: "Freemasonry is the world's largest secret society, rooted in stonemason guilds and ritual. A deep dive into its origins, symbols, and the theories it spawned."
 category: "power"
 connections:
   - target: "secret-societies"

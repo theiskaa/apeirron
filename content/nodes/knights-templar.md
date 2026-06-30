@@ -1,6 +1,7 @@
 ---
 id: "knights-templar"
 title: "The Knights Templar"
+description: "Founded in 1119, the Knights Templar grew into a banking power before being destroyed in 1307. A deep dive into their rise, fall, and the legends of what they found."
 category: "power"
 connections:
   - target: "secret-societies"

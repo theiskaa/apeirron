@@ -1,6 +1,7 @@
 ---
 id: "scientology"
 title: "Scientology & Operation Snow White"
+description: "Scientology's Operation Snow White was the largest documented infiltration of the U.S. government in history. A deep dive into the church's covert intelligence war."
 category: "operations"
 connections:
   - target: "mass-surveillance"

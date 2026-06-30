@@ -1,6 +1,7 @@
 ---
 id: "panpsychism"
 title: "Panpsychism"
+description: "Panpsychism is the view that consciousness is a fundamental feature of all matter, not just brains. A deep dive into the arguments and the problems it faces."
 category: "mind"
 connections:
   - target: "consciousness"

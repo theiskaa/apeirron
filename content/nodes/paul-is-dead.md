@@ -1,6 +1,7 @@
 ---
 id: "paul-is-dead"
 title: "Paul Is Dead"
+description: "'Paul is dead': the 1969 theory that Paul McCartney died in 1966 and was secretly replaced, decoded from Beatles album clues. Its origins and the famous 'evidence.'"
 category: "modern"
 connections:
   - target: "predictive-programming"

@@ -1,6 +1,7 @@
 ---
 id: "idealism"
 title: "Idealism"
+description: "Idealism is the view that mind, not matter, is the foundation of reality. A deep dive into its arguments from Plato to Kant, and its answer to materialism."
 category: "mind"
 connections:
   - target: "consciousness"

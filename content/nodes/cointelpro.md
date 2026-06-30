@@ -1,6 +1,7 @@
 ---
 id: "cointelpro"
 title: "COINTELPRO"
+description: "COINTELPRO was the FBI's covert, illegal program to surveil and disrupt activists from civil rights to the New Left. The documented history and its legacy."
 category: "operations"
 connections:
   - target: "counterculture-psyop"

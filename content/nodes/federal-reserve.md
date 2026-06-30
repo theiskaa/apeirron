@@ -1,6 +1,7 @@
 ---
 id: "federal-reserve"
 title: "The Federal Reserve"
+description: "The secret 1910 Jekyll Island meeting that created the Federal Reserve, and the conspiracy theories of private banking control. The real history and the claims."
 category: "power"
 connections:
   - target: "shadow-elite"

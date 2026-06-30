@@ -1,6 +1,7 @@
 ---
 id: "gobekli-tepe"
 title: "Göbekli Tepe"
+description: "Gobekli Tepe is a megalithic site in Turkey dated to around 9,600 BCE, predating Stonehenge by millennia. Why it unsettles the standard story of civilization."
 category: "origins"
 connections:
   - target: "ancient-civilizations"

@@ -1,6 +1,7 @@
 ---
 id: "maya-nonduality"
 title: "Maya & Non-Duality"
+description: "Advaita Vedanta holds that only awareness is real and the material world is maya, its appearance. A deep dive into non-duality and the illusion of the self."
 category: "mind"
 connections:
   - target: "idealism"

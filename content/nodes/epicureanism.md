@@ -1,6 +1,7 @@
 ---
 id: "epicureanism"
 title: "Epicureanism"
+description: "Epicureanism holds that all is atoms and void, the soul dies with the body, and death is nothing to fear. A deep dive into its physics, ethics, and legacy."
 category: "mind"
 connections:
   - target: "materialism"

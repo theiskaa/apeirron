@@ -1,6 +1,7 @@
 ---
 id: "bermuda-triangle"
 title: "The Bermuda Triangle"
+description: "The Bermuda Triangle is the stretch of Atlantic blamed for vanished ships and planes, including the 1945 loss of Flight 19. The cases and the explanations."
 category: "reality"
 connections:
   - target: "atlantis"

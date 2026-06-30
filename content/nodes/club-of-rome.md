@@ -1,6 +1,7 @@
 ---
 id: "club-of-rome"
 title: "The Club of Rome & The Limits to Growth"
+description: "The Club of Rome's 1972 Limits to Growth modeled civilization hitting Earth's limits. A deep dive into the report, the think tank, and the conspiracy it spawned."
 category: "power"
 connections:
   - target: "great-reset"

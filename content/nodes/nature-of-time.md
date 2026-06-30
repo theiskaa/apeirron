@@ -1,6 +1,7 @@
 ---
 id: "nature-of-time"
 title: "The Nature of Time"
+description: "Is the flow of time real or an illusion? A deep dive into the physics and philosophy of time — the block universe, the arrow of time, and why now feels special."
 category: "reality"
 connections:
   - target: "consciousness"

@@ -1,6 +1,7 @@
 ---
 id: "cern"
 title: "CERN & The Large Hadron Collider"
+description: "CERN and the Large Hadron Collider, accused of opening portals or destroying reality. What the physics actually does, and where the conspiracy theories come from."
 category: "reality"
 connections:
   - target: "mandela-effect"

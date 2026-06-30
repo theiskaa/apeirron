@@ -1,6 +1,7 @@
 ---
 id: "covid-lab-leak"
 title: "COVID-19 & The Lab Leak"
+description: "The lab leak theory holds that SARS-CoV-2 escaped the Wuhan Institute of Virology. A deep dive into the evidence, suppression, and gain-of-function research."
 category: "modern"
 connections:
   - target: "big-pharma"

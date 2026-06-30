@@ -1,6 +1,7 @@
 ---
 id: "tupac-biggie"
 title: "The Tupac and Biggie Murders"
+description: "The unsolved 1996 and 1997 murders of Tupac Shakur and Notorious B.I.G. remain hip-hop's deepest mysteries. A deep dive into the suspects and the LAPD links alleged."
 category: "modern"
 connections:
   - target: "cointelpro"

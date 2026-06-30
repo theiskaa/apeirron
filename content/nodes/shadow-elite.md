@@ -1,6 +1,7 @@
 ---
 id: "shadow-elite"
 title: "The Shadow Elite"
+description: "The shadow elite theory holds that a hidden network of insiders rules behind elected governments. Its roots in Quigley's work, the claims, and the evidence."
 category: "power"
 connections:
   - target: "secret-societies"

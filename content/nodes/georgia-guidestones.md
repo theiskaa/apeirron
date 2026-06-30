@@ -1,6 +1,7 @@
 ---
 id: "georgia-guidestones"
 title: "The Georgia Guidestones"
+description: "The Georgia Guidestones were a 1979 granite monument by a pseudonymous 'R.C. Christian,' read by critics as a depopulation creed. The mystery and the claims."
 category: "power"
 connections:
   - target: "new-world-order"

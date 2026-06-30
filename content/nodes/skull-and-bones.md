@@ -1,6 +1,7 @@
 ---
 id: "skull-and-bones"
 title: "Skull & Bones"
+description: "Skull & Bones, Yale's secret society that has counted presidents among its members. Its rituals, its power network, and the conspiracy theories surrounding it."
 category: "power"
 connections:
   - target: "secret-societies"

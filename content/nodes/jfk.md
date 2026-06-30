@@ -1,6 +1,7 @@
 ---
 id: "jfk"
 title: "The JFK Assassination"
+description: "Kennedy was assassinated in Dallas in November 1963, a case the Warren Commission closed but never truly resolved. A deep dive into the unanswered questions."
 category: "operations"
 connections:
   - target: "shadow-elite"

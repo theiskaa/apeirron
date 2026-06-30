@@ -1,6 +1,7 @@
 ---
 id: "illuminati"
 title: "The Illuminati"
+description: "The Bavarian Illuminati, founded in 1776 and banned within a decade, became history's most enduring secret-society conspiracy. The real order and the modern myth."
 category: "power"
 connections:
   - target: "secret-societies"

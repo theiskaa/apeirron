@@ -1,6 +1,7 @@
 ---
 id: "jung"
 title: "Carl Jung & The Collective Unconscious"
+description: "Carl Jung held that consciousness floats atop a vast collective unconscious structured by shared archetypes. A deep dive into his depth psychology and synchronicity."
 category: "mind"
 connections:
   - target: "consciousness"

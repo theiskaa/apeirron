@@ -1,6 +1,7 @@
 ---
 id: "anunnaki"
 title: "The Anunnaki & Sitchin's Sumerian Translations"
+description: "The Anunnaki theory, from Zecharia Sitchin's Sumerian translations, claims gods from the planet Nibiru engineered humanity for gold. A deep dive into the texts."
 category: "origins"
 connections:
   - target: "nibiru"

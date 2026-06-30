@@ -1,6 +1,7 @@
 ---
 id: "business-plot"
 title: "The Business Plot"
+description: "The Business Plot was the alleged 1933 scheme by Wall Street financiers to install a fascist government, exposed by Smedley Butler. The testimony and its fate."
 category: "operations"
 connections:
   - target: "skull-and-bones"

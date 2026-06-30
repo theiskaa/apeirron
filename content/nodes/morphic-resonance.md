@@ -1,6 +1,7 @@
 ---
 id: "morphic-resonance"
 title: "Morphic Resonance"
+description: "Morphic resonance is Rupert Sheldrake's claim that nature has a collective memory, each form shaped by past ones. A deep dive into the idea and the controversy."
 category: "mind"
 connections:
   - target: "synchronicity"

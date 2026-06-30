@@ -1,6 +1,7 @@
 ---
 id: "military-industrial-complex"
 title: "The Military-Industrial Complex"
+description: "Eisenhower's 1961 warning named the military-industrial complex, the fusion of the military and arms makers. A deep dive into the revolving door and war profits."
 category: "power"
 connections:
   - target: "gulf-of-tonkin"

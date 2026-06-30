@@ -1,6 +1,7 @@
 ---
 id: "hermetic-tradition"
 title: "The Hermetic Tradition"
+description: "The Hermetic tradition is an esoteric teaching that 'all is mind,' with cosmos and consciousness mirroring each other. Its texts, influence, and occult legacy."
 category: "origins"
 connections:
   - target: "secret-societies"

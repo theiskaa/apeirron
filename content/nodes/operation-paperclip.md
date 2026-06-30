@@ -1,6 +1,7 @@
 ---
 id: "operation-paperclip"
 title: "Operation Paperclip"
+description: "Operation Paperclip was the secret US program that brought Nazi scientists like Wernher von Braun to America after WWII. The real history and the darker claims."
 category: "operations"
 connections:
   - target: "mkultra"

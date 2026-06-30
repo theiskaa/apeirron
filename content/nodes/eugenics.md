@@ -1,6 +1,7 @@
 ---
 id: "eugenics"
 title: "The Eugenics Movement"
+description: "Eugenics was the establishment science of breeding 'better' humans, from forced sterilization to Nazi law. A deep dive into its funders, victims, and Buck v. Bell."
 category: "power"
 connections:
   - target: "rockefeller"

@@ -1,6 +1,7 @@
 ---
 id: "schwab-wef"
 title: "Klaus Schwab & The World Economic Forum"
+description: "Klaus Schwab and the World Economic Forum: how Davos became the center of 'globalist' conspiracy theories. Its real history, influence, and the claims."
 category: "power"
 connections:
   - target: "great-reset"

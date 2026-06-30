@@ -1,6 +1,7 @@
 ---
 id: "color-revolutions"
 title: "Color Revolutions"
+description: "Color revolutions: the uprisings from Georgia to Ukraine, and the debate over foreign funding and engineered regime change. The history and the claims."
 category: "power"
 connections:
   - target: "operation-ajax"

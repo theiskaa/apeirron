@@ -1,6 +1,7 @@
 ---
 id: "tesla-suppressed-tech"
 title: "Tesla & Suppressed Technology"
+description: "Did Nikola Tesla invent free energy that was suppressed? A deep dive into Tesla's real breakthroughs, his lost work, and the suppressed-technology legend."
 category: "operations"
 connections:
   - target: "deep-state"

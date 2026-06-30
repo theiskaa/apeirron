@@ -1,6 +1,7 @@
 ---
 id: "project-blue-beam"
 title: "Project Blue Beam"
+description: "Project Blue Beam is Serge Monast's theory that elites will fake an alien invasion with holograms to impose world government. Its origins and the claims."
 category: "operations"
 connections:
   - target: "ufos"

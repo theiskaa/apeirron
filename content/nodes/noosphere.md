@@ -1,6 +1,7 @@
 ---
 id: "noosphere"
 title: "The Noosphere & The Global Brain"
+description: "The noosphere is Teilhard de Chardin's vision of a planetary layer of mind evolving toward unity. A deep dive into the idea, from mysticism to the internet age."
 category: "modern"
 connections:
   - target: "dead-internet"

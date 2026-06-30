@@ -1,6 +1,7 @@
 ---
 id: "predictive-programming"
 title: "Predictive Programming"
+description: "Predictive programming is the theory that fiction and media plant future events in the public mind to soften resistance. A deep dive into its alleged cases."
 category: "power"
 connections:
   - target: "control-systems"

@@ -1,6 +1,7 @@
 ---
 id: "nibiru"
 title: "Nibiru & Planet X"
+description: "Nibiru, or Planet X: Zecharia Sitchin's theory of a hidden planet and the Anunnaki who engineered humanity. Its origins, the doomsday claims, and the science."
 category: "cosmos"
 connections:
   - target: "ancient-astronauts"

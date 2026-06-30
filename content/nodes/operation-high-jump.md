@@ -1,6 +1,7 @@
 ---
 id: "operation-high-jump"
 title: "Operation High Jump"
+description: "Operation Highjump was Admiral Byrd's massive 1946–47 US naval expedition to Antarctica — and the conspiracy theories of a hidden Nazi base it later inspired."
 category: "operations"
 connections:
   - target: "operation-paperclip"

@@ -1,6 +1,7 @@
 ---
 id: "election-fraud"
 title: "Election Fraud Theories"
+description: "Election fraud theories question who really counts the votes, from Tammany Hall to electronic voting. A deep dive into the documented cases and the disputed ones."
 category: "modern"
 connections:
   - target: "control-systems"

@@ -1,6 +1,7 @@
 ---
 id: "bcci-nugan-hand"
 title: "BCCI & Nugan Hand: The Intelligence Banks"
+description: "BCCI and Nugan Hand were the banks where intelligence operations, drug money, and covert wars met the banking system. The laundromats of the secret state."
 category: "operations"
 connections:
   - target: "cia-drugs"

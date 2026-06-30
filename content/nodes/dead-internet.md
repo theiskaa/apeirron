@@ -1,6 +1,7 @@
 ---
 id: "dead-internet"
 title: "The Dead Internet Theory"
+description: "The Dead Internet Theory claims most online activity is now bots and AI, not humans. A deep dive into its origins, the evidence, and how AI made it feel prophetic."
 category: "modern"
 connections:
   - target: "control-systems"

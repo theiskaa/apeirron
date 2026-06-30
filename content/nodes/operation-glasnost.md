@@ -1,6 +1,7 @@
 ---
 id: "operation-glasnost"
 title: "Operation Glasnost"
+description: "Operation Glasnost: the theory that the Soviet collapse was a staged deception, not a genuine fall. Its origins, key claims, and the counterarguments."
 category: "operations"
 connections:
   - target: "operation-gladio"

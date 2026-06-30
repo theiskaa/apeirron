@@ -1,6 +1,7 @@
 ---
 id: "sandy-hook"
 title: "Sandy Hook and the Crisis Actor Theory"
+description: "Sandy Hook and the crisis-actor theory falsely claim the school shooting was staged. A deep dive into the conspiracy and Alex Jones's $1.5 billion verdict."
 category: "modern"
 connections:
   - target: "control-systems"

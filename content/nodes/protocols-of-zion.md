@@ -1,6 +1,7 @@
 ---
 id: "protocols-of-zion"
 title: "The Protocols of the Elders of Zion"
+description: "The Protocols of the Elders of Zion is a fabricated text posing as a Jewish plan for world domination. A deep dive into its forgery and antisemitic influence."
 category: "power"
 connections:
   - target: "rothschild"

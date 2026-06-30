@@ -1,6 +1,7 @@
 ---
 id: "the-corporation"
 title: "Corporate Personhood & The Corporation"
+description: "Corporate personhood gives companies legal rights meant for humans, while their structure rewards externalizing harm. A deep dive into the form and its critics."
 category: "power"
 connections:
   - target: "rockefeller"

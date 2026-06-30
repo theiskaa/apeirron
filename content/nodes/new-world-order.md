@@ -1,6 +1,7 @@
 ---
 id: "new-world-order"
 title: "The New World Order"
+description: "The New World Order theory claims a secret elite is steering the world toward a single global government. A deep dive into its history and the groups it names."
 category: "power"
 connections:
   - target: "illuminati"

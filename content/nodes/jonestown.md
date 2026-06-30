@@ -1,6 +1,7 @@
 ---
 id: "jonestown"
 title: "Jonestown"
+description: "In 1978 over 900 members of Jim Jones's Peoples Temple died in a Guyana settlement. A deep dive into the cult, its control methods, and alleged intelligence ties."
 category: "operations"
 connections:
   - target: "mkultra"

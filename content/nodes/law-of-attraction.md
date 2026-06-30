@@ -1,6 +1,7 @@
 ---
 id: "law-of-attraction"
 title: "The Law of Attraction & New Thought"
+description: "The Law of Attraction claims thoughts magnetize matching outcomes into one's life. A deep dive into its New Thought roots and the science it invokes."
 category: "mind"
 connections:
   - target: "hermetic-tradition"

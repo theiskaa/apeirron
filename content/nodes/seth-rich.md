@@ -1,6 +1,7 @@
 ---
 id: "seth-rich"
 title: "The Seth Rich Case"
+description: "The 2016 killing of DNC staffer Seth Rich, ruled a botched robbery, became a viral conspiracy theory. The facts, the lawsuits, and how the misinformation spread."
 category: "modern"
 connections:
   - target: "dead-internet"

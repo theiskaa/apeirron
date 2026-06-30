@@ -1,6 +1,7 @@
 ---
 id: "qanon"
 title: "QAnon"
+description: "QAnon is the movement claiming Trump secretly wages war on a 'deep state' cabal of elite child abusers. A deep dive into its origins, spread, and claims."
 category: "modern"
 connections:
   - target: "control-systems"

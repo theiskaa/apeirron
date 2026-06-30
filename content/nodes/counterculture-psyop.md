@@ -1,6 +1,7 @@
 ---
 id: "counterculture-psyop"
 title: "Counterculture as Psyop"
+description: "Was the 1960s counterculture secretly steered by intelligence agencies? A deep dive into the theory, the MKUltra–LSD links, and what the evidence actually supports."
 category: "power"
 connections:
   - target: "mkultra"

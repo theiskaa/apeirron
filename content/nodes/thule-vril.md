@@ -1,6 +1,7 @@
 ---
 id: "thule-vril"
 title: "Thule and Vril"
+description: "The Thule Society and Vril: occult groups tied to early Nazism and myths of secret energy. Their real history and the legends that grew around them."
 category: "power"
 connections:
   - target: "secret-societies"

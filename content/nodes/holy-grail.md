@@ -1,6 +1,7 @@
 ---
 id: "holy-grail"
 title: "The Holy Grail and the Bloodline of Christ"
+description: "The Holy Grail began as an object in a 12th-century French romance and grew into legends of a hidden bloodline of Christ. Its origins, guardians, and enduring myth."
 category: "origins"
 connections:
   - target: "knights-templar"

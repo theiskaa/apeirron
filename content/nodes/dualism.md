@@ -1,6 +1,7 @@
 ---
 id: "dualism"
 title: "Dualism"
+description: "Dualism is the view that mind and body are fundamentally different kinds of stuff. A deep dive into its ancient roots, Descartes' version, and why it refuses to die."
 category: "mind"
 connections:
   - target: "consciousness"

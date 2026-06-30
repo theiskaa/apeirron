@@ -1,6 +1,7 @@
 ---
 id: "operation-chaos"
 title: "Operation CHAOS"
+description: "Operation CHAOS was the CIA's illegal domestic program spying on antiwar and dissident Americans. The documented history, its scope, and how it was exposed."
 category: "operations"
 connections:
   - target: "cointelpro"

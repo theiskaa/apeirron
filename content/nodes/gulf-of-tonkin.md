@@ -1,6 +1,7 @@
 ---
 id: "gulf-of-tonkin"
 title: "The Gulf of Tonkin Incident"
+description: "The Gulf of Tonkin incident was the 1964 naval clash used to justify the Vietnam War, though the second attack likely never happened. The doubts and the resolution."
 category: "operations"
 connections:
   - target: "operation-northwoods"

@@ -1,6 +1,7 @@
 ---
 id: "materialism"
 title: "Materialism"
+description: "Materialism is the view that everything, including consciousness, is physical. A deep dive into the arguments for and against, and the hard problem it must answer."
 category: "mind"
 connections:
   - target: "consciousness"

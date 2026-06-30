@@ -1,6 +1,7 @@
 ---
 id: "lusitania"
 title: "The Sinking of the Lusitania"
+description: "The sinking of the Lusitania by a German torpedo in May 1915 helped draw the US into war. A deep dive into the second explosion and who really gained."
 category: "operations"
 connections:
   - target: "federal-reserve"

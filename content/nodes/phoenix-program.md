@@ -1,6 +1,7 @@
 ---
 id: "phoenix-program"
 title: "The Phoenix Program"
+description: "The Phoenix Program was the CIA's brutal counterinsurgency operation in Vietnam, blamed for thousands of killings. The documented record and the controversy."
 category: "operations"
 connections:
   - target: "gulf-of-tonkin"

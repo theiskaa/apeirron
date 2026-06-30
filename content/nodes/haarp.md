@@ -1,6 +1,7 @@
 ---
 id: "haarp"
 title: "HAARP and Weather Manipulation"
+description: "HAARP, the Alaska research facility accused of being a secret weather- and mind-control weapon. What it actually does, and where the conspiracy theories come from."
 category: "operations"
 connections:
   - target: "control-systems"

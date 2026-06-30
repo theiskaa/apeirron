@@ -1,6 +1,7 @@
 ---
 id: "money-as-debt"
 title: "Money as Debt & Fractional-Reserve Banking"
+description: "Fractional-reserve banking lets private banks create nearly all the money supply as debt. A deep dive into how money is made, who controls it, and its critics."
 category: "power"
 connections:
   - target: "federal-reserve"

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import {
   getAllNodes,
-  getNodeExcerpt,
+  getNodeDescription,
   buildGraphData,
   getCategories,
   getPhantomNodeIds,
@@ -59,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = categories.find(
     (c) => c.id === node.frontmatter.category
   );
-  const description = getNodeExcerpt(node.slug);
+  const description = getNodeDescription(node.slug);
   const title = `${node.frontmatter.title} — Apeirron`;
   const dates = getNodeGitDates(node.slug);
 
@@ -99,7 +99,7 @@ export default async function NodePage({ params }: Props) {
   const sourceNode = getAllNodes().find((n) => n.frontmatter.id === id);
   const categories = getCategories();
   const category = categories.find((c) => c.id === graphNode.category);
-  const description = sourceNode ? getNodeExcerpt(sourceNode.slug) : "";
+  const description = sourceNode ? getNodeDescription(sourceNode.slug) : "";
 
   const dates = sourceNode ? getNodeGitDates(sourceNode.slug) : null;
   const activeContent = graphNode.phantom ? "" : await getNodeContent(id);

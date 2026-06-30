@@ -1,6 +1,7 @@
 ---
 id: "twa-flight-800"
 title: "TWA Flight 800"
+description: "TWA Flight 800 exploded off Long Island in 1996, killing 230. The official fuel-tank finding, the missile-witness accounts, and the cover-up theories examined."
 category: "modern"
 connections:
   - target: "nine-eleven"

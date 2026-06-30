@@ -1,6 +1,7 @@
 ---
 id: "amerithrax"
 title: "Amerithrax: The 2001 Anthrax Letters"
+description: "Amerithrax was the 2001 anthrax-letter attack that killed five just after 9/11, the Ames strain traced to the Army's own labs. The investigation and the doubts."
 category: "operations"
 connections:
   - target: "nine-eleven"

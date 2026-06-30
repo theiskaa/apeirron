@@ -1,6 +1,7 @@
 ---
 id: "hollow-earth"
 title: "The Hollow Earth"
+description: "The Hollow Earth theory claims the planet is hollow and harbors a hidden world entered at the poles. Its origins, Byrd's alleged diary, and the enduring myths."
 category: "origins"
 connections:
   - target: "ancient-civilizations"

@@ -1,6 +1,7 @@
 ---
 id: "uss-liberty"
 title: "The USS Liberty Incident"
+description: "In 1967 Israeli forces attacked the USS Liberty, killing 34 Americans, in what was ruled an accident. The evidence, survivors' accounts, and the cover-up claims."
 category: "operations"
 connections:
   - target: "gulf-of-tonkin"

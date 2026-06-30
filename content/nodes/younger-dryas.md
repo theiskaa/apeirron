@@ -1,6 +1,7 @@
 ---
 id: "younger-dryas"
 title: "The Younger Dryas Impact Hypothesis"
+description: "The Younger Dryas impact hypothesis argues a comet strike ~12,800 years ago triggered abrupt cooling and a lost civilization. The science, evidence, and debate."
 category: "origins"
 connections:
   - target: "atlantis"

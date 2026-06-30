@@ -1,6 +1,7 @@
 ---
 id: "tuskegee-experiment"
 title: "The Tuskegee Syphilis Experiment"
+description: "The Tuskegee experiment was the US Public Health Service's 40-year study that withheld syphilis treatment from Black men. A deep dive into the abuse and its legacy."
 category: "operations"
 connections:
   - target: "big-pharma"

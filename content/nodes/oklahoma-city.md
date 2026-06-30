@@ -1,6 +1,7 @@
 ---
 id: "oklahoma-city"
 title: "The Oklahoma City Bombing"
+description: "The 1995 Oklahoma City bombing killed 168 people. The official case against McVeigh, the 'John Doe' questions, and the theories of wider involvement."
 category: "modern"
 connections:
   - target: "waco"

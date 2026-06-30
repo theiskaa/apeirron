@@ -1,6 +1,7 @@
 ---
 id: "roswell"
 title: "The Roswell Incident"
+description: "The 1947 Roswell Incident saw the U.S. military recover crash debris later tied to alleged alien bodies and a cover-up. A deep dive into the shifting accounts."
 category: "cosmos"
 connections:
   - target: "ufos"

@@ -1,6 +1,7 @@
 ---
 id: "ancient-civilizations"
 title: "Lost Ancient Civilizations"
+description: "The lost-civilization thesis claims an advanced culture existed before recorded history and was erased by catastrophe. A deep dive into the evidence cited for it."
 category: "origins"
 connections:
   - target: "megaliths"

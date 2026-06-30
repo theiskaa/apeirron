@@ -1,6 +1,7 @@
 ---
 id: "aids-bioweapon"
 title: "AIDS as Bioweapon"
+description: "The AIDS bioweapon theory claims the virus was engineered in a US biological-warfare lab rather than emerging naturally. A deep dive into its origins and claims."
 category: "operations"
 connections:
   - target: "mkultra"

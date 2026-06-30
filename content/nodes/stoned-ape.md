@@ -1,6 +1,7 @@
 ---
 id: "stoned-ape"
 title: "Terence McKenna & The Stoned Ape"
+description: "Terence McKenna's stoned-ape theory claims psilocybin mushrooms catalyzed the evolution of human consciousness. A deep dive into the hypothesis and its critics."
 category: "mind"
 connections:
   - target: "altered-states"

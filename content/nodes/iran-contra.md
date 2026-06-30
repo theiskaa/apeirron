@@ -1,6 +1,7 @@
 ---
 id: "iran-contra"
 title: "The Iran-Contra Affair"
+description: "The Iran-Contra affair: the Reagan-era scheme to sell arms to Iran and fund Nicaragua's Contras. The documented scandal, the hearings, and what stayed hidden."
 category: "operations"
 connections:
   - target: "cia-drugs"

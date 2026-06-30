@@ -1,6 +1,7 @@
 ---
 id: "great-reset"
 title: "The Great Reset"
+description: "The Great Reset, the WEF's pandemic-era recovery initiative, became a lightning rod for conspiracy theories. What it actually proposed, and how the fears took hold."
 category: "modern"
 connections:
   - target: "shadow-elite"

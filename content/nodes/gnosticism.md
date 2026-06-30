@@ -1,6 +1,7 @@
 ---
 id: "gnosticism"
 title: "Gnosticism, the Demiurge & the Archons"
+description: "Gnosticism taught that the material world is a prison built by a blind craftsman, the Demiurge, who rules through Archons. A deep dive into its cosmology and legacy."
 category: "origins"
 connections:
   - target: "hermetic-tradition"

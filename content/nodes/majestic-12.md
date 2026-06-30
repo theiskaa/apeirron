@@ -1,6 +1,7 @@
 ---
 id: "majestic-12"
 title: "Majestic 12"
+description: "Majestic 12 is the alleged secret committee said to manage the Roswell crash and the UFO cover-up. A deep dive into the documents and the FBI's 'bogus' verdict."
 category: "cosmos"
 connections:
   - target: "roswell"

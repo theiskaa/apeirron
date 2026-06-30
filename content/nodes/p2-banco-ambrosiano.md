@@ -1,6 +1,7 @@
 ---
 id: "p2-banco-ambrosiano"
 title: "P2, Banco Ambrosiano & Roberto Calvi"
+description: "P2 was a secret Italian Masonic lodge tied to the Banco Ambrosiano collapse and the death of banker Roberto Calvi, hanged in London. A deep dive into the scandal."
 category: "power"
 connections:
   - target: "operation-gladio"

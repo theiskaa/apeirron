@@ -1,6 +1,7 @@
 ---
 id: "watergate"
 title: "Watergate"
+description: "Watergate began with the 1972 break-in at Democratic headquarters and ended with Nixon's resignation. A deep dive into the burglars, cover-up, and deeper networks."
 category: "operations"
 connections:
   - target: "bay-of-pigs"

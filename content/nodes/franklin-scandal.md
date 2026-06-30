@@ -1,6 +1,7 @@
 ---
 id: "franklin-scandal"
 title: "The Franklin Scandal"
+description: "The Franklin scandal was an alleged 1980s elite child-abuse ring tied to Omaha and Washington figures. The witnesses, the dead investigator, and the 'hoax' ruling."
 category: "operations"
 connections:
   - target: "epstein"

@@ -1,6 +1,7 @@
 ---
 id: "mass-surveillance"
 title: "Mass Surveillance"
+description: "From the Church Committee to Snowden: how mass surveillance became reality. The NSA programs, the warnings, and what is documented versus what is theorized."
 category: "modern"
 connections:
   - target: "control-systems"

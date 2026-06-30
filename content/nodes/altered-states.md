@@ -1,6 +1,7 @@
 ---
 id: "altered-states"
 title: "Altered States"
+description: "Altered states are forms of consciousness reached through psychedelics, meditation, and trance, departing from ordinary experience. What they reveal about the mind."
 category: "mind"
 connections:
   - target: "consciousness"

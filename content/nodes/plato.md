@@ -1,6 +1,7 @@
 ---
 id: "plato"
 title: "Plato & The Theory of Forms"
+description: "Plato's Theory of Forms holds that non-physical, perfect Forms are more real than the world we see. A deep dive into his idealism, the Cave, and its legacy."
 category: "mind"
 connections:
   - target: "idealism"

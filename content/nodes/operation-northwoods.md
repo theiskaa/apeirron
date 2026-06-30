@@ -1,6 +1,7 @@
 ---
 id: "operation-northwoods"
 title: "Operation Northwoods"
+description: "Operation Northwoods was a real 1962 Joint Chiefs plan to stage false-flag attacks to justify war with Cuba. The declassified document and its significance."
 category: "operations"
 connections:
   - target: "jfk"

@@ -1,6 +1,7 @@
 ---
 id: "atlantis"
 title: "Atlantis"
+description: "Atlantis is the advanced island civilization Plato described as destroyed around 9,600 BCE. A deep dive into his account and why the story has never died."
 category: "origins"
 connections:
   - target: "plato"

@@ -1,6 +1,7 @@
 ---
 id: "project-stargate"
 title: "Project Star Gate"
+description: "Project Star Gate was the U.S. government's decades-long, taxpayer-funded program testing psychic 'remote viewing.' A deep dive into its history and results."
 category: "operations"
 connections:
   - target: "mkultra"

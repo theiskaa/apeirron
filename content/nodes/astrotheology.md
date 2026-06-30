@@ -1,6 +1,7 @@
 ---
 id: "astrotheology"
 title: "Astrotheology & The Christ Myth"
+description: "Astrotheology claims religions encode astronomy, reading gods as celestial bodies and the Christ story as solar myth. A deep dive into the argument and its sources."
 category: "origins"
 connections:
   - target: "saturn-black-cube"

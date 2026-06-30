@@ -1,6 +1,7 @@
 ---
 id: "cia-drugs"
 title: "CIA Drug Trafficking"
+description: "Did the CIA enable drug trafficking? From the Contras to Gary Webb's reporting, a deep dive into the evidence of agency ties to the cocaine and heroin trades."
 category: "operations"
 connections:
   - target: "mkultra"

@@ -75,17 +75,28 @@ function fileMtimeIso(filePath) {
 }
 
 function getExcerpt(markdown, maxLength = 160) {
-  return markdown
+  const clean = markdown
     .replace(/\[\[([^\]]+)\]\]/g, "$1")
     .replace(/^---[\s\S]*?---\s*/m, "")
     .replace(/^#{1,6}\s+.*$/gm, "")
     .replace(/\*\*([^*]+)\*\*/g, "$1")
     .replace(/\*([^*]+)\*/g, "$1")
     .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-    .replace(/\n+/g, " ")
-    .trim()
-    .slice(0, maxLength)
-    .replace(/\s+\S*$/, "…");
+    .replace(/\s+/g, " ")
+    .trim();
+  if (clean.length <= maxLength) return clean;
+
+  const window = clean.slice(0, maxLength + 1);
+  // Prefer ending on a sentence boundary within the window — a clean, complete
+  // sentence reads better in a SERP than a mid-clause "…" cut.
+  const lastSentence = Math.max(
+    window.lastIndexOf(". "),
+    window.lastIndexOf("! "),
+    window.lastIndexOf("? ")
+  );
+  if (lastSentence >= 80) return clean.slice(0, lastSentence + 1).trim();
+  // Otherwise drop the partial trailing word and add an ellipsis.
+  return window.slice(0, maxLength).replace(/\s+\S*$/, "").trim() + "…";
 }
 
 function resolveWikiLinks(html, nodeById, nodeByTitle, phantomIds) {
@@ -182,6 +193,7 @@ for (const node of parsed) {
     JSON.stringify({ contentHtml: html })
   );
 
+  const excerpt = getExcerpt(content);
   metadataNodes.push({
     id,
     slug,
@@ -192,7 +204,10 @@ for (const node of parsed) {
     connections: frontmatter.connections ?? [],
     publishedAt,
     updatedAt,
-    excerpt: getExcerpt(content),
+    excerpt,
+    // SEO meta description: hand-written frontmatter `description` wins, else
+    // the auto-generated excerpt. Consumed via getNodeDescription (lib/content.ts).
+    description: frontmatter.description ?? excerpt,
   });
 }
 

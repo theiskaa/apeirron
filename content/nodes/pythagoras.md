@@ -1,6 +1,7 @@
 ---
 id: "pythagoras"
 title: "Pythagoras"
+description: "Pythagoras taught that number and ratio are the hidden structure of reality, founding a secret brotherhood at Croton. A deep dive into his math and mysticism."
 category: "mind"
 connections:
   - target: "plato"

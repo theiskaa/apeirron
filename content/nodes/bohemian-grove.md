@@ -1,6 +1,7 @@
 ---
 id: "bohemian-grove"
 title: "Bohemian Grove"
+description: "Bohemian Grove, the secretive California retreat where powerful men gather each summer. Its 'Cremation of Care' ritual, and the conspiracy theories it fuels."
 category: "power"
 connections:
   - target: "secret-societies"

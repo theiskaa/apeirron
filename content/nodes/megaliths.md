@@ -1,6 +1,7 @@
 ---
 id: "megaliths"
 title: "Megalithic Mysteries"
+description: "Megalithic sites worldwide show engineering precision said to exceed ancient tools. A deep dive into the mysteries, from Gobekli Tepe to the Great Pyramid."
 category: "origins"
 connections:
   - target: "ancient-civilizations"

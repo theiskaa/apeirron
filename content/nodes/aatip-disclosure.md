@@ -1,6 +1,7 @@
 ---
 id: "aatip-disclosure"
 title: "AATIP & The Pentagon UAP Disclosure"
+description: "AATIP was the Pentagon's secret UFO program, exposed by a 2017 New York Times report that ended decades of denial. A deep dive into the videos and the disclosure."
 category: "cosmos"
 connections:
   - target: "ufos"

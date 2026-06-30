@@ -1,6 +1,7 @@
 ---
 id: "pineal-gland"
 title: "The Pineal Gland & The Third Eye"
+description: "The pineal gland is a brain structure Descartes called the seat of the soul, linked to the third eye. A deep dive into the science, the DMT theory, and the lore."
 category: "mind"
 connections:
   - target: "descartes"

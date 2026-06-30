@@ -1,6 +1,7 @@
 ---
 id: "john-lennon"
 title: "The Assassination of John Lennon"
+description: "John Lennon was shot dead outside his New York home in December 1980 by Mark David Chapman. A deep dive into the killing and the theories around it."
 category: "operations"
 connections:
   - target: "mkultra"

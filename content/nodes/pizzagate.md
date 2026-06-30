@@ -1,6 +1,7 @@
 ---
 id: "pizzagate"
 title: "Pizzagate and the Epstein Network"
+description: "Pizzagate is the debunked theory that a Washington pizzeria hid an elite child-abuse ring, a claim that fed the real Epstein scandal. A deep dive into the case."
 category: "modern"
 connections:
   - target: "shadow-elite"

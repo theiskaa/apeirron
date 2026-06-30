@@ -1,6 +1,7 @@
 ---
 id: "rfk-assassination"
 title: "The RFK Assassination"
+description: "Robert F. Kennedy was shot in 1968 after winning California, with theories citing a second gunman and a programmed Sirhan. A deep dive into the evidence."
 category: "operations"
 connections:
   - target: "jfk"

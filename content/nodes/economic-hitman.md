@@ -1,6 +1,7 @@
 ---
 id: "economic-hitman"
 title: "Economic Hit Men & The IMF/World Bank"
+description: "John Perkins' economic hit man theory claims US consultants trapped nations in unpayable debt. A deep dive into the alleged mechanism, the IMF, and the evidence."
 category: "power"
 connections:
   - target: "federal-reserve"

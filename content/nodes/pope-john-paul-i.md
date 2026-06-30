@@ -1,6 +1,7 @@
 ---
 id: "pope-john-paul-i"
 title: "Pope John Paul I"
+description: "Pope John Paul I died just 33 days into his papacy in 1978, prompting theories he was murdered over Vatican Bank reform. A deep dive into the case and the P2 lodge."
 category: "operations"
 connections:
   - target: "vatican-jesuits"

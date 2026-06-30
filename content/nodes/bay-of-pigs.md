@@ -1,6 +1,7 @@
 ---
 id: "bay-of-pigs"
 title: "The Bay of Pigs"
+description: "The Bay of Pigs was the CIA's failed 1961 invasion of Cuba by US-trained exiles, reshaping Kennedy's ties to the agency. The operation and its long fallout."
 category: "operations"
 connections:
   - target: "operation-northwoods"

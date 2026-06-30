@@ -1,6 +1,7 @@
 ---
 id: "ancient-astronauts"
 title: "Ancient Astronauts"
+description: "The ancient astronaut theory claims aliens visited early humans and shaped ancient civilizations. Its origins with von Däniken, the evidence, and why it fails."
 category: "origins"
 connections:
   - target: "ancient-civilizations"

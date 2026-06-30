@@ -1,6 +1,7 @@
 ---
 id: "cfr-trilateral"
 title: "The CFR & Trilateral Commission"
+description: "The Council on Foreign Relations and Trilateral Commission: elite policy groups at the heart of 'globalist' conspiracy theories. Their real role and the claims."
 category: "power"
 connections:
   - target: "bilderberg"

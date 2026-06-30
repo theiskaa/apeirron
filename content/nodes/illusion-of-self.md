@@ -1,6 +1,7 @@
 ---
 id: "illusion-of-self"
 title: "The Illusion of the Self"
+description: "The illusion of the self is the claim the unified ‘I’ is a model the brain builds, not a real witness. The neuroscience, philosophy, and contemplative parallels."
 category: "mind"
 connections:
   - target: "consciousness"

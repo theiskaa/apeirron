@@ -1,6 +1,7 @@
 ---
 id: "piri-reis-map"
 title: "The Piri Reis Map"
+description: "The Piri Reis Map is a 16th-century Ottoman chart some claim depicts an ice-free Antarctic coast from a lost civilization. A deep dive into its origins and claims."
 category: "origins"
 connections:
   - target: "younger-dryas"

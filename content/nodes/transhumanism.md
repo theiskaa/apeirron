@@ -1,6 +1,7 @@
 ---
 id: "transhumanism"
 title: "Transhumanism & The Singularity"
+description: "Transhumanism seeks to transcend human biological limits through technology, aiming at a coming Singularity. A deep dive into the movement and its critics."
 category: "modern"
 connections:
   - target: "schwab-wef"

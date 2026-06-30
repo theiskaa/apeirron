@@ -1,6 +1,7 @@
 ---
 id: "petrodollar"
 title: "The Petrodollar System"
+description: "The petrodollar is the system that prices and settles global oil in US dollars, forcing every nation to hold the currency. A deep dive into its origins and power."
 category: "power"
 connections:
   - target: "federal-reserve"

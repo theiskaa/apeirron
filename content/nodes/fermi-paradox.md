@@ -1,6 +1,7 @@
 ---
 id: "fermi-paradox"
 title: "The Fermi Paradox"
+description: "The Fermi paradox asks: if the universe should teem with life, where is everyone? A deep dive into the great silence and its leading proposed solutions."
 category: "cosmos"
 connections:
   - target: "ancient-astronauts"

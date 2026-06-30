@@ -1,6 +1,7 @@
 ---
 id: "pharmacratic-inquisition"
 title: "Pharmacratic Inquisition"
+description: "The pharmacratic inquisition is the idea that the drug war is a centuries-long project of state control over which minds are altered. A deep dive into the thesis."
 category: "mind"
 connections:
   - target: "consciousness"

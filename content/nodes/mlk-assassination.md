@@ -1,6 +1,7 @@
 ---
 id: "mlk-assassination"
 title: "The MLK Assassination"
+description: "Martin Luther King Jr. was killed in Memphis in 1968 after years of FBI surveillance. A deep dive into COINTELPRO, the case against Ray, and the conspiracy verdict."
 category: "operations"
 connections:
   - target: "cointelpro"

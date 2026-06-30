@@ -1,6 +1,7 @@
 ---
 id: "gary-webb"
 title: "Gary Webb"
+description: "Gary Webb's 'Dark Alliance' exposed CIA-linked drug trafficking — then his career collapsed and he died in 2004. The story, the backlash, and the questions."
 category: "operations"
 connections:
   - target: "cia-drugs"

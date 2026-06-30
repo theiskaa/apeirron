@@ -1,6 +1,7 @@
 ---
 id: "agenda-21"
 title: "Agenda 21 & Sustainable Development"
+description: "Agenda 21 is the UN's 1992 sustainable-development plan that theorists recast as a blueprint for one-world government and depopulation. The text and its claims."
 category: "power"
 connections:
   - target: "great-reset"

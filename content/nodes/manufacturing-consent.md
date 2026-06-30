@@ -1,6 +1,7 @@
 ---
 id: "manufacturing-consent"
 title: "Manufacturing Consent & The Propaganda Model"
+description: "Herman and Chomsky's propaganda model argues a commercial press filters news to serve elite interests. A deep dive into the five filters that shape the news."
 category: "power"
 connections:
   - target: "operation-mockingbird"

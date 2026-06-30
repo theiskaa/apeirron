@@ -1,6 +1,7 @@
 ---
 id: "hypernormalisation"
 title: "HyperNormalisation"
+description: "HyperNormalisation is Adam Curtis's thesis that power abandoned the real world for a managed, fake one everyone performs belief in. A deep dive into the idea."
 category: "modern"
 connections:
   - target: "dead-internet"

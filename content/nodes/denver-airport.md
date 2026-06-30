@@ -1,6 +1,7 @@
 ---
 id: "denver-airport"
 title: "Denver International Airport"
+description: "Denver International Airport is the most conspiracy-dense building in the US, from Masonic stones to apocalyptic murals. A deep dive into the claims and the facts."
 category: "power"
 connections:
   - target: "new-world-order"

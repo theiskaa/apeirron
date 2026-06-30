@@ -1,6 +1,7 @@
 ---
 id: "cymatics"
 title: "Cymatics & The Vibratory Universe"
+description: "Cymatics studies how sound vibration organizes matter into geometric patterns, as on Chladni's plate. A deep dive into the physics and the metaphysics built on it."
 category: "reality"
 connections:
   - target: "sacred-geometry"

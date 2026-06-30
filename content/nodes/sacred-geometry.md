@@ -1,6 +1,7 @@
 ---
 id: "sacred-geometry"
 title: "Sacred Geometry"
+description: "Sacred geometry: the idea that ratios like the golden ratio reveal a hidden order to reality. Its history across cultures, the mathematics, and the mystical claims."
 category: "origins"
 connections:
   - target: "megaliths"

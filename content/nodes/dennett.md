@@ -1,6 +1,7 @@
 ---
 id: "dennett"
 title: "Daniel Dennett & Modern Materialism"
+description: "Daniel Dennett was the materialist who argued consciousness is just what brains do, with no hard problem. A deep dive into his Multiple Drafts model and critics."
 category: "mind"
 connections:
   - target: "materialism"

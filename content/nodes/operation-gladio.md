@@ -1,6 +1,7 @@
 ---
 id: "operation-gladio"
 title: "Operation Gladio"
+description: "Operation Gladio was NATO's secret Cold War 'stay-behind' network, later linked to terrorism in Italy. The confirmed history and the strategy-of-tension claims."
 category: "operations"
 connections:
   - target: "operation-northwoods"

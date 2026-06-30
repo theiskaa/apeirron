@@ -1,6 +1,7 @@
 ---
 id: "mkultra"
 title: "MKUltra"
+description: "MKUltra was the CIA's real Cold War program of mind-control experiments with LSD, hypnosis, and torture. The history, the victims, and the destroyed files."
 category: "operations"
 connections:
   - target: "consciousness"
