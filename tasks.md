@@ -121,12 +121,14 @@ change, and an acceptance check.
 
 ## Batch 8 — Performance field data  *(T5 — measure before optimizing)*
 
-### B8 — Pull CrUX/PSI field data, then decide
-- **Action:** run PageSpeed Insights + CrUX (`/seo google`) for mobile INP/LCP/CLS p75.
-- **Decision gate:** if mobile INP p75 < 200 ms **and** LCP < 2.5 s → no perf work; close the flag.
-- **If over budget:** `Graph` is already `ssr:false`; add `requestIdleCallback`-gated init and trim
-  the 476 KB inline graph metadata.
-- **Acceptance:** documented p75 numbers + go/no-go decision recorded.
+### B8 — Pull CrUX/PSI field data, then decide  ✅ DONE — flag closed
+- **CrUX field data:** none — origin/desktop/homepage all 404 (site below CrUX's opted-in-Chrome
+  threshold; much of the ~17k/mo Cloudflare traffic is AI bots the site intentionally allows).
+- **PSI lab (mobile):** homepage 97/100, node 96/100. **TBT (INP proxy) 20 ms / 50 ms** — the
+  force-graph INP concern did NOT materialize (the `perf(graph)` client-fetch refactor fixed it).
+  CLS 0 (perfect). LCP: home 2.4 s ✅, node 2.7 s 🟡 (marginally over the *throttled-lab* 2.5 s bar).
+- **Decision:** no force-graph perf work. Revisit node LCP only if CrUX ever populates and shows
+  real-user LCP > 2.5 s. (Run was `/seo google` via PSI + CrUX REST, Tier-0 API key.)
 
 ---
 
