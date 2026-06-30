@@ -330,11 +330,14 @@ export default function PageClient({
         )}
       </div>
 
-      {/* Node article fills the screen behind the floating header. The top
-          padding clears the header (navbar + tabs) so content isn't hidden. */}
+      {/* Node article fills the screen behind the floating header. NodeView's own
+          scroll container runs full-height so the article scrolls UNDER the
+          blurred header (like the graph canvas) — the header-clearing top
+          padding lives inside that scroller, not as a fixed band above it that
+          read as a seam cutting the page. */}
       {activeNode && !showGraph && (
         <div className="absolute inset-0 z-10 bg-background overflow-hidden">
-          <div className="h-full pt-[104px] sm:pt-[116px]">
+          <div className="h-full">
             <NodeView
               node={activeNode}
               contentHtml={contentCache.get(activeNode.id) ?? ""}

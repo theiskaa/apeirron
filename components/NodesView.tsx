@@ -225,11 +225,10 @@ export default function NodesView({
   }, []);
 
   return (
-    <div className="h-screen flex flex-col overflow-hidden bg-background text-text-primary">
-      <Navbar />
-      <div ref={scrollRef} className="flex-1 overflow-y-auto panel-scroll">
+    <div className="relative h-screen overflow-hidden bg-background text-text-primary">
+      <div ref={scrollRef} className="h-full overflow-y-auto panel-scroll">
         <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 pb-16">
-          <header className="pt-10 sm:pt-14">
+          <header className="pt-24 sm:pt-28">
             <div
               className="border-b"
               style={{
@@ -850,6 +849,13 @@ export default function NodesView({
             </div>
           )}
         </div>
+      </div>
+
+      {/* Float the navbar over the scrolling content (matches the graph) rather
+          than reserving a solid band above it, which read as a seam cutting the
+          page. pointer-events handled per-child. */}
+      <div className="absolute top-0 left-0 right-0 z-20 pointer-events-none">
+        <Navbar />
       </div>
     </div>
   );
