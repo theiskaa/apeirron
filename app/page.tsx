@@ -1,10 +1,18 @@
 import Link from "next/link";
+import { preload } from "react-dom";
 import { getAllNodes, getCategories } from "@/lib/content";
 import PageClient from "@/components/PageClient";
 
 const BASE_URL = "https://www.apeirron.com";
 
 export default async function Home() {
+  // The graph canvas is the homepage's main content, and PageClient fetches
+  // /graph.json for it on mount. Preload it here (homepage only — node pages
+  // deliberately don't) so the ~93 KB blob downloads in parallel with the JS
+  // bundle instead of waiting for hydration. Same-origin `as: "fetch"` matches
+  // PageClient's plain fetch(), so the request is reused rather than doubled.
+  preload("/graph.json", { as: "fetch" });
+
   const nodes = getAllNodes();
   const categories = getCategories();
 
