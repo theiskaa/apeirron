@@ -39,6 +39,15 @@
       "dataset": "apeirron_reads"
     }
   ],
+  // OpenNext incremental cache: prerendered HTML/RSC is served from this KV
+  // namespace so the Worker barely executes per request (see open-next.config.ts).
+  // Binding name must be exactly NEXT_INC_CACHE_KV.
+  "kv_namespaces": [
+    {
+      "binding": "NEXT_INC_CACHE_KV",
+      "id": "89951d582fac471086fee69867c3b4be"
+    }
+  ],
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
