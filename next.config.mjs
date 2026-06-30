@@ -48,11 +48,14 @@ const nextConfig = {
             key: "Content-Security-Policy-Report-Only",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline'",
+              // static.cloudflareinsights.com: Cloudflare Web Analytics beacon
+              // (injected at the edge, not in the build output).
+              "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com",
               "style-src 'self' 'unsafe-inline'",
               "img-src 'self' data:",
               "font-src 'self'",
-              "connect-src 'self'",
+              // cloudflareinsights.com: the beacon's RUM report endpoint.
+              "connect-src 'self' https://cloudflareinsights.com",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
