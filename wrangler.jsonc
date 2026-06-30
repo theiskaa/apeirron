@@ -25,6 +25,14 @@
   "observability": {
     "enabled": true
   },
+  // Explicit CPU ceiling so a pathological per-request render fails loudly with
+  // a logged `exceededCpu` outcome (visible via `wrangler tail`) instead of
+  // silently hanging toward the 30s default — the failure mode that made the
+  // earlier outage hard to diagnose. Generous: no legitimate render (pages, or
+  // a dynamic OG PNG) approaches 5s of CPU, so this only trips on a runaway.
+  "limits": {
+    "cpu_ms": 5000
+  },
   "analytics_engine_datasets": [
     {
       "binding": "READ_EVENTS",
