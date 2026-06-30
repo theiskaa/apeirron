@@ -27,8 +27,11 @@ change, and an acceptance check.
   - 11 inline `data-node-link` cross-references in the prose on top of that.
 - **Conclusion:** H1 is satisfied — crawlers and non-JS LLM bots follow every reasoned
   interconnection. No build needed.
-- Anchors are rendered by `ConnectionReasons` / `ReadNext` / phantom `referencedBy`
-  in `components/NodeView.tsx` (real `next/link`), SSR'd via `PageClient`.
+- **Update:** the `perf(graph): load graph data client-side` refactor briefly regressed
+  this (SSR anchors dropped 38 → 9, since the interactive Connections panel now hydrates
+  client-side). **Fixed** by an additive `sr-only` server-rendered connection list in
+  `app/node/[id]/page.tsx`, built from the undirected graph links (full reciprocal set +
+  reasons). Live: consciousness 38, control-systems 54, shadow-elite 59 anchors restored.
 
 ---
 
