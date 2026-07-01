@@ -4,6 +4,8 @@ title: "9/11"
 description: "9/11 was the September 11, 2001 attacks that killed 3,000 people and reshaped the world. A deep dive into the official account and the questions skeptics raise."
 category: "operations"
 connections:
+  - target: "zeitgeist"
+    reason: "Zeitgeist's Part II, 'All the World's a Stage,' compressed the Truth movement's core claims — controlled demolition, WTC 7, the Pentagon, put-option trades — into thirty viral minutes, and for millions of viewers it was the on-ramp to inside-job revisionism, reaching an audience the movement's own documentaries never touched."
   - target: "control-systems"
     reason: "The 9/11 Commission was set up like the Warren Commission: limited funding, a tight deadline, and restricted access to evidence. Both produced official reports that large portions of the public never fully accepted."
   - target: "shadow-elite"

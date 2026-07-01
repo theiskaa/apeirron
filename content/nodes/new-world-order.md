@@ -4,6 +4,8 @@ title: "The New World Order"
 description: "The New World Order theory claims a secret elite is steering the world toward a single global government. A deep dive into its history and the groups it names."
 category: "power"
 connections:
+  - target: "zeitgeist"
+    reason: "Zeitgeist's Part III climaxes in the NWO narrative — engineered wars, a coming cashless economy, and an RFID-microchipped population under a single world government — and for a generation of viewers the 2007 film was the first exposure to the thesis, delivered as the endpoint the whole trilogy races toward."
   - target: "illuminati"
     reason: "NWO conspiracy theories claim the Illuminati created the plan for a single world government and have been working toward it for centuries."
   - target: "shadow-elite"

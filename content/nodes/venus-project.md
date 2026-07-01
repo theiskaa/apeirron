@@ -4,6 +4,8 @@ title: "The Venus Project & Resource-Based Economy"
 description: "The Venus Project is Jacque Fresco's blueprint for a money-free, resource-based economy run by automation. A deep dive into the vision and its technocratic roots."
 category: "modern"
 connections:
+  - target: "zeitgeist"
+    reason: "Zeitgeist: Addendum and Moving Forward are the films that carried Fresco's resource-based economy to millions, and Peter Joseph founded The Zeitgeist Movement in 2008 as the activist arm to build it — the delivery system that made an obscure Florida futurist a generational figure, until the 2011 schism split the two apart."
   - target: "great-reset"
     reason: "Both propose a top-down redesign of the entire economic operating system in the name of sustainability and abundance. Critics fold Fresco's cybernated, money-free city into the same fear that drives Great Reset opposition — a technocratic elite redesigning civilization for populations that never voted for it."
   - target: "technocracy"

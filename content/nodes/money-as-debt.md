@@ -4,6 +4,8 @@ title: "Money as Debt & Fractional-Reserve Banking"
 description: "Fractional-reserve banking lets private banks create nearly all the money supply as debt. A deep dive into how money is made, who controls it, and its critics."
 category: "power"
 connections:
+  - target: "zeitgeist"
+    reason: "Zeitgeist: Addendum opens with the animated fractional-reserve primer that taught a generation to see all money as interest-bearing debt conjured from nothing — the single most widely viewed popularization of the money-as-debt argument."
   - target: "federal-reserve"
     reason: "The Federal Reserve is the institution born at Jekyll Island that anchors and backstops the debt-money system described here — it is the lender of last resort that guarantees the private banks whose lending creates nearly all the money supply."
   - target: "rothschild"

@@ -4,6 +4,8 @@ title: "Invisible Control Systems"
 description: "Invisible control systems shape what people think through propaganda, media, and symbols rather than force. A deep dive into the theory from Bernays to Tavistock."
 category: "power"
 connections:
+  - target: "zeitgeist"
+    reason: "Zeitgeist is the control-systems thesis rendered as cinema: its governing claim is that religion, mass media, and money are one interlocking apparatus of social control, and it delivered that frame — coherent, scored, and free — to a mass audience in a single sitting."
   - target: "consciousness"
     reason: "The most effective control is not physical force but shaping what people are aware of and what they never think to question."
   - target: "secret-societies"

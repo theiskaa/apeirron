@@ -4,6 +4,8 @@ title: "Economic Hit Men & The IMF/World Bank"
 description: "John Perkins' economic hit man theory claims US consultants trapped nations in unpayable debt. A deep dive into the alleged mechanism, the IMF, and the evidence."
 category: "power"
 connections:
+  - target: "zeitgeist"
+    reason: "Zeitgeist: Addendum built its second act around Perkins' filmed confession, making the economic-hit-man thesis the emotional fulcrum that carried it to tens of millions of viewers — an audience far larger than the memoir's own readership."
   - target: "federal-reserve"
     reason: "EHM loans are denominated in dollars, recycled into US Treasuries, and spent back on US engineering firms — the foreign-policy arm of the dollar-Treasury system the Fed presides over. The whole mechanism only works because the debt is owed in a currency the United States prints."
   - target: "color-revolutions"

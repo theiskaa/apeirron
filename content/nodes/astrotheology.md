@@ -4,6 +4,8 @@ title: "Astrotheology & The Christ Myth"
 description: "Astrotheology claims religions encode astronomy, reading gods as celestial bodies and the Christ story as solar myth. A deep dive into the argument and its sources."
 category: "origins"
 connections:
+  - target: "zeitgeist"
+    reason: "Zeitgeist: The Movie (2007) is the vehicle that carried this thesis to a mass audience — its thirty-minute Part I is the most-watched presentation of the solar-myth argument ever made, and the fabricated Horus checklist it recited is the version most people mean when they say 'astrotheology.'"
   - target: "saturn-black-cube"
     reason: "Saturn/Kronos is the planetary-deity stratum beneath the solar religion astrotheology decodes; both nodes read worship as encoded astronomy, treating gods as personified celestial bodies whose 'biographies' are the movements of the sky written as narrative."
   - target: "hermetic-tradition"

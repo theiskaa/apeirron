@@ -4,6 +4,8 @@ title: "The Federal Reserve"
 description: "The secret 1910 Jekyll Island meeting that created the Federal Reserve, and the conspiracy theories of private banking control. The real history and the claims."
 category: "power"
 connections:
+  - target: "zeitgeist"
+    reason: "Zeitgeist's Part III and its sequel Addendum are the most-watched popular presentation of the Fed-as-private-cartel thesis, built from G. Edward Griffin and Aaron Russo: money created as interest-bearing debt, the 1913 Act as a banking coup, and income tax as its enforcement arm — the Fed-conspiracy canon set to music for a mass audience."
   - target: "shadow-elite"
     reason: "The Federal Reserve was designed in a secret 1910 meeting on Jekyll Island by America's most powerful bankers. It is a privately owned institution with authority over the entire US money supply."
   - target: "new-world-order"
