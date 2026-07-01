@@ -158,7 +158,8 @@ Every node ends with `## Sources`. No sources = PR rejected.
 1. Run `npm run build`. Catches YAML errors and Markdown compilation failures. Does **not** catch missing connection targets (those become phantoms) or `paths.ts` DAG errors (validator is dev-only).
 2. To validate `paths.ts`, run `NODE_ENV=development npm run build` (or import the module in a dev context).
 3. **Regenerate the README graph SVG**: `node scripts/export-graph.mjs`. The image at `public/apeirron-graph.svg` only updates when this runs — without it, the new node won't appear in the README graph.
-4. `git diff content/nodes/` should show one new file plus N edited files (one per reciprocal target). `git diff lib/paths.ts` should show the new entry.
+4. **Refresh the date manifest** — after committing the new node and its reciprocals, run `node scripts/generate-dates.mjs` and commit the updated `content/node-dates.json`. This file is the committed, deploy-stable source of every node's publish/update date (`publishedAt` drives the RSS feed order and the "newest" signal). The build derives dates from `git log`, but the production checkout is shallow/git-less, so without this manifest every node collapses to the same "just now" timestamp. **Run it *after* the node is committed**, so its `published` value is the real git add-date; run before committing and the node gets stamped with the current time (still sorts newest, but that pre-commit timestamp is then preserved on future runs and won't self-correct). Published dates never regress once recorded.
+5. `git diff content/nodes/` should show one new file plus N edited files (one per reciprocal target). `git diff content/roadmap.json` should show the new entry, and `content/node-dates.json` should show the new node (plus any reciprocal targets whose last-commit date advanced).
 
 ## Self-check before finishing
 
@@ -172,6 +173,7 @@ Every node ends with `## Sources`. No sources = PR rejected.
 - [ ] Added to one (rarely two) reading paths in `lib/paths.ts` with a `hook` in the path's voice and valid `parents`.
 - [ ] `npm run build` passes; `NODE_ENV=development npm run build` passes (validates paths.ts).
 - [ ] `node scripts/export-graph.mjs` ran — README graph reflects the new node.
+- [ ] `node scripts/generate-dates.mjs` ran **after committing** and `content/node-dates.json` committed — the node's real add-date is pinned so the feed dates don't collapse in production.
 - [ ] Both sides presented at their strongest.
 - [ ] No `## Summary` / `## TL;DR` / "See also" blocks. No bullet-list nodes. No Wikipedia paraphrase.
 
@@ -186,4 +188,5 @@ When finished, summarize for the user:
 - Any phantom nodes you introduced (target slug + why you left it as a forward reference)
 - `npm run build` and `NODE_ENV=development npm run build` results
 - SVG regenerated: yes/no
+- Date manifest refreshed: yes/no (`content/node-dates.json` — note if the node isn't committed yet, since the true git add-date only lands after commit + re-run)
 - Anything you wanted to include but couldn't verify — so the user can push back or accept the gap

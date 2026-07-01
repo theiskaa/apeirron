@@ -22,6 +22,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const CONTENT_DIR = path.join(ROOT, "content", "nodes");
 const CATEGORIES_PATH = path.join(ROOT, "content", "categories.json");
+const DATES_PATH = path.join(ROOT, "content", "node-dates.json");
 const METADATA_PATH = path.join(ROOT, "lib", "generated", "graph-metadata.json");
 const CONTENT_OUT_DIR = path.join(ROOT, "public", "content");
 const PUBLIC_DIR = path.join(ROOT, "public");
@@ -123,6 +124,18 @@ const categories = JSON.parse(readFileSync(CATEGORIES_PATH, "utf-8"));
 const categoryMap = new Map(categories.map((c) => [c.id, c]));
 const nowIso = new Date().toISOString();
 
+// Committed, deploy-stable date manifest (content/node-dates.json), produced by
+// scripts/generate-dates.mjs from full git history. It is the source of truth so
+// dates don't collapse when the deploy checkout is shallow or git-less. Git is
+// only a fallback for slugs missing from the manifest (e.g. a brand-new node
+// added but not yet re-run through generate-dates).
+let dateManifest = {};
+try {
+  dateManifest = JSON.parse(readFileSync(DATES_PATH, "utf-8"));
+} catch {
+  dateManifest = {};
+}
+
 const files = readdirSync(CONTENT_DIR)
   .filter((f) => f.endsWith(".md"))
   .sort();
@@ -133,8 +146,12 @@ const parsed = files.map((filename) => {
   const raw = readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
   const slug = filename.replace(/\.md$/, "");
-  const modified = lastCommitIso(filePath) ?? fileMtimeIso(filePath) ?? nowIso;
-  const published = firstCommitIso(filePath) ?? modified;
+  const pinned = dateManifest[slug];
+  // Manifest first (deploy-stable), then git, then filesystem mtime.
+  const modified =
+    pinned?.updated ?? lastCommitIso(filePath) ?? fileMtimeIso(filePath) ?? nowIso;
+  const published =
+    pinned?.published ?? firstCommitIso(filePath) ?? modified;
   return { frontmatter: data, content, slug, publishedAt: published, updatedAt: modified };
 });
 
