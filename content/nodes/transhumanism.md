@@ -4,6 +4,8 @@ title: "Transhumanism & The Singularity"
 description: "Transhumanism seeks to transcend human biological limits through technology, aiming at a coming Singularity. A deep dive into the movement and its critics."
 category: "modern"
 connections:
+  - target: "alchemy"
+    reason: "Transhumanism's goals are the alchemical ones in engineering dress: life extension is the Elixir of Life, mind-uploading is the liberation of spirit from matter, and artificial intelligence is the homunculus grown in the vessel."
   - target: "schwab-wef"
     reason: "Schwab's 2016 *The Fourth Industrial Revolution* folds human augmentation — brain-computer interfaces, gene editing, biometric integration — into the WEF's program of elite economic planning, taking a fringe Californian philosophy and announcing it from the main stage at Davos as the inevitable next phase of capitalism."
   - target: "great-reset"

@@ -6,6 +6,8 @@ category: "origins"
 connections:
   - target: "crowley"
     reason: "Crowley is the Hermetic tradition's most radical modern product: he took the Golden Dawn's synthesis of Kabbalah, alchemy, and Enochian magic and pushed it past every restraint into Thelema, a new religion of the Will."
+  - target: "alchemy"
+    reason: "Alchemy is the practical, laboratory arm of Hermeticism — the Emerald Tablet's 'as above, so below' turned into an operation performed on matter and soul at once, which is why Newton and the whole Hermetic current treated it as sacred science."
   - target: "kabbalah"
     reason: "The Renaissance grafted the Jewish Kabbalah's Tree of Life onto Hermeticism, and from Pico to the Golden Dawn the sephirot became the structural spine of Western esotericism — the diagram onto which alchemy, astrology, and tarot were all mapped."
   - target: "secret-societies"
