@@ -4,6 +4,8 @@ title: "Terence McKenna & The Stoned Ape"
 description: "Terence McKenna's stoned-ape theory claims psilocybin mushrooms catalyzed the evolution of human consciousness. A deep dive into the hypothesis and its critics."
 category: "mind"
 connections:
+  - target: "dmt"
+    reason: "Terence McKenna, author of the stoned-ape theory, was also DMT's great evangelist; his 'self-transforming machine elves' set the cultural template for the entity encounter Strassman's clinical volunteers later reported independently."
   - target: "altered-states"
     reason: "The stoned-ape thesis inverts the usual framing: the altered state is not a curiosity at the edge of normal consciousness but the engine that produced it. McKenna's claim is that the visionary mushroom experience is the evolutionary cause of the very mind that later studies it."
   - target: "pharmacratic-inquisition"

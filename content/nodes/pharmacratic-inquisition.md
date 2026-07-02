@@ -6,6 +6,8 @@ category: "mind"
 connections:
   - target: "consciousness"
     reason: "The pharmacratic inquisition is the long political project of keeping a specific class of consciousness-altering compounds away from citizens — state control of what minds are permitted to do."
+  - target: "dmt"
+    reason: "DMT is Schedule I, and Strassman's study was the first approved human psychedelic research in the US in two decades — the endogenous molecule the brain may make on its own is criminalized to possess."
   - target: "mkultra"
     reason: "MKUltra is the inquisition's hidden half: the same agencies that criminalized LSD for the public stockpiled it, dosed soldiers and civilians with it, and researched it as a weapon."
   - target: "altered-states"

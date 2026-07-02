@@ -6,6 +6,8 @@ category: "mind"
 connections:
   - target: "near-death-experiences"
     reason: "Strassman's speculation that the dying pineal releases a surge of DMT is the leading neurochemical explanation for the near-death experience's tunnel, light, and entity encounters."
+  - target: "dmt"
+    reason: "Strassman's 'spirit molecule' thesis makes the pineal the body's DMT factory, flooding the brain at birth and death — the boldest modern revival of the pineal as the literal organ of transcendence."
   - target: "descartes"
     reason: "Descartes named the pineal the single point where the immaterial soul acts on the body — the one unpaired structure in a bilateral brain. It is the literal anatomical hinge of Cartesian dualism, the place where his metaphysics had to touch flesh."
   - target: "altered-states"

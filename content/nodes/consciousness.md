@@ -10,6 +10,8 @@ connections:
     reason: "Libet's timing experiments suggest conscious intention arrives after the brain has begun to act, casting consciousness as a narrator of decisions rather than their author — which makes free will a direct test of what consciousness is for."
   - target: "taoism"
     reason: "Taoism proposes the Tao as an impersonal ground from which mind and matter both arise, framing consciousness not as a product of the brain but as one expression of a deeper generative source."
+  - target: "dmt"
+    reason: "DMT reliably produces contact with seemingly autonomous intelligences, forcing the question head-on: is the brain generating these beings, or is the molecule tuning a receiver to something already there?"
   - target: "hard-problem"
     reason: "The hard problem is the central unsolved question about what consciousness actually is"
   - target: "altered-states"
