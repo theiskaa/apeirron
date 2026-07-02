@@ -6,6 +6,8 @@ category: "mind"
 connections:
   - target: "near-death-experiences"
     reason: "Reincarnation cases claim a self that survives bodily death and carries memories and even birthmarks into a new body — a direct empirical challenge to the thesis that the self is a construction extinguished when the brain stops."
+  - target: "taoism"
+    reason: "Taoist wu wei treats the willful, grasping 'I' as the obstacle to acting in accord with nature; the sage dissolves deliberate selfhood into spontaneous flow — a lived, practical form of the no-self thesis."
   - target: "free-will"
     reason: "If there is no unified self, there is no one home to author a free choice; the missing agent of the free-will debate and the missing self of the no-self thesis are the same absence, approached from ethics and from introspection."
   - target: "consciousness"

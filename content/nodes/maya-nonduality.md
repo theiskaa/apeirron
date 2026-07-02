@@ -4,6 +4,8 @@ title: "Maya & Non-Duality"
 description: "Advaita Vedanta holds that only awareness is real and the material world is maya, its appearance. A deep dive into non-duality and the illusion of the self."
 category: "mind"
 connections:
+  - target: "taoism"
+    reason: "The Tao that cannot be named is the same apophatic move as the nondual Absolute: an ineffable ground prior to all distinction, reached by negation, of which the world of separate things is only the surface expression."
   - target: "idealism"
     reason: "Advaita Vedanta is the oldest and most radical idealism. It does not say mind shapes reality; it says only awareness is real and the entire world of objects is its appearance, maya, with no independent material substance behind it."
   - target: "consciousness"

@@ -6,6 +6,8 @@ category: "mind"
 connections:
   - target: "free-will"
     reason: "The Stoics were determinists who saved freedom by relocating it to inner assent — Chrysippus's cylinder, pushed by outside causes but rolling according to its own nature — inventing the compatibilist move two thousand years before the term existed."
+  - target: "taoism"
+    reason: "Stoicism and Taoism independently reach the same ethic from opposite ends of Eurasia: align yourself with the impersonal cosmic order — the Logos, the Tao — and stop straining against what cannot be forced."
   - target: "materialism"
     reason: "The Stoics were materialists. They believed everything is physical, including the soul and God."
   - target: "consciousness"

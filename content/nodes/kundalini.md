@@ -4,6 +4,8 @@ title: "Kundalini & The Serpent Power"
 description: "Kundalini is the dormant 'serpent power' said to rise through the chakras toward illumination. A deep dive into the awakening and its links to altered states."
 category: "mind"
 connections:
+  - target: "taoism"
+    reason: "Taoist neidan circulates qi through the channels of a subtle body to refine an immortal spirit-embryo — an independent Chinese parallel to kundalini's raising of energy through the body's hidden centers."
   - target: "hermetic-tradition"
     reason: "Kundalini is the Eastern inner-alchemy counterpart to the Hermetic Great Work — both encode an ascent through graded subtle stages that transmutes the practitioner, the rising serpent answering 'as above, so below' in the vertical axis of the body."
   - target: "altered-states"
