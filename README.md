@@ -26,7 +26,7 @@ The same content is also available as a typeset edition: seven EPUB and PDF volu
 
 ## Audio narration
 
-Any node can be turned into spoken-word audio. The [`speech/`](./speech) directory holds a small local text-to-speech pipeline built on [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0): it strips a node's Markdown down to clean prose and narrates it in a natural voice. It runs entirely offline on the CPU — no API keys, no cost — and the 82M model generates roughly 12× faster than real-time.
+Any node can be turned into spoken-word audio. The [`speech/`](./speech) directory holds a small local text-to-speech pipeline built on [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0): it strips a node's Markdown down to clean prose and narrates it in a natural voice. Synthesis runs locally on the CPU — no API keys, no cost, and no text ever leaves your machine — and the 82M model generates roughly 12× faster than real-time.
 
 ```bash
 cd speech
@@ -35,6 +35,8 @@ uv run python kokoro_gen.py ../content/nodes/consciousness.md consciousness.wav
 ```
 
 Choose a narrator with `--voice` (suggested: `am_michael` (default), `am_puck`, `bm_daniel`, `bm_fable`, `bm_lewis`); run `--list-voices` to see them all.
+
+> **Gotcha — the Hugging Face network check.** On first run the model weights download from Hugging Face and are cached. After that, `huggingface_hub` still pings the Hub each run to check for updates — a metadata check about the public model only, never your content — which surfaces as a `unauthenticated requests to the HF Hub` warning. To skip it and run fully offline once the model is cached, prefix the command with `HF_HUB_OFFLINE=1` (the only catch: offline mode can't fetch a voice you haven't used before).
 
 ## Contributing
 
