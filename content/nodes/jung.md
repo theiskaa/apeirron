@@ -4,6 +4,8 @@ title: "Carl Jung & The Collective Unconscious"
 description: "Carl Jung held that consciousness floats atop a vast collective unconscious structured by shared archetypes. A deep dive into his depth psychology and synchronicity."
 category: "mind"
 connections:
+  - target: "crowley"
+    reason: "Jung and Crowley were near-contemporaries reading the same alchemical Great Work as a model of inner transformation — but where Jung sought to integrate the unconscious into a balanced Self, Crowley sought to dissolve and weaponize it as an instrument of the True Will."
   - target: "consciousness"
     reason: "Jung's central claim — that consciousness is a small illuminated zone within a vastly larger unconscious that is structured, autonomous, and trans-personal — is the most consequential non-materialist account of mind produced in the twentieth century, built from clinical work with thousands of patients and his own visions."
   - target: "hermetic-tradition"

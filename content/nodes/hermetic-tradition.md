@@ -4,6 +4,8 @@ title: "The Hermetic Tradition"
 description: "The Hermetic tradition is an esoteric teaching that 'all is mind,' with cosmos and consciousness mirroring each other. Its texts, influence, and occult legacy."
 category: "origins"
 connections:
+  - target: "crowley"
+    reason: "Crowley is the Hermetic tradition's most radical modern product: he took the Golden Dawn's synthesis of Kabbalah, alchemy, and Enochian magic and pushed it past every restraint into Thelema, a new religion of the Will."
   - target: "secret-societies"
     reason: "Hermeticism is the shared philosophical foundation underneath Western secret societies like the Rosicrucians, Golden Dawn, and Freemasons. Their rituals and symbols come from Hermetic ideas"
   - target: "consciousness"

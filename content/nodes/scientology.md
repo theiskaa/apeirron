@@ -4,6 +4,8 @@ title: "Scientology & Operation Snow White"
 description: "Scientology's Operation Snow White was the largest documented infiltration of the U.S. government in history. A deep dive into the church's covert intelligence war."
 category: "operations"
 connections:
+  - target: "crowley"
+    reason: "Scientology's founder L. Ron Hubbard came out of Crowley's orbit: he co-performed the 1946 Babalon Working with Crowley's disciple Jack Parsons before founding his own movement, whose freed 'operating' self carries an unmistakable Thelemic genealogy."
   - target: "mass-surveillance"
     reason: "Operation Snow White is the largest documented infiltration of the U.S. government in its history — a private organization placing covert agents inside the IRS, the Justice Department, and dozens of other bodies to steal and purge files. Scientology built a standing private intelligence service, the Guardian's Office, that ran surveillance, burglary, and wiretapping against the state and its own critics, inverting the usual direction of the surveillance relationship."
   - target: "cointelpro"

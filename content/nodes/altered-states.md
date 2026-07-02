@@ -6,6 +6,8 @@ category: "mind"
 connections:
   - target: "near-death-experiences"
     reason: "The near-death experience is the most extreme altered state known — induced by the body's own shutdown rather than a drug — and its cross-cultural consistency is used as evidence that such states disclose something real rather than random."
+  - target: "crowley"
+    reason: "Crowley treated drugs, ritual, exhaustion, and sex as deliberate instruments for forcing the mind into altered states and contact with discarnate intelligences — his Cairo reception of the Book of the Law is the founding altered-state event of Thelema."
   - target: "consciousness"
     reason: "Altered states like psychedelics and meditation show that consciousness can work in radically different ways than normal waking experience"
   - target: "hard-problem"
