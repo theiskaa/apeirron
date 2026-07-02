@@ -4,6 +4,8 @@ title: "Daniel Dennett & Modern Materialism"
 description: "Daniel Dennett was the materialist who argued consciousness is just what brains do, with no hard problem. A deep dive into his Multiple Drafts model and critics."
 category: "mind"
 connections:
+  - target: "free-will"
+    reason: "Dennett is compatibilism's leading modern voice: he argues Libet-style experiments attack a naive free will nobody should hold, while the deliberative freedom that grounds moral responsibility survives determinism untouched."
   - target: "materialism"
     reason: "Dennett is the leading modern philosopher arguing that consciousness is entirely physical."
   - target: "consciousness"

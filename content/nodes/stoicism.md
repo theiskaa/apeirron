@@ -4,6 +4,8 @@ title: "Stoicism"
 description: "Stoicism, founded by Zeno around 300 BCE, is a philosophy of virtue, reason, and a thoroughly material soul. A deep dive into its theory of mind and influence."
 category: "mind"
 connections:
+  - target: "free-will"
+    reason: "The Stoics were determinists who saved freedom by relocating it to inner assent — Chrysippus's cylinder, pushed by outside causes but rolling according to its own nature — inventing the compatibilist move two thousand years before the term existed."
   - target: "materialism"
     reason: "The Stoics were materialists. They believed everything is physical, including the soul and God."
   - target: "consciousness"

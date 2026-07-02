@@ -6,6 +6,8 @@ category: "mind"
 connections:
   - target: "near-death-experiences"
     reason: "Near-death experiences and children's past-life memories are the empirical test of whether consciousness can exist without a functioning brain — the one line of evidence that could settle the question by observation rather than argument."
+  - target: "free-will"
+    reason: "Libet's timing experiments suggest conscious intention arrives after the brain has begun to act, casting consciousness as a narrator of decisions rather than their author — which makes free will a direct test of what consciousness is for."
   - target: "hard-problem"
     reason: "The hard problem is the central unsolved question about what consciousness actually is"
   - target: "altered-states"

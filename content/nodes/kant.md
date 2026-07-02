@@ -4,6 +4,8 @@ title: "Kant & Transcendental Idealism"
 description: "Kant argued the mind actively shapes all experience, leaving the thing-in-itself beyond reach. A deep dive into transcendental idealism, phenomena and noumena."
 category: "mind"
 connections:
+  - target: "free-will"
+    reason: "Kant's answer to determinism is his two-worlds split: the self is causally determined as a phenomenal object but transcendentally free as a noumenal agent — the most systematic attempt to keep moral freedom without denying universal causation."
   - target: "idealism"
     reason: "Kant's transcendental idealism is the most influential version of idealism in modern philosophy."
   - target: "consciousness"
