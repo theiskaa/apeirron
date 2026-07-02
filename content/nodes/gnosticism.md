@@ -4,6 +4,8 @@ title: "Gnosticism, the Demiurge & the Archons"
 description: "Gnosticism taught that the material world is a prison built by a blind craftsman, the Demiurge, who rules through Archons. A deep dive into its cosmology and legacy."
 category: "origins"
 connections:
+  - target: "kabbalah"
+    reason: "Lurianic Kabbalah is a gnostic myth erupting inside monotheism: divine sparks trapped in the husks of a shattered creation, awaiting liberation — Scholem called it a Jewish gnosis, though the Kabbalist is commanded to repair the broken world rather than flee it."
   - target: "hermetic-tradition"
     reason: "Gnosticism and Hermeticism are twin currents of the same second-century Alexandrian crucible, built from the same Platonic and Egyptian materials, and both turn on a Demiurge who fashions the lower world. But they invert each other: where the Hermetica calls the living cosmos divine and 'all is mind,' Gnosticism calls that same cosmos a prison built by a blind craftsman."
   - target: "saturn-black-cube"

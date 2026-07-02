@@ -4,6 +4,8 @@ title: "Sacred Geometry"
 description: "Sacred geometry: the idea that ratios like the golden ratio reveal a hidden order to reality. Its history across cultures, the mathematics, and the mystical claims."
 category: "origins"
 connections:
+  - target: "kabbalah"
+    reason: "The Tree of Life is a fixed geometric lattice — ten spheres joined by twenty-two paths — held to be the blueprint of creation itself, the same claim sacred geometry makes for the Platonic solids and the Flower of Life."
   - target: "megaliths"
     reason: "The Great Pyramid, Stonehenge, and Göbekli Tepe encode pi and phi to precisions their credited builders had no documented means to derive — the central anomaly sacred geometry uses to argue for transmitted, not invented, knowledge."
   - target: "freemasonry"

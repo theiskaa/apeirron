@@ -6,6 +6,8 @@ category: "mind"
 connections:
   - target: "crowley"
     reason: "Jung and Crowley were near-contemporaries reading the same alchemical Great Work as a model of inner transformation — but where Jung sought to integrate the unconscious into a balanced Self, Crowley sought to dissolve and weaponize it as an instrument of the True Will."
+  - target: "kabbalah"
+    reason: "Jung read the sephirot and Luria's 'breaking of the vessels' as symbolic maps of the psyche's self-organization, folding Kabbalah into his late work on the union of opposites and the emergence of the Self."
   - target: "consciousness"
     reason: "Jung's central claim — that consciousness is a small illuminated zone within a vastly larger unconscious that is structured, autonomous, and trans-personal — is the most consequential non-materialist account of mind produced in the twentieth century, built from clinical work with thousands of patients and his own visions."
   - target: "hermetic-tradition"
