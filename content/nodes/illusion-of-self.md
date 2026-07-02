@@ -4,6 +4,8 @@ title: "The Illusion of the Self"
 description: "The illusion of the self is the claim the unified ‘I’ is a model the brain builds, not a real witness. The neuroscience, philosophy, and contemplative parallels."
 category: "mind"
 connections:
+  - target: "near-death-experiences"
+    reason: "Reincarnation cases claim a self that survives bodily death and carries memories and even birthmarks into a new body — a direct empirical challenge to the thesis that the self is a construction extinguished when the brain stops."
   - target: "consciousness"
     reason: "The self-illusion thesis cuts the problem in two: awareness is undeniable, but the unified self that seems to possess it is a model the brain constructs. It does not deny consciousness — it relocates the illusion, away from experience and into the experiencer."
   - target: "dennett"

@@ -4,6 +4,8 @@ title: "Materialism"
 description: "Materialism is the view that everything, including consciousness, is physical. A deep dive into the arguments for and against, and the hard problem it must answer."
 category: "mind"
 connections:
+  - target: "near-death-experiences"
+    reason: "Verified perception during documented brain inactivity would directly falsify materialism's founding claim that the brain generates the mind. Near-death and reincarnation research is the empirical assault on exactly that premise."
   - target: "consciousness"
     reason: "Materialism says consciousness is produced entirely by physical matter in the brain."
   - target: "idealism"

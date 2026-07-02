@@ -4,6 +4,8 @@ title: "The Pineal Gland & The Third Eye"
 description: "The pineal gland is a brain structure Descartes called the seat of the soul, linked to the third eye. A deep dive into the science, the DMT theory, and the lore."
 category: "mind"
 connections:
+  - target: "near-death-experiences"
+    reason: "Strassman's speculation that the dying pineal releases a surge of DMT is the leading neurochemical explanation for the near-death experience's tunnel, light, and entity encounters."
   - target: "descartes"
     reason: "Descartes named the pineal the single point where the immaterial soul acts on the body — the one unpaired structure in a bilateral brain. It is the literal anatomical hinge of Cartesian dualism, the place where his metaphysics had to touch flesh."
   - target: "altered-states"

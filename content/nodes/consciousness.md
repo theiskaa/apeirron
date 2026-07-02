@@ -4,6 +4,8 @@ title: "Consciousness"
 description: "Consciousness is the felt fact of experience no theory has fully explained. A deep dive into the hard problem, the brain, and whether mind extends beyond it."
 category: "mind"
 connections:
+  - target: "near-death-experiences"
+    reason: "Near-death experiences and children's past-life memories are the empirical test of whether consciousness can exist without a functioning brain — the one line of evidence that could settle the question by observation rather than argument."
   - target: "hard-problem"
     reason: "The hard problem is the central unsolved question about what consciousness actually is"
   - target: "altered-states"

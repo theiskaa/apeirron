@@ -4,6 +4,8 @@ title: "The Hard Problem"
 description: "The hard problem of consciousness asks why brain processes produce subjective experience at all. A deep dive into the explanatory gap and the attempts to close it."
 category: "mind"
 connections:
+  - target: "near-death-experiences"
+    reason: "If consciousness genuinely persists during a flat EEG, the hard problem is not merely unsolved but misframed: neural activity would not be producing experience at all, and the gap would open beneath materialism itself."
   - target: "consciousness"
     reason: "The hard problem is the question of why physical brain processes produce subjective conscious experience."
   - target: "panpsychism"
