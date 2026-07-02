@@ -24,6 +24,18 @@ The same content is also available as a typeset edition: seven EPUB and PDF volu
 <a href="books/apeirron-mind.pdf"><img src="public/books/cover-mind.png" alt="Mind" width="110"></a> <a href="books/apeirron-origins.pdf"><img src="public/books/cover-origins.png" alt="Origins" width="110"></a> <a href="books/apeirron-cosmos.pdf"><img src="public/books/cover-cosmos.png" alt="Cosmos" width="110"></a> <a href="books/apeirron-power.pdf"><img src="public/books/cover-power.png" alt="Power" width="110"></a> <a href="books/apeirron-operations.pdf"><img src="public/books/cover-operations.png" alt="Operations" width="110"></a> <a href="books/apeirron-modern.pdf"><img src="public/books/cover-modern.png" alt="Modern" width="110"></a> <a href="books/apeirron-reality.pdf"><img src="public/books/cover-reality.png" alt="Reality" width="110"></a>
 
 
+## Audio narration
+
+Any node can be turned into spoken-word audio. The [`speech/`](./speech) directory holds a small local text-to-speech pipeline built on [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0): it strips a node's Markdown down to clean prose and narrates it in a natural voice. It runs entirely offline on the CPU — no API keys, no cost — and the 82M model generates roughly 12× faster than real-time.
+
+```bash
+cd speech
+uv sync                       # one-time setup (also: brew install espeak-ng)
+uv run python kokoro_gen.py ../content/nodes/consciousness.md consciousness.wav
+```
+
+Choose a narrator with `--voice` (suggested: `am_michael` (default), `am_puck`, `bm_daniel`, `bm_fable`, `bm_lewis`); run `--list-voices` to see them all.
+
 ## Contributing
 
 Apeirron is open to contributions. You can:
