@@ -1,0 +1,13 @@
+[project]
+name = "speech"
+version = "0.1.0"
+description = "Generate speech audio from Apeirron articles using Kokoro TTS (runs locally on CPU)."
+requires-python = ">=3.10"
+dependencies = [
+    "kokoro",
+    "misaki[en]",
+    "soundfile",
+]
+
+[tool.uv]
+package = false
