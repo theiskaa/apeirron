@@ -415,11 +415,9 @@ body {
   border: 1px solid var(--chrome-border);
 }
 
-/* Open-node tab pill. A frosted near-solid panel (same blur as the navbar pill,
-   so it reads as chrome rather than a see-through chip) carrying its node's
-   color (--tc) as a faint always-on tint + hairline ring. The tint lives on
-   background-image so it can deepen on hover/active over the constant frosted
-   base; the ACTIVE tab is set apart by a stronger tint and a solid color ring. */
+/* Open-node tab pill — a frosted near-solid panel (same blur as the navbar pill)
+   carrying its node's color (--tc) as a faint tint that deepens on hover/active,
+   with a subtle neutral (grey) hairline that firms up slightly on the active tab. */
 .tab {
   background-color: color-mix(in srgb, var(--surface-elevated) 94%, transparent);
   background-image: linear-gradient(
@@ -428,7 +426,7 @@ body {
   );
   backdrop-filter: blur(18px) saturate(180%);
   -webkit-backdrop-filter: blur(18px) saturate(180%);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--tc) 18%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 9%, transparent);
   transition: background-image var(--dur-fast) var(--ease-out),
               box-shadow var(--dur-fast) var(--ease-out),
               color var(--dur-fast) var(--ease-out),
@@ -445,7 +443,7 @@ body {
     color-mix(in srgb, var(--tc) 18%, transparent),
     color-mix(in srgb, var(--tc) 18%, transparent)
   );
-  box-shadow: inset 0 0 0 1.5px var(--tc);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 16%, transparent);
 }
 
 /* Navbar pill — a near-solid frosted panel (the generic chrome-bg is too
