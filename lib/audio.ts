@@ -15,3 +15,20 @@ const withAudio = new Set(manifest as string[]);
 export function nodeAudioUrl(id: string): string | null {
   return withAudio.has(id) ? `${AUDIO_BASE}/${id}.mp3` : null;
 }
+
+/**
+ * URL of a node's per-word timing sidecar (start/end seconds per spoken word),
+ * used by the "text follows audio" reading mode. Committed to the repo under
+ * public/audio-timings/ by the speech pipeline; served as a static asset. Only
+ * meaningful for nodes that have audio, and only present once the node's timings
+ * have been generated (the fetch 404s gracefully until then).
+ */
+export function nodeTimingsUrl(id: string): string {
+  return `/audio-timings/${id}.json`;
+}
+
+export interface NodeTimings {
+  duration: number;
+  /** [word, startSeconds, endSeconds] in narration order. */
+  words: [string, number, number][];
+}

@@ -37,6 +37,11 @@ interface Props {
   src: string;
   peaksUrl: string;
   onStart?: () => void;
+  /** Hands the shared <audio> element to the parent (for the follow-along mode). */
+  onAudioElement?: (el: HTMLAudioElement | null) => void;
+  /** When provided, renders the "text follows audio" toggle. */
+  onToggleFollow?: () => void;
+  follow?: boolean;
 }
 
 const Bars = memo(function Bars({
@@ -68,7 +73,14 @@ const Bars = memo(function Bars({
 const BASE =
   "flex items-center gap-2.5 sm:gap-3.5 rounded-full py-1.5 pl-1.5 pr-3 sm:py-2 sm:pl-2 sm:pr-3.5";
 
-export default function AudioPlayer({ src, peaksUrl, onStart }: Props) {
+export default function AudioPlayer({
+  src,
+  peaksUrl,
+  onStart,
+  onAudioElement,
+  onToggleFollow,
+  follow,
+}: Props) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const inlineRef = useRef<HTMLDivElement>(null);
   const startedRef = useRef(false);
@@ -79,6 +91,13 @@ export default function AudioPlayer({ src, peaksUrl, onStart }: Props) {
   const [speedIndex, setSpeedIndex] = useState(0);
   const [inlineVisible, setInlineVisible] = useState(true);
   const [box, setBox] = useState({ left: 0, width: 0 });
+
+  // Share the single <audio> element with the parent so the follow-along mode
+  // can read its clock and seek it. (Runs after mount, once the ref is set.)
+  useEffect(() => {
+    onAudioElement?.(audioRef.current);
+    return () => onAudioElement?.(null);
+  }, [onAudioElement]);
 
   useEffect(() => {
     let alive = true;
@@ -210,6 +229,32 @@ export default function AudioPlayer({ src, peaksUrl, onStart }: Props) {
       <span className="text-[10px] sm:text-[11px] text-text-muted tabular-nums shrink-0">
         {formatTime(current)} / {formatTime(duration)}
       </span>
+
+      {onToggleFollow && (
+        <button
+          type="button"
+          onClick={onToggleFollow}
+          aria-label="Follow the narration in the text"
+          aria-pressed={follow}
+          title={follow ? "Text follows audio: on" : "Text follows audio: off"}
+          className="grid place-items-center rounded-full shrink-0 transition-colors"
+          style={{
+            width: 26,
+            height: 26,
+            color: follow ? "var(--background)" : "var(--text-muted)",
+            backgroundColor: follow ? "var(--text-primary)" : "var(--chrome-fill)",
+          }}
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M4 7h11M4 12h16M4 17h9"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
+      )}
 
       <button
         type="button"

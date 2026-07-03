@@ -45,6 +45,9 @@ from clean import clean_article
 SAMPLE_RATE = 24000  # Kokoro outputs 24 kHz audio
 # Short silence inserted between sentences so the narration can breathe.
 GAP = np.zeros(int(SAMPLE_RATE * 0.12), dtype=np.float32)
+# Exact duration of that gap in seconds — used to offset per-chunk word
+# timestamps so they line up with the concatenated waveform.
+GAP_SECONDS = len(GAP) / SAMPLE_RATE
 
 VOICES = {
     "american_female": ["af_heart", "af_bella", "af_nicole", "af_sarah", "af_sky"],
@@ -60,20 +63,60 @@ def to_numpy(audio) -> np.ndarray:
     return np.asarray(audio, dtype=np.float32)
 
 
+def words_from_result(result, offset: float) -> list:
+    """Per-word [text, start, end] timestamps from one KPipeline result.
+
+    Kokoro attaches per-token `start_ts`/`end_ts` (seconds, relative to THIS
+    chunk's audio) when the model returns predicted durations. `offset` shifts
+    them onto the concatenated timeline. Punctuation-only tokens are dropped so
+    the stream is words the reader can see and follow.
+    """
+    out = []
+    for t in getattr(result, "tokens", None) or []:
+        start = getattr(t, "start_ts", None)
+        end = getattr(t, "end_ts", None)
+        text = (getattr(t, "text", None) or "").strip()
+        if start is None or end is None or not any(c.isalnum() for c in text):
+            continue
+        out.append([text, round(offset + float(start), 3), round(offset + float(end), 3)])
+    return out
+
+
+def synth_words(pipeline: KPipeline, clean_text: str, voice: str, speed: float = 1.0):
+    """Run a loaded pipeline over cleaned text → (waveform, word timings).
+
+    Mirrors the concatenation in `synthesize`: each chunk's audio is followed by
+    a GAP, and the running offset (chunk audio + gap) keeps word timestamps in
+    lockstep with the final waveform. Returns (None, []) if nothing synthesized.
+    """
+    chunks, words, offset = [], [], 0.0
+    for result in pipeline(clean_text, voice=voice, speed=speed):
+        if result.audio is None:
+            continue
+        audio_np = to_numpy(result.audio)
+        words.extend(words_from_result(result, offset))
+        chunks.append(audio_np)
+        chunks.append(GAP)
+        offset += len(audio_np) / SAMPLE_RATE + GAP_SECONDS
+    if not chunks:
+        return None, []
+    return np.concatenate(chunks), words
+
+
 def synthesize(md_file_path: str, voice: str, device: str = "cpu"):
-    """Render a node's Markdown to a mono float32 waveform, or None on failure."""
+    """Render a node's Markdown to (waveform, word timings), or (None, []) on failure."""
     try:
         with open(md_file_path, "r", encoding="utf-8") as f:
             raw_markdown = f.read()
         print(f"> loaded content from: {md_file_path}")
     except FileNotFoundError:
         print(f"\n> [error]: input markdown file not found at '{md_file_path}'")
-        return None
+        return None, []
 
     clean_text = clean_article(raw_markdown)
     if not clean_text:
         print("\n> [warning]: no readable text remained after cleaning markdown")
-        return None
+        return None, []
     print(f"> markdown cleaned ({len(clean_text.split())} words)")
 
     lang_code = "b" if voice.startswith("b") else "a"
@@ -83,18 +126,11 @@ def synthesize(md_file_path: str, voice: str, device: str = "cpu"):
     # clean_article keeps paragraph breaks; the pipeline's default split_pattern
     # (r"\n+") splits on them, and Kokoro chunks each paragraph at punctuation
     # under its own token budget — so names never break at their initials.
-    chunks = []
-    for result in pipeline(clean_text, voice=voice, speed=1.0):
-        if result.audio is None:
-            continue
-        chunks.append(to_numpy(result.audio))
-        chunks.append(GAP)
-
-    if not chunks:
+    audio, words = synth_words(pipeline, clean_text, voice)
+    if audio is None:
         print("\n> [error]: model produced no audio")
-        return None
-
-    return np.concatenate(chunks)
+        return None, []
+    return audio, words
 
 
 BITRATE = 64  # kbps, mono — ample for speech, ~0.5 MB/min
@@ -129,7 +165,7 @@ def generate_podcast_audio(
     print("> starting Kokoro TTS generation")
     print("=" * 40)
 
-    audio = synthesize(md_file_path, voice, device)
+    audio, words = synthesize(md_file_path, voice, device)
     if audio is None:
         return
 
@@ -145,10 +181,17 @@ def generate_podcast_audio(
 
     # Sidecar the waveform peaks + exact duration for the site's player, so it
     # renders the waveform and correct length without decoding audio in-browser.
-    peaks_path = os.path.splitext(output_path)[0] + ".peaks.json"
+    stem = os.path.splitext(output_path)[0]
+    peaks_path = stem + ".peaks.json"
     with open(peaks_path, "w", encoding="utf-8") as f:
         json.dump({"duration": round(duration, 2), "peaks": compute_peaks(audio)}, f)
     print(f"> wrote {peaks_path}")
+
+    # Sidecar the per-word timestamps for the "text follows audio" reading mode.
+    timings_path = stem + ".timings.json"
+    with open(timings_path, "w", encoding="utf-8") as f:
+        json.dump({"duration": round(duration, 2), "words": words}, f)
+    print(f"> wrote {timings_path} ({len(words)} words)")
 
 
 if __name__ == "__main__":

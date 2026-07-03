@@ -24,6 +24,7 @@ HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
 MANIFEST = REPO / "public" / "audio-manifest.json"
 PEAKS_DIR = REPO / "public" / "audio-peaks"
+TIMINGS_DIR = REPO / "public" / "audio-timings"
 BUCKET = "apeirron-audio"
 
 
@@ -76,6 +77,17 @@ def main():
         print(f"> wrote waveform to {dest.relative_to(REPO)}")
     else:
         print(f"> [warning]: no {peaks_src.name}; player will show a flat waveform")
+
+    # The word-timing sidecar (written by generate.py) drives the "text follows
+    # audio" reading mode; commit it alongside the waveform.
+    timings_src = mp3.parent / (mp3.stem + ".timings.json")
+    if timings_src.exists():
+        TIMINGS_DIR.mkdir(parents=True, exist_ok=True)
+        dest = TIMINGS_DIR / f"{args.node_id}.json"
+        shutil.copyfile(timings_src, dest)
+        print(f"> wrote word timings to {dest.relative_to(REPO)}")
+    else:
+        print(f"> [warning]: no {timings_src.name}; node won't offer follow-along")
 
     if update_manifest(args.node_id):
         print(f"> added '{args.node_id}' to {MANIFEST.relative_to(REPO)}")

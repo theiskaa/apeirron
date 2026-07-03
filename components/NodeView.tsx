@@ -1,12 +1,13 @@
 "use client";
 
-import { useCallback, useRef, useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useRef, useEffect, useMemo, useState, type CSSProperties, type RefObject } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import type { GraphNode, GraphLink, ReadNextData } from "@/lib/types";
 import { buildRoadmapOrder } from "@/lib/roadmap";
 import { track } from "@/lib/analytics";
-import { nodeAudioUrl } from "@/lib/audio";
+import { nodeAudioUrl, nodeTimingsUrl, type NodeTimings } from "@/lib/audio";
+import { useAudioFollow } from "@/lib/useAudioFollow";
 import AudioPlayer from "./AudioPlayer";
 
 const MiniGraph = dynamic(() => import("./MiniGraph"), { ssr: false });
@@ -56,6 +57,32 @@ export default function NodeView({
   const contentRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeId, setActiveId] = useState<string | null>(null);
+
+  // "Text follows audio" reading mode. `follow` is the user's persisted
+  // preference; the mode only actually engages once this node's word timings
+  // have loaded. `audioEl` is the shared <audio> handed up by the player.
+  const [follow, setFollow] = useState(true);
+  const [audioEl, setAudioEl] = useState<HTMLAudioElement | null>(null);
+  const [timings, setTimings] = useState<NodeTimings | null>(null);
+
+  useEffect(() => {
+    setFollow(localStorage.getItem("apeirron:follow") !== "off");
+  }, []);
+
+  const toggleFollow = useCallback(() => {
+    setFollow((f) => {
+      const next = !f;
+      try {
+        localStorage.setItem("apeirron:follow", next ? "on" : "off");
+      } catch {}
+      return next;
+    });
+  }, []);
+
+  const handleAudioElement = useCallback(
+    (el: HTMLAudioElement | null) => setAudioEl(el),
+    []
+  );
 
   const handleContentClick = useCallback(
     (e: MouseEvent) => {
@@ -220,6 +247,33 @@ export default function NodeView({
   // only appears once a file has been published for the node.
   const audioUrl = nodeAudioUrl(node.id);
 
+  // Load this node's per-word timings (small JSON) when it has audio. Absent
+  // until the node has been processed by the speech pipeline — 404s silently and
+  // the follow-along toggle simply doesn't appear.
+  useEffect(() => {
+    setTimings(null);
+    if (!audioUrl) return;
+    let alive = true;
+    fetch(nodeTimingsUrl(node.id))
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .then((d: NodeTimings) => alive && setTimings(d))
+      .catch(() => {});
+    return () => {
+      alive = false;
+    };
+  }, [node.id, audioUrl]);
+
+  const { following, refocus } = useAudioFollow({
+    enabled: follow && !!timings,
+    audioEl,
+    timings,
+    contentRef,
+    scrollRef,
+    nodeId: node.id,
+    contentReady: !!mainHtml,
+  });
+  const showRefocus = follow && !!timings && !following;
+
   return (
     <div ref={scrollRef} className="h-full overflow-y-auto panel-scroll">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 pt-[var(--article-header)] pb-8 flex gap-0">
@@ -270,6 +324,9 @@ export default function NodeView({
                 src={audioUrl}
                 peaksUrl={`/audio-peaks/${node.id}.json`}
                 onStart={() => track(node.id, "listen")}
+                onAudioElement={handleAudioElement}
+                onToggleFollow={timings ? toggleFollow : undefined}
+                follow={follow}
               />
             </div>
           )}
@@ -312,10 +369,10 @@ export default function NodeView({
           </div>
 
           {mainHtml ? (
-            <div
-              ref={contentRef}
-              className="prose-apeirron"
-              dangerouslySetInnerHTML={{ __html: mainHtml }}
+            <ArticleBody
+              html={mainHtml}
+              accent={node.color}
+              innerRef={contentRef}
             />
           ) : loading ? (
             <ContentSkeleton />
@@ -369,9 +426,69 @@ export default function NodeView({
           </div>
         </div>
       </div>
+
+      {/* Reader scrolled away while following — offer a snap-back to the flow. */}
+      {showRefocus && (
+        <button
+          type="button"
+          onClick={refocus}
+          aria-label="Refocus on the narrated word"
+          className="fixed left-1/2 -translate-x-1/2 z-40 flex items-center gap-1.5 rounded-full pl-2.5 pr-3.5 py-1.5 text-[11px] font-medium active:scale-95 transition-transform"
+          style={{
+            bottom: "calc(env(safe-area-inset-bottom) + 4.75rem)",
+            backgroundColor: "var(--surface)",
+            color: "var(--text-primary)",
+            border: "1px solid var(--border-subtle)",
+            boxShadow: "var(--chrome-shadow)",
+          }}
+        >
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="3.2" />
+            <path d="M12 2.5v3.5M12 18v3.5M2.5 12h3.5M18 12h3.5" />
+          </svg>
+          Resume follow
+        </button>
+      )}
     </div>
   );
 }
+
+/**
+ * The rendered article prose. Memoized on (html, accent) so it does NOT
+ * re-render when unrelated NodeView state changes (audio follow state, active
+ * TOC id, …). This is essential: React re-applies `dangerouslySetInnerHTML` on
+ * every render of the owning element, which would wipe the per-word <span>s that
+ * the "text follows audio" mode injects into this DOM. Keeping this subtree
+ * stable except when the article itself changes lets those spans survive.
+ */
+const ArticleBody = memo(function ArticleBody({
+  html,
+  accent,
+  innerRef,
+}: {
+  html: string;
+  accent: string;
+  innerRef: RefObject<HTMLDivElement | null>;
+}) {
+  return (
+    <div
+      ref={innerRef}
+      className="prose-apeirron"
+      style={{ "--lyric-accent": accent } as CSSProperties}
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
+});
 
 function PhantomNodeView({
   node,

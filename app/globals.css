@@ -185,6 +185,46 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+/* "Text follows audio" reading mode — the narrated word is highlighted in place
+   as playback moves through the article. Words are wrapped in <span.lyric-word>
+   only while the mode is active; the base span is inert so it never disturbs
+   normal reading. The highlight uses the node's category color (--lyric-accent)
+   at an opacity that stays legible in every theme. */
+.lyric-word {
+  border-radius: 3px;
+  transition: color 120ms linear, background-color 160ms ease-out,
+    box-shadow 160ms ease-out;
+}
+.prose-apeirron.lyrics-on .lyric-word {
+  cursor: pointer;
+}
+.lyric-word.is-active {
+  color: var(--text-primary);
+  background-color: color-mix(
+    in srgb,
+    var(--lyric-accent, var(--accent)) 32%,
+    transparent
+  );
+  box-shadow: 0 0 0 2px
+    color-mix(in srgb, var(--lyric-accent, var(--accent)) 32%, transparent);
+}
+@media (hover: hover) {
+  .prose-apeirron.lyrics-on .lyric-word:hover:not(.is-active) {
+    background-color: color-mix(
+      in srgb,
+      var(--lyric-accent, var(--accent)) 15%,
+      transparent
+    );
+    box-shadow: 0 0 0 2px
+      color-mix(in srgb, var(--lyric-accent, var(--accent)) 15%, transparent);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lyric-word {
+    transition: none;
+  }
+}
+
 /* Prose styles for rendered markdown articles */
 .prose-apeirron h2 {
   @apply text-[1.45rem] font-semibold mt-9 mb-3 relative cursor-pointer;
