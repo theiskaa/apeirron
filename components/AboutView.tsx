@@ -58,9 +58,7 @@ export default function AboutView() {
           </header>
 
           <div className="mt-12">
-          <article
-            className="mx-auto max-w-[720px] prose-apeirron text-center"
-          >
+          <article className="mx-auto max-w-[720px] prose-apeirron">
             <p>
               <em>Apeiron</em> (ἄπειρον) is the word Anaximander of Miletus
               reached for around 610 BCE when he tried to name what everything

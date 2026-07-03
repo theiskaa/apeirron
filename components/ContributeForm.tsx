@@ -123,6 +123,19 @@ export default function ContributeForm({
     content.trim().length >= 100 &&
     !submitting;
 
+  // What still blocks submission — shown next to the disabled button so the
+  // requirements are never a mystery.
+  const missing: string[] = [];
+  if (title.trim().length < 3) missing.push("add a title");
+  if (category === "") missing.push("pick a category");
+  if (content.trim().length < 100) {
+    missing.push(
+      content.trim().length === 0
+        ? "write the node"
+        : `write ${100 - content.trim().length} more characters`
+    );
+  }
+
 
   // Stable key for graph topology — only changes when targets change, not reasons
   const connectionTargets = connections.map((c) => c.target.trim()).join(",");
@@ -319,7 +332,7 @@ export default function ContributeForm({
                 href={result.issueUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium border border-border bg-surface text-text-primary hover:brightness-110 transition-all"
+                className="btn-accent inline-flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium"
               >
                 View on GitHub
               </a>
@@ -352,12 +365,28 @@ export default function ContributeForm({
       <h3 className="text-[11px] font-semibold text-text-muted uppercase tracking-wider mb-3">
         Connections
       </h3>
-      <MiniGraph
-        currentNodeId={debouncedGraphId}
-        allNodes={miniGraphData.nodes}
-        allLinks={miniGraphData.links}
-        onNodeClick={() => {}}
-      />
+      {miniGraphData.links.length > 0 ? (
+        <MiniGraph
+          currentNodeId={debouncedGraphId}
+          allNodes={miniGraphData.nodes}
+          allLinks={miniGraphData.links}
+          onNodeClick={() => {}}
+        />
+      ) : (
+        <div
+          className="flex h-[220px] w-full items-center justify-center rounded-lg border border-dashed px-8 text-center"
+          style={{ borderColor: "var(--border)" }}
+        >
+          <p
+            className="text-[11px] leading-relaxed"
+            style={{ color: "var(--text-muted)" }}
+          >
+            Your node appears here once it has connections.
+            <br />
+            Every connection needs a written reason.
+          </p>
+        </div>
+      )}
       <div className="mt-4 space-y-3">
         {connections.map((conn, i) => {
           const targetNode = nodeList.find((n) => n.id === conn.target.trim());
@@ -381,14 +410,14 @@ export default function ContributeForm({
                   value={conn.target}
                   onChange={(e) => updateConnection(i, "target", e.target.value)}
                   placeholder="Target node (e.g. mkultra)"
-                  className="w-full rounded px-2 py-1 text-[12px] font-medium bg-surface border border-border text-text-primary placeholder:text-text-muted/40 focus:outline-none focus:ring-1 focus:ring-text-muted/30"
+                  className="w-full rounded-md px-2.5 py-1.5 text-[12px] font-medium bg-surface border border-border text-text-primary placeholder:text-text-muted/40 focus:outline-none focus:ring-1 focus:ring-[var(--accent-ring)] focus:border-transparent"
                 />
                 <input
                   type="text"
                   value={conn.reason}
                   onChange={(e) => updateConnection(i, "reason", e.target.value)}
                   placeholder="Why does this connect?"
-                  className="w-full rounded px-2 py-1 text-[11px] bg-surface border border-border text-text-secondary placeholder:text-text-muted/40 focus:outline-none focus:ring-1 focus:ring-text-muted/30 leading-relaxed"
+                  className="w-full rounded-md px-2.5 py-1.5 text-[11px] bg-surface border border-border text-text-secondary placeholder:text-text-muted/40 focus:outline-none focus:ring-1 focus:ring-[var(--accent-ring)] focus:border-transparent leading-relaxed"
                 />
               </div>
               <button
@@ -444,7 +473,7 @@ export default function ContributeForm({
         onChange={(e) => setSources(e.target.value)}
         rows={6}
         placeholder={"- Author. *Title*. Publisher, Year.\n- Author. *Title*. Publisher, Year."}
-        className="w-full rounded px-2 py-1.5 text-[11px] bg-surface border border-border text-text-secondary placeholder:text-text-muted/30 focus:outline-none focus:ring-1 focus:ring-text-muted/30 leading-relaxed resize-y font-mono"
+        className="w-full rounded-md px-2.5 py-2 text-[11px] bg-surface border border-border text-text-secondary placeholder:text-text-muted/30 focus:outline-none focus:ring-1 focus:ring-[var(--accent-ring)] focus:border-transparent leading-relaxed resize-y font-mono"
       />
     </div>
   );
@@ -489,12 +518,28 @@ export default function ContributeForm({
       <div className="flex-1 overflow-y-auto panel-scroll">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-8 flex gap-0">
           <div className="flex-1 min-w-0">
+            <div className="mb-6 flex items-baseline justify-between gap-4">
+              <span
+                className="text-[10px] uppercase tracking-[0.22em]"
+                style={{ color: "var(--text-muted)" }}
+              >
+                Propose a node
+              </span>
+              <a
+                href="/about#editorial-standards"
+                className="text-[11px] underline underline-offset-2 text-text-muted hover:text-text-secondary transition-colors"
+              >
+                Editorial standards
+              </a>
+            </div>
+
             <input
               type="text"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               placeholder="Node title..."
-              className="w-full text-3xl font-bold text-text-primary mb-2 leading-tight bg-transparent outline-none placeholder:text-text-muted/30 border-none p-0"
+              className="w-full text-[32px] sm:text-4xl text-text-primary mb-2 leading-tight tracking-tight bg-transparent outline-none placeholder:text-text-muted/30 border-none p-0"
+              style={{ fontFamily: "var(--font-serif)", fontWeight: 800 }}
             />
 
             <CategoryPicker
@@ -596,11 +641,23 @@ export default function ContributeForm({
         style={{ borderColor: "var(--border)" }}
       >
         <div className="max-w-[1400px] mx-auto w-full flex items-center gap-4">
+          <p className="text-[11px] leading-snug text-text-muted min-w-0">
+            {canSubmit || submitting
+              ? "Ready — your proposal is filed as a public GitHub issue for review."
+              : `To submit: ${missing.join(" · ")}.`}
+          </p>
+          {prefillNodeId && (
+            <span className="text-[11px] text-text-muted ml-auto shrink-0 hidden sm:block">
+              Proposing: <strong className="text-text-secondary">{prefillTitle}</strong>
+            </span>
+          )}
           <button
             type="button"
             onClick={handleSubmit}
             disabled={!canSubmit}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-md text-sm font-medium transition-all disabled:opacity-30 disabled:cursor-not-allowed border border-border bg-surface text-text-primary hover:brightness-110"
+            className={`btn-accent inline-flex items-center gap-2 px-5 py-2 rounded-md text-sm font-medium shrink-0 ${
+              prefillNodeId ? "" : "ml-auto"
+            }`}
           >
             {submitting ? (
               <>
@@ -611,11 +668,6 @@ export default function ContributeForm({
               "Submit Proposal"
             )}
           </button>
-          {prefillNodeId && (
-            <span className="text-[11px] text-text-muted ml-auto hidden sm:block">
-              Proposing: <strong className="text-text-secondary">{prefillTitle}</strong>
-            </span>
-          )}
         </div>
       </div>
     </div>

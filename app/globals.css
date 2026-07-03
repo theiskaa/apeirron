@@ -524,6 +524,28 @@ body {
   );
 }
 
+/* Filled primary-action button — the one accent-colored action on a page
+   (e.g. "Submit Proposal"). Disabled state keeps the shape but drops to
+   chrome fill so it reads as "not ready yet" rather than broken. */
+.btn-accent {
+  background-color: var(--accent);
+  color: #fff;
+  transition: background-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out),
+              transform var(--dur-fast) var(--ease-out);
+}
+.btn-accent:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+}
+.btn-accent:active:not(:disabled) {
+  transform: scale(0.98);
+}
+.btn-accent:disabled {
+  background-color: var(--chrome-fill);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
 /* Theme picker row items — circular, CSS-only hover/active */
 .theme-picker-item {
   background-color: transparent;
