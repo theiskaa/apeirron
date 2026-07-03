@@ -455,22 +455,24 @@ body {
 /* Floating surface — blurred, bordered, shadowed. For navbar + modals. */
 .chrome-surface {
   background-color: var(--chrome-bg);
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   border: 1px solid var(--chrome-border);
 }
 
-/* Open-node tab pill — a frosted near-solid panel (same blur as the navbar pill)
-   carrying its node's color (--tc) as a faint tint that deepens on hover/active,
-   with a subtle neutral (grey) hairline that firms up slightly on the active tab. */
+/* Open-node tab pill — a near-solid panel carrying its node's color (--tc) as
+   a faint tint that deepens on hover/active, with a subtle neutral (grey)
+   hairline that firms up slightly on the active tab. Deliberately NO
+   backdrop-filter: the tab bar's overflow fade is an ancestor mask-image, and
+   in Chromium a backdrop-filtered child escapes that mask — the tabs would
+   render hard-cut at the bar's edges. The scrim behind the bar already frosts
+   whatever scrolls beneath. */
 .tab {
   background-color: color-mix(in srgb, var(--surface-elevated) 94%, transparent);
   background-image: linear-gradient(
     color-mix(in srgb, var(--tc) 8%, transparent),
     color-mix(in srgb, var(--tc) 8%, transparent)
   );
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 9%, transparent);
   transition: background-image var(--dur-fast) var(--ease-out),
               box-shadow var(--dur-fast) var(--ease-out),
@@ -491,12 +493,28 @@ body {
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 16%, transparent);
 }
 
-/* Navbar pill — a near-solid frosted panel (the generic chrome-bg is too
-   see-through in the light themes). Override bg + blur; no drop shadow. */
+/* Navbar pill — true frosted glass. Translucent enough that content ghosts
+   through (the old 98% fill read as a flat opaque bar), with a blur radius
+   high enough that what shows through is a soft tonal wash, never legible
+   letterforms, and a soft lift shadow to separate it from what scrolls behind.
+   When backdrop-filter is unavailable (old engines, macOS Reduce
+   Transparency), fall back to a near-solid fill so text never bleeds through
+   sharply. */
 .navbar-pill {
-  background-color: color-mix(in srgb, var(--surface-elevated) 98%, transparent);
-  backdrop-filter: blur(18px) saturate(180%);
-  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background-color: color-mix(in srgb, var(--surface-elevated) 76%, transparent);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  backdrop-filter: blur(32px) saturate(180%);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 8px 24px rgba(0, 0, 0, 0.06);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .navbar-pill {
+    background-color: color-mix(in srgb, var(--surface-elevated) 97%, transparent);
+  }
+  .tab {
+    background-color: color-mix(in srgb, var(--surface-elevated) 96%, transparent);
+  }
 }
 
 @media (min-width: 640px) {
@@ -510,18 +528,35 @@ body {
    masked so it fades out below the header rather than cutting a hard edge. The
    caller positions it (absolute, full-width, pointer-events-none, below the navbar). */
 .header-scrim {
-  /* A gradient fade: content dissolves into the page background as it scrolls up
-     to the floating navbar/tabs, so it never reads sharply behind the header.
-     This is reliable in every browser — unlike backdrop-filter, which can't blur
-     the scroll content here (it lives inside an opaque, overflow-hidden layer).
-     The caller sizes this to cover only the navbar + tab bar. */
+  /* Progressive frost, iOS large-title style: two stacked backdrop-blur bands
+     (strong at the top, soft in the middle) whose masks fade out downward, so
+     content dissolves into blur with no hard edge — plus a faint background
+     tint on the element itself so the very top stays anchored to the page
+     color. The caller sizes this to cover only the navbar + tab bar. */
   background: linear-gradient(
     to bottom,
-    color-mix(in srgb, var(--background) 84%, transparent) 0%,
-    color-mix(in srgb, var(--background) 76%, transparent) 60%,
-    color-mix(in srgb, var(--background) 38%, transparent) 88%,
+    color-mix(in srgb, var(--background) 64%, transparent) 0%,
+    color-mix(in srgb, var(--background) 30%, transparent) 55%,
     transparent 100%
   );
+}
+.header-scrim::before,
+.header-scrim::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+.header-scrim::before {
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  backdrop-filter: blur(16px) saturate(150%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 32%, transparent 72%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 32%, transparent 72%);
+}
+.header-scrim::after {
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  mask-image: linear-gradient(to bottom, transparent 30%, #000 55%, transparent 94%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 30%, #000 55%, transparent 94%);
 }
 
 /* Filled primary-action button — the one accent-colored action on a page

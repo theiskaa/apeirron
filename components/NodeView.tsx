@@ -334,9 +334,12 @@ export default function NodeView({
                       onClick={() => handleTocClick(item.id)}
                       style={{
                         color: activeId === item.id ? "var(--text-primary)" : "rgba(144,144,160,0.45)",
+                        borderLeft: `2px solid ${
+                          activeId === item.id ? node.color : "transparent"
+                        }`,
                       }}
                       className={`text-left w-full text-[11px] leading-snug py-[3px] transition-colors ${
-                        item.level === 3 ? "pl-3" : ""
+                        item.level === 3 ? "pl-5" : "pl-2.5"
                       }`}
                       onMouseEnter={(e) => e.currentTarget.style.color = "var(--text-primary)"}
                       onMouseLeave={(e) => e.currentTarget.style.color = activeId === item.id ? "var(--text-primary)" : "rgba(144,144,160,0.45)"}
@@ -370,6 +373,7 @@ export default function NodeView({
                 key={node.id}
                 src={audioUrl}
                 peaksUrl={`/audio-peaks/${node.id}.json`}
+                accent={node.color}
                 onStart={() => {
                   setStarted(true); // engage follow-mode wrapping on first play
                   track(node.id, "listen");

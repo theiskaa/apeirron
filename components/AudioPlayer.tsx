@@ -4,8 +4,10 @@ import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 /**
  * The narration player shown on a node page when a published Kokoro MP3 exists.
- * Monochrome by design — it uses the theme's text/background tokens so it reads
- * the same across all four themes. The waveform is the real amplitude of the
+ * Chrome is monochrome (theme text/background tokens) so it reads the same
+ * across all four themes; the played portion of the waveform carries the node's
+ * category color — the same accent the tabs and follow-mode highlight use.
+ * The waveform is the real amplitude of the
  * recording (precomputed peaks + exact duration served as a tiny JSON, so nothing
  * decodes audio in the browser). The audio file isn't fetched until play.
  *
@@ -36,6 +38,8 @@ interface PeakData {
 interface Props {
   src: string;
   peaksUrl: string;
+  /** Node category color — tints the played portion of the waveform. */
+  accent?: string;
   onStart?: () => void;
   /** Hands the shared <audio> element to the parent (for the follow-along mode). */
   onAudioElement?: (el: HTMLAudioElement | null) => void;
@@ -52,10 +56,12 @@ const Bars = memo(function Bars({
   peaks,
   pMin,
   pRange,
+  color = "var(--text-primary)",
 }: {
   peaks: number[];
   pMin: number;
   pRange: number;
+  color?: string;
 }) {
   return (
     <div className="flex items-center gap-px sm:gap-[2px] w-full h-full">
@@ -66,7 +72,7 @@ const Bars = memo(function Bars({
           style={{
             minWidth: 0,
             height: `${(0.14 + 0.86 * ((p - pMin) / pRange)) * 100}%`,
-            backgroundColor: "var(--text-primary)",
+            backgroundColor: color,
           }}
         />
       ))}
@@ -80,6 +86,7 @@ const BASE =
 export default function AudioPlayer({
   src,
   peaksUrl,
+  accent,
   onStart,
   onAudioElement,
   onToggleFollow,
@@ -224,12 +231,12 @@ export default function AudioPlayer({
         <div
           className="absolute inset-0"
           style={{
-            opacity: 0.92,
+            opacity: accent ? 1 : 0.92,
             clipPath: `inset(0 ${clipRight}% 0 0)`,
             transition: "clip-path 110ms linear",
           }}
         >
-          <Bars peaks={peaks} pMin={pMin} pRange={pRange} />
+          <Bars peaks={peaks} pMin={pMin} pRange={pRange} color={accent} />
         </div>
         <input
           type="range"
@@ -335,12 +342,17 @@ export default function AudioPlayer({
       </div>
 
       {/* Docked bar — always mounted, fixed; only opacity/transform toggle, so it
-          never reflows the article or interrupts momentum scrolling. */}
+          never reflows the article or interrupts momentum scrolling. Frosted:
+          it floats over article text, so it blurs what passes beneath it. */}
       <div
         aria-hidden={!docked}
         className={`${BASE} fixed z-30`}
         style={{
           ...surface,
+          backgroundColor:
+            "color-mix(in srgb, var(--surface-elevated) 82%, transparent)",
+          backdropFilter: "blur(20px) saturate(180%)",
+          WebkitBackdropFilter: "blur(20px) saturate(180%)",
           left: box.left,
           width: box.width,
           maxWidth: "36rem", // == the inline player's max-w-xl; never stretch wider
