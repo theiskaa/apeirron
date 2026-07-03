@@ -50,8 +50,8 @@ uv run python generate.py ../content/nodes/consciousness.md consciousness.mp3
 # 3. upload it to R2 and add the node to the manifest (needs R2 access — maintainers)
 uv run python publish.py consciousness
 
-# 4. commit the manifest and redeploy so the site shows the player
-git add public/audio-manifest.json && git commit -m "feat(audio): narrate consciousness"
+# 4. commit the manifest + waveform and redeploy so the site shows the player
+git add public/audio-manifest.json public/audio-peaks/ && git commit -m "feat(audio): narrate consciousness"
 ```
 
 Choose a narrator with `--voice` (suggested: `am_michael` (default), `am_puck`, `bm_daniel`, `bm_fable`, `bm_lewis`); run `generate.py --list-voices` to see them all. Anyone can generate and listen locally; only publishing (step 3) needs access to the project's R2 bucket.

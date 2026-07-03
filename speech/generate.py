@@ -32,6 +32,7 @@ import os
 os.environ.setdefault("PYTORCH_ENABLE_MPS_FALLBACK", "1")
 
 import argparse
+import json
 
 import numpy as np
 import soundfile as sf
@@ -97,6 +98,18 @@ def synthesize(md_file_path: str, voice: str, device: str = "cpu"):
 
 
 BITRATE = 64  # kbps, mono — ample for speech, ~0.5 MB/min
+PEAK_COUNT = 120  # waveform resolution shown in the site's player
+
+
+def compute_peaks(audio: np.ndarray, count: int = PEAK_COUNT) -> list:
+    """Downsample the waveform to `count` normalized RMS peaks (0..1)."""
+    seg = max(1, len(audio) // count)
+    vals = []
+    for i in range(count):
+        chunk = audio[i * seg : (i + 1) * seg]
+        vals.append(float(np.sqrt(np.mean(np.square(chunk)))) if len(chunk) else 0.0)
+    peak = max(vals) or 1.0
+    return [round(v / peak, 3) for v in vals]
 
 
 def encode_mp3(audio: np.ndarray, sample_rate: int) -> bytes:
@@ -129,6 +142,13 @@ def generate_podcast_audio(
 
     duration = len(audio) / SAMPLE_RATE
     print(f"> saved {output_path} ({duration / 60:.1f} min)")
+
+    # Sidecar the waveform peaks + exact duration for the site's player, so it
+    # renders the waveform and correct length without decoding audio in-browser.
+    peaks_path = os.path.splitext(output_path)[0] + ".peaks.json"
+    with open(peaks_path, "w", encoding="utf-8") as f:
+        json.dump({"duration": round(duration, 2), "peaks": compute_peaks(audio)}, f)
+    print(f"> wrote {peaks_path}")
 
 
 if __name__ == "__main__":

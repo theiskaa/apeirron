@@ -15,6 +15,7 @@ public/audio-manifest.json and redeploy so the site picks up the node.
 
 import argparse
 import json
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -22,6 +23,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parent
 MANIFEST = REPO / "public" / "audio-manifest.json"
+PEAKS_DIR = REPO / "public" / "audio-peaks"
 BUCKET = "apeirron-audio"
 
 
@@ -63,6 +65,17 @@ def main():
         ],
         check=True,
     )
+
+    # The waveform sidecar (written by generate.py) is committed to the site so
+    # the player renders instantly; the MP3 lives in R2, this stays in git.
+    peaks_src = mp3.parent / (mp3.stem + ".peaks.json")
+    if peaks_src.exists():
+        PEAKS_DIR.mkdir(parents=True, exist_ok=True)
+        dest = PEAKS_DIR / f"{args.node_id}.json"
+        shutil.copyfile(peaks_src, dest)
+        print(f"> wrote waveform to {dest.relative_to(REPO)}")
+    else:
+        print(f"> [warning]: no {peaks_src.name}; player will show a flat waveform")
 
     if update_manifest(args.node_id):
         print(f"> added '{args.node_id}' to {MANIFEST.relative_to(REPO)}")
