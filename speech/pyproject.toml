@@ -8,6 +8,9 @@ dependencies = [
     "misaki[en]",
     "soundfile",
     "lameenc",
+    # misaki's English G2P loads this spaCy model at runtime; pin it so uv sync
+    # keeps it (otherwise it gets pruned and synthesis breaks / re-downloads).
+    "en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl",
 ]
 
 [tool.uv]
