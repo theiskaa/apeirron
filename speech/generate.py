@@ -7,17 +7,17 @@ the machine the way the old XTTS pipeline did. Kokoro uses built-in preset voice
 it does not clone a reference recording. (Pass --device mps to try the Apple GPU,
 though for a model this small the CPU is as fast and simpler.)
 
-Usage (run from this directory):
-    uv run python kokoro_gen.py <input.md> <output.wav> [--voice am_michael]
+Usage (run from this directory) — writes MP3 (or WAV if the path ends in .wav):
+    uv run python generate.py <input.md> <output.mp3> [--voice am_michael]
 
 Example:
-    uv run python kokoro_gen.py ../content/nodes/consciousness.md consciousness.wav
+    uv run python generate.py ../content/nodes/consciousness.md consciousness.mp3
 
 Suggested voices (male narrators):
     am_michael (default), am_puck, bm_daniel, bm_fable, bm_lewis
 
 List all voices:
-    uv run python kokoro_gen.py --list-voices
+    uv run python generate.py --list-voices
 
 Requires the espeak-ng system package (brew install espeak-ng) for pronunciation
 fallback. The model weights download automatically from Hugging Face on first run.
@@ -33,6 +33,7 @@ import argparse
 
 import numpy as np
 import soundfile as sf
+import lameenc
 import torch
 from kokoro import KPipeline
 
@@ -53,14 +54,31 @@ def clean_markdown(md_content: str) -> str:
     # Strip YAML frontmatter (the --- ... --- block at the top) so the metadata
     # is not read aloud.
     text = re.sub(r"\A\s*---\s*\n.*?\n---\s*\n", "", text, count=1, flags=re.DOTALL)
-    text = re.sub(r"\[\[.*?\]\]", "", text)
-    text = re.sub(r"\[\^.*?\s*\]", "", text)
-    text = re.sub(r"^(#{1,6})\s*", " ", text, flags=re.MULTILINE)
-    text = re.sub(r"\n\s*[-*_]{3,}\s*\n", "\n", text)
-    text = re.sub(r"(\*\*|__|\*|_)", " ", text)
-    text = re.sub(r"\[.*?\]\(.*?\)", "", text)
-    text = re.sub(r"\s+", " ", text).strip()
-    return text
+    # Drop the Sources / bibliography section (always the last heading). Reading
+    # citations, volume/page numbers, and URLs aloud makes for poor narration.
+    text = re.sub(
+        r"\n#{1,6}\s*Sources\b.*\Z", "", text, flags=re.DOTALL | re.IGNORECASE
+    )
+    # Wikilinks [[node-id]] render as the linked node's title on the site; for
+    # speech, read the id as words (e.g. [[hard-problem]] -> "hard problem")
+    # instead of deleting it and losing the word from the sentence.
+    text = re.sub(
+        r"\[\[([^\]]+)\]\]",
+        lambda m: m.group(1).split("|")[-1].replace("-", " "),
+        text,
+    )
+    text = re.sub(r"\[\^.*?\s*\]", "", text)  # footnote markers
+    # Redundant symbol glosses like "phi (Φ)": the Greek letter is spoken as the
+    # same word again ("phi phi"), so drop the parenthesized symbol.
+    text = re.sub(r"\s*\([Ͱ-Ͽ]+\)", "", text)
+    text = re.sub(r"^(#{1,6})\s*", " ", text, flags=re.MULTILINE)  # headings
+    text = re.sub(r"\n\s*[-*_]{3,}\s*\n", "\n", text)  # horizontal rules
+    text = re.sub(r"(\*\*|__|\*|_)", " ", text)  # bold / italic markers
+    text = re.sub(r"\[.*?\]\(.*?\)", "", text)  # [text](url) links
+    text = re.sub(r"\s*—\s*", ", ", text)  # em dash -> spoken pause
+    text = re.sub(r"\s+", " ", text)  # collapse whitespace
+    text = re.sub(r"\s+([,.;:!?])", r"\1", text)  # tidy space-before-punctuation
+    return text.strip()
 
 
 def to_numpy(audio) -> np.ndarray:
@@ -69,25 +87,24 @@ def to_numpy(audio) -> np.ndarray:
     return np.asarray(audio, dtype=np.float32)
 
 
-def generate_podcast_audio(
-    md_file_path: str, output_wav_path: str, voice: str, device: str
-):
-    print("=" * 40)
-    print("> starting Kokoro TTS generation")
-    print("=" * 40)
+def synthesize(md_file_path: str, voice: str, device: str = "cpu"):
+    """Render a node's Markdown to a mono float32 waveform, or None on failure.
 
+    Shared by the WAV command-line path (generate_podcast_audio) and publish.py,
+    which encodes the returned array straight to MP3.
+    """
     try:
         with open(md_file_path, "r", encoding="utf-8") as f:
             raw_markdown = f.read()
         print(f"> loaded content from: {md_file_path}")
     except FileNotFoundError:
         print(f"\n> [error]: input markdown file not found at '{md_file_path}'")
-        return
+        return None
 
     clean_text = clean_markdown(raw_markdown)
     if not clean_text:
         print("\n> [warning]: no readable text remained after cleaning markdown")
-        return
+        return None
     print(f"> markdown cleaned ({len(clean_text.split())} words)")
 
     lang_code = "b" if voice.startswith("b") else "a"
@@ -107,12 +124,44 @@ def generate_podcast_audio(
 
     if not chunks:
         print("\n> [error]: model produced no audio")
+        return None
+
+    return np.concatenate(chunks)
+
+
+BITRATE = 64  # kbps, mono — ample for speech, ~0.5 MB/min
+
+
+def encode_mp3(audio: np.ndarray, sample_rate: int) -> bytes:
+    pcm = (np.clip(audio, -1.0, 1.0) * 32767.0).astype("<i2")
+    encoder = lameenc.Encoder()
+    encoder.set_bit_rate(BITRATE)
+    encoder.set_in_sample_rate(sample_rate)
+    encoder.set_channels(1)
+    encoder.set_quality(2)  # 2 = high quality
+    return encoder.encode(pcm.tobytes()) + encoder.flush()
+
+
+def generate_podcast_audio(
+    md_file_path: str, output_path: str, voice: str, device: str
+):
+    print("=" * 40)
+    print("> starting Kokoro TTS generation")
+    print("=" * 40)
+
+    audio = synthesize(md_file_path, voice, device)
+    if audio is None:
         return
 
-    audio = np.concatenate(chunks)
-    sf.write(output_wav_path, audio, SAMPLE_RATE)
+    # MP3 by default (what ships to the web); WAV only if explicitly requested.
+    if output_path.lower().endswith(".wav"):
+        sf.write(output_path, audio, SAMPLE_RATE)
+    else:
+        with open(output_path, "wb") as f:
+            f.write(encode_mp3(audio, SAMPLE_RATE))
+
     duration = len(audio) / SAMPLE_RATE
-    print(f"> podcast audio saved to {output_wav_path} ({duration/60:.1f} min)")
+    print(f"> saved {output_path} ({duration / 60:.1f} min)")
 
 
 if __name__ == "__main__":
@@ -120,7 +169,7 @@ if __name__ == "__main__":
         description="Generate podcast audio from a markdown article using Kokoro TTS."
     )
     parser.add_argument("md_file_path", type=str, nargs="?")
-    parser.add_argument("output_wav_path", type=str, nargs="?")
+    parser.add_argument("output_path", type=str, nargs="?")
     parser.add_argument(
         "--voice",
         type=str,
@@ -144,9 +193,7 @@ if __name__ == "__main__":
             print(f"{group}: {', '.join(names)}")
         raise SystemExit(0)
 
-    if not args.md_file_path or not args.output_wav_path:
-        parser.error("md_file_path and output_wav_path are required")
+    if not args.md_file_path or not args.output_path:
+        parser.error("md_file_path and output_path are required")
 
-    generate_podcast_audio(
-        args.md_file_path, args.output_wav_path, args.voice, args.device
-    )
+    generate_podcast_audio(args.md_file_path, args.output_path, args.voice, args.device)
