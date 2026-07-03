@@ -6,6 +6,7 @@ import Link from "next/link";
 import type { GraphNode, GraphLink, ReadNextData } from "@/lib/types";
 import { buildRoadmapOrder } from "@/lib/roadmap";
 import { track } from "@/lib/analytics";
+import { nodeAudioUrl } from "@/lib/audio";
 
 const MiniGraph = dynamic(() => import("./MiniGraph"), { ssr: false });
 
@@ -214,6 +215,10 @@ export default function NodeView({
     []
   );
 
+  // Pre-generated Kokoro narration for this node (served from R2), if one has
+  // been published; otherwise the meta row falls back to browser speech synthesis.
+  const audioUrl = nodeAudioUrl(node.id);
+
   return (
     <div ref={scrollRef} className="h-full overflow-y-auto panel-scroll">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-8 flex gap-0">
@@ -266,12 +271,20 @@ export default function NodeView({
             updatedAt={node.updatedAt}
             listen={
               mainHtml ? (
-                <ListenButton
-                  key={node.id}
-                  title={node.title}
-                  html={mainHtml}
-                  onStart={() => track(node.id, "listen")}
-                />
+                audioUrl ? (
+                  <AudioListen
+                    key={node.id}
+                    src={audioUrl}
+                    onStart={() => track(node.id, "listen")}
+                  />
+                ) : (
+                  <ListenButton
+                    key={node.id}
+                    title={node.title}
+                    html={mainHtml}
+                    onStart={() => track(node.id, "listen")}
+                  />
+                )
               ) : null
             }
           />
@@ -958,6 +971,85 @@ function ListenButton({
 
   return (
     <span className="inline-flex items-center gap-1.5">
+      <button
+        type="button"
+        onClick={toggle}
+        aria-label={label}
+        className="inline-flex items-center gap-1 text-text-muted/70 hover:text-text-primary transition-colors"
+      >
+        {state === "playing" ? (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <rect x="6" y="5" width="4" height="14" rx="1" />
+            <rect x="14" y="5" width="4" height="14" rx="1" />
+          </svg>
+        ) : (
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M8 5.14v13.72a1 1 0 0 0 1.54.84l10.29-6.86a1 1 0 0 0 0-1.68L9.54 4.3A1 1 0 0 0 8 5.14Z" />
+          </svg>
+        )}
+        <span>{label}</span>
+      </button>
+      {state !== "idle" && (
+        <button
+          type="button"
+          onClick={stop}
+          aria-label="Stop"
+          className="inline-flex items-center text-text-muted/50 hover:text-text-primary transition-colors"
+        >
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <rect x="6" y="6" width="12" height="12" rx="1" />
+          </svg>
+        </button>
+      )}
+    </span>
+  );
+}
+
+// Plays a pre-generated narration file (Kokoro MP3 from R2). Mirrors
+// ListenButton's controls, but drives a native <audio> element instead of the
+// browser's speech synthesis, so the voice is the natural one we published.
+function AudioListen({
+  src,
+  onStart,
+}: {
+  src: string;
+  onStart?: () => void;
+}) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [state, setState] = useState<"idle" | "playing" | "paused">("idle");
+
+  const toggle = useCallback(() => {
+    const el = audioRef.current;
+    if (!el) return;
+    if (state === "playing") {
+      el.pause();
+      setState("paused");
+      return;
+    }
+    if (state === "idle") onStart?.();
+    void el.play();
+    setState("playing");
+  }, [state, onStart]);
+
+  const stop = useCallback(() => {
+    const el = audioRef.current;
+    if (!el) return;
+    el.pause();
+    el.currentTime = 0;
+    setState("idle");
+  }, []);
+
+  const label =
+    state === "playing" ? "Pause" : state === "paused" ? "Resume" : "Listen";
+
+  return (
+    <span className="inline-flex items-center gap-1.5">
+      <audio
+        ref={audioRef}
+        src={src}
+        preload="none"
+        onEnded={() => setState("idle")}
+      />
       <button
         type="button"
         onClick={toggle}
