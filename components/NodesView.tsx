@@ -821,6 +821,9 @@ export default function NodesView({
         </div>
       </div>
 
+      {/* iOS-style scrim: frosts the list as it scrolls behind the floating navbar. */}
+      <div className="header-scrim absolute top-0 left-0 right-0 z-10 pointer-events-none h-[calc(env(safe-area-inset-top)_+_96px)] sm:h-[calc(env(safe-area-inset-top)_+_112px)]" />
+
       {/* Float the navbar over the scrolling content (matches the graph) rather
           than reserving a solid band above it, which read as a seam cutting the
           page. pointer-events handled per-child. */}

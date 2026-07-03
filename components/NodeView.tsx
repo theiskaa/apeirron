@@ -158,7 +158,7 @@ export default function NodeView({
           .filter(Boolean) as HTMLElement[];
 
         const scrollTop = scroll.scrollTop;
-        const offset = 120;
+        const offset = 136;
 
         // Reached the end of the article → count it as a read (deduped).
         if (scrollTop + scroll.clientHeight >= scroll.scrollHeight - 80) {
@@ -222,10 +222,10 @@ export default function NodeView({
 
   return (
     <div ref={scrollRef} className="h-full overflow-y-auto panel-scroll">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-8 flex gap-0">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 pt-[var(--article-header)] pb-8 flex gap-0">
         {tocItems.length > 0 && (
           <nav className="hidden xl:block w-52 2xl:w-60 shrink-0 pt-20 pr-6">
-            <div className="sticky top-8">
+            <div className="sticky top-[calc(var(--article-header)_+_16px)]">
               <ul className="space-y-0.5">
                 {tocItems.map((item) => (
                   <li key={item.id}>

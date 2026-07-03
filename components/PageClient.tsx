@@ -412,7 +412,7 @@ export default function PageClient({
           padding clears the header (navbar + tabs) so content isn't hidden. */}
       {activeNode && !showGraph && (
         <div className="absolute inset-0 z-10 bg-background overflow-hidden">
-          <div className="h-full pt-[calc(env(safe-area-inset-top)_+_68px)] sm:pt-[calc(env(safe-area-inset-top)_+_116px)]">
+          <div className="h-full">
             <NodeView
               node={activeNode}
               contentHtml={contentCache.get(activeNode.id) ?? ""}
@@ -433,6 +433,8 @@ export default function PageClient({
               onNodeClick={handleNodeClick}
             />
           </div>
+          {/* iOS-style scrim frosting the article as it scrolls behind the header. */}
+          <div className="header-scrim absolute top-0 left-0 right-0 z-10 pointer-events-none h-[var(--article-header)]" />
         </div>
       )}
 
