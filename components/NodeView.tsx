@@ -438,7 +438,7 @@ function PhantomNodeView({
                   </span>
                 </span>
                 <span
-                  className="block text-[11px] leading-relaxed mt-1 pl-[14px]"
+                  className="block text-[11px] leading-relaxed mt-1"
                   style={{ color: "var(--text-muted)" }}
                 >
                   {r.reason}
@@ -626,7 +626,7 @@ function ConnectionReasons({
               </span>
             </span>
             <span
-              className="block text-[11px] leading-relaxed mt-1 pl-[14px]"
+              className="block text-[11px] leading-relaxed mt-1"
               style={{ color: "var(--text-muted)" }}
             >
               {r.reason}
