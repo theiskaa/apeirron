@@ -1,3 +1,8 @@
+# local scratch / planning notes — never commit these to the repo
+/seo.md
+/tasks.md
+/topics.md
+
 # dependencies
 /node_modules
 /.pnp
