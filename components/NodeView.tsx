@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useCallback, useRef, useEffect, useMemo, useState, type CSSProperties, type RefObject } from "react";
+import { memo, useCallback, useLayoutEffect, useRef, useEffect, useMemo, useState, type CSSProperties, type RefObject } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import type { GraphNode, GraphLink, ReadNextData } from "@/lib/types";
@@ -8,7 +8,13 @@ import { buildRoadmapOrder } from "@/lib/roadmap";
 import { track } from "@/lib/analytics";
 import { nodeAudioUrl, nodeTimingsUrl, type NodeTimings } from "@/lib/audio";
 import { useAudioFollow } from "@/lib/useAudioFollow";
+import { getPosition, savePosition } from "@/lib/positions";
 import AudioPlayer from "./AudioPlayer";
+
+// useLayoutEffect on the client (restore scroll before paint, no flash), plain
+// useEffect on the server (React warns that layout effects do nothing in SSR).
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 const MiniGraph = dynamic(() => import("./MiniGraph"), { ssr: false });
 
@@ -117,14 +123,7 @@ export default function NodeView({
   }, [handleContentClick]);
 
   useEffect(() => {
-    if (scrollRef.current) scrollRef.current.scrollTop = 0;
     setActiveId(null);
-  }, [node.id]);
-
-  // Anonymous, first-party read analytics (no cookies/PII — see lib/analytics).
-  // `track` dedupes per session, so view/read/listen each count once per node.
-  useEffect(() => {
-    track(node.id, "view");
   }, [node.id]);
 
   const { mainHtml, sourcesHtml } = useMemo(() => {
@@ -140,6 +139,50 @@ export default function NodeView({
     }
     return { mainHtml: html, sourcesHtml: "" };
   }, [contentHtml]);
+
+  // Restore the saved reading position per node. Runs before paint (no flash).
+  // While content is still loading we park at the top and wait; once the prose
+  // is in the DOM we jump to the saved offset exactly once per node.
+  const scrollRestoredRef = useRef<string | null>(null);
+  useIsoLayoutEffect(() => {
+    const scroll = scrollRef.current;
+    if (!scroll || scrollRestoredRef.current === node.id) return;
+    if (!mainHtml) {
+      scroll.scrollTop = 0; // loading — top; the real restore fires when ready
+      return;
+    }
+    scroll.scrollTop = getPosition(node.id)?.scroll ?? 0;
+    scrollRestoredRef.current = node.id;
+  }, [node.id, mainHtml]);
+
+  // Persist the reading position as the reader scrolls (rAF-throttled). Gated on
+  // the restore having happened so we never overwrite the saved offset with the
+  // transient 0 shown before restore.
+  useEffect(() => {
+    const scroll = scrollRef.current;
+    if (!scroll) return;
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        if (scrollRestoredRef.current === node.id) {
+          savePosition(node.id, { scroll: scroll.scrollTop });
+        }
+      });
+    };
+    scroll.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      scroll.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [node.id]);
+
+  // Anonymous, first-party read analytics (no cookies/PII — see lib/analytics).
+  // `track` dedupes per session, so view/read/listen each count once per node.
+  useEffect(() => {
+    track(node.id, "view");
+  }, [node.id]);
 
   // Count a "read" once the reader dwells ~30s on a node with real content.
   // The scroll-to-end check below also fires "read"; `track` dedupes either way.
@@ -327,6 +370,8 @@ export default function NodeView({
                 onAudioElement={handleAudioElement}
                 onToggleFollow={timings ? toggleFollow : undefined}
                 follow={follow}
+                initialTime={getPosition(node.id)?.audio}
+                onTime={(s) => savePosition(node.id, { audio: s })}
               />
             </div>
           )}

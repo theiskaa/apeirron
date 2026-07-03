@@ -9,6 +9,7 @@ import NodeView from "./NodeView";
 import { type CommandAction } from "./CommandPalette";
 import { useSearch } from "./SearchProvider";
 import { readStoredTabs, writeStoredTabs } from "@/lib/tabs";
+import { flushPositions } from "@/lib/positions";
 
 const Graph = dynamic(() => import("./Graph"), { ssr: false });
 
@@ -147,6 +148,20 @@ export default function PageClient({
     () => tabs.find((t) => t.id === activeTabId) ?? GRAPH_TAB,
     [tabs, activeTabId]
   );
+
+  // Flush any pending scroll/audio positions before the page is hidden or
+  // unloaded, so a hard reload/reopen restores the very latest place.
+  useEffect(() => {
+    const onHide = () => {
+      if (document.visibilityState === "hidden") flushPositions();
+    };
+    window.addEventListener("pagehide", flushPositions);
+    document.addEventListener("visibilitychange", onHide);
+    return () => {
+      window.removeEventListener("pagehide", flushPositions);
+      document.removeEventListener("visibilitychange", onHide);
+    };
+  }, []);
 
   const activeNode = useMemo(() => {
     if (activeTab.type !== "node" || !activeTab.nodeId) return null;

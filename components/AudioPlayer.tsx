@@ -42,6 +42,10 @@ interface Props {
   /** When provided, renders the "text follows audio" toggle. */
   onToggleFollow?: () => void;
   follow?: boolean;
+  /** Resume point (seconds) — restores the playback position for this node. */
+  initialTime?: number;
+  /** Reports the current playback time so the position can be persisted. */
+  onTime?: (seconds: number) => void;
 }
 
 const Bars = memo(function Bars({
@@ -80,10 +84,15 @@ export default function AudioPlayer({
   onAudioElement,
   onToggleFollow,
   follow,
+  initialTime,
+  onTime,
 }: Props) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const inlineRef = useRef<HTMLDivElement>(null);
   const startedRef = useRef(false);
+  // Resume point to seek to once the media has metadata (preload="none" means it
+  // has none until first play). Consumed on loadedmetadata, then cleared.
+  const pendingSeekRef = useRef(initialTime && initialTime > 0 ? initialTime : 0);
 
   const [playing, setPlaying] = useState(false);
   const [current, setCurrent] = useState(0);
@@ -98,6 +107,15 @@ export default function AudioPlayer({
     onAudioElement?.(audioRef.current);
     return () => onAudioElement?.(null);
   }, [onAudioElement]);
+
+  // Reflect the saved resume point in the UI on mount (waveform fill + time
+  // readout), so the reader sees where they left off before pressing play. Done
+  // in an effect (not initial state) so server and client first render match.
+  useEffect(() => {
+    if (initialTime && initialTime > 0) setCurrent(initialTime);
+    // AudioPlayer is remounted per node (key={node.id}), so mount-only is right.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     let alive = true;
@@ -166,7 +184,10 @@ export default function AudioPlayer({
   const fraction = duration > 0 ? Math.min(1, current / duration) : 0;
   const clipRight = ((1 - fraction) * 100).toFixed(2);
   const speed = SPEEDS[speedIndex];
-  const docked = playing && !inlineVisible;
+  // Dock the bar whenever the inline player is scrolled off AND audio is engaged
+  // (playing OR paused mid-track / resumable). So pausing while scrolled down no
+  // longer hides the controls — you can still resume from the docked bar.
+  const docked = !inlineVisible && (playing || current > 0);
 
   // The controls (play + waveform + time + speed), rendered in both the inline
   // player and the docked bar. Both drive the single shared <audio> via audioRef.
@@ -280,14 +301,31 @@ export default function AudioPlayer({
         ref={audioRef}
         src={src}
         preload="none"
-        onTimeUpdate={(e) => setCurrent(e.currentTarget.currentTime)}
+        onTimeUpdate={(e) => {
+          const t = e.currentTarget.currentTime;
+          setCurrent(t);
+          onTime?.(t);
+        }}
+        onLoadedMetadata={(e) => {
+          // First load after a resume: seek to the saved point (clamped) so
+          // pressing play continues from where the reader left off.
+          const el = e.currentTarget;
+          const seek = pendingSeekRef.current;
+          if (seek > 0 && isFinite(el.duration)) {
+            el.currentTime = Math.min(seek, el.duration - 0.25);
+            pendingSeekRef.current = 0;
+          }
+        }}
         onDurationChange={(e) => {
           if (!data && isFinite(e.currentTarget.duration)) {
             setData({ duration: e.currentTarget.duration, peaks: [] });
           }
         }}
         onPlay={() => setPlaying(true)}
-        onPause={() => setPlaying(false)}
+        onPause={(e) => {
+          setPlaying(false);
+          onTime?.(e.currentTarget.currentTime); // persist immediately on pause
+        }}
         onEnded={() => setPlaying(false)}
       />
 

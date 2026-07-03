@@ -160,7 +160,7 @@ export function useAudioFollow({
       if (span) reveal(span, true);
     };
 
-    const paint = (forceScroll = false) => {
+    const paint = ({ force = false, noScroll = false } = {}) => {
       const idx = activeIndex(boundaries, audioEl.currentTime);
       const changed = idx !== current;
       if (changed) {
@@ -169,8 +169,8 @@ export function useAudioFollow({
         current = idx;
       }
       const span = spans[idx];
-      if (span && (forceScroll || (followingRef.current && changed))) {
-        reveal(span, forceScroll);
+      if (!noScroll && span && (force || (followingRef.current && changed))) {
+        reveal(span, force);
       }
     };
 
@@ -194,7 +194,7 @@ export function useAudioFollow({
     // highlight (and view) to the new position.
     const onSeeked = () => {
       setFollow(true);
-      paint(true);
+      paint({ force: true });
     };
     // Click a word → seek there. Skip links/headings, which have their own
     // click behavior (navigate / scroll-to-heading) in NodeView.
@@ -205,7 +205,7 @@ export function useAudioFollow({
       if (idx < 0) return;
       setFollow(true);
       audioEl.currentTime = boundaries[idx];
-      paint(true);
+      paint({ force: true });
     };
 
     audioEl.addEventListener("play", start);
@@ -216,7 +216,7 @@ export function useAudioFollow({
     scroller?.addEventListener("touchmove", onUserScroll, { passive: true });
     content.addEventListener("click", onClick);
 
-    paint(); // reflect current position immediately on enable
+    paint({ noScroll: true }); // reflect current word without moving the view
     if (!audioEl.paused) start();
 
     return () => {
