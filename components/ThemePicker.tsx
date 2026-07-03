@@ -152,7 +152,7 @@ export default function ThemePicker() {
       <button
         ref={triggerRef}
         onClick={() => setOpen((v) => !v)}
-        className="nav-action h-7 w-7 sm:h-8 sm:w-8"
+        className="nav-action h-8 w-8"
         aria-label="Change theme"
         aria-haspopup="menu"
         aria-expanded={open}

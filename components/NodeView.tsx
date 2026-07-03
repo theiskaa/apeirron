@@ -222,7 +222,7 @@ export default function NodeView({
 
   return (
     <div ref={scrollRef} className="h-full overflow-y-auto panel-scroll">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 py-8 flex gap-0">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-12 py-8 flex gap-0">
         {tocItems.length > 0 && (
           <nav className="hidden xl:block w-52 2xl:w-60 shrink-0 pt-20 pr-6">
             <div className="sticky top-8">

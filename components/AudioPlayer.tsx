@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 /**
  * The narration player shown on a node page when a published Kokoro MP3 exists.
@@ -9,9 +9,13 @@ import { useCallback, useEffect, useRef, useState } from "react";
  * recording (precomputed peaks + exact duration served as a tiny JSON, so nothing
  * decodes audio in the browser). The audio file isn't fetched until play.
  *
- * While it's playing and the reader has scrolled the inline player out of view,
- * it docks to a fixed pill at the bottom of the screen so playback stays
- * reachable. A placeholder holds the inline space so the article doesn't jump.
+ * The bars are rendered once (memoized) as two stacked layers — a dim base and a
+ * bright "played" copy revealed by a clip-path — so a time update only changes one
+ * clip value, never 120 elements. That keeps scrolling-while-playing smooth.
+ *
+ * While playing and scrolled out of view, the player docks to a fixed pill pinned
+ * to the bottom, kept at the article's horizontal position (measured), not the
+ * viewport center. A placeholder holds the inline space so the article doesn't jump.
  */
 
 const SPEEDS = [1, 1.25, 1.5, 2];
@@ -35,6 +39,33 @@ interface Props {
   onStart?: () => void;
 }
 
+// The waveform bars themselves — memoized so time updates never re-render them.
+const Bars = memo(function Bars({
+  peaks,
+  pMin,
+  pRange,
+}: {
+  peaks: number[];
+  pMin: number;
+  pRange: number;
+}) {
+  return (
+    <div className="flex items-center gap-px sm:gap-[2px] w-full h-full">
+      {peaks.map((p, i) => (
+        <div
+          key={i}
+          className="flex-1 rounded-full"
+          style={{
+            minWidth: 0,
+            height: `${(0.14 + 0.86 * ((p - pMin) / pRange)) * 100}%`,
+            backgroundColor: "var(--text-primary)",
+          }}
+        />
+      ))}
+    </div>
+  );
+});
+
 export default function AudioPlayer({ src, peaksUrl, onStart }: Props) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -46,7 +77,8 @@ export default function AudioPlayer({ src, peaksUrl, onStart }: Props) {
   const [data, setData] = useState<PeakData | null>(null);
   const [speedIndex, setSpeedIndex] = useState(0);
   const [inlineVisible, setInlineVisible] = useState(true);
-  const [inlineHeight, setInlineHeight] = useState(0);
+  const [box, setBox] = useState({ left: 0, width: 0, height: 0 });
+  const [dockAnim, setDockAnim] = useState(false);
 
   useEffect(() => {
     let alive = true;
@@ -59,8 +91,7 @@ export default function AudioPlayer({ src, peaksUrl, onStart }: Props) {
     };
   }, [peaksUrl]);
 
-  // Track whether the inline slot is on screen (accounting for the floating
-  // header), so the player can dock to the bottom while playing off-screen.
+  // Is the inline slot on screen (accounting for the floating header)?
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
@@ -74,11 +105,32 @@ export default function AudioPlayer({ src, peaksUrl, onStart }: Props) {
 
   const docked = playing && !inlineVisible;
 
-  // Measure the inline height while docked so the placeholder reserves the space.
+  // Measure the inline slot's box so the docked pill can sit at the article's
+  // horizontal position (not centered) and the placeholder can reserve height.
   useEffect(() => {
-    if (!docked && playerRef.current) {
-      setInlineHeight(playerRef.current.offsetHeight);
+    const measure = () => {
+      const el = wrapRef.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      setBox({
+        left: r.left,
+        width: r.width,
+        height: playerRef.current?.offsetHeight ?? r.height,
+      });
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  // Slide/fade the docked pill in on the frame after it mounts.
+  useEffect(() => {
+    if (!docked) {
+      setDockAnim(false);
+      return;
     }
+    const id = requestAnimationFrame(() => setDockAnim(true));
+    return () => cancelAnimationFrame(id);
   }, [docked]);
 
   const toggle = useCallback(() => {
@@ -105,27 +157,39 @@ export default function AudioPlayer({ src, peaksUrl, onStart }: Props) {
 
   const peaks = data?.peaks?.length ? data.peaks : PLACEHOLDER;
   const duration = data?.duration || 0;
-  const pMin = Math.min(...peaks);
-  const pRange = Math.max(...peaks) - pMin || 1;
+  const { pMin, pRange } = useMemo(() => {
+    const min = Math.min(...peaks);
+    return { pMin: min, pRange: Math.max(...peaks) - min || 1 };
+  }, [peaks]);
   const fraction = duration > 0 ? Math.min(1, current / duration) : 0;
-  const litCount = Math.round(fraction * peaks.length);
+  const clipRight = ((1 - fraction) * 100).toFixed(2);
   const speed = SPEEDS[speedIndex];
 
   const base =
     "flex items-center gap-2.5 sm:gap-3.5 rounded-full py-1.5 pl-1.5 pr-3 sm:py-2 sm:pl-2 sm:pr-3.5";
-  const cls = docked
-    ? `${base} fixed bottom-4 left-1/2 -translate-x-1/2 z-30 w-[calc(100%-1.5rem)] max-w-xl`
-    : `${base} w-full max-w-xl`;
+  const cls = docked ? `${base} fixed z-30` : `${base} w-full max-w-xl`;
 
   return (
-    <div ref={wrapRef} style={docked ? { minHeight: inlineHeight } : undefined}>
+    <div ref={wrapRef} style={docked ? { minHeight: box.height } : undefined}>
       <div
         ref={playerRef}
         className={cls}
         style={{
           backgroundColor: "var(--surface)",
           border: "1px solid var(--border-subtle)",
-          ...(docked ? { boxShadow: "var(--chrome-shadow)" } : {}),
+          ...(docked
+            ? {
+                left: box.left,
+                width: box.width,
+                bottom: "calc(env(safe-area-inset-bottom) + 1rem)",
+                boxShadow: "var(--chrome-shadow)",
+                willChange: "transform",
+                opacity: dockAnim ? 1 : 0,
+                transform: dockAnim ? "translateY(0)" : "translateY(8px)",
+                transition:
+                  "transform var(--dur-base) var(--ease-out), opacity var(--dur-base) var(--ease-out)",
+              }
+            : {}),
         }}
       >
         <audio
@@ -167,22 +231,21 @@ export default function AudioPlayer({ src, peaksUrl, onStart }: Props) {
           )}
         </button>
 
-        {/* Real-amplitude waveform. min-w-0 lets it shrink instead of overflowing
-            on narrow screens; the transparent range input handles drag + keyboard. */}
-        <div className="relative flex-1 min-w-0 h-6 sm:h-7 flex items-center gap-px sm:gap-[2px]">
-          {peaks.map((p, i) => (
-            <div
-              key={i}
-              className="flex-1 rounded-full"
-              style={{
-                minWidth: 0,
-                height: `${(0.14 + 0.86 * ((p - pMin) / pRange)) * 100}%`,
-                backgroundColor: "var(--text-primary)",
-                opacity: i < litCount ? 0.92 : 0.2,
-                transition: "opacity 90ms linear",
-              }}
-            />
-          ))}
+        {/* Waveform: dim base + bright played copy revealed by clip-path. */}
+        <div className="relative flex-1 min-w-0 h-6 sm:h-7">
+          <div className="absolute inset-0" style={{ opacity: 0.2 }}>
+            <Bars peaks={peaks} pMin={pMin} pRange={pRange} />
+          </div>
+          <div
+            className="absolute inset-0"
+            style={{
+              opacity: 0.92,
+              clipPath: `inset(0 ${clipRight}% 0 0)`,
+              transition: "clip-path 110ms linear",
+            }}
+          >
+            <Bars peaks={peaks} pMin={pMin} pRange={pRange} />
+          </div>
           <input
             type="range"
             min={0}

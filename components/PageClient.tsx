@@ -412,7 +412,7 @@ export default function PageClient({
           padding clears the header (navbar + tabs) so content isn't hidden. */}
       {activeNode && !showGraph && (
         <div className="absolute inset-0 z-10 bg-background overflow-hidden">
-          <div className="h-full pt-[104px] sm:pt-[116px]">
+          <div className="h-full pt-[calc(env(safe-area-inset-top)_+_68px)] sm:pt-[calc(env(safe-area-inset-top)_+_116px)]">
             <NodeView
               node={activeNode}
               contentHtml={contentCache.get(activeNode.id) ?? ""}
@@ -445,18 +445,22 @@ export default function PageClient({
           articleInset={!showGraph && !!activeNode}
         />
         {hasNodeTabs && (
-          <TabBar
-            tabs={tabs}
-            activeTabId={activeTabId}
-            nodes={
-              graphData?.nodes ??
-              initialNeighbors?.nodes ??
-              (initialNode ? [initialNode] : [])
-            }
-            onSelectTab={handleSelectTab}
-            onCloseTab={handleCloseTab}
-            articleInset={!showGraph && !!activeNode}
-          />
+          // On phones, hide the tab bar while reading an article to reclaim
+          // vertical space (the wordmark still returns to the graph).
+          <div className={!showGraph && activeNode ? "hidden sm:block" : undefined}>
+            <TabBar
+              tabs={tabs}
+              activeTabId={activeTabId}
+              nodes={
+                graphData?.nodes ??
+                initialNeighbors?.nodes ??
+                (initialNode ? [initialNode] : [])
+              }
+              onSelectTab={handleSelectTab}
+              onCloseTab={handleCloseTab}
+              articleInset={!showGraph && !!activeNode}
+            />
+          </div>
         )}
       </div>
 
