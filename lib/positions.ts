@@ -57,9 +57,11 @@ function scheduleFlush(): void {
   flushTimer = setTimeout(flush, FLUSH_DELAY);
 }
 
-/** The saved position for a node, or undefined if none. */
+/** The saved position for a node, or undefined if none. Returns a copy so the
+ *  internal cache can't be mutated by callers. */
 export function getPosition(nodeId: string): NodePosition | undefined {
-  return load()[nodeId];
+  const p = load()[nodeId];
+  return p ? { ...p } : undefined;
 }
 
 /** Merge a partial position for a node (in-memory now, persisted debounced). */

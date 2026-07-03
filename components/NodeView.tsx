@@ -66,10 +66,13 @@ export default function NodeView({
 
   // "Text follows audio" reading mode. `follow` is the user's persisted
   // preference; the mode only actually engages once this node's word timings
-  // have loaded. `audioEl` is the shared <audio> handed up by the player.
+  // have loaded AND playback has started. `audioEl` is the shared <audio> handed
+  // up by the player. Gating on `started` means pure readers never pay the cost
+  // of wrapping every word in a span — that only happens on first play.
   const [follow, setFollow] = useState(true);
   const [audioEl, setAudioEl] = useState<HTMLAudioElement | null>(null);
   const [timings, setTimings] = useState<NodeTimings | null>(null);
+  const [started, setStarted] = useState(false);
 
   useEffect(() => {
     setFollow(localStorage.getItem("apeirron:follow") !== "off");
@@ -124,6 +127,7 @@ export default function NodeView({
 
   useEffect(() => {
     setActiveId(null);
+    setStarted(false); // each node begins un-played (defers word wrapping)
   }, [node.id]);
 
   const { mainHtml, sourcesHtml } = useMemo(() => {
@@ -307,7 +311,7 @@ export default function NodeView({
   }, [node.id, audioUrl]);
 
   const { following, refocus } = useAudioFollow({
-    enabled: follow && !!timings,
+    enabled: follow && !!timings && started,
     audioEl,
     timings,
     contentRef,
@@ -315,7 +319,7 @@ export default function NodeView({
     nodeId: node.id,
     contentReady: !!mainHtml,
   });
-  const showRefocus = follow && !!timings && !following;
+  const showRefocus = follow && !!timings && started && !following;
 
   return (
     <div ref={scrollRef} className="h-full overflow-y-auto panel-scroll">
@@ -366,7 +370,10 @@ export default function NodeView({
                 key={node.id}
                 src={audioUrl}
                 peaksUrl={`/audio-peaks/${node.id}.json`}
-                onStart={() => track(node.id, "listen")}
+                onStart={() => {
+                  setStarted(true); // engage follow-mode wrapping on first play
+                  track(node.id, "listen");
+                }}
                 onAudioElement={handleAudioElement}
                 onToggleFollow={timings ? toggleFollow : undefined}
                 follow={follow}

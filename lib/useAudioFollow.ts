@@ -174,8 +174,14 @@ export function useAudioFollow({
       }
     };
 
+    // Suppress auto-scroll on the very first paint after playback starts: on a
+    // resume the audio's currentTime is briefly 0 before loadedmetadata seeks to
+    // the saved point, and we don't want that transient word-0 to yank the view
+    // to the top. The resume seek's `seeked` handler snaps to the real word.
+    let primed = false;
     const loop = () => {
-      paint();
+      paint(primed ? {} : { noScroll: true });
+      primed = true;
       raf = requestAnimationFrame(loop);
     };
     const start = () => {
