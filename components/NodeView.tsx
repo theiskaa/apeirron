@@ -622,7 +622,7 @@ function PhantomNodeView({
 
   return (
     <div className="h-full overflow-y-auto panel-scroll">
-      <div className="max-w-[720px] mx-auto px-6 lg:px-12 py-8">
+      <div className="max-w-[720px] mx-auto px-6 lg:px-12 pt-[var(--article-header)] pb-12">
         <div className="flex items-center gap-3 mb-8">
           <h1
             className="text-[2rem] sm:text-[2.4rem] leading-[1.05] tracking-tight text-text-primary"
@@ -718,6 +718,7 @@ function PhantomNodeView({
             allNodes={allNodes}
             allLinks={links}
             onNodeClick={onNodeClick}
+            interactive={false}
           />
           {referencedByList}
         </div>

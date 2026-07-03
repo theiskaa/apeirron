@@ -11,6 +11,13 @@ interface Props {
   allNodes: GraphNode[];
   allLinks: GraphLink[];
   onNodeClick: (nodeId: string) => void;
+  /**
+   * Whether the canvas captures zoom/pan/drag gestures. Default true. Set false
+   * when the graph sits inline in a scrollable page (e.g. the phantom-node view)
+   * so wheel/touch pass through to page scroll instead of zooming the graph —
+   * node click + hover still work for navigation.
+   */
+  interactive?: boolean;
 }
 
 export default function MiniGraph({
@@ -18,6 +25,7 @@ export default function MiniGraph({
   allNodes,
   allLinks,
   onNodeClick,
+  interactive = true,
 }: Props) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const fgRef = useRef<any>(null);
@@ -323,9 +331,9 @@ export default function MiniGraph({
         d3VelocityDecay={0.3}
         nodeId="id"
         nodeVal="val"
-        enableZoomInteraction={true}
-        enablePanInteraction={true}
-        enableNodeDrag={true}
+        enableZoomInteraction={interactive}
+        enablePanInteraction={interactive}
+        enableNodeDrag={interactive}
       />
     </div>
   );
