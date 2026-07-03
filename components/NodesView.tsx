@@ -335,11 +335,6 @@ export default function NodesView({
                     onClick={() => handleTocClick(`category-${category.id}`)}
                     className="chrome inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] text-text-secondary"
                   >
-                    <span
-                      className="inline-block w-1.5 h-1.5 rounded-full"
-                      style={{ backgroundColor: category.color }}
-                      aria-hidden="true"
-                    />
                     {category.label}
                     <span className="text-text-muted/60 tabular-nums">
                       {nodes.length}
@@ -394,11 +389,6 @@ export default function NodesView({
                         }}
                         className="flex items-center gap-2 text-left w-full text-[12px] leading-snug py-[3px] transition-colors hover:!text-text-primary"
                       >
-                        <span
-                          className="inline-block w-1.5 h-1.5 rounded-full shrink-0"
-                          style={{ backgroundColor: "var(--text-muted)" }}
-                          aria-hidden="true"
-                        />
                         <span className="flex-1">Books</span>
                         <span className="text-text-muted/60 tabular-nums text-[10px]">
                           {volumes.length}
@@ -420,11 +410,6 @@ export default function NodesView({
                           }}
                           className="flex items-center gap-2 text-left w-full text-[12px] leading-snug py-[3px] transition-colors hover:!text-text-primary"
                         >
-                          <span
-                            className="inline-block w-1.5 h-1.5 rounded-full shrink-0"
-                            style={{ backgroundColor: category.color }}
-                            aria-hidden="true"
-                          />
                           <span className="flex-1">{category.label}</span>
                           <span className="text-text-muted/60 tabular-nums text-[10px]">
                             {nodes.length}
@@ -597,11 +582,6 @@ export default function NodesView({
                           className="flex items-center gap-1.5 text-[9px] uppercase tracking-[0.18em] mb-2"
                           style={{ color: category.color }}
                         >
-                          <span
-                            className="inline-block w-1.5 h-1.5 rounded-full"
-                            style={{ backgroundColor: category.color }}
-                            aria-hidden="true"
-                          />
                           {category.label}
                         </span>
                         <h3
@@ -736,11 +716,6 @@ export default function NodesView({
                           className="flex items-center gap-1.5 text-[9px] uppercase tracking-[0.18em] mb-1.5"
                           style={{ color: node.categoryColor }}
                         >
-                          <span
-                            className="inline-block w-1.5 h-1.5 rounded-full"
-                            style={{ backgroundColor: node.categoryColor }}
-                            aria-hidden="true"
-                          />
                           {node.categoryLabel}
                         </span>
                         <h3
@@ -810,11 +785,6 @@ export default function NodesView({
                             "1px solid color-mix(in srgb, var(--text-primary) 8%, transparent)",
                         }}
                       >
-                        <span
-                          className="inline-block w-1.5 h-1.5 rounded-full shrink-0 translate-y-[-1px]"
-                          style={{ backgroundColor: node.categoryColor }}
-                          aria-hidden="true"
-                        />
                         <span
                           className="text-[14px] leading-snug text-text-secondary group-hover:text-text-primary transition-colors decoration-1 underline-offset-2 group-hover:underline"
                           style={SERIF}

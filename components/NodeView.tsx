@@ -254,11 +254,6 @@ export default function NodeView({
             className="flex items-center gap-1.5 text-[10px] uppercase tracking-[0.18em] mb-3"
             style={{ color: node.color }}
           >
-            <span
-              className="inline-block w-1.5 h-1.5 rounded-full"
-              style={{ backgroundColor: node.color }}
-              aria-hidden="true"
-            />
             {formatCategoryLabel(node.category)}
           </span>
           <h1
@@ -429,11 +424,6 @@ function PhantomNodeView({
                 className="group block rounded-lg px-3 py-2.5 -mx-3 transition-all duration-200 hover:bg-[color-mix(in_srgb,var(--text-primary)_5%,transparent)]"
               >
                 <span className="flex items-center gap-2">
-                  <span
-                    className="inline-block w-1.5 h-1.5 rounded-full shrink-0"
-                    style={{ backgroundColor: r.color, opacity: 0.85 }}
-                    aria-hidden="true"
-                  />
                   <span
                     className="flex-1 text-[13px] leading-snug text-text-primary group-hover:underline decoration-1 underline-offset-2"
                     style={{ fontFamily: "var(--font-serif)", fontWeight: 700 }}
@@ -623,11 +613,6 @@ function ConnectionReasons({
           >
             <span className="flex items-center gap-2">
               <span
-                className="inline-block w-1.5 h-1.5 rounded-full shrink-0"
-                style={{ backgroundColor: r.color, opacity: 0.85 }}
-                aria-hidden="true"
-              />
-              <span
                 className="flex-1 text-[13px] leading-snug text-text-primary group-hover:underline decoration-1 underline-offset-2"
                 style={{ fontFamily: "var(--font-serif)", fontWeight: 700 }}
               >
@@ -744,10 +729,6 @@ function ReadNext({
           )}
         </div>
         <div className="flex items-center gap-3">
-          <span
-            className="w-2 h-2 rounded-full shrink-0"
-            style={{ backgroundColor: next.node.color }}
-          />
           <span className="text-[15px] font-medium text-text-primary group-hover:text-text-primary/90 transition-colors">
             {next.node.title}
           </span>

@@ -87,12 +87,6 @@ export default function CategoryPicker({ categories, value, onChange }: Props) {
         onClick={() => setOpen((v) => !v)}
         className="flex items-center gap-1.5 group"
       >
-        {value && (
-          <span
-            className="w-2 h-2 rounded-full"
-            style={{ backgroundColor: displayColor }}
-          />
-        )}
         <span
           className="text-xs font-medium"
           style={{ color: value ? displayColor : "var(--text-muted)" }}
@@ -129,10 +123,6 @@ export default function CategoryPicker({ categories, value, onChange }: Props) {
                         : "hover:bg-black/[0.04] dark:hover:bg-white/[0.06]"
                     }`}
                   >
-                    <span
-                      className="w-2 h-2 rounded-full shrink-0"
-                      style={{ backgroundColor: c.color }}
-                    />
                     <span className="text-[13px] text-text-primary">
                       {c.label}
                     </span>

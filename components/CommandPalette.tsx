@@ -397,10 +397,6 @@ function NodeRow({
       }}
     >
       <span
-        className="w-2 h-2 rounded-full shrink-0"
-        style={{ backgroundColor: node.color }}
-      />
-      <span
         className="text-[13px] truncate"
         style={{
           color: selected ? "var(--text-primary)" : "var(--text-secondary)",
@@ -438,10 +434,6 @@ function BrowseGroups({
       {groups.map((group) => (
         <div key={group.label}>
           <div className="flex items-center gap-2 px-4 pt-3 pb-1">
-            <span
-              className="w-1.5 h-1.5 rounded-full"
-              style={{ backgroundColor: group.color }}
-            />
             <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-text-muted">
               {group.label}
             </span>

@@ -141,10 +141,6 @@ export default function NotFoundView({ pool }: Props) {
                       prefetch={false}
                       className="group inline-flex items-center gap-2 text-[13px] text-text-secondary transition-colors hover:!text-text-primary"
                     >
-                      <span
-                        className="inline-block w-1.5 h-1.5 rounded-full shrink-0"
-                        style={{ backgroundColor: n.color }}
-                      />
                       <span className="decoration-1 underline-offset-[3px] group-hover:underline">
                         {n.title}
                       </span>
