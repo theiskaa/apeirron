@@ -157,6 +157,18 @@ export default function PageClient({
     );
   }, [activeTab, graphData, initialNeighbors, initialNode]);
 
+  // Invariant: whenever a node tab is active, its content must be fetched. This
+  // covers every activation path — tab click, closing a tab (which activates a
+  // neighbor), and session restore — not just the navigation callbacks. Without
+  // it, switching to a tab whose content isn't cached yet (e.g. one restored
+  // from a previous session) renders the "Couldn't load content" empty state.
+  // ensureContentLoaded is a no-op when already cached or in flight.
+  useEffect(() => {
+    if (activeTab.type === "node" && activeTab.nodeId) {
+      ensureContentLoaded(activeTab.nodeId);
+    }
+  }, [activeTab, ensureContentLoaded]);
+
   const hasNodeTabs = tabs.some((t) => t.type === "node");
 
   const prevUrl = useRef(typeof window !== "undefined" ? window.location.pathname : "/");
