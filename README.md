@@ -24,6 +24,42 @@ The same content is also available as a typeset edition: seven EPUB and PDF volu
 <a href="books/apeirron-mind.pdf"><img src="public/books/cover-mind.png" alt="Mind" width="110"></a> <a href="books/apeirron-origins.pdf"><img src="public/books/cover-origins.png" alt="Origins" width="110"></a> <a href="books/apeirron-cosmos.pdf"><img src="public/books/cover-cosmos.png" alt="Cosmos" width="110"></a> <a href="books/apeirron-power.pdf"><img src="public/books/cover-power.png" alt="Power" width="110"></a> <a href="books/apeirron-operations.pdf"><img src="public/books/cover-operations.png" alt="Operations" width="110"></a> <a href="books/apeirron-modern.pdf"><img src="public/books/cover-modern.png" alt="Modern" width="110"></a> <a href="books/apeirron-reality.pdf"><img src="public/books/cover-reality.png" alt="Reality" width="110"></a>
 
 
+## Audio narration
+
+Every node can be narrated. The [`speech/`](./speech) directory holds a small local text-to-speech pipeline built on [Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) (Apache-2.0): it normalizes a node's Markdown into clean, speakable prose and reads it in a natural voice. Synthesis runs locally on the CPU — no API keys, no cost, and no text ever leaves your machine — and the 82M model generates roughly 12× faster than real-time.
+
+Published narrations are stored as MP3s in a Cloudflare R2 bucket, served from `audio.apeirron.com` — **not** committed to git. A node page shows a **Listen** player automatically once the node's id appears in [`public/audio-manifest.json`](./public/audio-manifest.json); nodes without a published file fall back to the browser's built-in speech synthesis.
+
+### Setup
+
+```bash
+cd speech
+brew install espeak-ng        # system dependency for pronunciation
+uv sync                       # installs Kokoro + the spaCy model (en_core_web_sm)
+```
+
+### Generate and publish
+
+```bash
+# 1. preview exactly what will be spoken — fast, no synthesis (catches bad text)
+uv run python generate.py --check ../content/nodes/consciousness.md
+
+# 2. generate the MP3 locally and listen to it
+uv run python generate.py ../content/nodes/consciousness.md consciousness.mp3
+
+# 3. upload it to R2 and add the node to the manifest (needs R2 access — maintainers)
+uv run python publish.py consciousness
+
+# 4. commit the manifest and redeploy so the site shows the player
+git add public/audio-manifest.json && git commit -m "feat(audio): narrate consciousness"
+```
+
+Choose a narrator with `--voice` (suggested: `am_michael` (default), `am_puck`, `bm_daniel`, `bm_fable`, `bm_lewis`); run `generate.py --list-voices` to see them all. Anyone can generate and listen locally; only publishing (step 3) needs access to the project's R2 bucket.
+
+**Text normalization.** The cleaner ([`speech/clean.py`](./speech/clean.py)) strips frontmatter, the Sources bibliography, Markdown syntax and footnotes; turns `[[wikilinks]]` into spoken words; and fixes what the TTS model mis-reads (e.g. the Greek gloss in `phi (Φ)`, superscripts, `°C`). It intentionally leaves numbers, years, decades, currency, and initials alone — Kokoro's G2P already handles those — and it preserves paragraph breaks so Kokoro chunks sentences without breaking names at their middle initials.
+
+> **Gotcha — the Hugging Face network check.** On first run the model weights download from Hugging Face and are cached. After that, `huggingface_hub` still pings the Hub each run to check for updates — a metadata check about the public model only, never your content — which surfaces as a `unauthenticated requests to the HF Hub` warning. To skip it and run fully offline once the model is cached, prefix the command with `HF_HUB_OFFLINE=1` (the only catch: offline mode can't fetch a voice you haven't used before).
+
 ## Contributing
 
 Apeirron is open to contributions. You can:
