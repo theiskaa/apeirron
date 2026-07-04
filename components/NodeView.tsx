@@ -441,12 +441,16 @@ export default function NodeView({
             </div>
           )}
 
-          <ReadNext
-            nodeId={node.id}
-            allNodes={allNodes}
-            precomputed={readNext}
-            onNodeClick={onNodeClick}
-          />
+          {/* Only once the article is in — during loading it would float up
+              beside the skeleton as the first "real" content on the page. */}
+          {mainHtml && (
+            <ReadNext
+              nodeId={node.id}
+              allNodes={allNodes}
+              precomputed={readNext}
+              onNodeClick={onNodeClick}
+            />
+          )}
 
           <div className="clear-both" />
 
@@ -930,26 +934,38 @@ function formatCategoryLabel(id: string): string {
 }
 
 function ContentSkeleton() {
-  const widths = ["95%", "88%", "92%", "60%", "", "94%", "90%", "75%"];
+  // Paragraph-shaped placeholder lines. The root is a BFC (overflow-hidden) so
+  // the whole block narrows to sit beside the floated Connections panel the way
+  // real prose lines do — plain block divs would paint their backgrounds
+  // underneath the float. Pulse is killed by the global reduced-motion rule.
+  const paragraphs = [
+    ["100%", "97%", "94%", "62%"],
+    ["98%", "95%", "99%", "40%"],
+    ["96%", "100%", "93%", "71%"],
+    ["99%", "94%", "97%", "55%"],
+  ];
   return (
     <div
-      className="prose-apeirron select-none"
+      className="overflow-hidden animate-pulse select-none"
       role="status"
       aria-label="Loading content"
     >
-      {widths.map((w, i) => (
-        <div
-          key={i}
-          style={{
-            width: w || undefined,
-            height: w ? 12 : 24,
-            marginBottom: w ? 10 : 14,
-            backgroundColor: w
-              ? "color-mix(in srgb, var(--text-primary) 6%, transparent)"
-              : "transparent",
-            borderRadius: 4,
-          }}
-        />
+      {paragraphs.map((lines, pi) => (
+        <div key={pi} className="mb-7">
+          {lines.map((width, li) => (
+            <div
+              key={li}
+              style={{
+                width,
+                height: 13,
+                marginBottom: 12,
+                backgroundColor:
+                  "color-mix(in srgb, var(--text-primary) 6%, transparent)",
+                borderRadius: 4,
+              }}
+            />
+          ))}
+        </div>
       ))}
     </div>
   );
