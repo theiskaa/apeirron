@@ -1,0 +1,9 @@
+node_modules/
+out/
+public/
+*.mp4
+.remotion/
+.DS_Store
+
+# Auto-generated per node by `generate.mjs --check` (regenerable, not source).
+cues/

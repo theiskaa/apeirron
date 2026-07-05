@@ -1,0 +1,24 @@
+{
+  "name": "apeirron-video",
+  "private": true,
+  "type": "module",
+  "description": "Render a node's narrated Markdown into a YouTube-ready MP4, synced to the Kokoro word timings. Mirrors the speech/ pipeline.",
+  "scripts": {
+    "check": "node generate.mjs --check",
+    "studio": "remotion studio src/index.ts"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.0",
+    "@remotion/cli": "^4.0.0",
+    "@remotion/google-fonts": "^4.0.0",
+    "@remotion/renderer": "^4.0.0",
+    "gray-matter": "^4.0.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "typescript": "^5"
+  }
+}
