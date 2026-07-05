@@ -44,6 +44,6 @@ export function buildShortPlan(id, wantSlug) {
     duration: timings.duration,
     words: timings.words || [],
     images,
-    audioFile: null, // set by shortgen after staging into public/
+    audioFile: null, // set by the runner after staging into public/
   };
 }

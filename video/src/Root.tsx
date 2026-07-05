@@ -4,7 +4,7 @@ import { ShortVideo, type ShortPlan } from "./ShortVideo";
 const FPS = 30;
 
 // Placeholder so `remotion studio` opens without a short selected; the real data
-// is supplied by shortgen.mjs / preview.mjs as inputProps and overrides this.
+// is supplied by shorts.mjs as inputProps and overrides this.
 const PLACEHOLDER: ShortPlan = {
   id: "placeholder",
   slug: "preview",
