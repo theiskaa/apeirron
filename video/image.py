@@ -2,9 +2,9 @@
 # requires-python = ">=3.11"
 # dependencies = ["diffusers", "torch", "torchvision", "transformers", "accelerate", "safetensors", "pillow"]
 # ///
-# Full-bleed illustration generator for the vertical shorts. SDXL-Turbo on Apple
-# Silicon (~1s each), rendered as a dramatic engraving and duotoned onto the reeed
-# paper so it fills the frame in-palette. No API keys.
+# Full-bleed illustration generator for the vertical shorts. FLUX.1-schnell on
+# Apple Silicon, rendered as a dramatic engraving and duotoned onto the reeed
+# paper so it fills the 9:16 frame in-palette. No API keys.
 #
 #   uv run image.py --prompts shorts/images/<id>-<slug>.json    # every cue → public/plates/
 #   uv run image.py "<prompt>" out.png                          # a single one
@@ -16,7 +16,7 @@ from pathlib import Path
 
 import torch
 from diffusers import FluxPipeline
-from PIL import Image, ImageOps, ImageFilter
+from PIL import Image, ImageOps
 
 HERE = Path(__file__).resolve().parent
 MODEL = "black-forest-labs/FLUX.1-schnell"
@@ -36,15 +36,16 @@ def load_pipe():
 
 
 def render(pipe, prompt, seed=7):
-    # Portrait 9:16 so the image is near-native resolution in the vertical frame
-    # (a square would be upscaled ~1.9x to cover 1080x1920 and look soft).
+    # Portrait 9:16, but kept near FLUX-schnell's ~1MP sweet spot (896x1568 =
+    # 1.4MP). Pushing to 1024x1792 (1.83MP) at 4 steps makes schnell fall apart
+    # into mush; a couple extra steps buys sharper line detail cheaply.
     g = torch.Generator("mps").manual_seed(seed)
     return pipe(
         prompt=f"{prompt}, {STYLE}",
-        num_inference_steps=4,
+        num_inference_steps=6,
         guidance_scale=0.0,
-        height=1792,
-        width=1024,
+        height=1568,
+        width=896,
         max_sequence_length=256,
         generator=g,
     ).images[0]
@@ -60,15 +61,9 @@ def to_full(img):
         r.append(round(INK[0] + (PAPER[0] - INK[0]) * t))
         g.append(round(INK[1] + (PAPER[1] - INK[1]) * t))
         b.append(round(INK[2] + (PAPER[2] - INK[2]) * t))
-    return upscale(gray.convert("RGB").point(r + g + b))
-
-
-def upscale(rgb, factor=2):
-    # 2x Lanczos + edge sharpen: crisp on high-DPI screens and gives headroom for
-    # the ken-burns zoom, so the line art never looks soft in the frame.
-    w, h = rgb.size
-    big = rgb.resize((w * factor, h * factor), Image.LANCZOS)
-    return big.filter(ImageFilter.UnsharpMask(radius=1.6, percent=130, threshold=1))
+    # No 2x upscale/heavy-sharpen: magnifying soft FLUX output just turns it
+    # crunchy. Keep the native pixels; the render supersamples at scale 1.5.
+    return gray.convert("RGB").point(r + g + b)
 
 
 def _slug(t):
@@ -102,20 +97,10 @@ def main():
     ap.add_argument("prompt", nargs="?")
     ap.add_argument("out", nargs="?")
     ap.add_argument("--prompts", metavar="FILE")
-    ap.add_argument("--upscale-existing", action="store_true",
-                    help="2x any already-generated plates that are still low-res")
     ap.add_argument("--seed", type=int, default=7)
     ap.add_argument("--force", action="store_true")
     args = ap.parse_args()
 
-    if args.upscale_existing:
-        for f in sorted((HERE / "public" / "plates").glob("*.png")):
-            im = Image.open(f)
-            if im.width < 1500:
-                upscale(im).save(f)
-                print(f"  upscaled {f.name}")
-        print("> done")
-        return
     if args.prompts:
         batch(args.prompts, args.seed, args.force)
         return
