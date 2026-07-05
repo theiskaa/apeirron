@@ -3,6 +3,7 @@ out/
 public/
 *.mp4
 .remotion/
+.preview-props.json
 .DS_Store
 
 # Auto-generated per node (regenerable, not source): cue sheets from --check,
