@@ -68,6 +68,12 @@ export interface Section {
   title: string;
   start: number;
 }
+export interface Shot {
+  time: number;
+  kind: string; // person | concept | scene | object | place
+  subject: string;
+  asset: string | null;
+}
 export interface NumberMomentData {
   value: string;
   unit: string;
@@ -84,6 +90,7 @@ export interface NodePlan {
   duration: number;
   sections: Section[];
   cues: Cue[];
+  shots: Shot[];
   numbers: NumberMomentData[];
   graph: Graph | null;
   words: Word[];
@@ -501,7 +508,12 @@ const SectionCard: React.FC<{
 
 const WINDOW = 2; // lines shown above/below the current one
 
-const Karaoke: React.FC<{ plan: NodePlan; sec: number }> = ({ plan, sec }) => {
+const Karaoke: React.FC<{
+  plan: NodePlan;
+  sec: number;
+  shiftX?: number;
+  maxWidth?: number;
+}> = ({ plan, sec, shiftX = 0, maxWidth = 1400 }) => {
   const lines = useMemo(() => buildLines(plan.words), [plan.words]);
   const active = activeWordIndex(plan.words, sec);
 
@@ -523,9 +535,15 @@ const Karaoke: React.FC<{ plan: NodePlan; sec: number }> = ({ plan, sec }) => {
 
   return (
     <AbsoluteFill
-      style={{ justifyContent: "center", alignItems: "center", padding: "0 260px" }}
+      style={{ justifyContent: "center", alignItems: "center", padding: "0 120px" }}
     >
-      <div style={{ maxWidth: 1400, width: "100%" }}>
+      <div
+        style={{
+          maxWidth,
+          width: "100%",
+          transform: `translateX(${shiftX}px)`,
+        }}
+      >
         {visible.map(({ line, i }) => {
           const dist = Math.abs(i - activeLine);
           const opacity = i === activeLine ? 1 : dist === 1 ? 0.45 : 0.2;
@@ -628,39 +646,91 @@ const Waveform: React.FC<{ plan: NodePlan; sec: number }> = ({ plan, sec }) => {
   );
 };
 
-// ── cued visual slot (inert until cues carry assets) ─────────────────────────
+// ── cinematic shot layer ─────────────────────────────────────────────────────
 
-const CueVisual: React.FC<{ plan: NodePlan; sec: number }> = ({ plan, sec }) => {
-  const withAsset = plan.cues.filter((c) => c.asset && c.time != null);
-  // Most recent cue whose asset is on screen (shown for 6s after it is named).
-  const current = withAsset
-    .filter((c) => c.time! <= sec && sec - c.time! < 6)
-    .pop();
-  if (!current || !current.asset) return null;
-  const local = sec - current.time!;
-  const opacity = interpolate(local, [0, 0.4, 5.4, 6], [0, 1, 1, 0], {
+const SHOT_DUR = 7.5; // seconds a shot holds on screen
+const SHOT_SHIFT = 300; // how far the reader slides to make room
+
+// The shot on screen at `sec` (most recent one with a plate, within its window),
+// plus its index (drives which side it takes) and how long it has been up.
+function currentShot(plan: NodePlan, sec: number) {
+  const withAsset = plan.shots.filter((s) => s.asset && s.time != null);
+  let idx = -1;
+  for (let i = 0; i < withAsset.length; i++) {
+    if (withAsset[i].time <= sec && sec - withAsset[i].time < SHOT_DUR) idx = i;
+  }
+  if (idx < 0) return null;
+  return { shot: withAsset[idx], index: idx, since: sec - withAsset[idx].time };
+}
+
+const shotOpacity = (since: number) =>
+  interpolate(since, [0, 0.5, SHOT_DUR - 0.7, SHOT_DUR], [0, 1, 1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
+
+const ShotVisual: React.FC<{
+  shot: Shot;
+  index: number;
+  since: number;
+  color: string;
+}> = ({ shot, index, since, color }) => {
+  if (!shot.asset) return null;
+  const side = index % 2 === 0 ? "right" : "left";
+  const opacity = shotOpacity(since);
+  // Slow Ken Burns: ease in a little scale + drift over the whole hold.
+  const scale = interpolate(since, [0, SHOT_DUR], [1.02, 1.11]);
+  const drift = interpolate(since, [0, SHOT_DUR], [12, -12]);
+  const isPerson = shot.kind === "person";
+
   return (
     <div
       style={{
         position: "absolute",
-        right: 90,
         top: "50%",
+        [side]: 130,
         transform: "translateY(-50%)",
+        width: 620,
         opacity,
-        width: 360,
-        height: 360,
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
-        justifyContent: "center",
+        gap: 22,
       }}
     >
-      <img
-        src={staticFile(current.asset)}
-        style={{ maxWidth: "100%", maxHeight: "100%" }}
-      />
+      <div
+        style={{
+          width: "100%",
+          height: 720,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          overflow: "hidden",
+        }}
+      >
+        <img
+          src={staticFile(shot.asset)}
+          style={{
+            maxWidth: "100%",
+            maxHeight: "100%",
+            transform: `scale(${scale}) translateY(${drift}px)`,
+          }}
+        />
+      </div>
+      <div
+        style={{
+          fontFamily: SANS,
+          fontSize: isPerson ? 27 : 21,
+          fontWeight: isPerson ? 700 : 600,
+          letterSpacing: isPerson ? 3 : 2,
+          textTransform: "uppercase",
+          color: isPerson ? color : COLORS.textMuted,
+          textAlign: "center",
+          maxWidth: 560,
+        }}
+      >
+        {shot.subject}
+      </div>
     </div>
   );
 };
@@ -709,14 +779,29 @@ const Body: React.FC<{ plan: NodePlan }> = ({ plan }) => {
       })
     : 0;
 
+  // Cinematic shot: a large illustration takes one side and the reader slides to
+  // the other. Suppressed while a section card or number moment owns the frame.
+  const shotState = !cardActive && !numMoment ? currentShot(plan, sec) : null;
+  const shotO = shotState ? shotOpacity(shotState.since) : 0;
+  const shotSide = shotState && shotState.index % 2 === 0 ? "right" : "left";
+  const shiftX = shotState ? shotO * SHOT_SHIFT * (shotSide === "right" ? -1 : 1) : 0;
+  const readerMaxW = interpolate(shotO, [0, 1], [1400, 840]);
+
   return (
     <AbsoluteFill>
       {plan.audioFile && <Audio src={staticFile(plan.audioFile)} />}
       <AbsoluteFill style={{ opacity: readerOpacity }}>
-        <Karaoke plan={plan} sec={sec} />
+        <Karaoke plan={plan} sec={sec} shiftX={shiftX} maxWidth={readerMaxW} />
       </AbsoluteFill>
       <NumberMoment plan={plan} sec={sec} />
-      <CueVisual plan={plan} sec={sec} />
+      {shotState && (
+        <ShotVisual
+          shot={shotState.shot}
+          index={shotState.index}
+          since={shotState.since}
+          color={plan.color}
+        />
+      )}
       {plan.graph && glow && (
         <ConnectionPanel
           from={plan.graph.nodes.find((n) => n.focal)!}

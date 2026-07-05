@@ -13,6 +13,7 @@ const PLACEHOLDER: NodePlan = {
   duration: 6,
   sections: [],
   cues: [],
+  shots: [],
   words: [
     ["Render", 0.4, 1.2],
     ["a", 1.2, 1.4],

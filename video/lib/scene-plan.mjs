@@ -16,9 +16,31 @@ import { extractCues } from "./cues.mjs";
 import { buildNeighborhood } from "./graph.mjs";
 import { detectNumbers } from "./numbers.mjs";
 
-const REPO = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
+const VIDEO = join(dirname(fileURLToPath(import.meta.url)), "..");
+const REPO = join(VIDEO, "..");
 
 const readJson = (p) => JSON.parse(readFileSync(p, "utf8"));
+
+// Must match image.py _slug() and generate.mjs slugify().
+const slug = (t) =>
+  t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+
+// Load the LLM-authored shot list (video/shots/<id>.json) and resolve each shot's
+// plate: asset is set only once its PNG exists in public/plates/, so the video
+// shows a shot only when it has been generated.
+function loadShots(id) {
+  const p = join(VIDEO, "shots", `${id}.json`);
+  if (!existsSync(p)) return [];
+  return (readJson(p).shots || []).map((s) => {
+    const rel = `plates/${slug(s.subject)}.png`;
+    return {
+      time: s.time,
+      kind: s.kind,
+      subject: s.subject,
+      asset: existsSync(join(VIDEO, "public", rel)) ? rel : null,
+    };
+  });
+}
 
 function nodeMeta(id, md) {
   const meta = readJson(join(REPO, "lib/generated/graph-metadata.json"));
@@ -91,6 +113,7 @@ export function buildScenePlan(id) {
     duration: timings.duration,
     sections: alignSections(md, words),
     cues: extractCues(md, words),
+    shots: loadShots(id),
     numbers: detectNumbers(words),
     graph: buildNeighborhood(id),
     words,

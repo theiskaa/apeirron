@@ -5,5 +5,7 @@ public/
 .remotion/
 .DS_Store
 
-# Auto-generated per node by `generate.mjs --check` (regenerable, not source).
+# Auto-generated per node (regenerable, not source): cue sheets from --check,
+# LLM-authored shot lists from shots.mjs.
 cues/
+shots/
