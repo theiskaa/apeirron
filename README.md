@@ -62,13 +62,13 @@ Choose a narrator with `--voice` (suggested: `am_michael` (default), `am_puck`, 
 
 ## Video
 
-Once a node is narrated, it can be turned into a YouTube-ready MP4. The [`video/`](./video) directory holds a [Remotion](https://remotion.dev) pipeline that renders a node as an illustrated, narrated film: word-synced "karaoke" typography over the narration, section cards on every heading, a live waveform, category-colored title and closing cards — and a layer of engraving-style illustrations that appear as each person, concept, and scene is spoken. It looks like the site because it reuses the same fonts and per-category accent color.
+Each node can be turned into 3–4 **vertical short-form videos** (YouTube Shorts / Reels / TikTok) — each a self-contained ~40s hook, not a clip of the essay. The [`video/`](./video) directory holds a [Remotion](https://remotion.dev) pipeline that renders each short as a 9:16 film: TikTok-style kinetic captions word-synced to a fresh narration, a montage of engraving-style illustrations that change as each moment is spoken, and an end card. It looks like the site because it reuses the same fonts and paper palette.
 
 Everything runs locally — no API keys. Three offline pieces feed it:
 
-- **Word timings** from the [`speech/`](./speech) (Kokoro) pipeline drive the typography and pin every element to its exact spoken moment.
-- **A local LLM via [Ollama](https://ollama.com)** reads the transcript and writes a *shot list* — the people, concepts, scenes and objects worth illustrating, each with a descriptive prompt and the phrase it lands on.
-- **[FLUX.1-schnell](https://huggingface.co/black-forest-labs/FLUX.1-schnell)** (Apache-2.0, ungated) generates each illustration locally on the Apple-Silicon GPU as an antique engraving, tinted to the node's color.
+- **A local LLM via [Ollama](https://ollama.com)** writes the punchy scripts (one gripping idea each, grounded in the node) and, per short, picks the drawable moments to illustrate.
+- **Word timings** from the [`speech/`](./speech) (Kokoro) pipeline narrate each script and pin every caption and illustration to its exact spoken moment.
+- **[FLUX.1-schnell](https://huggingface.co/black-forest-labs/FLUX.1-schnell)** (Apache-2.0, ungated) generates each illustration locally on the Apple-Silicon GPU as an antique engraving, duotoned onto the paper.
 
 ### Setup
 
@@ -77,38 +77,32 @@ cd video
 npm install                   # Remotion (downloads a headless Chromium once)
 ```
 
-The illustrations need two more local dependencies (skip them with `--no-images` for a typography-only video):
+Plus two local dependencies for the text and images:
 
 - **Ollama** — install it, start the server, and pull a model: `ollama pull qwen3.5:9b`.
 - **FLUX** needs nothing installed up front — `image.py` declares its Python deps inline (PEP&nbsp;723) and `uv` fetches them on first run. The weights (~30&nbsp;GB) download to the Hugging Face cache the first time; comfortable on 32&nbsp;GB+ of unified memory.
 
 ### Generate
 
-One command authors the shot list, generates any missing illustrations, and renders:
+One command takes a node all the way to finished MP4s in `video/out/`:
 
 ```bash
-node generate.mjs fermi-paradox fermi-paradox.mp4     # then upload the MP4 to YouTube
+node shorts.mjs fermi-paradox                # authors, narrates, illustrates, renders all 3–4
 ```
 
-It runs three **cached, resumable** stages — if it is interrupted, re-running the same command picks up where it left off:
-
-1. **Shot list** — `shots.mjs` asks Ollama for the illustration beats → `video/shots/<id>.json`.
-2. **Illustrations** — `image.py` generates the missing plates with FLUX (model loaded once) → `video/public/plates/`.
-3. **Render** — the 1920×1080 H.264 MP4, illustrations composited at their spoken moments.
+Every stage is **cached** — re-running skips work whose output already exists, so an interrupted run resumes and rerolls are cheap. Per short it runs: script → narration (Kokoro) → image cues (Ollama) → plates (FLUX) → 1620×2880 H.264 render.
 
 ### The stages on their own
 
 ```bash
-node generate.mjs --check fermi-paradox               # scene plan (sections + cues), no render
-node shots.mjs fermi-paradox --force                  # (re)author the shot list with Ollama
-uv run image.py --all fermi-paradox                   # generate every illustration, no render
-uv run image.py "a lone radio telescope" one.png --node fermi-paradox   # a single plate
-node generate.mjs fermi-paradox out.mp4 --no-images   # render fast, typography only
+node shorts.mjs fermi-paradox --scripts      # just author the scripts, then review them
+node shorts.mjs fermi-paradox <slug>         # build one short by slug (full chain)
+node shorts.mjs fermi-paradox --render-only  # skip regen, just re-render (after tweaking the composition)
+node shorts.mjs fermi-paradox --force        # redo every stage from scratch
+uv run image.py "a lone radio telescope" one.png   # a single plate, for testing prompts
 ```
 
-To reroll a weak illustration, delete its PNG from `video/public/plates/` and re-run — only that one regenerates (or pass `--force` to `image.py`).
-
-**Section cards** are placed automatically: `clean.py` keeps heading text, so every `##` heading is spoken and appears in the timings — the renderer matches each heading against the word stream to pin its exact on-screen moment.
+To reroll a weak illustration, delete its PNG from `video/public/plates/` and re-run — only that one regenerates.
 
 ## Contributing
 
