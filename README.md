@@ -60,6 +60,34 @@ Choose a narrator with `--voice` (suggested: `am_michael` (default), `am_puck`, 
 
 > **Gotcha — the Hugging Face network check.** On first run the model weights download from Hugging Face and are cached. After that, `huggingface_hub` still pings the Hub each run to check for updates — a metadata check about the public model only, never your content — which surfaces as a `unauthenticated requests to the HF Hub` warning. To skip it and run fully offline once the model is cached, prefix the command with `HF_HUB_OFFLINE=1` (the only catch: offline mode can't fetch a voice you haven't used before).
 
+## Video
+
+Once a node is narrated, it can be turned into a YouTube-ready MP4. The [`video/`](./video) directory holds a [Remotion](https://remotion.dev) pipeline that renders the node's text as animated, word-synced typography over its narration — a title card, "karaoke" reading where each word lights up exactly as it is spoken, section cards that appear on every heading, a live waveform, and a closing card. It looks like the site because it reuses the same fonts and the per-category accent color.
+
+It is a pure *consumer* of what the speech pipeline already produced: the per-word timings in [`public/audio-timings/`](./public/audio-timings) drive everything, so the video is deterministic — no model, no API keys. The narration MP3 is taken from a local `speech/<id>.mp3` if present, otherwise downloaded from `audio.apeirron.com`.
+
+### Setup
+
+```bash
+cd video
+npm install                   # installs Remotion (downloads a headless Chromium once)
+```
+
+### Preview and render
+
+```bash
+# 1. preview the scene plan — section timestamps + auto-extracted visual cues.
+#    Fast, no render; also writes video/cues/<id>.json.
+node generate.mjs --check fermi-paradox
+
+# 2. render the MP4 (1920x1080, H.264) — then upload it to YouTube by hand
+node generate.mjs fermi-paradox fermi-paradox.mp4
+```
+
+**Section cards** are placed automatically: `clean.py` keeps heading text, so every `##` heading is spoken and appears in the timings — the renderer matches each heading against the word stream to pin its exact on-screen moment.
+
+**Cue sheet (the hook for drawn visuals).** `--check` also writes `video/cues/<id>.json`: every `**bold**` term and `[[wikilink]]` in the node, each resolved to the second it is first spoken, with an empty `asset` slot. Today those slots are empty and the renderer ships pure typography; fill an `asset` (drop an image in `video/public/` and reference it) and that visual fades in on screen when the concept is named. Re-running `--check` refreshes the timings but never overwrites an `asset` you have set.
+
 ## Contributing
 
 Apeirron is open to contributions. You can:
