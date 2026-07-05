@@ -24,18 +24,19 @@ function rawTerms(md) {
 
   const terms = [];
   const seen = new Set();
-  const push = (display, kind) => {
+  const push = (display, kind, target = null) => {
     const key = display.toLowerCase().trim();
     if (!key || seen.has(key)) return;
     seen.add(key);
-    terms.push({ display: display.trim(), kind });
+    terms.push({ display: display.trim(), kind, target });
   };
 
   // [[node-id]] / [[node-id|Display]] — clean.py speaks the part after the pipe
-  // (or the id with dashes as spaces), so that is the phrase to match on.
+  // (or the id with dashes as spaces), so that is the phrase to match on. The
+  // part before the pipe is the target node id, used to light up the graph.
   for (const m of md.matchAll(/\[\[([^\]]+)\]\]/g)) {
     const spoken = m[1].split("|").pop().replace(/-/g, " ");
-    push(spoken, "link");
+    push(spoken, "link", m[1].split("|")[0].trim());
   }
   // **bold** — drop nested markup, skip trivially short marks.
   for (const m of body.matchAll(/\*\*([^*]+)\*\*/g)) {
@@ -48,9 +49,10 @@ function rawTerms(md) {
 export function extractCues(md, words) {
   const stream = words.map(([w, s]) => ({ norm: normalizeWord(w), start: s }));
   return rawTerms(md)
-    .map(({ display, kind }) => ({
+    .map(({ display, kind, target }) => ({
       term: display,
       kind,
+      target,
       time: firstSpokenTime(headingTokens(display), stream),
       asset: null,
     }))

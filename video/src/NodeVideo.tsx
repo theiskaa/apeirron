@@ -14,10 +14,12 @@ import { loadFont as loadSans } from "@remotion/google-fonts/Inter";
 import {
   COLORS,
   INTRO_SECONDS,
+  MAP_SECONDS,
   OUTRO_SECONDS,
   CATEGORY_LABELS,
   SITE,
 } from "./theme.mjs";
+import { GraphView, type Graph, type GNode } from "./GraphView";
 const fmtClock = (s: number) => {
   const t = Math.max(0, Math.floor(s));
   return `${Math.floor(t / 60)}:${String(t % 60).padStart(2, "0")}`;
@@ -66,6 +68,13 @@ export interface Section {
   title: string;
   start: number;
 }
+export interface NumberMomentData {
+  value: string;
+  unit: string;
+  start: number;
+  end: number;
+}
+export const NUMBER_HOLD = 2.8;
 export interface NodePlan {
   id: string;
   title: string;
@@ -75,6 +84,8 @@ export interface NodePlan {
   duration: number;
   sections: Section[];
   cues: Cue[];
+  numbers: NumberMomentData[];
+  graph: Graph | null;
   words: Word[];
   peaks: number[];
   // Filename of the narration MP3 inside video/public/, set by generate.mjs.
@@ -214,6 +225,184 @@ const Intro: React.FC<{ plan: NodePlan }> = ({ plan }) => {
     </AbsoluteFill>
   );
 };
+
+// ── map reveal (the node's place in the graph, after the title) ──────────────
+
+const MapReveal: React.FC<{ plan: NodePlan }> = ({ plan }) => {
+  const frame = useCurrentFrame();
+  const { fps, durationInFrames } = useVideoConfig();
+  const enter = spring({ frame, fps, config: { damping: 200 }, durationInFrames: 30 });
+  const exit = interpolate(frame, [durationInFrames - 12, durationInFrames], [1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  if (!plan.graph) return null;
+  return (
+    <AbsoluteFill
+      style={{
+        justifyContent: "center",
+        alignItems: "center",
+        opacity: Math.min(1, exit),
+      }}
+    >
+      <div
+        style={{
+          fontFamily: SANS,
+          fontSize: 22,
+          letterSpacing: 5,
+          textTransform: "uppercase",
+          color: COLORS.textMuted,
+          marginBottom: 24,
+          opacity: enter,
+        }}
+      >
+        In the graph
+      </div>
+      <GraphView
+        graph={plan.graph}
+        width={1500}
+        height={720}
+        fontFamily={SANS}
+        progress={enter}
+        labels="all"
+      />
+    </AbsoluteFill>
+  );
+};
+
+// ── big-number moment (a floating quantity that lands when spoken) ────────────
+
+function activeNumber(plan: NodePlan, sec: number) {
+  return plan.numbers.find((n) => sec >= n.start && sec < n.start + NUMBER_HOLD);
+}
+
+const NumberMoment: React.FC<{ plan: NodePlan; sec: number }> = ({ plan, sec }) => {
+  const active = activeNumber(plan, sec);
+  if (!active) return null;
+  const since = sec - active.start;
+  const fade = interpolate(since, [0, 0.35, NUMBER_HOLD - 0.5, NUMBER_HOLD], [0, 1, 1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const rise = interpolate(since, [0, 0.5], [16, 0], { extrapolateRight: "clamp" });
+  return (
+    <AbsoluteFill
+      style={{
+        justifyContent: "center",
+        alignItems: "center",
+        opacity: fade,
+        transform: `translateY(${rise}px)`,
+      }}
+    >
+      <div
+        style={{
+          fontFamily: SERIF,
+          fontSize: 92,
+          fontWeight: 700,
+          color: plan.color,
+          lineHeight: 1,
+        }}
+      >
+        {active.value}
+      </div>
+      {active.unit && (
+        <div
+          style={{
+            fontFamily: SANS,
+            fontSize: 24,
+            letterSpacing: 8,
+            textTransform: "uppercase",
+            color: COLORS.textMuted,
+            marginTop: 16,
+          }}
+        >
+          {active.unit}
+        </div>
+      )}
+    </AbsoluteFill>
+  );
+};
+
+// ── connection panel (shown when a [[wikilink]] neighbour is spoken) ─────────
+
+const ConnectionPanel: React.FC<{ from: GNode; to: GNode; opacity: number }> = ({
+  from,
+  to,
+  opacity,
+}) => (
+  <div
+    style={{
+      position: "absolute",
+      right: 96,
+      bottom: 210,
+      width: 430,
+      opacity,
+      background: "rgba(26,26,29,0.9)",
+      border: `1px solid ${COLORS.border}`,
+      borderRadius: 16,
+      padding: "22px 28px",
+      boxSizing: "border-box",
+    }}
+  >
+    <div
+      style={{
+        fontFamily: SANS,
+        fontSize: 14,
+        letterSpacing: 3,
+        textTransform: "uppercase",
+        color: COLORS.textMuted,
+        marginBottom: 18,
+      }}
+    >
+      Connects to
+    </div>
+    <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+      <span
+        style={{
+          width: 12,
+          height: 12,
+          borderRadius: "50%",
+          background: from.color,
+          flexShrink: 0,
+        }}
+      />
+      <span style={{ fontFamily: SANS, fontSize: 20, color: COLORS.textSecondary }}>
+        {from.label}
+      </span>
+    </div>
+    <div
+      style={{
+        width: 2,
+        height: 22,
+        marginLeft: 5,
+        background: COLORS.border,
+      }}
+    />
+    <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+      <span
+        style={{
+          width: 16,
+          height: 16,
+          borderRadius: "50%",
+          background: to.color,
+          boxShadow: `0 0 0 5px ${to.color}33`,
+          flexShrink: 0,
+        }}
+      />
+      <span
+        style={{
+          fontFamily: SERIF,
+          fontSize: 27,
+          fontWeight: 600,
+          color: to.color,
+          lineHeight: 1.1,
+        }}
+      >
+        {to.label}
+      </span>
+    </div>
+  </div>
+);
 
 // ── section card (transient banner on each section change) ───────────────────
 
@@ -485,16 +674,40 @@ const Body: React.FC<{ plan: NodePlan }> = ({ plan }) => {
 
   const cur = currentSection(plan, sec);
   const cardActive = cur != null && cur.sinceStart < SECTION_HOLD;
-  // While a section interstitial holds, recede the reader so the two never
-  // collide; it returns as the card fades out.
-  const readerOpacity = cardActive
-    ? interpolate(
-        cur!.sinceStart,
-        [0, 0.35, SECTION_HOLD - 0.4, SECTION_HOLD],
-        [1, 0.1, 0.1, 1],
-        { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-      )
-    : 1;
+  // A section interstitial OR a big-number moment recedes the reader so the two
+  // never collide; it returns as the overlay fades out.
+  const numMoment = activeNumber(plan, sec);
+  const dimFor = (since: number, hold: number) =>
+    interpolate(since, [0, 0.35, hold - 0.4, hold], [1, 0.12, 0.12, 1], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+    });
+  const readerOpacity = Math.min(
+    cardActive ? dimFor(cur!.sinceStart, SECTION_HOLD) : 1,
+    numMoment ? dimFor(sec - numMoment.start, NUMBER_HOLD) : 1,
+  );
+
+  // When a [[wikilink]] to a node in this neighborhood is spoken, surface a
+  // compact graph that lights up that connection for a few seconds.
+  const GLOW = 5;
+  const graphIds = plan.graph ? new Set(plan.graph.nodes.map((n) => n.id)) : null;
+  const glow =
+    graphIds &&
+    plan.cues.find(
+      (c) =>
+        c.kind === "link" &&
+        c.target &&
+        graphIds.has(c.target) &&
+        c.time != null &&
+        sec >= c.time &&
+        sec < c.time + GLOW,
+    );
+  const glowOp = glow
+    ? interpolate(sec - glow.time!, [0, 0.4, GLOW - 0.6, GLOW], [0, 1, 1, 0], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      })
+    : 0;
 
   return (
     <AbsoluteFill>
@@ -502,7 +715,15 @@ const Body: React.FC<{ plan: NodePlan }> = ({ plan }) => {
       <AbsoluteFill style={{ opacity: readerOpacity }}>
         <Karaoke plan={plan} sec={sec} />
       </AbsoluteFill>
+      <NumberMoment plan={plan} sec={sec} />
       <CueVisual plan={plan} sec={sec} />
+      {plan.graph && glow && (
+        <ConnectionPanel
+          from={plan.graph.nodes.find((n) => n.focal)!}
+          to={plan.graph.nodes.find((n) => n.id === glow.target)!}
+          opacity={glowOp}
+        />
+      )}
       {/* persistent brand mark, top-right — balances the section kicker at top-left */}
       <BrandText
         size={24}
@@ -526,42 +747,53 @@ const Outro: React.FC<{ plan: NodePlan }> = ({ plan }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const enter = spring({ frame, fps, config: { damping: 200 }, durationInFrames: 24 });
-  const y = interpolate(enter, [0, 1], [24, 0]);
   return (
     <AbsoluteFill
-      style={{
-        justifyContent: "center",
-        alignItems: "center",
-        opacity: enter,
-        transform: `translateY(${y}px)`,
-      }}
+      style={{ justifyContent: "center", alignItems: "center", opacity: enter }}
     >
-      <BrandText size={84} color={COLORS.textPrimary} />
-      <div
-        style={{
-          width: 120,
-          height: 3,
-          backgroundColor: plan.color,
-          margin: "40px 0",
-          borderRadius: 2,
-        }}
+      <BrandText
+        size={34}
+        color={COLORS.textSecondary}
+        style={{ marginBottom: 10 }}
       />
       <div
         style={{
           fontFamily: SANS,
-          fontSize: 26,
-          letterSpacing: 2,
+          fontSize: 22,
+          letterSpacing: 5,
+          textTransform: "uppercase",
           color: COLORS.textMuted,
-          marginBottom: 20,
+          marginBottom: plan.graph ? 4 : 28,
         }}
       >
-        Read the full node
+        Read next
       </div>
+      {plan.graph ? (
+        <GraphView
+          graph={plan.graph}
+          width={1440}
+          height={540}
+          fontFamily={SANS}
+          progress={enter}
+          labels="all"
+        />
+      ) : (
+        <div
+          style={{
+            width: 120,
+            height: 3,
+            backgroundColor: plan.color,
+            margin: "28px 0",
+            borderRadius: 2,
+          }}
+        />
+      )}
       <div
         style={{
           fontFamily: SERIF,
-          fontSize: 46,
+          fontSize: 42,
           color: COLORS.textSecondary,
+          marginTop: 20,
         }}
       >
         {SITE}
@@ -576,8 +808,10 @@ const Outro: React.FC<{ plan: NodePlan }> = ({ plan }) => {
 export const NodeVideo: React.FC<NodePlan> = (plan) => {
   const { fps } = useVideoConfig();
   const introFrames = Math.round(INTRO_SECONDS * fps);
+  const mapFrames = plan.graph ? Math.round(MAP_SECONDS * fps) : 0;
   const bodyFrames = Math.round(plan.duration * fps);
   const outroFrames = Math.round(OUTRO_SECONDS * fps);
+  const bodyStart = introFrames + mapFrames;
 
   return (
     <AbsoluteFill>
@@ -585,10 +819,15 @@ export const NodeVideo: React.FC<NodePlan> = (plan) => {
       <Sequence durationInFrames={introFrames}>
         <Intro plan={plan} />
       </Sequence>
-      <Sequence from={introFrames} durationInFrames={bodyFrames}>
+      {plan.graph && (
+        <Sequence from={introFrames} durationInFrames={mapFrames}>
+          <MapReveal plan={plan} />
+        </Sequence>
+      )}
+      <Sequence from={bodyStart} durationInFrames={bodyFrames}>
         <Body plan={plan} />
       </Sequence>
-      <Sequence from={introFrames + bodyFrames} durationInFrames={outroFrames}>
+      <Sequence from={bodyStart + bodyFrames} durationInFrames={outroFrames}>
         <Outro plan={plan} />
       </Sequence>
     </AbsoluteFill>

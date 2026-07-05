@@ -10,9 +10,11 @@ export const FPS = 30;
 export const WIDTH = 1920;
 export const HEIGHT = 1080;
 
-// How long the title card holds before the narration, and the credits after it.
+// How long the title card holds, the graph "map" beat that follows it, and the
+// credits after the narration.
 export const INTRO_SECONDS = 3.2;
-export const OUTRO_SECONDS = 4;
+export const MAP_SECONDS = 4;
+export const OUTRO_SECONDS = 5;
 
 export const COLORS = {
   bg: "#1b1b1d", // --background (dark)

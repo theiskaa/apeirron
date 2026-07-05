@@ -13,6 +13,8 @@ import { dirname, join } from "node:path";
 import matter from "gray-matter";
 import { headingTokens, normalizeWord, findPhraseStart } from "./clean-heading.mjs";
 import { extractCues } from "./cues.mjs";
+import { buildNeighborhood } from "./graph.mjs";
+import { detectNumbers } from "./numbers.mjs";
 
 const REPO = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 
@@ -89,6 +91,8 @@ export function buildScenePlan(id) {
     duration: timings.duration,
     sections: alignSections(md, words),
     cues: extractCues(md, words),
+    numbers: detectNumbers(words),
+    graph: buildNeighborhood(id),
     words,
     peaks,
   };

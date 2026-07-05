@@ -1,6 +1,6 @@
 import { Composition } from "remotion";
 import { NodeVideo, type NodePlan } from "./NodeVideo";
-import { FPS, WIDTH, HEIGHT, INTRO_SECONDS, OUTRO_SECONDS } from "./theme.mjs";
+import { FPS, WIDTH, HEIGHT, INTRO_SECONDS, MAP_SECONDS, OUTRO_SECONDS } from "./theme.mjs";
 
 // A tiny placeholder so `remotion studio` opens without a node selected; the real
 // data is supplied by generate.mjs as inputProps and overrides all of this.
@@ -21,6 +21,8 @@ const PLACEHOLDER: NodePlan = {
     ["preview", 2.5, 3.4],
   ],
   peaks: [],
+  numbers: [],
+  graph: null,
   audioFile: null,
 };
 
@@ -37,7 +39,11 @@ export const RemotionRoot: React.FC = () => {
       // padded by the intro title card and the outro credits.
       calculateMetadata={({ props }) => ({
         durationInFrames: Math.ceil(
-          (INTRO_SECONDS + props.duration + OUTRO_SECONDS) * FPS,
+          (INTRO_SECONDS +
+            (props.graph ? MAP_SECONDS : 0) +
+            props.duration +
+            OUTRO_SECONDS) *
+            FPS,
         ),
       })}
     />
