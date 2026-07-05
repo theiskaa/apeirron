@@ -9,7 +9,6 @@ const PLACEHOLDER: ShortPlan = {
   id: "placeholder",
   slug: "preview",
   title: "Apeirron",
-  hook: "",
   duration: 6,
   words: [
     ["Render", 0.4, 1.2],

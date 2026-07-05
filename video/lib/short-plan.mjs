@@ -23,7 +23,7 @@ export function buildShortPlan(id, wantSlug) {
   }
   const timings = JSON.parse(readFileSync(base + ".timings.json", "utf8"));
 
-  // Image cues (stage 3): montage/<id>-<slug>.json → resolve to public/plates/.
+  // Image cues (stage 3): shorts/images/<id>-<slug>.json → resolve to public/plates/.
   const cuesPath = join(VIDEO, "shorts", "images", `${id}-${short.slug}.json`);
   let images = [];
   if (existsSync(cuesPath)) {
@@ -40,7 +40,6 @@ export function buildShortPlan(id, wantSlug) {
     id,
     slug: short.slug,
     title: short.title,
-    hook: short.hook || "",
     duration: timings.duration,
     words: timings.words || [],
     images,

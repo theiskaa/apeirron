@@ -30,7 +30,6 @@ export interface ShortPlan {
   id: string;
   slug: string;
   title: string;
-  hook: string;
   duration: number;
   words: Word[];
   images: ShortImage[];

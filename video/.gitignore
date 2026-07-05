@@ -3,7 +3,6 @@ out/
 public/
 *.mp4
 .remotion/
-.preview-props.json
 .DS_Store
 
 # Per-node generated artifacts (regenerable, not source): LLM-authored scripts,

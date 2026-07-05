@@ -16,7 +16,7 @@ from pathlib import Path
 
 import torch
 from diffusers import FluxPipeline
-from PIL import Image, ImageOps
+from PIL import ImageOps
 
 HERE = Path(__file__).resolve().parent
 MODEL = "black-forest-labs/FLUX.1-schnell"
