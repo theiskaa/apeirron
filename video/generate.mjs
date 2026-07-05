@@ -164,7 +164,7 @@ async function stageAudio(id, override) {
   return `${id}.mp3`;
 }
 
-async function render(id, output, audioOverride, noImages) {
+async function render(id, output, audioOverride, noImages, scale) {
   ensureShots(id, noImages); // author shots + generate plates before the plan resolves them
   const plan = buildScenePlan(id);
   plan.cues = mergeAndSaveCues(id, plan.cues);
@@ -187,7 +187,9 @@ async function render(id, output, audioOverride, noImages) {
   });
 
   console.log(
-    `> rendering ${composition.width}x${composition.height} · ${composition.durationInFrames} frames → ${output}`,
+    `> rendering ${Math.round(composition.width * scale)}x${Math.round(
+      composition.height * scale,
+    )} · ${composition.durationInFrames} frames → ${output}`,
   );
   await renderMedia({
     serveUrl,
@@ -195,6 +197,11 @@ async function render(id, output, audioOverride, noImages) {
     codec: "h264",
     outputLocation: output,
     inputProps: plan,
+    // Quality: the defaults under-encode fine linework + text on dark gradients.
+    scale, // 1.5 → 2880x1620 master (sharper; YouTube grants ≥1440p more bitrate)
+    crf: 16, // higher-quality H.264 (lower = better)
+    jpegQuality: 100, // frames are captured as JPEG before encoding — keep them crisp
+    x264Preset: "slow", // better compression at the same CRF
     onProgress: ({ progress }) =>
       process.stdout.write(`\r> ${Math.round(progress * 100)}%   `),
   });
@@ -206,9 +213,11 @@ const check = argv.includes("--check");
 const noImages = argv.includes("--no-images");
 const audioIdx = argv.indexOf("--audio");
 const audioOverride = audioIdx >= 0 ? argv[audioIdx + 1] : undefined;
-const positionals = argv.filter(
-  (a, i) => !a.startsWith("--") && (audioIdx < 0 || i !== audioIdx + 1),
-);
+const scaleIdx = argv.indexOf("--scale");
+const scale = scaleIdx >= 0 ? Number(argv[scaleIdx + 1]) : 1.5; // 1440p master by default
+// Indices that are flag *values*, not positionals.
+const skip = new Set([audioIdx + 1, scaleIdx + 1].filter((i) => i > 0));
+const positionals = argv.filter((a, i) => !a.startsWith("--") && !skip.has(i));
 
 if (check) {
   const id = positionals[0];
@@ -228,7 +237,7 @@ if (check) {
     );
     process.exit(1);
   }
-  render(id, output, audioOverride, noImages).catch((err) => {
+  render(id, output, audioOverride, noImages, scale).catch((err) => {
     console.error(`\n> [error]: ${err.message}`);
     process.exit(1);
   });
