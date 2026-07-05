@@ -6,7 +6,6 @@ public/
 .preview-props.json
 .DS_Store
 
-# Auto-generated per node (regenerable, not source): cue sheets from --check,
-# LLM-authored shot lists from shots.mjs.
-cues/
-shots/
+# Per-node generated artifacts (regenerable, not source): LLM-authored scripts,
+# Kokoro narration + timings, and image cue sheets.
+shorts/
