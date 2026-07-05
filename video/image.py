@@ -1,17 +1,13 @@
 # /// script
 # requires-python = ">=3.11"
-# dependencies = [
-#     "diffusers",
-#     "torch",
-#     "torchvision",
-#     "transformers",
-#     "accelerate",
-#     "safetensors",
-#     "sentencepiece",
-#     "protobuf",
-#     "pillow",
-# ]
+# dependencies = ["diffusers", "torch", "torchvision", "transformers", "accelerate", "safetensors", "pillow"]
 # ///
+# Full-bleed illustration generator for the vertical shorts. SDXL-Turbo on Apple
+# Silicon (~1s each), rendered as a dramatic engraving and duotoned onto the reeed
+# paper so it fills the frame in-palette. No API keys.
+#
+#   uv run image.py --prompts shorts/images/<id>-<slug>.json    # every cue → public/plates/
+#   uv run image.py "<prompt>" out.png                          # a single one
 
 import argparse
 import json
@@ -20,22 +16,18 @@ from pathlib import Path
 
 import torch
 from diffusers import FluxPipeline
-from PIL import Image, ImageChops, ImageOps
+from PIL import Image, ImageOps, ImageFilter
 
 HERE = Path(__file__).resolve().parent
-REPO = HERE.parent
-
 MODEL = "black-forest-labs/FLUX.1-schnell"
-DEFAULT_ACCENT = "#8a8f98"
-BG = (0x1B, 0x1B, 0x1D)
+PAPER = (0xF1, 0xEF, 0xEC)  # reeed --paper
+INK = (0x2B, 0x2A, 0x28)  # reeed --ink
 
 STYLE = (
-    "a single isolated subject centered on a plain solid white background, "
-    "generous empty white margins, no scenery, no landscape, no ground, "
-    "no cast shadow, antique copperplate engraving, fine cross-hatching and "
-    "stippling, clean black ink line art, 19th-century scientific specimen "
-    "illustration, highly detailed, no text, no lettering, no caption, no "
-    "numbers, no border, no frame, not a photograph, no color"
+    "dramatic full-frame vintage engraving illustration, detailed fine "
+    "cross-hatching and stippling, bold black ink on white, 19th-century editorial "
+    "and scientific illustration, cinematic dramatic composition, high contrast, "
+    "no text, no lettering, no border, no frame"
 )
 
 
@@ -44,143 +36,92 @@ def load_pipe():
 
 
 def render(pipe, prompt, seed=7):
-    g = torch.Generator(device="mps").manual_seed(seed)
+    # Portrait 9:16 so the image is near-native resolution in the vertical frame
+    # (a square would be upscaled ~1.9x to cover 1080x1920 and look soft).
+    g = torch.Generator("mps").manual_seed(seed)
     return pipe(
         prompt=f"{prompt}, {STYLE}",
         num_inference_steps=4,
         guidance_scale=0.0,
-        height=1024,
+        height=1792,
         width=1024,
         max_sequence_length=256,
         generator=g,
     ).images[0]
 
 
-def _hex_rgb(h):
-    h = h.lstrip("#")
-    return tuple(int(h[i : i + 2], 16) for i in (0, 2, 4))
-
-
-def _lerp(a, b, t):
-    return tuple(round(a[i] + (b[i] - a[i]) * t) for i in range(3))
-
-
-def _feather(size):
-    grad = Image.radial_gradient("L").resize(size)
-    return ImageOps.invert(grad).point(lambda v: min(255, int(v * 1.9)))
-
-
-def _cutout(gray, accent):
-    ink = ImageOps.invert(gray)
-    alpha = ink.point(lambda v: 0 if v < 38 else min(255, int((v - 38) * 1.7)))
-    alpha = ImageChops.multiply(alpha, _feather(gray.size))
-    line = _lerp(accent, (255, 255, 255), 0.4)
-    out = Image.new("RGBA", gray.size, line + (0,))
-    out.putalpha(alpha)
-    return out
-
-
-def _plate(gray, accent):
-    lo = _lerp(BG, (0, 0, 0), 0.3)
-    hi = _lerp((120, 128, 138), accent, 0.5)
+def to_full(img):
+    # Full-bleed: autocontrast for punch, then duotone black->ink / white->paper so
+    # the engraving sits on the cream theme instead of pure white.
+    gray = ImageOps.autocontrast(img.convert("L"), cutoff=1)
     r, g, b = [], [], []
     for v in range(256):
-        c = _lerp(lo, hi, (v / 255) ** 0.9)
-        r.append(c[0])
-        g.append(c[1])
-        b.append(c[2])
-    return gray.convert("RGB").point(r + g + b)
+        t = v / 255
+        r.append(round(INK[0] + (PAPER[0] - INK[0]) * t))
+        g.append(round(INK[1] + (PAPER[1] - INK[1]) * t))
+        b.append(round(INK[2] + (PAPER[2] - INK[2]) * t))
+    return upscale(gray.convert("RGB").point(r + g + b))
 
 
-def to_plate(img, color, style="cutout"):
-    accent = _hex_rgb(color)
-    gray = img.convert("L")
-    w, h = gray.size
-    gray = gray.crop((int(w * 0.04), int(h * 0.06), int(w * 0.96), int(h * 0.94)))
-    gray = ImageOps.autocontrast(gray, cutoff=1)
-    if style == "cutout":
-        return _cutout(gray, accent)
-    return _plate(gray, accent)
+def upscale(rgb, factor=2):
+    # 2x Lanczos + edge sharpen: crisp on high-DPI screens and gives headroom for
+    # the ken-burns zoom, so the line art never looks soft in the frame.
+    w, h = rgb.size
+    big = rgb.resize((w * factor, h * factor), Image.LANCZOS)
+    return big.filter(ImageFilter.UnsharpMask(radius=1.6, percent=130, threshold=1))
 
 
-def _accent_for_node(node_id):
-    meta = json.loads((REPO / "lib/generated/graph-metadata.json").read_text())
-    for n in meta["nodes"]:
-        if n["id"] == node_id:
-            return n["color"]
-    raise SystemExit(f"> [error]: node '{node_id}' not found in graph metadata")
+def _slug(t):
+    return re.sub(r"[^a-z0-9]+", "-", t.lower()).strip("-")
 
 
-def _slug(term):
-    return re.sub(r"[^a-z0-9]+", "-", term.lower()).strip("-")
-
-
-def _items(node_id):
-    shots = HERE / "shots" / f"{node_id}.json"
-    if shots.exists():
-        return [
-            (s["subject"], s.get("prompt") or s["subject"])
-            for s in json.loads(shots.read_text())["shots"]
-        ]
-    cues = HERE / "cues" / f"{node_id}.json"
-    if cues.exists():
-        return [
-            (c["term"], c.get("prompt") or c["term"])
-            for c in json.loads(cues.read_text())["cues"]
-            if c.get("time") is not None
-        ]
-    raise SystemExit(
-        f"> [error]: no shots/ or cues/ for {node_id} — "
-        f"run `node shots.mjs {node_id}` first"
-    )
-
-
-def batch(node_id, seed, style, force):
-    accent = _accent_for_node(node_id)
-    plates = HERE / "public" / "plates"
-    plates.mkdir(parents=True, exist_ok=True)
-    items = _items(node_id)
-    print(f"> {len(items)} shots for {node_id} [{accent}]")
+def batch(prompts_path, seed, force):
+    cues = json.loads(Path(prompts_path).read_text()).get("cues", [])
+    uniq = {}
+    for c in cues:
+        uniq.setdefault(_slug(c["label"]), c.get("prompt") or c["label"])
+    out_dir = HERE / "public" / "plates"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    print(f"> {len(uniq)} images")
 
     pipe = None
-    for subject, prompt in items:
-        out = plates / f"{_slug(subject)}.png"
+    for slug, prompt in uniq.items():
+        out = out_dir / f"{slug}.png"
         if out.exists() and not force:
-            print(f"  · {out.name} — cached")
             continue
         if pipe is None:
             print("> loading FLUX…")
             pipe = load_pipe()
-        print(f"  + {out.name} — {prompt!r}")
-        to_plate(render(pipe, prompt, seed), accent, style).save(out)
+        print(f"  + {slug} — {prompt!r}")
+        to_full(render(pipe, prompt, seed)).save(out)
     print("> done")
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Generate + tint Apeirron cue plates.")
+    ap = argparse.ArgumentParser(description="Full-bleed shorts illustrations.")
     ap.add_argument("prompt", nargs="?")
     ap.add_argument("out", nargs="?")
-    ap.add_argument("--all", metavar="NODE", help="a plate for every cue of a node")
-    ap.add_argument("--node")
-    ap.add_argument("--accent")
+    ap.add_argument("--prompts", metavar="FILE")
+    ap.add_argument("--upscale-existing", action="store_true",
+                    help="2x any already-generated plates that are still low-res")
     ap.add_argument("--seed", type=int, default=7)
-    ap.add_argument("--style", choices=["cutout", "plate"], default="cutout")
     ap.add_argument("--force", action="store_true")
     args = ap.parse_args()
 
-    if args.all:
-        batch(args.all, args.seed, args.style, args.force)
+    if args.upscale_existing:
+        for f in sorted((HERE / "public" / "plates").glob("*.png")):
+            im = Image.open(f)
+            if im.width < 1500:
+                upscale(im).save(f)
+                print(f"  upscaled {f.name}")
+        print("> done")
         return
-
+    if args.prompts:
+        batch(args.prompts, args.seed, args.force)
+        return
     if not args.prompt or not args.out:
-        ap.error("prompt and out are required (or use --all <node>)")
-    accent = args.accent or (
-        _accent_for_node(args.node) if args.node else DEFAULT_ACCENT
-    )
-    print(f"> generating (seed {args.seed})…")
-    raw = render(load_pipe(), args.prompt, args.seed)
-    print(f"> tinting {accent} [{args.style}]…")
-    to_plate(raw, accent, args.style).save(args.out)
+        ap.error("prompt and out are required (or use --prompts <file>)")
+    to_full(render(load_pipe(), args.prompt, args.seed)).save(args.out)
     print(f"> wrote {args.out}")
 
 

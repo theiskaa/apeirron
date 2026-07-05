@@ -1,47 +1,40 @@
 import { Composition } from "remotion";
-import { NodeVideo, type NodePlan } from "./NodeVideo";
-import { FPS, WIDTH, HEIGHT, INTRO_SECONDS, OUTRO_SECONDS } from "./theme.mjs";
+import { ShortVideo, type ShortPlan } from "./ShortVideo";
 
-// A tiny placeholder so `remotion studio` opens without a node selected; the real
-// data is supplied by generate.mjs as inputProps and overrides all of this.
-const PLACEHOLDER: NodePlan = {
+const FPS = 30;
+
+// Placeholder so `remotion studio` opens without a short selected; the real data
+// is supplied by shortgen.mjs / preview.mjs as inputProps and overrides this.
+const PLACEHOLDER: ShortPlan = {
   id: "placeholder",
+  slug: "preview",
   title: "Apeirron",
-  description: "Render a node with generate.mjs to see it here.",
-  category: "cosmos",
-  color: "#6790b5",
+  hook: "",
   duration: 6,
-  sections: [],
-  cues: [],
-  shots: [],
-  connections: null,
   words: [
     ["Render", 0.4, 1.2],
     ["a", 1.2, 1.4],
-    ["node", 1.4, 2.2],
+    ["short", 1.4, 2.2],
     ["to", 2.2, 2.5],
     ["preview", 2.5, 3.4],
   ],
-  peaks: [],
-  numbers: [],
+  images: [],
   audioFile: null,
 };
+
+const END_SECONDS = 2.2; // end card after the narration
 
 export const RemotionRoot: React.FC = () => {
   return (
     <Composition
-      id="node"
-      component={NodeVideo}
-      width={WIDTH}
-      height={HEIGHT}
+      id="short"
+      component={ShortVideo}
+      width={1080}
+      height={1920}
       fps={FPS}
       defaultProps={PLACEHOLDER}
-      // durationInFrames is derived from the narration length in the inputProps,
-      // padded by the intro title card and the outro credits.
       calculateMetadata={({ props }) => ({
-        durationInFrames: Math.ceil(
-          (INTRO_SECONDS + props.duration + OUTRO_SECONDS) * FPS,
-        ),
+        durationInFrames: Math.ceil((props.duration + END_SECONDS) * FPS),
       })}
     />
   );
