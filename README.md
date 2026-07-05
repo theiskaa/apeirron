@@ -62,31 +62,53 @@ Choose a narrator with `--voice` (suggested: `am_michael` (default), `am_puck`, 
 
 ## Video
 
-Once a node is narrated, it can be turned into a YouTube-ready MP4. The [`video/`](./video) directory holds a [Remotion](https://remotion.dev) pipeline that renders the node's text as animated, word-synced typography over its narration — a title card, "karaoke" reading where each word lights up exactly as it is spoken, section cards that appear on every heading, a live waveform, and a closing card. It looks like the site because it reuses the same fonts and the per-category accent color.
+Once a node is narrated, it can be turned into a YouTube-ready MP4. The [`video/`](./video) directory holds a [Remotion](https://remotion.dev) pipeline that renders a node as an illustrated, narrated film: word-synced "karaoke" typography over the narration, section cards on every heading, a live waveform, category-colored title and closing cards — and a layer of engraving-style illustrations that appear as each person, concept, and scene is spoken. It looks like the site because it reuses the same fonts and per-category accent color.
 
-It is a pure *consumer* of what the speech pipeline already produced: the per-word timings in [`public/audio-timings/`](./public/audio-timings) drive everything, so the video is deterministic — no model, no API keys. The narration MP3 is taken from a local `speech/<id>.mp3` if present, otherwise downloaded from `audio.apeirron.com`.
+Everything runs locally — no API keys. Three offline pieces feed it:
+
+- **Word timings** from the [`speech/`](./speech) (Kokoro) pipeline drive the typography and pin every element to its exact spoken moment.
+- **A local LLM via [Ollama](https://ollama.com)** reads the transcript and writes a *shot list* — the people, concepts, scenes and objects worth illustrating, each with a descriptive prompt and the phrase it lands on.
+- **[FLUX.1-schnell](https://huggingface.co/black-forest-labs/FLUX.1-schnell)** (Apache-2.0, ungated) generates each illustration locally on the Apple-Silicon GPU as an antique engraving, tinted to the node's color.
 
 ### Setup
 
 ```bash
 cd video
-npm install                   # installs Remotion (downloads a headless Chromium once)
+npm install                   # Remotion (downloads a headless Chromium once)
 ```
 
-### Preview and render
+The illustrations need two more local dependencies (skip them with `--no-images` for a typography-only video):
+
+- **Ollama** — install it, start the server, and pull a model: `ollama pull qwen3.5:9b`.
+- **FLUX** needs nothing installed up front — `image.py` declares its Python deps inline (PEP&nbsp;723) and `uv` fetches them on first run. The weights (~30&nbsp;GB) download to the Hugging Face cache the first time; comfortable on 32&nbsp;GB+ of unified memory.
+
+### Generate
+
+One command authors the shot list, generates any missing illustrations, and renders:
 
 ```bash
-# 1. preview the scene plan — section timestamps + auto-extracted visual cues.
-#    Fast, no render; also writes video/cues/<id>.json.
-node generate.mjs --check fermi-paradox
-
-# 2. render the MP4 (1920x1080, H.264) — then upload it to YouTube by hand
-node generate.mjs fermi-paradox fermi-paradox.mp4
+node generate.mjs fermi-paradox fermi-paradox.mp4     # then upload the MP4 to YouTube
 ```
 
-**Section cards** are placed automatically: `clean.py` keeps heading text, so every `##` heading is spoken and appears in the timings — the renderer matches each heading against the word stream to pin its exact on-screen moment.
+It runs three **cached, resumable** stages — if it is interrupted, re-running the same command picks up where it left off:
 
-**Cue sheet (the hook for drawn visuals).** `--check` also writes `video/cues/<id>.json`: every `**bold**` term and `[[wikilink]]` in the node, each resolved to the second it is first spoken, with an empty `asset` slot. Today those slots are empty and the renderer ships pure typography; fill an `asset` (drop an image in `video/public/` and reference it) and that visual fades in on screen when the concept is named. Re-running `--check` refreshes the timings but never overwrites an `asset` you have set.
+1. **Shot list** — `shots.mjs` asks Ollama for the illustration beats → `video/shots/<id>.json`.
+2. **Illustrations** — `image.py` generates the missing plates with FLUX (model loaded once) → `video/public/plates/`.
+3. **Render** — the 1920×1080 H.264 MP4, illustrations composited at their spoken moments.
+
+### The stages on their own
+
+```bash
+node generate.mjs --check fermi-paradox               # scene plan (sections + cues), no render
+node shots.mjs fermi-paradox --force                  # (re)author the shot list with Ollama
+uv run image.py --all fermi-paradox                   # generate every illustration, no render
+uv run image.py "a lone radio telescope" one.png --node fermi-paradox   # a single plate
+node generate.mjs fermi-paradox out.mp4 --no-images   # render fast, typography only
+```
+
+To reroll a weak illustration, delete its PNG from `video/public/plates/` and re-run — only that one regenerates (or pass `--force` to `image.py`).
+
+**Section cards** are placed automatically: `clean.py` keeps heading text, so every `##` heading is spoken and appears in the timings — the renderer matches each heading against the word stream to pin its exact on-screen moment.
 
 ## Contributing
 
