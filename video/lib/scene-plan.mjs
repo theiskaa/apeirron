@@ -13,7 +13,6 @@ import { dirname, join } from "node:path";
 import matter from "gray-matter";
 import { headingTokens, normalizeWord, findPhraseStart } from "./clean-heading.mjs";
 import { extractCues } from "./cues.mjs";
-import { buildNeighborhood } from "./graph.mjs";
 import { detectNumbers } from "./numbers.mjs";
 
 const VIDEO = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -25,6 +24,24 @@ const readJson = (p) => JSON.parse(readFileSync(p, "utf8"));
 const slug = (t) =>
   t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
 
+// Generic nouns the shot subjects tack on ("... Structure", "... Concept") — cut
+// them so a derived label reads as a title, not a description.
+const GENERIC =
+  /\b(concept|scene|illustration|structure|view|design|system|diagram|vision|scenario|classification|conditions|policy|question|breakdown|results?|data|chart)s?\b/gi;
+
+// Fall back to a short on-screen caption when a shot has no LLM `label` (shot
+// lists authored before the label field). For a person, keep just the name (drop
+// "... at Fuller Lodge", "... and His Equation"); otherwise the first couple of
+// meaningful words.
+function shortLabel(subject, kind) {
+  if (kind === "person") {
+    const name = subject.split(/\s+(?:and|on|at|of|in|for|with|his|her)\s+/i)[0];
+    return name.split(/\s+/).slice(0, 3).join(" ");
+  }
+  const s = subject.replace(GENERIC, "").replace(/\s+/g, " ").trim();
+  return (s || subject).split(/\s+/).slice(0, 3).join(" ");
+}
+
 // Load the LLM-authored shot list (video/shots/<id>.json) and resolve each shot's
 // plate: asset is set only once its PNG exists in public/plates/, so the video
 // shows a shot only when it has been generated.
@@ -33,10 +50,13 @@ function loadShots(id) {
   if (!existsSync(p)) return [];
   return (readJson(p).shots || []).map((s) => {
     const rel = `plates/${slug(s.subject)}.png`;
+    // Short on-screen caption. Prefer the LLM's `label`; otherwise derive one.
+    const label = s.label || shortLabel(s.subject, s.kind);
     return {
       time: s.time,
       kind: s.kind,
       subject: s.subject,
+      label,
       asset: existsSync(join(VIDEO, "public", rel)) ? rel : null,
     };
   });
@@ -89,6 +109,21 @@ function alignSections(md, words) {
   return sections;
 }
 
+// The node's connections as label+color pairs (for the "Connects to" card) —
+// straight from the graph metadata; no layout/graph build needed.
+function loadConnections(id) {
+  const meta = readJson(join(REPO, "lib/generated/graph-metadata.json"));
+  const focal = meta.nodes.find((n) => n.id === id);
+  if (!focal) return null;
+  const byId = new Map(meta.nodes.map((n) => [n.id, n]));
+  const targets = {};
+  for (const c of focal.connections || []) {
+    const t = byId.get(c.target);
+    if (t) targets[c.target] = { label: t.title, color: t.color };
+  }
+  return { focal: { label: focal.title, color: focal.color }, targets };
+}
+
 export function buildScenePlan(id) {
   const mdPath = join(REPO, "content/nodes", `${id}.md`);
   if (!existsSync(mdPath)) throw new Error(`no node markdown at ${mdPath}`);
@@ -115,7 +150,7 @@ export function buildScenePlan(id) {
     cues: extractCues(md, words),
     shots: loadShots(id),
     numbers: detectNumbers(words),
-    graph: buildNeighborhood(id),
+    connections: loadConnections(id),
     words,
     peaks,
   };

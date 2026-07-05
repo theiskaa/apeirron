@@ -14,16 +14,10 @@ import { loadFont as loadSans } from "@remotion/google-fonts/Inter";
 import {
   COLORS,
   INTRO_SECONDS,
-  MAP_SECONDS,
   OUTRO_SECONDS,
   CATEGORY_LABELS,
   SITE,
 } from "./theme.mjs";
-import { GraphView, type Graph, type GNode } from "./GraphView";
-const fmtClock = (s: number) => {
-  const t = Math.max(0, Math.floor(s));
-  return `${Math.floor(t / 60)}:${String(t % 60).padStart(2, "0")}`;
-};
 
 // The Apeirron brand as it appears in the site navbar: the word set in the serif
 // (Playfair Display) at weight 700 with a hair of negative tracking — no logo mark.
@@ -61,8 +55,17 @@ export type Word = [string, number, number]; // [text, start, end]
 export interface Cue {
   term: string;
   kind: string;
+  target?: string | null; // node id a [[wikilink]] points to
   time: number | null;
   asset: string | null;
+}
+export interface ConnItem {
+  label: string;
+  color: string;
+}
+export interface Connections {
+  focal: ConnItem;
+  targets: Record<string, ConnItem>;
 }
 export interface Section {
   title: string;
@@ -72,6 +75,7 @@ export interface Shot {
   time: number;
   kind: string; // person | concept | scene | object | place
   subject: string;
+  label: string; // short on-screen caption
   asset: string | null;
 }
 export interface NumberMomentData {
@@ -92,14 +96,12 @@ export interface NodePlan {
   cues: Cue[];
   shots: Shot[];
   numbers: NumberMomentData[];
-  graph: Graph | null;
+  connections: Connections | null;
   words: Word[];
   peaks: number[];
   // Filename of the narration MP3 inside video/public/, set by generate.mjs.
   audioFile: string | null;
 }
-
-// ── helpers ────────────────────────────────────────────────────────────────
 
 // Index of the word being spoken at `sec` (the last word that has started).
 function activeWordIndex(words: Word[], sec: number): number {
@@ -142,19 +144,34 @@ function buildLines(words: Word[]): Line[] {
   return lines;
 }
 
-// ── background ───────────────────────────────────────────────────────────────
+// A calm parchment field: a slowly panning faint grid and a gently breathing,
+// warm page vignette (darkened edges, like an aged sheet). Never fully frozen.
+const AmbientBackground: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const t = frame / fps;
 
-const GridBackground: React.FC = () => (
-  <AbsoluteFill
-    style={{
-      backgroundColor: COLORS.bg,
-      backgroundImage: `linear-gradient(${COLORS.grid} 1px, transparent 1px), linear-gradient(90deg, ${COLORS.grid} 1px, transparent 1px)`,
-      backgroundSize: "48px 48px",
-    }}
-  />
-);
+  const gx = (t * 2.4) % 48;
+  const gy = (t * 1.2) % 48;
+  const vig = 0.1 + 0.05 * Math.sin(t * 0.22);
 
-// ── intro card ───────────────────────────────────────────────────────────────
+  return (
+    <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
+      <AbsoluteFill
+        style={{
+          backgroundImage: `linear-gradient(${COLORS.grid} 1px, transparent 1px), linear-gradient(90deg, ${COLORS.grid} 1px, transparent 1px)`,
+          backgroundSize: "48px 48px",
+          backgroundPosition: `${gx}px ${gy}px`,
+        }}
+      />
+      <AbsoluteFill
+        style={{
+          background: `radial-gradient(ellipse at center, transparent 60%, rgba(43,42,40,${vig}) 100%)`,
+        }}
+      />
+    </AbsoluteFill>
+  );
+};
 
 const Intro: React.FC<{ plan: NodePlan }> = ({ plan }) => {
   const frame = useCurrentFrame();
@@ -185,7 +202,7 @@ const Intro: React.FC<{ plan: NodePlan }> = ({ plan }) => {
           fontSize: 26,
           letterSpacing: 6,
           textTransform: "uppercase",
-          color: plan.color,
+          color: COLORS.accent,
           fontWeight: 600,
           marginBottom: 28,
         }}
@@ -211,7 +228,7 @@ const Intro: React.FC<{ plan: NodePlan }> = ({ plan }) => {
         style={{
           width: 120,
           height: 3,
-          backgroundColor: plan.color,
+          backgroundColor: COLORS.accent,
           margin: "44px 0",
           borderRadius: 2,
         }}
@@ -232,52 +249,6 @@ const Intro: React.FC<{ plan: NodePlan }> = ({ plan }) => {
     </AbsoluteFill>
   );
 };
-
-// ── map reveal (the node's place in the graph, after the title) ──────────────
-
-const MapReveal: React.FC<{ plan: NodePlan }> = ({ plan }) => {
-  const frame = useCurrentFrame();
-  const { fps, durationInFrames } = useVideoConfig();
-  const enter = spring({ frame, fps, config: { damping: 200 }, durationInFrames: 30 });
-  const exit = interpolate(frame, [durationInFrames - 12, durationInFrames], [1, 0], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-  });
-  if (!plan.graph) return null;
-  return (
-    <AbsoluteFill
-      style={{
-        justifyContent: "center",
-        alignItems: "center",
-        opacity: Math.min(1, exit),
-      }}
-    >
-      <div
-        style={{
-          fontFamily: SANS,
-          fontSize: 22,
-          letterSpacing: 5,
-          textTransform: "uppercase",
-          color: COLORS.textMuted,
-          marginBottom: 24,
-          opacity: enter,
-        }}
-      >
-        In the graph
-      </div>
-      <GraphView
-        graph={plan.graph}
-        width={1500}
-        height={720}
-        fontFamily={SANS}
-        progress={enter}
-        labels="all"
-      />
-    </AbsoluteFill>
-  );
-};
-
-// ── big-number moment (a floating quantity that lands when spoken) ────────────
 
 function activeNumber(plan: NodePlan, sec: number) {
   return plan.numbers.find((n) => sec >= n.start && sec < n.start + NUMBER_HOLD);
@@ -306,7 +277,7 @@ const NumberMoment: React.FC<{ plan: NodePlan; sec: number }> = ({ plan, sec }) 
           fontFamily: SERIF,
           fontSize: 92,
           fontWeight: 700,
-          color: plan.color,
+          color: COLORS.accent,
           lineHeight: 1,
         }}
       >
@@ -330,13 +301,11 @@ const NumberMoment: React.FC<{ plan: NodePlan; sec: number }> = ({ plan, sec }) 
   );
 };
 
-// ── connection panel (shown when a [[wikilink]] neighbour is spoken) ─────────
-
-const ConnectionPanel: React.FC<{ from: GNode; to: GNode; opacity: number }> = ({
-  from,
-  to,
-  opacity,
-}) => (
+const ConnectionPanel: React.FC<{
+  from: ConnItem;
+  to: ConnItem;
+  opacity: number;
+}> = ({ from, to, opacity }) => (
   <div
     style={{
       position: "absolute",
@@ -411,8 +380,6 @@ const ConnectionPanel: React.FC<{ from: GNode; to: GNode; opacity: number }> = (
   </div>
 );
 
-// ── section card (transient banner on each section change) ───────────────────
-
 // How long a section's full-screen interstitial holds before it collapses to the
 // persistent top-left kicker. Exported so the body can dim the reader in step.
 export const SECTION_HOLD = 2.8;
@@ -441,7 +408,7 @@ const SectionKicker: React.FC<{ plan: NodePlan; title: string }> = ({
       fontWeight: 600,
     }}
   >
-    <span style={{ color: plan.color }}>▸ </span>
+    <span style={{ color: COLORS.accent }}>▸ </span>
     {title}
   </div>
 );
@@ -481,7 +448,7 @@ const SectionCard: React.FC<{
             fontSize: 20,
             letterSpacing: 5,
             textTransform: "uppercase",
-            color: plan.color,
+            color: COLORS.accent,
             fontWeight: 600,
             marginBottom: 16,
           }}
@@ -504,16 +471,9 @@ const SectionCard: React.FC<{
   );
 };
 
-// ── karaoke reader ───────────────────────────────────────────────────────────
-
 const WINDOW = 2; // lines shown above/below the current one
 
-const Karaoke: React.FC<{
-  plan: NodePlan;
-  sec: number;
-  shiftX?: number;
-  maxWidth?: number;
-}> = ({ plan, sec, shiftX = 0, maxWidth = 1400 }) => {
+const Karaoke: React.FC<{ plan: NodePlan; sec: number }> = ({ plan, sec }) => {
   const lines = useMemo(() => buildLines(plan.words), [plan.words]);
   const active = activeWordIndex(plan.words, sec);
 
@@ -535,15 +495,13 @@ const Karaoke: React.FC<{
 
   return (
     <AbsoluteFill
-      style={{ justifyContent: "center", alignItems: "center", padding: "0 120px" }}
+      style={{
+        justifyContent: "center",
+        alignItems: "flex-start",
+        padding: "0 130px",
+      }}
     >
-      <div
-        style={{
-          maxWidth,
-          width: "100%",
-          transform: `translateX(${shiftX}px)`,
-        }}
-      >
+      <div style={{ width: 820 }}>
         {visible.map(({ line, i }) => {
           const dist = Math.abs(i - activeLine);
           const opacity = i === activeLine ? 1 : dist === 1 ? 0.45 : 0.2;
@@ -553,9 +511,9 @@ const Karaoke: React.FC<{
               key={i}
               style={{
                 fontFamily: SERIF,
-                fontSize: 46,
+                fontSize: 38,
                 lineHeight: 1.55,
-                textAlign: "center",
+                textAlign: "left",
                 opacity,
               }}
             >
@@ -565,7 +523,7 @@ const Karaoke: React.FC<{
                 // Only the focus line gets per-word spoken/upcoming shading; other
                 // lines stay a single recessive tone so the eye rests on the focus.
                 const color = isActive
-                  ? plan.color
+                  ? COLORS.accent
                   : focus
                     ? spoken
                       ? COLORS.textPrimary
@@ -580,7 +538,7 @@ const Karaoke: React.FC<{
                       color,
                       // Glow instead of bold weight — emphasis without reflow
                       // (a bolder active word would re-center the line each tick).
-                      textShadow: isActive ? `0 0 24px ${plan.color}66` : undefined,
+                      textShadow: isActive ? `0 0 24px ${COLORS.accent}66` : undefined,
                     }}
                   >
                     {text}{" "}
@@ -595,64 +553,10 @@ const Karaoke: React.FC<{
   );
 };
 
-// ── waveform + progress (bottom strip) ───────────────────────────────────────
-
-const Waveform: React.FC<{ plan: NodePlan; sec: number }> = ({ plan, sec }) => {
-  const peaks = plan.peaks.length ? plan.peaks : new Array(120).fill(0.15);
-  const progress = plan.duration ? sec / plan.duration : 0;
-  return (
-    <div
-      style={{
-        position: "absolute",
-        bottom: 66,
-        left: 260,
-        right: 260,
-        display: "flex",
-        flexDirection: "column",
-        gap: 12,
-      }}
-    >
-      <div style={{ height: 54, display: "flex", alignItems: "center", gap: 3 }}>
-        {peaks.map((p, i) => {
-          const played = i / peaks.length <= progress;
-          return (
-            <div
-              key={i}
-              style={{
-                flex: 1,
-                height: `${Math.max(3, p * 100)}%`,
-                backgroundColor: played ? plan.color : COLORS.border,
-                borderRadius: 2,
-                opacity: played ? 0.9 : 0.5,
-              }}
-            />
-          );
-        })}
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          fontFamily: SANS,
-          fontSize: 20,
-          fontVariantNumeric: "tabular-nums",
-          color: COLORS.textMuted,
-        }}
-      >
-        <span style={{ color: plan.color }}>{fmtClock(sec)}</span>
-        <span>{fmtClock(plan.duration)}</span>
-      </div>
-    </div>
-  );
-};
-
-// ── cinematic shot layer ─────────────────────────────────────────────────────
-
-const SHOT_DUR = 7.5; // seconds a shot holds on screen
-const SHOT_SHIFT = 300; // how far the reader slides to make room
+const SHOT_DUR = 9; // seconds a shot holds on screen
 
 // The shot on screen at `sec` (most recent one with a plate, within its window),
-// plus its index (drives which side it takes) and how long it has been up.
+// plus its index (drives which side + camera move) and how long it has been up.
 function currentShot(plan: NodePlan, sec: number) {
   const withAsset = plan.shots.filter((s) => s.asset && s.time != null);
   let idx = -1;
@@ -664,7 +568,7 @@ function currentShot(plan: NodePlan, sec: number) {
 }
 
 const shotOpacity = (since: number) =>
-  interpolate(since, [0, 0.5, SHOT_DUR - 0.7, SHOT_DUR], [0, 1, 1, 0], {
+  interpolate(since, [0, 0.6, SHOT_DUR - 0.8, SHOT_DUR], [0, 1, 1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
@@ -673,69 +577,66 @@ const ShotVisual: React.FC<{
   shot: Shot;
   index: number;
   since: number;
-  color: string;
-}> = ({ shot, index, since, color }) => {
+}> = ({ shot, index, since }) => {
   if (!shot.asset) return null;
-  const side = index % 2 === 0 ? "right" : "left";
+  const side = "right";
   const opacity = shotOpacity(since);
-  // Slow Ken Burns: ease in a little scale + drift over the whole hold.
-  const scale = interpolate(since, [0, SHOT_DUR], [1.02, 1.11]);
-  const drift = interpolate(since, [0, SHOT_DUR], [12, -12]);
-  const isPerson = shot.kind === "person";
+
+  // Etch-in: a soft diagonal band sweeps across over ~1.3s so the engraving draws
+  // itself in. Composited (intersect) with a permanent bottom fade that dissolves
+  // any hallucinated caption/signature band the model baked into the plate.
+  const reveal = interpolate(since, [0, 1.3], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const a = reveal * 128 - 24;
+  const mask =
+    `linear-gradient(112deg, #000 ${a}%, transparent ${a + 20}%),` +
+    `linear-gradient(to bottom, #000 80%, transparent 100%)`;
+
+  // Perpetual camera — a different slow move per shot so none feel identical.
+  const variant = index % 3;
+  const p = since / SHOT_DUR;
+  const scale =
+    variant === 0 ? 1.04 + p * 0.09 : variant === 1 ? 1.14 - p * 0.09 : 1.08;
+  const tx = variant === 2 ? interpolate(p, [0, 1], [-22, 22]) : 0;
+  const ty = interpolate(p, [0, 1], [10, -10]);
+  const rot = interpolate(p, [0, 1], [-0.5, 0.5]) * (side === "right" ? 1 : -1);
 
   return (
     <div
       style={{
         position: "absolute",
         top: "50%",
-        [side]: 130,
+        [side]: 70,
         transform: "translateY(-50%)",
-        width: 620,
+        width: 820,
+        height: 820,
         opacity,
         display: "flex",
-        flexDirection: "column",
         alignItems: "center",
-        gap: 22,
+        justifyContent: "center",
+        overflow: "hidden",
+        maskImage: mask,
+        WebkitMaskImage: mask,
+        maskComposite: "intersect",
+        WebkitMaskComposite: "source-in",
       }}
     >
-      <div
+      <img
+        src={staticFile(shot.asset)}
         style={{
-          width: "100%",
-          height: 720,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          overflow: "hidden",
+          maxWidth: "100%",
+          maxHeight: "100%",
+          transform: `scale(${scale}) translate(${tx}px, ${ty}px) rotate(${rot}deg)`,
+          // Antique paper: invert the light-on-transparent plate back to dark ink.
+          filter: "invert(1) saturate(0) contrast(1.06)",
+          opacity: 0.9,
         }}
-      >
-        <img
-          src={staticFile(shot.asset)}
-          style={{
-            maxWidth: "100%",
-            maxHeight: "100%",
-            transform: `scale(${scale}) translateY(${drift}px)`,
-          }}
-        />
-      </div>
-      <div
-        style={{
-          fontFamily: SANS,
-          fontSize: isPerson ? 27 : 21,
-          fontWeight: isPerson ? 700 : 600,
-          letterSpacing: isPerson ? 3 : 2,
-          textTransform: "uppercase",
-          color: isPerson ? color : COLORS.textMuted,
-          textAlign: "center",
-          maxWidth: 560,
-        }}
-      >
-        {shot.subject}
-      </div>
+      />
     </div>
   );
 };
-
-// ── body ─────────────────────────────────────────────────────────────────────
 
 const Body: React.FC<{ plan: NodePlan }> = ({ plan }) => {
   const frame = useCurrentFrame();
@@ -757,17 +658,17 @@ const Body: React.FC<{ plan: NodePlan }> = ({ plan }) => {
     numMoment ? dimFor(sec - numMoment.start, NUMBER_HOLD) : 1,
   );
 
-  // When a [[wikilink]] to a node in this neighborhood is spoken, surface a
-  // compact graph that lights up that connection for a few seconds.
+  // When a [[wikilink]] to a connected node is spoken, surface the "Connects to"
+  // card lighting up that connection for a few seconds.
   const GLOW = 5;
-  const graphIds = plan.graph ? new Set(plan.graph.nodes.map((n) => n.id)) : null;
+  const conns = plan.connections;
   const glow =
-    graphIds &&
+    conns &&
     plan.cues.find(
       (c) =>
         c.kind === "link" &&
         c.target &&
-        graphIds.has(c.target) &&
+        conns.targets[c.target] &&
         c.time != null &&
         sec >= c.time &&
         sec < c.time + GLOW,
@@ -779,19 +680,15 @@ const Body: React.FC<{ plan: NodePlan }> = ({ plan }) => {
       })
     : 0;
 
-  // Cinematic shot: a large illustration takes one side and the reader slides to
-  // the other. Suppressed while a section card or number moment owns the frame.
+  // The reader lives in a fixed left column and never moves; illustrations arrive
+  // on the right. Suppressed while a section card or number moment owns the frame.
   const shotState = !cardActive && !numMoment ? currentShot(plan, sec) : null;
-  const shotO = shotState ? shotOpacity(shotState.since) : 0;
-  const shotSide = shotState && shotState.index % 2 === 0 ? "right" : "left";
-  const shiftX = shotState ? shotO * SHOT_SHIFT * (shotSide === "right" ? -1 : 1) : 0;
-  const readerMaxW = interpolate(shotO, [0, 1], [1400, 840]);
 
   return (
     <AbsoluteFill>
       {plan.audioFile && <Audio src={staticFile(plan.audioFile)} />}
       <AbsoluteFill style={{ opacity: readerOpacity }}>
-        <Karaoke plan={plan} sec={sec} shiftX={shiftX} maxWidth={readerMaxW} />
+        <Karaoke plan={plan} sec={sec} />
       </AbsoluteFill>
       <NumberMoment plan={plan} sec={sec} />
       {shotState && (
@@ -799,13 +696,12 @@ const Body: React.FC<{ plan: NodePlan }> = ({ plan }) => {
           shot={shotState.shot}
           index={shotState.index}
           since={shotState.since}
-          color={plan.color}
         />
       )}
-      {plan.graph && glow && (
+      {conns && glow && (
         <ConnectionPanel
-          from={plan.graph.nodes.find((n) => n.focal)!}
-          to={plan.graph.nodes.find((n) => n.id === glow.target)!}
+          from={conns.focal}
+          to={conns.targets[glow.target!]}
           opacity={glowOp}
         />
       )}
@@ -821,12 +717,9 @@ const Body: React.FC<{ plan: NodePlan }> = ({ plan }) => {
         ) : (
           <SectionKicker plan={plan} title={cur.section.title} />
         ))}
-      <Waveform plan={plan} sec={sec} />
     </AbsoluteFill>
   );
 };
-
-// ── outro ────────────────────────────────────────────────────────────────────
 
 const Outro: React.FC<{ plan: NodePlan }> = ({ plan }) => {
   const frame = useCurrentFrame();
@@ -848,31 +741,20 @@ const Outro: React.FC<{ plan: NodePlan }> = ({ plan }) => {
           letterSpacing: 5,
           textTransform: "uppercase",
           color: COLORS.textMuted,
-          marginBottom: plan.graph ? 4 : 28,
+          marginBottom: 28,
         }}
       >
         Read next
       </div>
-      {plan.graph ? (
-        <GraphView
-          graph={plan.graph}
-          width={1440}
-          height={540}
-          fontFamily={SANS}
-          progress={enter}
-          labels="all"
-        />
-      ) : (
-        <div
-          style={{
-            width: 120,
-            height: 3,
-            backgroundColor: plan.color,
-            margin: "28px 0",
-            borderRadius: 2,
-          }}
-        />
-      )}
+      <div
+        style={{
+          width: 120,
+          height: 3,
+          backgroundColor: COLORS.accent,
+          margin: "28px 0",
+          borderRadius: 2,
+        }}
+      />
       <div
         style={{
           fontFamily: SERIF,
@@ -882,33 +764,25 @@ const Outro: React.FC<{ plan: NodePlan }> = ({ plan }) => {
         }}
       >
         {SITE}
-        <span style={{ color: plan.color }}>/node/{plan.id}</span>
+        <span style={{ color: COLORS.accent }}>/node/{plan.id}</span>
       </div>
     </AbsoluteFill>
   );
 };
 
-// ── composition ──────────────────────────────────────────────────────────────
-
 export const NodeVideo: React.FC<NodePlan> = (plan) => {
   const { fps } = useVideoConfig();
   const introFrames = Math.round(INTRO_SECONDS * fps);
-  const mapFrames = plan.graph ? Math.round(MAP_SECONDS * fps) : 0;
   const bodyFrames = Math.round(plan.duration * fps);
   const outroFrames = Math.round(OUTRO_SECONDS * fps);
-  const bodyStart = introFrames + mapFrames;
+  const bodyStart = introFrames;
 
   return (
     <AbsoluteFill>
-      <GridBackground />
+      <AmbientBackground />
       <Sequence durationInFrames={introFrames}>
         <Intro plan={plan} />
       </Sequence>
-      {plan.graph && (
-        <Sequence from={introFrames} durationInFrames={mapFrames}>
-          <MapReveal plan={plan} />
-        </Sequence>
-      )}
       <Sequence from={bodyStart} durationInFrames={bodyFrames}>
         <Body plan={plan} />
       </Sequence>

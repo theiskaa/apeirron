@@ -3,27 +3,27 @@
 // app/node/[id]/opengraph-image.tsx does for its OG image) instead of importing
 // the Next app's CSS — the video is an isolated toolchain.
 //
-// The video always uses the DARK palette (globals.css `.dark`): a lit column of
-// text on a near-black field reads far better as motion than the light theme.
+// Light "reader" palette, mirrored from reeed-web (app/globals.css): near-black
+// ink on warm off-white paper, blue accent, yellow highlight marker.
 
 export const FPS = 30;
 export const WIDTH = 1920;
 export const HEIGHT = 1080;
 
-// How long the title card holds, the graph "map" beat that follows it, and the
-// credits after the narration.
+// How long the title card holds and the credits after the narration.
 export const INTRO_SECONDS = 3.2;
-export const MAP_SECONDS = 4;
 export const OUTRO_SECONDS = 5;
 
 export const COLORS = {
-  bg: "#1b1b1d", // --background (dark)
-  surface: "#232325", // --surface
-  border: "#3a3a3a", // --border
-  textPrimary: "#dcdcdc", // --text-primary
-  textSecondary: "#a0a0b0", // --text-secondary
-  textMuted: "#6a6a7a", // --text-muted
-  grid: "rgba(255, 255, 255, 0.035)",
+  bg: "#f1efec", // --paper
+  surface: "#faf9f7", // --surface
+  border: "#e2dfda", // --line
+  textPrimary: "#2b2a28", // --ink
+  textSecondary: "#6f6c66", // --ink-soft
+  textMuted: "#a8a49c", // lighter ink-soft
+  grid: "rgba(43, 42, 40, 0.04)",
+  accent: "#3b82f6", // --accent (blue)
+  highlight: "#ffe59e", // --highlight (yellow marker)
 };
 
 // Human labels for the category kicker on the intro card. The accent COLOR is not

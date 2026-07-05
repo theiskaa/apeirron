@@ -60,9 +60,10 @@ Aim for one shot roughly every 25-40 seconds of narration — for a long transcr
 For each shot return:
 - "anchor": a short phrase of 3 to 6 words COPIED EXACTLY (verbatim) from the transcript, marking where in the narration the image should appear.
 - "kind": one of "person", "concept", "scene", "object", "place".
-- "subject": a short label. For a person, their full name. For others, 2-4 words.
+- "subject": a short internal name. For a person, their full name. For others, 2-4 words.
+- "label": the on-screen caption, 1 to 3 words only. For a person, ONLY their name (e.g. "Enrico Fermi"). For others, a short noun phrase (e.g. "The Great Filter", "Dyson Sphere"). Never a sentence.
 - "prompt": a concrete, visual 12-25 word description of the image to draw. Describe subject matter only — do NOT mention art style, engraving, color, or the medium. For a person, describe a dignified portrait of them. Be specific and evocative.
-Output ONLY JSON of the form: {"shots": [ { "anchor": "...", "kind": "...", "subject": "...", "prompt": "..." }, ... ] }`;
+Output ONLY JSON of the form: {"shots": [ { "anchor": "...", "kind": "...", "subject": "...", "label": "...", "prompt": "..." }, ... ] }`;
 
 async function main() {
   const outPath = join(HERE, "shots", `${id}.json`);
@@ -128,6 +129,7 @@ async function main() {
       time: Math.round(time * 100) / 100,
       kind: s.kind || "concept",
       subject: s.subject.trim(),
+      label: (s.label || s.subject).trim(),
       prompt: s.prompt.trim(),
       anchor: s.anchor,
     });
