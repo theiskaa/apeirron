@@ -14,6 +14,8 @@ connections:
     reason: "Morphic resonance makes the past directly present — every past system shapes every present one through similarity, not through an unbroken causal chain. It requires that time be a medium across which form echoes, closer to a block universe than to a one-way conveyor of efficient causes."
   - target: "noosphere"
     reason: "A collective field of inherited habit that every member of a species draws on and contributes to is kin to Teilhard's planetary mind — a shared, accumulating memory belonging to the whole rather than stored in any individual skull."
+  - target: "gaia-hypothesis"
+    reason: "Sheldrake pushed Lovelock's self-regulating planet the step Lovelock refused, arguing in The Rebirth of Nature for an ensouled Earth with memory and habit — an anima mundi. Both are holistic revolts against reductionist biology: nature as a self-organizing whole that remembers, not a heap of separately selected parts."
 ---
 
 In September 1981, the most prestigious scientific journal in the world ran an editorial recommending that a book be burned. The book was *A New Science of Life*, by a Cambridge-trained biochemist named Rupert Sheldrake, and the editorial was written by John Maddox, the formidable editor of *Nature*. "Sheldrake's argument is in no sense a scientific argument but is an exercise in pseudo-science," Maddox wrote. The hypothesis, he went on, was "the best candidate for burning there has been for many years."

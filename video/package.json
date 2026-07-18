@@ -1,0 +1,22 @@
+{
+  "name": "apeirron-video",
+  "private": true,
+  "type": "module",
+  "description": "Vertical shorts pipeline: from a node, author scripts (Ollama), narrate (Kokoro), illustrate (FLUX), and render 9:16 MP4s with Remotion. Run via shorts.mjs.",
+  "scripts": {
+    "studio": "remotion studio src/index.ts"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.0",
+    "@remotion/cli": "^4.0.0",
+    "@remotion/google-fonts": "^4.0.0",
+    "@remotion/renderer": "^4.0.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19",
+    "typescript": "^5"
+  }
+}

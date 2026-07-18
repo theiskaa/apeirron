@@ -1,0 +1,10 @@
+node_modules/
+out/
+public/
+*.mp4
+.remotion/
+.DS_Store
+
+# Per-node generated artifacts (regenerable, not source): LLM-authored scripts,
+# Kokoro narration + timings, and image cue sheets.
+shorts/
