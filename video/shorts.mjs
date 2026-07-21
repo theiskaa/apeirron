@@ -6,8 +6,10 @@
 //   node shorts.mjs <node> <slug>       # just that one short, full chain
 //   node shorts.mjs <node> --scripts    # stop after authoring scripts (review first)
 //
-// Flags: --count N (scripts, default 4) · --model NAME · --force (redo every
-// stage) · --render-only (skip narrate/cues/plates, just re-render).
+// Flags: --count N (new scripts per run, default 1) · --model NAME · --style
+// ink|noir|cinematic|painterly|engraving (image look + matching caption
+// palette, default ink) · --force (redo every stage) · --render-only (skip
+// narrate/cues/plates, just re-render). Output is out/<node>-<slug>-<style>.mp4.
 //
 // Every stage is cached — it skips work whose output already exists unless
 // --force. Fully local: Ollama for text, Kokoro (speech/) for voice, FLUX
@@ -19,6 +21,8 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { normalizeWord, findPhraseStart } from "./lib/clean-heading.mjs";
 import { buildShortPlan } from "./lib/short-plan.mjs";
+import { updateRoadmap } from "./lib/roadmap.mjs";
+import { THEMES } from "./src/theme.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = join(HERE, "..");
@@ -28,20 +32,32 @@ const OUT = join(HERE, "out");
 const OLLAMA = "http://localhost:11434/api/chat";
 
 const argv = process.argv.slice(2);
-const [node, wantSlug] = argv.filter((a) => !a.startsWith("--"));
 const flag = (n) => argv.includes(`--${n}`);
 const opt = (n, d) => {
   const i = argv.indexOf(`--${n}`);
   return i >= 0 ? argv[i + 1] : d;
 };
+// Positionals = args that are neither a --flag nor the value of a value-taking flag.
+const VALUE_OPTS = ["model", "count", "style"];
+const [node, wantSlug] = argv.filter((a, i) => {
+  if (a.startsWith("--")) return false;
+  const prev = argv[i - 1];
+  return !(prev?.startsWith("--") && VALUE_OPTS.includes(prev.slice(2)));
+});
 const force = flag("force");
 const MODEL = opt("model", "qwen3.5:9b");
-const COUNT = Number(opt("count", 4));
+const COUNT = Number(opt("count", 1)); // one new short per run by default
+const STYLES = Object.keys(THEMES); // must stay in sync with STYLES in image.py
+const STYLE = opt("style", "ink"); // signature brand look
 
 if (!node) {
   console.error(
-    "usage: node shorts.mjs <node> [slug] [--scripts] [--render-only] [--count N] [--model NAME] [--force]",
+    `usage: node shorts.mjs <node> [slug] [--scripts] [--render-only] [--count N] [--model NAME] [--style ${STYLES.join("|")}] [--force]`,
   );
+  process.exit(1);
+}
+if (!STYLES.includes(STYLE)) {
+  console.error(`unknown --style ${STYLE} (choose ${STYLES.join(" | ")})`);
   process.exit(1);
 }
 
@@ -102,46 +118,105 @@ function cleanArticle(md) {
     .trim();
 }
 
-const SCRIPT_SYSTEM = `You are a viral short-form video scriptwriter (YouTube Shorts, Reels, TikTok). From the article, write ${COUNT} DISTINCT self-contained short scripts, each about a different gripping idea from the article.
-Each script MUST:
-- Open with a HOOK in the first sentence: a sharp question or a bold, curiosity-provoking claim that stops the scroll.
-- Deliver ONE fascinating idea, with a concrete specific fact or name from the article.
-- Be spoken narration ONLY — no stage directions, no "in this video", no emojis, no hashtags.
-- Be about 90 to 110 words (roughly 40 seconds when spoken).
-- End on a punchy, thought-provoking closing line.
-Voice: punchy, vivid, conversational, confident. Ground every claim in the article — do not invent facts.
+const SCRIPT_SYSTEM = `You are a master short-form video storyteller (YouTube Shorts, Reels, TikTok). From the article, write ${COUNT} DISTINCT self-contained shorts. Each tells ONE gripping idea from the article as a STORY, not an explainer.
+
+THE FIRST SENTENCE decides everything. It MUST open on a concrete anchor that THE ARTICLE BELOW actually names — a real person, year, place, experiment, or event from THIS article — and drop us mid-scene. Follow this SHAPE, but fill every blank with the article's own details (this is a template, never copy it literally): "In <year from the article>, <a real person the article names> <did something specific> at <a real place>…".
+NEVER open with a hypothetical or a definition: no "Imagine…", "Picture…", "Have you ever wondered…", "We can map…", "This is <topic>…", and no rhetorical questions.
+
+Then tell the story tight — this is a ~50 second narration, so every sentence must earn its place:
+- BUILD (the body, 3-4 sentences): raise the tension and reveal it with concrete, human detail — the specific people, the place, the numbers, what was seen, said, or done. Pick the single most gripping specific and cut the rest.
+- TURN: the surprising, unsettling, or mind-bending revelation — the "wait, what?" moment.
+- LAND: one short, punchy closing line that lingers. A STATEMENT, never a question. No "in conclusion", no vague "the universe is strange".
+
+Hard rules:
+- Use ONLY the names, dates, places, and facts found in the article below. Do NOT import people, stories, or examples from other topics or from these instructions — if a name or event is not in THIS article, it must not appear in the script. (No borrowing famous examples like wine bets, bats, or philosophers the article never mentions.)
+- Ground EVERY claim in the article. Use its real names, dates, places, numbers. Invent nothing.
+- Sentence one must name a real person, year, place, or specific event that appears in the article.
+- NO rhetorical questions anywhere — not in the hook, not at the end.
+- Spoken narration only — no stage directions, labels, emojis, or hashtags.
+- Write for the ear: vary sentence length, mostly punchy with some longer sentences for rhythm.
+- Use "you" at most once, and only if it sharpens a moment.
+- LENGTH IS CRITICAL: each script MUST be 110 to 130 words — roughly 45 to 55 seconds spoken, and never over 60 seconds. Anything over 135 words is too long and will be rejected. Be punchy and economical; one vivid specific beats three. Count the words before returning.
+
 Return ONLY JSON: {"shorts":[{"title":"3-6 word title","hook":"the opening sentence","script":"the full ~100 word narration"}]}`;
 
-async function authorScripts() {
-  const outPath = join(HERE, "shorts", `${node}.json`);
-  if (existsSync(outPath) && !force) {
-    return JSON.parse(readFileSync(outPath, "utf8")).shorts;
-  }
-  const md = readFileSync(join(REPO, "content/nodes", `${node}.md`), "utf8");
-  console.log(`> ${MODEL}: writing ${COUNT} scripts…`);
-  const parsed = await askJSON(SCRIPT_SYSTEM, `ARTICLE:\n\n${cleanArticle(md)}`, {
-    temperature: 0.7,
-    num_ctx: 32768,
-  });
+// Local models are flaky about count + length: qwen often returns fewer than
+// COUNT shorts and ignores the word limit. So validate each script (word count
+// in range) and retry, accumulating unique valid shorts until we have COUNT.
+const WORDS_MIN = 100;
+const WORDS_MAX = 135; // ~45-55s spoken, safely under 60s
+const MAX_TRIES = 10;
+const wordCount = (s) => s.trim().split(/\s+/).length;
 
-  const seen = new Set();
-  const shorts = (parsed.shorts || [])
-    .filter((s) => s && s.script && s.title)
-    .map((s, i) => ({
-      slug: slug(s.title) || `short-${i + 1}`,
-      title: s.title.trim(),
-      hook: (s.hook || s.script.split(/(?<=[.!?])\s/)[0]).trim(),
-      script: s.script.trim(),
-    }))
-    .filter((s) => !seen.has(s.slug) && seen.add(s.slug));
+// One-video-per-run with cross-run memory: shorts/<node>.json accumulates EVERY
+// short ever generated for the node. Each run authors COUNT new short(s) whose
+// angle differs from all of those (the prior titles are fed to the model as a
+// hard "do not repeat" list), appends them, and returns only the new ones so the
+// pipeline renders just those. Re-running the node keeps producing fresh angles.
+function loadHistory() {
+  const outPath = join(HERE, "shorts", `${node}.json`);
+  const shorts = existsSync(outPath) ? JSON.parse(readFileSync(outPath, "utf8")).shorts || [] : [];
+  return { outPath, shorts };
+}
+
+async function authorScripts() {
+  const { outPath, shorts: history } = loadHistory();
+  // Re-render / target an existing short: reuse memory, don't author anything new.
+  if (flag("render-only") || wantSlug) return history;
+
+  const md = readFileSync(join(REPO, "content/nodes", `${node}.md`), "utf8");
+  const user = `ARTICLE:\n\n${cleanArticle(md)}`;
+  const badOpener = /^\s*(imagine|picture|have you|what if|think about|consider|suppose|ever wonder)\b/i;
+  const seen = new Set(history.map((s) => s.slug));
+
+  const fresh = new Map();
+  for (let attempt = 1; attempt <= MAX_TRIES && fresh.size < COUNT; attempt++) {
+    console.log(`> ${MODEL}: writing ${COUNT} new short(s) (attempt ${attempt}, have ${fresh.size}/${COUNT})…`);
+    // Memory: every angle already made for this node (past runs + this run) is a
+    // hard exclusion so we never repeat a script.
+    const taken = [...history.map((s) => s.title), ...[...fresh.values()].map((s) => s.title)];
+    const userMsg = taken.length
+      ? `${user}\n\nThis node ALREADY has the shorts listed below. Each new short MUST cover a completely DIFFERENT idea, angle, and thought experiment from the article — do NOT repeat, rephrase, or overlap any of these:\n- ${taken.join("\n- ")}`
+      : user;
+    let parsed;
+    try {
+      parsed = await askJSON(SCRIPT_SYSTEM, userMsg, { temperature: 0.85, num_ctx: 32768 });
+    } catch (e) {
+      console.log(`  ! attempt failed: ${e.message}`);
+      continue;
+    }
+    for (const s of parsed.shorts || []) {
+      if (!s || !s.script || !s.title) continue;
+      const sl = slug(s.title);
+      if (!sl || seen.has(sl) || fresh.has(sl)) continue;
+      const script = s.script.trim();
+      const w = wordCount(script);
+      if (w < WORDS_MIN || w > WORDS_MAX) {
+        console.log(`  – dropped "${s.title}" (${w} words, want ${WORDS_MIN}-${WORDS_MAX})`);
+        continue;
+      }
+      if (badOpener.test(script)) {
+        console.log(`  – dropped "${s.title}" (banned opener)`);
+        continue;
+      }
+      fresh.set(sl, {
+        slug: sl,
+        title: s.title.trim(),
+        hook: (s.hook || script.split(/(?<=[.!?])\s/)[0]).trim(),
+        script,
+      });
+      if (fresh.size >= COUNT) break;
+    }
+  }
+
+  const newShorts = [...fresh.values()].slice(0, COUNT);
+  if (!newShorts.length) throw new Error(`no valid new script for ${node} — model may be down; retry`);
 
   mkdirSync(join(HERE, "shorts"), { recursive: true });
-  writeFileSync(outPath, JSON.stringify({ id: node, shorts }, null, 2) + "\n");
-  console.log(`> shorts/${node}.json — ${shorts.length} shorts:`);
-  for (const s of shorts) {
-    console.log(`  [${s.slug}] ${s.title}  (~${s.script.split(/\s+/).length} words)`);
-  }
-  return shorts;
+  writeFileSync(outPath, JSON.stringify({ id: node, shorts: [...history, ...newShorts] }, null, 2) + "\n");
+  console.log(`> shorts/${node}.json — +${newShorts.length} new (${history.length + newShorts.length} total for node):`);
+  for (const s of newShorts) console.log(`  [${s.slug}] ${s.title}  (~${wordCount(s.script)} words)`);
+  return newShorts;
 }
 
 // Narrate the script with Kokoro → mp3 + word timings.
@@ -202,9 +277,18 @@ async function authorCues(short) {
 async function generatePlates(short) {
   const cues = join(HERE, "shorts", "images", `${node}-${short.slug}.json`);
   console.log(`> FLUX plates for ${short.slug}…`);
-  const args = ["run", join(HERE, "image.py"), "--prompts", cues];
+  const args = ["run", join(HERE, "image.py"), "--prompts", cues, "--style", STYLE];
   if (force) args.push("--force");
   await run("uv", args, HERE);
+}
+
+// Derive one caption palette for this short from its plates (painterly only —
+// the graded looks keep their fixed theme). Fast, PIL only, no model load.
+async function generatePalette(short) {
+  const cues = join(HERE, "shorts", "images", `${node}-${short.slug}.json`);
+  const out = join(HERE, "shorts", "images", `${node}-${short.slug}.palette.json`);
+  await run("uv", ["run", join(HERE, "palette.py"), "--prompts", cues, "--out", out], HERE);
+  return existsSync(out) ? JSON.parse(readFileSync(out, "utf8")) : null;
 }
 
 // Audio must sit under public/ before the bundle so staticFile() resolves it.
@@ -218,9 +302,11 @@ function stageAudio(short) {
 async function renderShort(short, ctx) {
   const plan = buildShortPlan(node, short.slug);
   plan.audioFile = `shorts/${node}-${short.slug}.mp3`;
+  plan.style = STYLE; // picks the composition's base palette (captions + scrim)
+  if (STYLE === "painterly") plan.palette = await generatePalette(short); // context-matched colors
   const composition = await ctx.selectComposition({ serveUrl: ctx.serveUrl, id: "short", inputProps: plan });
   mkdirSync(OUT, { recursive: true });
-  const out = join(OUT, `${node}-${short.slug}.mp4`);
+  const out = join(OUT, `${node}-${short.slug}-${STYLE}.mp4`);
   console.log(
     `> rendering ${short.slug} · ${composition.width}x${composition.height} · ${composition.durationInFrames}f`,
   );
@@ -236,7 +322,7 @@ async function renderShort(short, ctx) {
     x264Preset: "slow",
     onProgress: ({ progress }) => process.stdout.write(`\r  ${Math.round(progress * 100)}%   `),
   });
-  console.log(`\r> done — out/${node}-${short.slug}.mp4`);
+  console.log(`\r> done — out/${node}-${short.slug}-${STYLE}.mp4`);
 }
 
 async function main() {
@@ -268,7 +354,8 @@ async function main() {
   const ctx = { serveUrl, selectComposition, renderMedia };
   for (const s of shorts) await renderShort(s, ctx);
 
-  console.log(`\n> all done — ${shorts.length} mp4${shorts.length > 1 ? "s" : ""} in out/`);
+  updateRoadmap(); // log the new short(s) into shorts-roadmap.md (the memory view)
+  console.log(`\n> all done — ${shorts.length} mp4${shorts.length > 1 ? "s" : ""} in out/ · roadmap updated`);
 }
 
 main().catch((e) => {

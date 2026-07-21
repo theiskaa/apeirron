@@ -11,7 +11,9 @@ import {
 } from "remotion";
 import { loadFont as loadSerif } from "@remotion/google-fonts/PlayfairDisplay";
 import { loadFont as loadSans } from "@remotion/google-fonts/Inter";
-import { COLORS, SITE } from "./theme.mjs";
+import { THEMES, SITE } from "./theme.mjs";
+
+type Theme = (typeof THEMES)[keyof typeof THEMES];
 
 const FONT_OPTS = {
   weights: ["400", "600", "700", "800"],
@@ -34,9 +36,9 @@ export interface ShortPlan {
   words: Word[];
   images: ShortImage[];
   audioFile: string | null;
+  style?: keyof typeof THEMES; // image look + caption palette; default ink
+  palette?: Partial<Theme>; // per-short colors auto-extracted from the imagery
 }
-
-const CAP_H = 470; // bottom caption band height (of 1920)
 
 function activeWordIndex(words: Word[], sec: number): number {
   let lo = 0,
@@ -82,7 +84,7 @@ const kenBurns = (t: number) => 1.06 + (Math.min(t, 8) / 8) * 0.1;
 // Crossfade the current image OVER the previous one. Only two layers ever render,
 // both via Remotion's <Img> (which blocks the frame until the image is decoded, so
 // no flicker/lag), so switching is smooth and the paper never shows through.
-const ImagePanel: React.FC<{ plan: ShortPlan; sec: number }> = ({ plan, sec }) => {
+const ImagePanel: React.FC<{ plan: ShortPlan; sec: number; theme: Theme }> = ({ plan, sec, theme }) => {
   const imgs = plan.images.filter((i) => i.asset);
   const panel: React.CSSProperties = {
     position: "absolute",
@@ -91,7 +93,7 @@ const ImagePanel: React.FC<{ plan: ShortPlan; sec: number }> = ({ plan, sec }) =
     width: 1080,
     height: 1920,
     overflow: "hidden",
-    backgroundColor: COLORS.bg,
+    backgroundColor: theme.bg,
   };
   const cover: React.CSSProperties = {
     position: "absolute",
@@ -124,20 +126,11 @@ const ImagePanel: React.FC<{ plan: ShortPlan; sec: number }> = ({ plan, sec }) =
         src={staticFile(cur.asset!)}
         style={{ ...cover, opacity: curOp, transform: `scale(${kenBurns(since)})` }}
       />
-      {/* fade the full-bleed image smoothly into the paper toward the bottom so
-          the image and the caption area merge — no hard band */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: `linear-gradient(to bottom, transparent 50%, ${COLORS.bg} 76%)`,
-        }}
-      />
     </div>
   );
 };
 
-const Captions: React.FC<{ plan: ShortPlan; sec: number }> = ({ plan, sec }) => {
+const Captions: React.FC<{ plan: ShortPlan; sec: number; theme: Theme }> = ({ plan, sec, theme }) => {
   const chunks = useMemo(() => buildChunks(plan.words), [plan.words]);
   const active = activeWordIndex(plan.words, sec);
   let ci = chunks.findIndex((c) => c.words.some((w) => w.index === active));
@@ -150,29 +143,41 @@ const Captions: React.FC<{ plan: ShortPlan; sec: number }> = ({ plan, sec }) => 
   const pop = spring({ frame: since * 30, fps: 30, config: { damping: 140 }, durationInFrames: 8 });
 
   return (
+    // Lyrics live in the vertical center of the frame. A soft full-width band
+    // sits behind them so they stay legible over any image, bright or dark.
     <div
       style={{
         position: "absolute",
-        left: 0,
-        right: 0,
-        bottom: 0,
-        height: CAP_H,
+        inset: 0,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        padding: "0 80px",
+        padding: "0 90px",
       }}
     >
       <div
         style={{
+          position: "absolute",
+          left: 0,
+          right: 0,
+          top: "50%",
+          transform: "translateY(-50%)",
+          height: 620,
+          background: `linear-gradient(to bottom, transparent 0%, ${theme.scrim} 30%, ${theme.scrim} 70%, transparent 100%)`,
+        }}
+      />
+      <div
+        style={{
+          position: "relative",
           transform: `translateY(${interpolate(pop, [0, 1], [18, 0])}px)`,
           opacity: pop,
           textAlign: "center",
           fontFamily: SANS,
           fontWeight: 800,
-          fontSize: 68,
-          lineHeight: 1.15,
+          fontSize: 76,
+          lineHeight: 1.18,
           letterSpacing: "-0.01em",
+          textShadow: theme.textShadow,
         }}
       >
         {chunk.words.map(({ text, index }) => {
@@ -182,7 +187,7 @@ const Captions: React.FC<{ plan: ShortPlan; sec: number }> = ({ plan, sec }) => 
             <span
               key={index}
               style={{
-                color: isActive ? COLORS.accent : spoken ? COLORS.textPrimary : COLORS.textMuted,
+                color: isActive ? theme.accent : spoken ? theme.spoken : theme.unspoken,
               }}
             >
               {text}{" "}
@@ -194,7 +199,7 @@ const Captions: React.FC<{ plan: ShortPlan; sec: number }> = ({ plan, sec }) => 
   );
 };
 
-const EndCard: React.FC<{ plan: ShortPlan; enter: number }> = ({ plan, enter }) => (
+const EndCard: React.FC<{ plan: ShortPlan; enter: number; theme: Theme }> = ({ plan, enter, theme }) => (
   <AbsoluteFill
     style={{
       justifyContent: "center",
@@ -202,7 +207,7 @@ const EndCard: React.FC<{ plan: ShortPlan; enter: number }> = ({ plan, enter }) 
       opacity: enter,
       padding: "0 100px",
       textAlign: "center",
-      backgroundColor: COLORS.bg,
+      backgroundColor: theme.bg,
     }}
   >
     <div
@@ -210,16 +215,16 @@ const EndCard: React.FC<{ plan: ShortPlan; enter: number }> = ({ plan, enter }) 
         fontFamily: SERIF,
         fontWeight: 700,
         fontSize: 88,
-        color: COLORS.textPrimary,
+        color: theme.endTitle,
         lineHeight: 1.1,
         marginBottom: 34,
       }}
     >
       {plan.title}
     </div>
-    <div style={{ fontFamily: SANS, fontSize: 42, color: COLORS.textSecondary }}>
+    <div style={{ fontFamily: SANS, fontSize: 42, color: theme.endSub }}>
       full story at{" "}
-      <span style={{ color: COLORS.accent, fontWeight: 700 }}>{SITE}</span>
+      <span style={{ color: theme.accent, fontWeight: 700 }}>{SITE}</span>
     </div>
   </AbsoluteFill>
 );
@@ -238,15 +243,19 @@ export const ShortVideo: React.FC<ShortPlan> = (plan) => {
     durationInFrames: 18,
   });
 
+  const base = THEMES[plan.style ?? "ink"] ?? THEMES.ink;
+  // Auto-extracted per-short colors override the base theme when present.
+  const theme = { ...base, ...(plan.palette ?? {}) };
+
   return (
-    <AbsoluteFill style={{ backgroundColor: COLORS.bg }}>
+    <AbsoluteFill style={{ backgroundColor: theme.bg }}>
       {plan.audioFile && <Audio src={staticFile(plan.audioFile)} />}
       {onEnd ? (
-        <EndCard plan={plan} enter={endEnter} />
+        <EndCard plan={plan} enter={endEnter} theme={theme} />
       ) : (
         <>
-          <ImagePanel plan={plan} sec={sec} />
-          <Captions plan={plan} sec={sec} />
+          <ImagePanel plan={plan} sec={sec} theme={theme} />
+          <Captions plan={plan} sec={sec} theme={theme} />
         </>
       )}
     </AbsoluteFill>
