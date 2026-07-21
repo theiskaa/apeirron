@@ -37,6 +37,13 @@ interface Props {
    * `allNodes` — correct only once the full graph is loaded.
    */
   readNext?: ReadNextData | null;
+  /**
+   * Reports whether the tab bar should currently be shown, based on reading
+   * direction: hidden once you're reading downward, back the moment you scroll
+   * up or return to the top. The scroll container lives here, but the header
+   * lives in PageClient, so the signal has to be lifted.
+   */
+  onTabDockChange?: (visible: boolean) => void;
 }
 
 const GITHUB_REPO = "https://github.com/theiskaa/apeirron";
@@ -49,6 +56,7 @@ export default function NodeView({
   allNodes,
   onNodeClick,
   readNext,
+  onTabDockChange,
 }: Props) {
   if (node.phantom) {
     return (
@@ -271,6 +279,51 @@ export default function NodeView({
       if (urlTimer) clearTimeout(urlTimer);
     };
   }, [tocItems, node.id]);
+
+  // Reading-direction chrome. Scrolling down into the article retracts the tab
+  // bar so the text isn't read through it; scrolling up (or returning near the
+  // top) brings it straight back. Deliberately does NOT change
+  // --article-header: the article's top padding stays put, so retracting the
+  // tabs never shifts the words you're reading.
+  useEffect(() => {
+    const scroll = scrollRef.current;
+    if (!scroll || !onTabDockChange) return;
+
+    const ALWAYS_SHOW_ABOVE = 24; // near the top the bar is always present
+    const HIDE_BELOW = 96; // don't retract until clear of the header
+    const JITTER = 6; // ignore momentum wobble / trackpad noise
+
+    let last = scroll.scrollTop;
+    let visible = true;
+    let ticking = false;
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        const y = scroll.scrollTop;
+        const dy = y - last;
+        // Below the jitter floor, keep `last` so small moves accumulate rather
+        // than being discarded one frame at a time.
+        if (Math.abs(dy) < JITTER) return;
+        last = y;
+
+        const next = y <= ALWAYS_SHOW_ABOVE ? true : dy < 0 ? true : y > HIDE_BELOW ? false : visible;
+        if (next !== visible) {
+          visible = next;
+          onTabDockChange(next);
+        }
+      });
+    };
+
+    scroll.addEventListener("scroll", onScroll, { passive: true });
+    onTabDockChange(true);
+    return () => {
+      scroll.removeEventListener("scroll", onScroll);
+      onTabDockChange(true); // never leave the bar retracted on unmount
+    };
+  }, [onTabDockChange, node.id]);
 
   const handleTocClick = useCallback(
     (id: string) => {
@@ -598,7 +651,7 @@ function PhantomNodeView({
                   e.preventDefault();
                   onNodeClick(r.id);
                 }}
-                className="group block rounded-lg px-3 py-2.5 -mx-3 transition-all duration-200 hover:bg-[color-mix(in_srgb,var(--text-primary)_5%,transparent)]"
+                className="group block rounded-lg px-3 py-2.5 -mx-3 transition-colors duration-200 hover:bg-[color-mix(in_srgb,var(--text-primary)_5%,transparent)]"
               >
                 <span className="flex items-center gap-2">
                   <span
@@ -608,7 +661,7 @@ function PhantomNodeView({
                     {r.title}
                   </span>
                   <span
-                    className="text-text-muted opacity-0 -translate-x-1 transition-all group-hover:opacity-60 group-hover:translate-x-0 text-[11px]"
+                    className="text-text-muted opacity-0 -translate-x-1 transition-[opacity,transform] ease-[var(--ease-out)] group-hover:opacity-60 group-hover:translate-x-0 text-[11px]"
                     aria-hidden="true"
                   >
                     →
@@ -797,7 +850,7 @@ function ConnectionReasons({
                 {r.title}
               </span>
               <span
-                className="text-text-muted opacity-0 -translate-x-1 transition-all group-hover:opacity-60 group-hover:translate-x-0 text-[11px]"
+                className="text-text-muted opacity-0 -translate-x-1 transition-[opacity,transform] ease-[var(--ease-out)] group-hover:opacity-60 group-hover:translate-x-0 text-[11px]"
                 aria-hidden="true"
               >
                 →
@@ -877,7 +930,7 @@ function ReadNext({
           e.preventDefault();
           onNodeClick(next.node.id);
         }}
-        className="group block text-left rounded-xl p-4 transition-all duration-150 hover:scale-[1.01]"
+        className="group block text-left rounded-xl p-4 transition-transform duration-150 ease-[var(--ease-out)] hover:scale-[1.01]"
         style={{
           backgroundColor:
             "color-mix(in srgb, var(--text-primary) 3%, transparent)",
@@ -919,7 +972,7 @@ function ReadNext({
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="ml-auto shrink-0 text-text-muted/30 group-hover:text-text-muted/70 group-hover:translate-x-0.5 transition-all"
+            className="ml-auto shrink-0 text-text-muted/30 group-hover:text-text-muted/70 group-hover:translate-x-0.5 transition-[color,transform] ease-[var(--ease-out)]"
           >
             <polyline points="9 18 15 12 9 6" />
           </svg>

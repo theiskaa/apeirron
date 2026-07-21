@@ -87,6 +87,9 @@ export default function PageClient({
     initialNodeId ? `node:${initialNodeId}` : "graph"
   );
   const [focusNodeId, setFocusNodeId] = useState<string | null>(null);
+  // Whether the tab bar is extended while reading. NodeView drives this from
+  // scroll direction; it's always true on the graph view.
+  const [tabDockVisible, setTabDockVisible] = useState(true);
   // Gate persistence: don't write the (bare, server-derived) initial tab set to
   // storage before the post-mount rehydration has merged in the saved workspace.
   const hydratedRef = useRef(false);
@@ -438,7 +441,7 @@ export default function PageClient({
       {/* Node article fills the screen behind the floating header. The top
           padding clears the header (navbar + tabs) so content isn't hidden. */}
       {activeNode && !showGraph && (
-        <div className="absolute inset-0 z-10 bg-background overflow-hidden">
+        <div className="article-panel absolute inset-0 z-10 bg-background overflow-hidden">
           <div className="h-full">
             <NodeView
               node={activeNode}
@@ -458,10 +461,14 @@ export default function PageClient({
               // (null means "no next node", distinct from "compute it").
               readNext={graphData ? undefined : initialReadNext}
               onNodeClick={handleNodeClick}
+              onTabDockChange={setTabDockVisible}
             />
           </div>
           {/* iOS-style scrim frosting the article as it scrolls behind the header. */}
-          <div className="header-scrim absolute top-0 left-0 right-0 z-10 pointer-events-none h-[var(--article-header)]" />
+          <div
+            className="header-scrim header-scrim-reader absolute top-0 left-0 right-0 z-10 pointer-events-none"
+            data-compact={!tabDockVisible ? "true" : undefined}
+          />
         </div>
       )}
 
@@ -474,9 +481,16 @@ export default function PageClient({
           articleInset={!showGraph && !!activeNode}
         />
         {hasNodeTabs && (
-          // On phones, hide the tab bar while reading an article to reclaim
-          // vertical space (the wordmark still returns to the graph).
-          <div className={!showGraph && activeNode ? "hidden sm:block" : undefined}>
+          // On phones, hide the tab bar outright while reading an article to
+          // reclaim vertical space (the wordmark still returns to the graph).
+          // Everywhere else it retracts as you read down and comes back the
+          // moment you scroll up — see NodeView's onTabDockChange.
+          <div
+            className={`tab-dock ${!showGraph && activeNode ? "hidden sm:block" : ""}`}
+            data-retracted={
+              !showGraph && activeNode && !tabDockVisible ? "true" : undefined
+            }
+          >
             <TabBar
               tabs={tabs}
               activeTabId={activeTabId}

@@ -32,11 +32,19 @@
   --ease-out: cubic-bezier(0.2, 0, 0, 1);
   --dur-fast: 120ms;
   --dur-base: 180ms;
+  /* Theme crossfade. The graph canvas reads this and interpolates its own
+     colors over the same window, so the page chrome and the graph change
+     theme together instead of one fading while the other snaps. */
+  --dur-theme: 200ms;
 
   /* Floating-header height on the article view (navbar only on mobile; +tabs on
      sm+ via the media query below). Keeps content padding, the sticky TOC, and
      the scroll-blur scrim in sync. */
   --article-header: calc(env(safe-area-inset-top) + 68px);
+  /* Just the navbar, no tab row. The reader's scrim falls back to this when the
+     tab bar is retracted, so the frost hugs the navbar instead of leaving a
+     blurred band smeared across the article where the tabs used to be. */
+  --navbar-header: calc(env(safe-area-inset-top) + 68px);
 
   --graph-bg: #f8f8fa;
   --graph-line: rgba(100, 100, 120, 0.18);
@@ -182,7 +190,9 @@ body {
   background: var(--background);
   color: var(--text-primary);
   overflow: hidden;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  /* linear, so the JS-side crossfade of the graph canvas can match it exactly */
+  transition: background-color var(--dur-theme) linear,
+              color var(--dur-theme) linear;
 }
 
 /* "Text follows audio" reading mode — the narrated word is highlighted in place
@@ -219,10 +229,19 @@ body {
       color-mix(in srgb, var(--lyric-accent, var(--accent)) 15%, transparent);
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .lyric-word {
-    transition: none;
-  }
+/* No reduced-motion override here on purpose: the highlight only changes color
+   and shadow, never position, and following the narrated word is exactly the
+   comprehension aid reduced motion is meant to preserve. */
+
+/* The floating header (navbar + tabs) is positioned OVER the article, so a
+   heading scrolled to the top of the scroll container lands underneath it.
+   scroll-margin-top reserves that height for every scroll-into-view landing —
+   TOC clicks, clicking a heading, and #hash deep links alike — and resolves
+   the calc() at whichever breakpoint is active. The extra 16px is breathing
+   room so the heading doesn't sit flush against the header's edge. */
+.prose-apeirron h2[id],
+.prose-apeirron h3[id] {
+  scroll-margin-top: calc(var(--article-header) + 16px);
 }
 
 /* Prose styles for rendered markdown articles */
@@ -474,10 +493,12 @@ body {
     color-mix(in srgb, var(--tc) 8%, transparent)
   );
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 9%, transparent);
+  /* max-width is deliberately NOT transitioned: it is a layout property, and
+     animating it on the selected tab reflows every sibling in the scrolling
+     row for the duration. The width change lands in one frame instead. */
   transition: background-image var(--dur-fast) var(--ease-out),
               box-shadow var(--dur-fast) var(--ease-out),
-              color var(--dur-fast) var(--ease-out),
-              max-width 240ms var(--ease-out);
+              color var(--dur-fast) var(--ease-out);
 }
 .tab:hover {
   background-image: linear-gradient(
@@ -540,6 +561,26 @@ body {
     transparent 100%
   );
 }
+
+/* Reader scrim only: track the tab bar. With the tabs retracted, the frost has
+   nothing to cover down there, and the leftover band read as a smear of blurred
+   text across the article.
+
+   The height change is deliberately instant rather than animated — this element
+   carries two backdrop-filters, and animating its height would force the blur
+   to re-composite the full page width every frame. The `0s` transition exists
+   purely for its DELAY: shrinking waits for the tabs to finish fading out,
+   while growing back is immediate so the frost is already in place as they
+   return. */
+.header-scrim-reader {
+  height: var(--article-header);
+  transition: height 0s linear 0s;
+}
+.header-scrim-reader[data-compact="true"] {
+  height: var(--navbar-header);
+  transition: height 0s linear var(--dur-base);
+}
+
 .header-scrim::before,
 .header-scrim::after {
   content: "";
@@ -608,7 +649,7 @@ body {
   display: inline-block;
   width: 0.82em;
   height: 0.82em;
-  animation: nf-float 7s var(--ease-out) infinite;
+  animation: nf-float 7s ease-in-out infinite;
 }
 .nf-ring {
   transform-origin: 50% 50%;
@@ -635,13 +676,59 @@ body {
   50% { transform: scale(1.06); opacity: 0.45; }
 }
 
-/* Respect reduced motion preference */
+/* Respect reduced motion preference.
+
+   Reduced motion means less movement, not no feedback. Looping/keyframe
+   animation is cut outright, and transitions are narrowed to the properties
+   that don't move anything — color, opacity, shadow — so hover states, button
+   feedback and the reading highlight still respond, at their normal speed. */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+    transition-property: color, background-color, border-color, box-shadow,
+      background-image, opacity, fill, stroke !important;
+  }
+}
+
+/* Tab bar dock. While reading, the bar retracts on downward scroll and returns
+   on upward scroll, so the article isn't read through a row of chrome. Only
+   transform + opacity animate — the article's top padding is untouched, so the
+   text never reflows or shifts under the reader. Retracted, it also stops
+   catching clicks meant for the article beneath it.
+
+   Under reduced motion the global rule drops `transform` from the transition
+   list, so this becomes a plain fade with no travel. */
+.tab-dock {
+  transition: opacity var(--dur-base) var(--ease-out),
+              transform var(--dur-base) var(--ease-out);
+}
+.tab-dock[data-retracted="true"] {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+/* The scroll viewport inside re-enables pointer-events, which would override a
+   parent `none` — so silence the subtree explicitly. */
+.tab-dock[data-retracted="true"],
+.tab-dock[data-retracted="true"] * {
+  pointer-events: none;
+}
+
+/* The article panel mounts straight over the graph. Its own header column
+   morphs across 200ms, so an instant opaque swap made the chrome look like it
+   was animating for no reason. A short fade lets the header's motion read as
+   explaining where the article came from. @starting-style (rather than a
+   keyframe) keeps it interruptible: flipping back to the graph mid-fade
+   retargets from the current opacity instead of restarting. Browsers without
+   @starting-style simply show it instantly, as before. */
+.article-panel {
+  opacity: 1;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+@starting-style {
+  .article-panel {
+    opacity: 0;
   }
 }
 
