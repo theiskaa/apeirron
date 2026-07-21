@@ -132,17 +132,10 @@ export default function CommandPalette({
     [flatList, onSelectNode, onClose]
   );
 
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    if (open) {
-      setVisible(true);
-    } else {
-      const t = setTimeout(() => setVisible(false), 120);
-      return () => clearTimeout(t);
-    }
-  }, [open]);
-
-  if (!visible && !open) return null;
+  // No open/close animation: the palette is a ⌘K action hit many times a day,
+  // and motion on a keyboard-initiated surface only delays the moment you're
+  // already looking at. It mounts and unmounts instantly (Raycast does the same).
+  if (!open) return null;
 
   const hasQuery = query.trim().length > 0;
   const hasNothing = flatList.length === 0;
@@ -151,8 +144,7 @@ export default function CommandPalette({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center pt-[18vh] transition-opacity duration-150"
-      style={{ opacity: open ? 1 : 0 }}
+      className="fixed inset-0 z-50 flex items-start justify-center pt-[18vh]"
     >
       <div
         className="absolute inset-0 backdrop-blur-[2px]"
@@ -164,11 +156,7 @@ export default function CommandPalette({
       <div
         role="dialog"
         aria-label="Search nodes and commands"
-        className="relative w-full max-w-xl mx-4 transition-all duration-150"
-        style={{
-          opacity: open ? 1 : 0,
-          transform: open ? "translateY(0) scale(1)" : "translateY(-8px) scale(0.98)",
-        }}
+        className="relative w-full max-w-xl mx-4"
         onKeyDown={(e) => {
           switch (e.key) {
             case "ArrowDown":
@@ -329,7 +317,7 @@ function ActionRow({
       aria-selected={selected}
       onClick={onClick}
       onMouseEnter={onHover}
-      className="w-full flex items-center gap-3 px-4 py-2 text-left transition-colors rounded-xl"
+      className="w-full flex items-center gap-3 px-4 py-2 text-left rounded-xl transition-[color,background-color,transform] duration-[var(--dur-fast)] ease-[var(--ease-out)] active:scale-[0.98]"
       style={{
         backgroundColor: selected ? "var(--accent-soft)" : "transparent",
       }}
@@ -391,7 +379,7 @@ function NodeRow({
       aria-selected={selected}
       onClick={onClick}
       onMouseEnter={onHover}
-      className="w-full flex items-center gap-3 px-4 py-2 text-left transition-colors rounded-xl"
+      className="w-full flex items-center gap-3 px-4 py-2 text-left rounded-xl transition-[color,background-color,transform] duration-[var(--dur-fast)] ease-[var(--ease-out)] active:scale-[0.98]"
       style={{
         backgroundColor: selected ? "var(--accent-soft)" : "transparent",
       }}

@@ -468,7 +468,7 @@ export default function NodesView({
                     {volumes.map((volume) => (
                       <div
                         key={volume.id}
-                        className="group relative flex gap-3 rounded-xl p-3 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-14px_rgba(0,0,0,0.4)]"
+                        className="group relative flex gap-3 rounded-xl p-3 overflow-hidden transition-[transform,box-shadow] duration-200 ease-[var(--ease-out)] hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-14px_rgba(0,0,0,0.4)]"
                         style={{
                           backgroundColor:
                             "color-mix(in srgb, var(--text-primary) 3.5%, transparent)",
@@ -570,7 +570,7 @@ export default function NodesView({
                         key={node.id}
                         href={`/node/${node.id}`}
                         prefetch={false}
-                        className="group relative flex flex-col rounded-xl p-5 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-14px_rgba(0,0,0,0.4)]"
+                        className="group relative flex flex-col rounded-xl p-5 overflow-hidden transition-[transform,box-shadow] duration-200 ease-[var(--ease-out)] hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-14px_rgba(0,0,0,0.4)]"
                         style={{
                           backgroundColor:
                             "color-mix(in srgb, var(--text-primary) 3.5%, transparent)",
@@ -692,7 +692,7 @@ export default function NodesView({
                     <Link
                       href={`/node/${node.id}`}
                       prefetch={false}
-                      className="group relative flex gap-4 rounded-xl p-4 sm:p-5 overflow-hidden transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-14px_rgba(0,0,0,0.4)]"
+                      className="group relative flex gap-4 rounded-xl p-4 sm:p-5 overflow-hidden transition-[transform,box-shadow] duration-200 ease-[var(--ease-out)] hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-14px_rgba(0,0,0,0.4)]"
                       style={{
                         backgroundColor:
                           "color-mix(in srgb, var(--text-primary) 3.5%, transparent)",

@@ -22,7 +22,10 @@ interface Props {
  * symmetric inset that lands the wordmark on the article title.
  */
 export function headerColumnClass(articleInset?: boolean) {
-  return `mx-auto w-full transition-[max-width,padding] duration-300 ease-out ${
+  // Tailwind's built-in `ease-out` is cubic-bezier(0, 0, 0.2, 1) — a different,
+  // weaker curve than the app's own --ease-out token. Use the token so the
+  // header morph matches every other transition in the app.
+  return `mx-auto w-full transition-[max-width,padding] duration-200 ease-[var(--ease-out)] ${
     articleInset
       ? "max-w-[1400px] px-4 sm:px-6 lg:px-12 xl:px-[240px] 2xl:px-[272px]"
       : "max-w-[340px] sm:max-w-[560px] px-4"

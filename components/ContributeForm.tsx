@@ -340,7 +340,7 @@ export default function ContributeForm({
                 onClick={() => {
                   window.location.href = "/";
                 }}
-                className="px-4 py-2 rounded-md text-sm font-medium border border-border bg-surface text-text-primary hover:brightness-110 transition-all"
+                className="px-4 py-2 rounded-md text-sm font-medium border border-border bg-surface text-text-primary hover:brightness-110 transition-[filter] duration-[var(--dur-fast)] ease-[var(--ease-out)]"
               >
                 Back to graph
               </button>
