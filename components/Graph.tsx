@@ -4,6 +4,8 @@ import { useRef, useEffect, useState, useMemo, useCallback } from "react";
 import ForceGraph2D from "react-force-graph-2d";
 import { forceCollide } from "d3-force";
 import type { GraphNode } from "@/lib/types";
+import { useReducedMotion } from "@/lib/useReducedMotion";
+import { crossfadeColors } from "@/lib/colorLerp";
 
 // sub-linear zoom response: screen radius = base * scale^ZOOM_K.
 // k<1 damps the zoom: nodes look smaller than expected when zoomed in,
@@ -66,6 +68,13 @@ export default function Graph({
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const fgRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  // The perpetual drift is canvas-drawn, so the reduced-motion rules in
+  // globals.css can't switch it off. Drop the alpha floor to 0 instead: the
+  // sim settles and stays put, while drag, zoom and pan keep working.
+  const reducedMotion = useReducedMotion();
+  const alphaTarget = reducedMotion ? 0 : ALPHA_TARGET;
+  const alphaTargetRef = useRef(alphaTarget);
+  alphaTargetRef.current = alphaTarget;
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
   const [hoveredNode, setHoveredNode] = useState<string | null>(null);
   const hoveredNodeRef = useRef<string | null>(null);
@@ -97,8 +106,8 @@ export default function Graph({
     const readTheme = () => {
       const s = getComputedStyle(document.documentElement);
       const g = (v: string, fallback: string) => s.getPropertyValue(v).trim() || fallback;
-      setGraphBg(g("--graph-bg", "#262626"));
-      themeVars.current = {
+      return {
+        bg: g("--graph-bg", "#262626"),
         line: g("--graph-line", "rgba(90,90,105,0.18)"),
         lineHover: g("--graph-line-hover", "rgba(150,150,165,0.55)"),
         lineDim: g("--graph-line-dim", "rgba(70,70,80,0.06)"),
@@ -111,10 +120,40 @@ export default function Graph({
         traverseHeadRgb: g("--graph-traverse-head-rgb", "160, 160, 180"),
       };
     };
-    readTheme();
-    const observer = new MutationObserver(readTheme);
+
+    // The canvas can't inherit the CSS transition on <body>, so it would snap
+    // to the new palette while the rest of the page faded — the two halves of
+    // the screen visibly disagreeing. Interpolate the same colors over the
+    // same --dur-theme window instead. `live` tracks the values actually on
+    // screen, so switching theme mid-fade continues from where it is rather
+    // than jumping back to the previous palette.
+    let live = readTheme();
+    const apply = ({ bg, ...rest }: ReturnType<typeof readTheme>) => {
+      setGraphBg(bg);
+      themeVars.current = rest;
+    };
+    apply(live);
+
+    let cancel: (() => void) | undefined;
+    const onThemeChange = () => {
+      const next = readTheme();
+      const dur =
+        parseFloat(
+          getComputedStyle(document.documentElement).getPropertyValue("--dur-theme")
+        ) || 200;
+      cancel?.();
+      cancel = crossfadeColors(live, next, dur, (frame) => {
+        live = frame;
+        apply(frame);
+      });
+    };
+
+    const observer = new MutationObserver(onThemeChange);
     observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      cancel?.();
+    };
   }, []);
 
   // Responsive sizing
@@ -166,10 +205,11 @@ export default function Graph({
         .strength(1)
         .iterations(3)
     );
-    // Permanent alpha floor so the sim never decays to a hard freeze.
+    // Permanent alpha floor so the sim never decays to a hard freeze (0 when
+    // the user asks for reduced motion, which lets it settle).
     // Set imperatively because the prop isn't in the library's TS types.
-    fg.d3AlphaTarget?.(ALPHA_TARGET);
-  }, [dimensions.width]);
+    fg.d3AlphaTarget?.(alphaTarget);
+  }, [dimensions.width, alphaTarget]);
 
   // Mount-only: one auto-fit pass + capture-phase listeners that cancel it
   // on the first genuine user interaction. userTookOverRef is module-scoped
@@ -335,7 +375,7 @@ export default function Graph({
     (node: any) => {
       node.fx = undefined;
       node.fy = undefined;
-      fgRef.current?.d3AlphaTarget?.(ALPHA_TARGET);
+      fgRef.current?.d3AlphaTarget?.(alphaTargetRef.current);
     },
     []
   );
