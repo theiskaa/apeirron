@@ -1,5 +1,22 @@
+# Single-package repo — but this file has to exist, because it is the only place
+# every pnpm generation agrees to read settings from. It must declare `packages`:
+# pnpm 8/9 hard-error with "packages field missing or empty" when the file exists
+# without it, which is what broke the Cloudflare build.
+packages:
+  - .
+
+# Dependencies allowed to run install scripts (they fetch or link native
+# binaries). pnpm 10+ blocks these by default. The setting is spelled
+# `allowBuilds` in pnpm 11 and `onlyBuiltDependencies` in pnpm 10, so both are
+# listed; each version reads its own and ignores the other.
 allowBuilds:
   esbuild: true
   sharp: true
   unrs-resolver: true
   workerd: true
+
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
+  - unrs-resolver
+  - workerd
