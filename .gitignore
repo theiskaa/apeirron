@@ -3,6 +3,9 @@
 /tasks.md
 /topics.md
 
+# video generation pipeline — local-only feature, not published to the remote
+/video/
+
 # dependencies
 /node_modules
 /.pnp
