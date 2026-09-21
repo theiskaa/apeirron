@@ -8,6 +8,7 @@ import {
   ThemeId,
   applyTheme,
   getStoredTheme,
+  watchSystemTheme,
 } from "@/lib/themes";
 
 function ThemeIcon({ id, size = 13 }: { id: ThemeId; size?: number }) {
@@ -33,17 +34,11 @@ function ThemeIcon({ id, size = 13 }: { id: ThemeId; size?: number }) {
       </svg>
     );
   }
-  if (id === "warm") {
-    return (
-      <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="9" />
-        <path d="M12 3 A9 9 0 0 1 12 21 Z" fill="currentColor" />
-      </svg>
-    );
-  }
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="9" />
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <rect x="2" y="3" width="20" height="14" rx="2" />
+      <line x1="8" y1="21" x2="16" y2="21" />
+      <line x1="12" y1="17" x2="12" y2="21" />
     </svg>
   );
 }
@@ -62,6 +57,11 @@ export default function ThemePicker() {
     setTheme(stored);
     applyTheme(stored);
   }, []);
+
+  useEffect(() => {
+    if (theme !== "system") return;
+    return watchSystemTheme(() => applyTheme("system"));
+  }, [theme]);
 
   useLayoutEffect(() => {
     if (!open) return;
