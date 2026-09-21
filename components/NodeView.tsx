@@ -37,13 +37,6 @@ interface Props {
    * `allNodes` — correct only once the full graph is loaded.
    */
   readNext?: ReadNextData | null;
-  /**
-   * Reports whether the tab bar should currently be shown, based on reading
-   * direction: hidden once you're reading downward, back the moment you scroll
-   * up or return to the top. The scroll container lives here, but the header
-   * lives in PageClient, so the signal has to be lifted.
-   */
-  onTabDockChange?: (visible: boolean) => void;
 }
 
 const GITHUB_REPO = "https://github.com/theiskaa/apeirron";
@@ -56,7 +49,6 @@ export default function NodeView({
   allNodes,
   onNodeClick,
   readNext,
-  onTabDockChange,
 }: Props) {
   if (node.phantom) {
     return (
@@ -279,51 +271,6 @@ export default function NodeView({
       if (urlTimer) clearTimeout(urlTimer);
     };
   }, [tocItems, node.id]);
-
-  // Reading-direction chrome. Scrolling down into the article retracts the tab
-  // bar so the text isn't read through it; scrolling up (or returning near the
-  // top) brings it straight back. Deliberately does NOT change
-  // --article-header: the article's top padding stays put, so retracting the
-  // tabs never shifts the words you're reading.
-  useEffect(() => {
-    const scroll = scrollRef.current;
-    if (!scroll || !onTabDockChange) return;
-
-    const ALWAYS_SHOW_ABOVE = 24; // near the top the bar is always present
-    const HIDE_BELOW = 96; // don't retract until clear of the header
-    const JITTER = 6; // ignore momentum wobble / trackpad noise
-
-    let last = scroll.scrollTop;
-    let visible = true;
-    let ticking = false;
-
-    const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      requestAnimationFrame(() => {
-        ticking = false;
-        const y = scroll.scrollTop;
-        const dy = y - last;
-        // Below the jitter floor, keep `last` so small moves accumulate rather
-        // than being discarded one frame at a time.
-        if (Math.abs(dy) < JITTER) return;
-        last = y;
-
-        const next = y <= ALWAYS_SHOW_ABOVE ? true : dy < 0 ? true : y > HIDE_BELOW ? false : visible;
-        if (next !== visible) {
-          visible = next;
-          onTabDockChange(next);
-        }
-      });
-    };
-
-    scroll.addEventListener("scroll", onScroll, { passive: true });
-    onTabDockChange(true);
-    return () => {
-      scroll.removeEventListener("scroll", onScroll);
-      onTabDockChange(true); // never leave the bar retracted on unmount
-    };
-  }, [onTabDockChange, node.id]);
 
   const handleTocClick = useCallback(
     (id: string) => {

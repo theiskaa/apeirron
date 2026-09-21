@@ -8,7 +8,7 @@ import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
 import rehypeSlug from "rehype-slug";
 import rehypeStringify from "rehype-stringify";
-import Navbar from "./Navbar";
+import Navbar, { NAV_COLUMN } from "./Navbar";
 import CategoryPicker from "./CategoryPicker";
 import type { Category, GraphNode, GraphLink } from "@/lib/types";
 
@@ -269,6 +269,7 @@ export default function ContributeForm({
     return (
       <div className="fixed inset-0 overflow-y-auto bg-background">
         <Navbar
+          column={NAV_COLUMN.narrow}
           onLogoClick={() => {
             window.location.href = "/";
           }}
@@ -481,6 +482,7 @@ export default function ContributeForm({
   return (
     <div className="fixed inset-0 overflow-hidden bg-background flex flex-col">
       <Navbar
+        column={NAV_COLUMN.wide}
         onLogoClick={() => {
           window.location.href = "/";
         }}

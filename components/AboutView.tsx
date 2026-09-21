@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect } from "react";
-import Navbar from "./Navbar";
+import Navbar, { NAV_COLUMN } from "./Navbar";
 
 export default function AboutView() {
   // Honour incoming hash links (e.g. /books → /about#books). Two RAFs let
@@ -21,7 +21,7 @@ export default function AboutView() {
 
   return (
     <div className="h-screen flex flex-col overflow-hidden bg-background text-text-primary">
-      <Navbar />
+      <Navbar column={NAV_COLUMN.page} />
       <div className="flex-1 overflow-y-auto panel-scroll">
         <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 pb-16">
           <header className="pt-10 sm:pt-14">

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import Navbar from "./Navbar";
+import Navbar, { NAV_COLUMN } from "./Navbar";
 import { useSearch } from "./SearchProvider";
 import type { Category } from "@/lib/types";
 
@@ -828,7 +828,7 @@ export default function NodesView({
           than reserving a solid band above it, which read as a seam cutting the
           page. pointer-events handled per-child. */}
       <div className="absolute top-0 left-0 right-0 z-20 pointer-events-none">
-        <Navbar />
+        <Navbar column={NAV_COLUMN.page} />
       </div>
     </div>
   );

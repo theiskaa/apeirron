@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Navbar from "./Navbar";
+import Navbar, { NAV_COLUMN } from "./Navbar";
 
 export interface SuggestedNode {
   id: string;
@@ -91,7 +91,7 @@ export default function NotFoundView({ pool }: Props) {
 
   return (
     <div className="h-screen flex flex-col overflow-hidden bg-background text-text-primary">
-      <Navbar />
+      <Navbar column={NAV_COLUMN.notFound} />
       <main className="flex-1 overflow-y-auto panel-scroll flex items-center justify-center px-5">
         <div className="w-full max-w-[600px] mx-auto text-center pb-16 -mt-6 sm:-mt-10">
           <span

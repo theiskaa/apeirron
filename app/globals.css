@@ -37,14 +37,10 @@
      theme together instead of one fading while the other snaps. */
   --dur-theme: 200ms;
 
-  /* Floating-header height on the article view (navbar only on mobile; +tabs on
-     sm+ via the media query below). Keeps content padding, the sticky TOC, and
-     the scroll-blur scrim in sync. */
+  /* Floating navbar height on the article view (tabs live inside the bar, so
+     it's the same at every breakpoint). Keeps content padding, the sticky TOC,
+     and the scroll-blur scrim in sync. */
   --article-header: calc(env(safe-area-inset-top) + 68px);
-  /* Just the navbar, no tab row. The reader's scrim falls back to this when the
-     tab bar is retracted, so the frost hugs the navbar instead of leaving a
-     blurred band smeared across the article where the tabs used to be. */
-  --navbar-header: calc(env(safe-area-inset-top) + 68px);
 
   --graph-bg: #f8f8fa;
   --graph-line: rgba(100, 100, 120, 0.18);
@@ -151,7 +147,7 @@ body {
    and shadow, never position, and following the narrated word is exactly the
    comprehension aid reduced motion is meant to preserve. */
 
-/* The floating header (navbar + tabs) is positioned OVER the article, so a
+/* The floating navbar is positioned OVER the article, so a
    heading scrolled to the top of the scroll container lands underneath it.
    scroll-margin-top reserves that height for every scroll-into-view landing —
    TOC clicks, clicking a heading, and #hash deep links alike — and resolves
@@ -397,39 +393,33 @@ body {
   border: 1px solid var(--chrome-border);
 }
 
-/* Open-node tab pill — a near-solid panel carrying its node's color (--tc) as
-   a faint tint that deepens on hover/active, with a subtle neutral (grey)
-   hairline that firms up slightly on the active tab. Deliberately NO
-   backdrop-filter: the tab bar's overflow fade is an ancestor mask-image, and
-   in Chromium a backdrop-filtered child escapes that mask — the tabs would
-   render hard-cut at the bar's edges. The scrim behind the bar already frosts
-   whatever scrolls beneath. */
+/* Open tab, inline in the navbar. Plain text: muted when idle, full
+   strength when active, with a short underline in the node's color (--tc)
+   marking the active tab. */
 .tab {
-  background-color: color-mix(in srgb, var(--surface-elevated) 94%, transparent);
-  background-image: linear-gradient(
-    color-mix(in srgb, var(--tc) 8%, transparent),
-    color-mix(in srgb, var(--tc) 8%, transparent)
-  );
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 9%, transparent);
-  /* max-width is deliberately NOT transitioned: it is a layout property, and
-     animating it on the selected tab reflows every sibling in the scrolling
-     row for the duration. The width change lands in one frame instead. */
-  transition: background-image var(--dur-fast) var(--ease-out),
-              box-shadow var(--dur-fast) var(--ease-out),
-              color var(--dur-fast) var(--ease-out);
+  color: var(--text-muted);
+  transition: color var(--dur-fast) var(--ease-out);
 }
 .tab:hover {
-  background-image: linear-gradient(
-    color-mix(in srgb, var(--tc) 15%, transparent),
-    color-mix(in srgb, var(--tc) 15%, transparent)
-  );
+  color: var(--text-secondary);
 }
 .tab[aria-selected="true"] {
-  background-image: linear-gradient(
-    color-mix(in srgb, var(--tc) 18%, transparent),
-    color-mix(in srgb, var(--tc) 18%, transparent)
-  );
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 16%, transparent);
+  color: var(--text-primary);
+}
+.tab::after {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 3px;
+  height: 1.5px;
+  border-radius: 1px;
+  background-color: var(--tc);
+  opacity: 0;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+.tab[aria-selected="true"]::after {
+  opacity: 1;
 }
 
 /* Navbar pill — true frosted glass. Translucent enough that content ghosts
@@ -451,19 +441,10 @@ body {
   .navbar-pill {
     background-color: color-mix(in srgb, var(--surface-elevated) 97%, transparent);
   }
-  .tab {
-    background-color: color-mix(in srgb, var(--surface-elevated) 96%, transparent);
-  }
-}
-
-@media (min-width: 640px) {
-  :root {
-    --article-header: calc(env(safe-area-inset-top) + 116px);
-  }
 }
 
 /* Full-width top scrim that frosts content scrolling behind the floating header
-   (navbar + tabs), iOS large-title style: a backdrop blur + faint background tint,
+   (the navbar), iOS large-title style: a backdrop blur + faint background tint,
    masked so it fades out below the header rather than cutting a hard edge. The
    caller positions it (absolute, full-width, pointer-events-none, below the navbar). */
 .header-scrim {
@@ -471,7 +452,7 @@ body {
      (strong at the top, soft in the middle) whose masks fade out downward, so
      content dissolves into blur with no hard edge — plus a faint background
      tint on the element itself so the very top stays anchored to the page
-     color. The caller sizes this to cover only the navbar + tab bar. */
+     color. The caller sizes this to cover only the navbar. */
   background: linear-gradient(
     to bottom,
     color-mix(in srgb, var(--background) 64%, transparent) 0%,
@@ -480,23 +461,8 @@ body {
   );
 }
 
-/* Reader scrim only: track the tab bar. With the tabs retracted, the frost has
-   nothing to cover down there, and the leftover band read as a smear of blurred
-   text across the article.
-
-   The height change is deliberately instant rather than animated — this element
-   carries two backdrop-filters, and animating its height would force the blur
-   to re-composite the full page width every frame. The `0s` transition exists
-   purely for its DELAY: shrinking waits for the tabs to finish fading out,
-   while growing back is immediate so the frost is already in place as they
-   return. */
 .header-scrim-reader {
   height: var(--article-header);
-  transition: height 0s linear 0s;
-}
-.header-scrim-reader[data-compact="true"] {
-  height: var(--navbar-header);
-  transition: height 0s linear var(--dur-base);
 }
 
 .header-scrim::before,
@@ -608,29 +574,6 @@ body {
     transition-property: color, background-color, border-color, box-shadow,
       background-image, opacity, fill, stroke !important;
   }
-}
-
-/* Tab bar dock. While reading, the bar retracts on downward scroll and returns
-   on upward scroll, so the article isn't read through a row of chrome. Only
-   transform + opacity animate — the article's top padding is untouched, so the
-   text never reflows or shifts under the reader. Retracted, it also stops
-   catching clicks meant for the article beneath it.
-
-   Under reduced motion the global rule drops `transform` from the transition
-   list, so this becomes a plain fade with no travel. */
-.tab-dock {
-  transition: opacity var(--dur-base) var(--ease-out),
-              transform var(--dur-base) var(--ease-out);
-}
-.tab-dock[data-retracted="true"] {
-  opacity: 0;
-  transform: translateY(-8px);
-}
-/* The scroll viewport inside re-enables pointer-events, which would override a
-   parent `none` — so silence the subtree explicitly. */
-.tab-dock[data-retracted="true"],
-.tab-dock[data-retracted="true"] * {
-  pointer-events: none;
 }
 
 /* The article panel mounts straight over the graph. Its own header column

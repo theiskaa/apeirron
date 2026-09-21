@@ -3,7 +3,7 @@
 import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import type { GraphData, GraphNode, ReadNextData } from "@/lib/types";
-import Navbar from "./Navbar";
+import Navbar, { NAV_COLUMN } from "./Navbar";
 import TabBar, { type Tab } from "./TabBar";
 import NodeView from "./NodeView";
 import { type CommandAction } from "./CommandPalette";
@@ -89,7 +89,6 @@ export default function PageClient({
   const [focusNodeId, setFocusNodeId] = useState<string | null>(null);
   // Whether the tab bar is extended while reading. NodeView drives this from
   // scroll direction; it's always true on the graph view.
-  const [tabDockVisible, setTabDockVisible] = useState(true);
   // Gate persistence: don't write the (bare, server-derived) initial tab set to
   // storage before the post-mount rehydration has merged in the saved workspace.
   const hydratedRef = useRef(false);
@@ -439,7 +438,7 @@ export default function PageClient({
       </div>
 
       {/* Node article fills the screen behind the floating header. The top
-          padding clears the header (navbar + tabs) so content isn't hidden. */}
+          padding clears the floating navbar so content isn't hidden. */}
       {activeNode && !showGraph && (
         <div className="article-panel absolute inset-0 z-10 bg-background overflow-hidden">
           <div className="h-full">
@@ -461,50 +460,45 @@ export default function PageClient({
               // (null means "no next node", distinct from "compute it").
               readNext={graphData ? undefined : initialReadNext}
               onNodeClick={handleNodeClick}
-              onTabDockChange={setTabDockVisible}
             />
           </div>
           {/* iOS-style scrim frosting the article as it scrolls behind the header. */}
           <div
             className="header-scrim header-scrim-reader absolute top-0 left-0 right-0 z-10 pointer-events-none"
-            data-compact={!tabDockVisible ? "true" : undefined}
           />
         </div>
       )}
 
-      {/* One persistent header: navbar + tabs share an animated centered column
-          and morph between compact (graph) and expanded (node, title-aligned).
-          Floats over the canvas/article; pointer-events handled per-child. */}
+      {/* One persistent header. The open tabs live inside the navbar, and its
+          column morphs between the graph (centered) and the article's own
+          content column. Floats over the canvas/article; pointer-events are
+          handled per-child. */}
       <div className="absolute top-0 left-0 right-0 z-20 pointer-events-none">
         <Navbar
           onLogoClick={() => setActiveTabId("graph")}
-          articleInset={!showGraph && !!activeNode}
+          column={
+            !showGraph && activeNode
+              ? NAV_COLUMN.article
+              : hasNodeTabs
+                ? NAV_COLUMN.graphTabs
+                : NAV_COLUMN.graph
+          }
+          tabs={
+            hasNodeTabs ? (
+              <TabBar
+                tabs={tabs}
+                activeTabId={activeTabId}
+                nodes={
+                  graphData?.nodes ??
+                  initialNeighbors?.nodes ??
+                  (initialNode ? [initialNode] : [])
+                }
+                onSelectTab={handleSelectTab}
+                onCloseTab={handleCloseTab}
+              />
+            ) : undefined
+          }
         />
-        {hasNodeTabs && (
-          // On phones, hide the tab bar outright while reading an article to
-          // reclaim vertical space (the wordmark still returns to the graph).
-          // Everywhere else it retracts as you read down and comes back the
-          // moment you scroll up — see NodeView's onTabDockChange.
-          <div
-            className={`tab-dock ${!showGraph && activeNode ? "hidden sm:block" : ""}`}
-            data-retracted={
-              !showGraph && activeNode && !tabDockVisible ? "true" : undefined
-            }
-          >
-            <TabBar
-              tabs={tabs}
-              activeTabId={activeTabId}
-              nodes={
-                graphData?.nodes ??
-                initialNeighbors?.nodes ??
-                (initialNode ? [initialNode] : [])
-              }
-              onSelectTab={handleSelectTab}
-              onCloseTab={handleCloseTab}
-              articleInset={!showGraph && !!activeNode}
-            />
-          </div>
-        )}
       </div>
 
       {showGraph && (
