@@ -558,3 +558,105 @@ All 17 outgoing reasons corrected; weak associations are flagged in the inventor
 
 
 Freemasonry verification: all 78 rewritten nodes pass metadata, graph order, wiki target, review, word count and stale audio checks. Production build 78 completed through OpenNext; generated and compiled essay contains Prichard, Rizzoli, the honor/safety limit and Supreme Being, with Sources styling. Both local essay body detectors completed (RoBERTa 0.00194, Desklib 0.1319); the differing signals were reviewed alongside the text, not treated as authorship findings. The highest Desklib window covers the degree/office and ritual discussion already made concrete with the early catechism. No remote essay submission or skill change. **Progress: 78 of 198; 120 remain. Next: `illuminati`.**
+
+
+### The Illuminati checkpoint
+
+Rewrote `illuminati` to 2476 essay words after three actual reviews. The essay follows Bode’s archive concern into education, questionnaires, complaint channels, lodge recruitment and the transformation of ambitions into alleged revolutionary control. The three passes add the universal-family promise and Knigge’s misleading reassurance proposal, remove 19 voice problems and correct nine evidence/consistency issues plus Robison’s first introduction. Search date corrected to October 11–12, 1786; continued regional recruitment is separated from a claim of world control. All six reasons corrected and source limits recorded in the inventory.
+
+All 6 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 79 of198 rewritten;119 remain. Next: `protocols-of-zion`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+Illuminati verification: all 79 rewritten nodes pass metadata, graph order, wiki target, review, word count and stale audio checks. Production build 79 completed through OpenNext; generated and compiled essay contains Becker, Bode, Pawlowski and the corrected 1786 search date, with Sources styling. Both local essay body detectors completed (RoBERTa 0.11567, Desklib 0.03193). The highest RoBERTa window contains only the final 41 tokens; that closing passage was reread and retained on editorial grounds. The scores remain heuristic signals, not authorship findings. No remote essay submission or writing skill change. **Progress: 79 of 198; 119 remain. Next: `protocols-of-zion`.**
+
+
+### The Protocols of the Elders of Zion checkpoint
+
+Rewrote `protocols-of-zion` to 2330 essay words after three actual reviews. Replaced the universal-template account with close comparisons of a loan calculation, publication tax and press imagery, the gap before the known 1903 publication, the limits and prejudices of the 1921 exposé, and Ford–Marshall’s actual retraction/withdrawal exchange. Depth adds changed speaker/context and independent book identification; 18 voice edits and nine evidence/consistency changes plus an antecedent correction were reread. Police authorship remains uncertain without weakening the demonstrated fabrication. All seven reasons corrected and source limits recorded in the inventory.
+
+All 7 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 80 of198 rewritten;118 remain. Next: `skull-and-bones`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+Protocols verification: all 80 rewritten nodes pass metadata, graph order, wiki target, review, word count and stale audio checks. Production build 80 completed through OpenNext; generated and compiled text contains Montesquieu, Marshall, Radziwill and the 300-page threshold, with Sources styling. Both local essay body detectors completed (RoBERTa 0.00920, Desklib 0.05388); the highest windows were reread as editorial signals, not authorship findings. No remote essay submission or writing skill change. **Progress: 80 of 198; 118 remain. Next: `skull-and-bones`.**
+
+
+### Skull and Bones checkpoint
+
+Rewrote `skull-and-bones` to 2375 essay words after three actual reviews. The essay starts with the 1991 changed locks and follows selection, work, investment, private disclosure and public responsibility. Adds Hadden/Luce’s actual collaboration and treats Geronimo’s descendants as people with different wishes rather than symbols in a dynasty narrative. Twenty-five voice changes and eleven evidence/consistency changes plus two final follow-ups were reread. Corrects the 1918 letter’s discovery and source status, the actual 2010 dismissal and the absence of a proven permanent blackmail archive. All eight reasons corrected and source limits recorded in inventory.
+
+All 8 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 81 of198 rewritten;117 remain. Next: `bohemian-grove`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+Skull and Bones verification: all 81 rewritten nodes pass metadata, graph order, wiki target, review, word count and stale audio checks. Production build 81 completed through OpenNext; generated and compiled essay contains Gow, Draper, Mead and the specific §3002 discussion, with Sources styling. Both local essay body detectors completed (RoBERTa 0.02245, Desklib 0.09581); their highest windows were reread alongside the actual text, not treated as authorship findings. No remote essay submission or writing skill change. **Progress: 81 of 198; 117 remain. Next: `bohemian-grove`.**
+
+
+### Bohemian Grove checkpoint
+
+Rewrote `bohemian-grove` to 2317 essay words after three actual reviews. The rewrite follows a practical theatrical restriction in Garnett’s 1908 account, Field’s 1906 ruined-city drama, the later ceremony’s temporary reprieve, social research, Nixon’s recollection, actual atomic-project planning and the workers excluded from fellowship. Three reviews add historical and technical depth, make 22 voice revisions and correct twelve evidence/consistency issues plus a final briefing clarification, all reread. The 1942 meeting and 1986 employment judgment now have their actual participants, purposes and scope. All five reasons corrected and precise source limits recorded in inventory.
+
+All 5 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 82 of198 rewritten;116 remain. Next: `bilderberg`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+Bohemian Grove verification: all 82 rewritten nodes pass metadata, graph order, wiki target, review, word count and stale audio checks. Production build 82 completed through OpenNext; generated and compiled text contains Field, the 1906 context, S-1 and the actual employment-law discussion, with Sources styling. Both local essay body detectors completed (RoBERTa 0.14341, Desklib 0.08868). The highest windows cover the atomic-meeting distinction and worker/member discussion; these passages were reread with the underlying records and retained on editorial grounds. Scores remain heuristic signals, not authorship findings. No remote essay submission or writing skill change. **Progress: 82 of 198; 116 remain. Next: `bilderberg`.**
+
+
+### The Bilderberg Group checkpoint
+
+Rewrote `bilderberg` to 2152 essay words after three actual reviews. The rewrite begins with Lynn Riley’s complaint and distinguishes hospitality registration, discussion anonymity and reasons for later public acts. Adds the 1964 Senate publication, precise 1954 topics, current invitation governance, the actual Chatham House rule and a worked 2026 topic example. Depth, 19 voice changes and nine evidence/consistency revisions plus a final repeated-introduction correction were reread. The archive guide is described as a guide, not as inspected minutes; private capacity is no blanket exemption from public responsibility. All 12 reasons corrected and source limits recorded in inventory.
+
+All 12 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 83 of198 rewritten;115 remain. Next: `denver-airport`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+Bilderberg verification: all 83 rewritten nodes pass metadata, graph order, wiki target, review, word count and stale audio checks. Production build 83 completed through OpenNext; generated and compiled text contains Riley, Javits and the 1993 registration case, with compiled Sources styling. Both local essay body detectors completed (RoBERTa 0.14757, Desklib 0.05430). The highest window covers the Senate record and invitation governance; it was reread against the cited material and retained on editorial grounds. Scores remain heuristic signals, not authorship findings. No remote essay submission or writing skill change. **Progress: 83 of 198; 115 remain. Next: `denver-airport`.**
+
+
+### Denver International Airport checkpoint
+
+Rewrote `denver-airport` to 2292 essay words after three actual reviews. The rewrite follows the baggage decision and coordination problem, compares construction and financing costs, gives Tanguma’s religious and personal account of his murals, and separates commemoration from governing authority. Three reviews add a worked engineering example and clarify the cost of idle facilities; 22 voice changes and twelve evidence revisions plus final follow-ups were reread. Corrects the false absence of financial scrutiny, ungrounded military/bunker inferences, present mural placement and runway bearings. All five reasons reviewed with weak associations and source limits recorded in inventory.
+
+All 5 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 84 of198 rewritten;114 remain. Next: `p2-banco-ambrosiano`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+Denver Airport verification: all 84 rewritten nodes pass metadata, graph order, wiki target, review, word count and stale audio checks. Production build 84 completed through OpenNext; generated and compiled essay contains Tanguma, the 65-bag specification, $4.822 billion and the dated 2028 return projection, with Sources styling. Both local essay body detectors completed (RoBERTa 0.02547, Desklib 0.14059). Highest windows cover the opening engineering explanation and the marker passage; these were reread alongside the sources and retained on editorial grounds. Scores remain heuristic signals, not authorship findings. No remote essay submission or writing skill change. **Progress: 84 of 198; 114 remain. Next: `p2-banco-ambrosiano`.**
+
+
+### P2, Banco Ambrosiano and Roberto Calvi checkpoint
+
+Rewrote `p2-banco-ambrosiano` to 2539 essay words after three actual reviews. The rewrite follows the sponsorship letters and then explains roster authentication, unequal information within P2, credit leverage over Rizzoli, loan capitalization, rescue and settlement. The three reviews add group structure and a specific press example, make24voice revisions and twelve evidence changes plus final follow-ups, all reread. Corrects the raid/collapse chronology and distinguishes parliamentary findings, financial recovery and the murder finding from the acquittals of particular defendants. All seven reasons corrected and source limits recorded in inventory.
+
+All 7 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 85 of198 rewritten;113 remain. Next: `pope-john-paul-i`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Pope John Paul I checkpoint
+
+Rewrote `pope-john-paul-i` to 2155 essay words after three actual reviews. The rewrite begins with Luciani’s last public catechesis, gives his pastoral examples room to develop, and then compares the actual first announcement with later household accounts. Three reviews add the September 6 visit and timing distinction, make 22 voice revisions and eleven evidence corrections, all reread. Corrects the invented named book in the notice, unsupported final-night purge certainty, blanket medical and conspiracy claims, and beatification as criminal acquittal. All six reasons corrected and source limitations recorded in inventory.
+
+All 6 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 86 of198 rewritten;112 remain. Next: `saturn-black-cube`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+P2 and John Paul I verification: all 86 rewritten nodes pass metadata, graph order, wiki target, review, word count and stale audio checks. Production build 86 completed through OpenNext after both installations and P2’s revised ending. Generated and compiled text contains Rizzoli, the May 25 settlement and prospective two-thirds recovery, and Marin, the September 6 audience and the coronary attribution, with Sources styling. Final body checks completed for both models: P2 RoBERTa 0.01711/Desklib 0.08636; John Paul I 0.14736/0.02947. P2’s generic conclusion was replaced with its specific financing relationship (final count 2,527 words). The remaining highest windows, including a 37-token final fragment and the pope’s public teaching, were reread and retained on editorial grounds. Scores are heuristic signals, not authorship findings. No remote essay submission or writing skill change. **Progress: 86 of 198; 112 remain. Next: `saturn-black-cube`.**
+
+
+### Saturn and the Black Cube checkpoint
+
+Rewrote `saturn-black-cube` to 2207 essay words after three actual reviews. The rewrite explains a real fluid-dynamics experiment, the cube’s hexagonal projection and the missing steps in treating that resemblance as a religious genealogy. It includes the newly reported southern decagon, Plato’s actual earth assignment, Agrippa’s numerical table and the contents and texts of religious objects. Three reviews add a deliberate-symbol-versus-inherited-symbol distinction, make 21 voice changes and nine evidence revisions, all reread. All seven reasons corrected, with weak associations and source limits recorded in inventory.
+
+All 7 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 87 of198 rewritten;111 remain. Next: `thule-vril`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Thule and Vril checkpoint
+
+Rewrote `thule-vril` to 2502 essay words after three actual reviews. The essay separates a documented racist political network from a literary force, Ley’s retrospective account and later writers’ source connections. Three reviews develop the novel’s social danger and the source chain, make 19 voice changes and ten evidence-pass corrections, followed by a reread and attribution cleanup. All eleven reasons corrected with weak associations and reading limits recorded.
+
+All 11 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 88 of198 rewritten;110 remain. Next: `scientology`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 88
+
+Completed the production build after the final Saturn physics revision and the Thule rewrite (`/tmp/apeirron-rewrite-build-88.log`, exit 0). The content validator passes for all 198 nodes, including the 88 rewritten bodies, metadata, graph reasons, supported links, source headings, actual word counts, review records and withheld stale narration. Checked generated JSON and compiled essay pages for all ten nodes in batch 79–88; sources render with the expected compiled-page treatment. Checked the final Saturn laboratory passage and the new Thule body in both outputs. `git diff --check` passes. This is a local build and content verification, not a deployment or a new browser inspection.
+
+Saturn finishes at 2,203 essay words. After reading the initial detector signal, revised the laboratory comparison around the actual 60-centimeter apparatus and the paper's stated dissipation limitation. The final local RoBERTa/Desklib weighted signals are 0.01667/0.18619. Read the strongest remaining signals in the laboratory, Agrippa and ritual passages; retained their specific explanation rather than changing accurate material to chase a score.
+
+Thule finishes at 2,502 essay words. Its three reviews include a developed conditional-attribution example, 19 voice changes, ten evidence-pass revisions and a final attribution cleanup. Final local RoBERTa/Desklib signals are 0.03982/0.02938. Reread the strongest signals in the short closing window and opening/history passages; retained the concrete newspaper/magazine distinction and source-supported account. These scores are heuristic signals, not evidence of authorship. Essays stayed local and the writing skill's hash is unchanged.
+
+Progress: **88 of 198 rewritten; 110 remain.** Next: `scientology`. Source-access limits for each node remain recorded in the inventory. The unrelated `default.profraw` modification is excluded from the editorial commit.
