@@ -660,3 +660,163 @@ Saturn finishes at 2,203 essay words. After reading the initial detector signal,
 Thule finishes at 2,502 essay words. Its three reviews include a developed conditional-attribution example, 19 voice changes, ten evidence-pass revisions and a final attribution cleanup. Final local RoBERTa/Desklib signals are 0.03982/0.02938. Reread the strongest signals in the short closing window and opening/history passages; retained the concrete newspaper/magazine distinction and source-supported account. These scores are heuristic signals, not evidence of authorship. Essays stayed local and the writing skill's hash is unchanged.
 
 Progress: **88 of 198 rewritten; 110 remain.** Next: `scientology`. Source-access limits for each node remain recorded in the inventory. The unrelated `default.profraw` modification is excluded from the editorial commit.
+
+
+### Scientology and Operation Snow White checkpoint
+
+Rewrote `scientology` to 2391 essay words after three actual reviews. The rewrite follows access to government information, covert copying and bugging, the coercive cover-up around Meisner, the actual convictions and the separate Cooper plans. It distinguishes the church’s stated lawful objectives, court findings, prosecutorial allegations and later tax settlement. Three reviews develop the alibi correspondence, make 19 voice revisions and twelve evidence-pass corrections, followed by a full reread and short attribution/chronology cleanup.
+
+All 7 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 89 of198 rewritten;109 remain. Next: `rothschild`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 89
+
+`scientology` finishes at 2,372 essay words. After the first local detector review (RoBERTa/Desklib weighted signals 0.25500/0.06249), replaced a generic tax-verdict paragraph with the actual agreement's pre-1993 liability boundary, compliance committee and seven-year reporting period, and removed a repeated remand conclusion. Reread the closing against the selected clauses. Final signals are 0.17950/0.06242. Read the strongest remaining alibi/disposition windows against the source-supported text; retained the specific correspondence and legal distinctions. Scores are heuristic signals, not authorship findings. No external submission or skill change.
+
+The final content validator passes for all 198 nodes, including the 89 rewritten essays and their metadata, links, review records and withheld narration. Final production build exits 0 (`/tmp/apeirron-rewrite-build-89-final.log`). Checked the named recruitment/alibi passages and revised compliance-committee passage in generated JSON and compiled HTML, the compiled sources treatment and absence of raw wiki syntax in generated content. These are local content/build checks; no deployment or new browser check is claimed. Source-reading limits remain in the inventory.
+
+Progress: **89 of 198 rewritten; 109 remain.** Next: `rothschild`. This begins the next ten-essay commit batch, 89–98; batch 79–88 was pushed as `2de5e56`. The unrelated `default.profraw` remains excluded.
+
+
+### The Rothschild Dynasty checkpoint
+
+Rewrote `rothschild` to 2419 essay words after three actual reviews. Rebuilt around the actual Suez contract and the Commons dispute over cost, borrowing and responsibility. The essay develops a working financial network, tests the Waterloo mechanism through Cathcart, and distinguishes diplomatic access, state seizure, client assets and central-bank powers. Three reviews add the wartime payment case and voting explanation, make 20 voice revisions and ten evidence corrections, followed by source/link rereads. All eight reasons corrected with unsupported inherited lineages flagged.
+
+All 8 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 90 of198 rewritten;108 remain. Next: `rockefeller`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 90
+
+`rothschild` finishes at 2,419 essay words after the three recorded reviews. Final local RoBERTa/Desklib weighted signals are 0.00061/0.05703. Reread the strongest remaining signals in the Balfour/provenance and Suez-contract passages against the actual text and sources; retained the particular roles, share count and attribution. Scores are heuristic signals, not evidence of authorship. No external submission or writing-skill change.
+
+Production build exits 0 (`/tmp/apeirron-rewrite-build-90.log`). The content validator passes across all 198 nodes and 90 rewritten essays. Checked the corrected share count, Roworth letter reference and Hehenberger attribution in generated JSON and compiled HTML, the compiled sources treatment, supported links and withheld stale narration. Source-access limits remain in the inventory, including indexed archive excerpts where direct pages failed and the distinction between Cathcart's comparison and independent inspection of original records. Local checks only; no deployment or browser inspection claimed.
+
+Progress: **90 of 198 rewritten; 108 remain.** Next: `rockefeller`. Batch 89–98 remains in progress; `default.profraw` remains outside the editorial work.
+
+
+### The Rockefeller Dynasty checkpoint
+
+Rewrote `rockefeller` to 2478 essay words after three actual reviews. The rewrite follows how charters, grant conditions and institutional selection converted wealth into influence. It keeps the antitrust remedy distinct from confiscation, corrects the federal-charter outcome and Carnegie/Flexner chronology, develops medical benefits and racial allocation together, and examines documented eugenics funding without inventing a universal policy chain. Three reviews expand the appointment safeguard, make 18 voice changes and eleven evidence revisions, followed by rereads.
+
+All 11 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 91 of198 rewritten;107 remain. Next: `vatican-jesuits`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 91
+
+`rockefeller` finishes at 2,439 essay words. After the first local detector review (RoBERTa/Desklib weighted signals 0.00042/0.19967), reread and revised the repetitive opening around the court's actual arrangement of subsidiary shares, developed control across separately named companies and shortened a repeated comparison of legal structure and personal wealth. The final signals are 0.00197/0.16206. Reread the strongest remaining opening and research-funding windows; retained the specific legal and historical account rather than pursuing a lower score. Scores are heuristic signals, not authorship evidence. No external submission or skill change.
+
+The final content validator passes for all 198 nodes and 91 rewritten essays. Final production build exits 0 (`/tmp/apeirron-rewrite-build-91-final.log`). Checked the revised opening, proposed sixty-day appointment check and Meharry account in generated JSON and compiled HTML, the compiled sources treatment, supported links and stale narration withholding. Local content/build checks only; no deployment or new browser inspection claimed. Reading limits remain in the inventory, including selected original documents and the distinction between historical research and independent inspection of its cited archives.
+
+Progress: **91 of 198 rewritten; 107 remain.** Next: `vatican-jesuits`. Batch 89–98 remains in progress; the unrelated `default.profraw` is excluded.
+
+
+### The Vatican and the Jesuit Order checkpoint
+
+Rewrote `vatican-jesuits` to 2195 essay words after three actual reviews. Rebuilt around who could authorize, carry out and answer for an institutional act. The essay distinguishes Church bodies, explains the mission vow and governance, develops suppression’s territorial limits and follows the Maryland sale from conditions and names to financial benefit and descendant intervention. Three reviews deepen the Russian setting, make 18 voice changes and thirteen evidence revisions, followed by source and affected-passage rereads. Current pontifical chronology and all nine reasons corrected.
+
+All 9 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 92 of198 rewritten;106 remain. Next: `cfr-trilateral`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 92
+
+`vatican-jesuits` finishes at 2,195 essay words. Both local detector reviews completed, with RoBERTa/Desklib weighted signals of 0.16864/0.02663. Reread the highest-scored reconciliation/archive and governance passages against the actual prose; retained the specific institutional distinctions and descendant intervention. These signals do not establish authorship. No external submission or writing-skill change.
+
+The production build completed (`/tmp/apeirron-rewrite-build-92.log`). Checked the Russian survival account, Nelly, the genealogical count and corrected papal chronology in generated JSON and compiled HTML, the compiled sources treatment and withheld stale narration. The content validator passes across all 198 nodes and 92 rewritten essays. These are local content/build checks; no deployment or new browser inspection claimed. Source-access limits remain recorded, including selected report sections, bibliography abstracts and inaccessible original Georgetown archive items.
+
+Progress: **92 of 198 rewritten; 106 remain.** Next: `cfr-trilateral`. Batch 89–98 remains in progress; `default.profraw` is excluded.
+
+
+### The CFR and Trilateral Commission checkpoint
+
+Rewrote `cfr-trilateral` to 2126 essay words after three actual reviews. Rebuilt around actual policy channels rather than affiliation as proof of command. Three reviews develop the Greenland memorandum, make 24 voice revisions and eleven evidence revisions, followed by affected-passage and source rereads. The account explains wartime staffing, the authors’ democracy argument and its published objection, Carter-era connections, Vance’s resignation and the public cost of nonattribution. All fifteen outgoing reasons now distinguish comparisons from unestablished operational claims.
+
+All 15 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 93 of198 rewritten;105 remain. Next: `club-of-rome`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 93
+
+`cfr-trilateral` finishes at 2,126 essay words. The local RoBERTa/Desklib weighted signals are 0.00187/0.09694. Reread the strongest remaining report/participation windows; retained the stated argument, its qualification and the democratic objection. These are heuristic signals, not evidence of authorship. No external submission or writing-skill change.
+
+The production build exits 0 (`/tmp/apeirron-rewrite-build-93.log`), and the content validator passes across all 198 nodes and 93 rewritten essays. Checked the research division, Dahrendorf discussion, Vance letter date and limited-circulation rule in generated JSON and compiled HTML, the compiled sources treatment and withheld narration. These are local checks, not a deployment or new browser inspection. Reading limits remain in the inventory, including the institutional origin of the wartime account, selected portions of the books, the composite CRS packet and the absence of an independently checked all-administration roster.
+
+Progress: **93 of 198 rewritten; 105 remain.** Next: `club-of-rome`. Five essays in batch 89–98 are complete; the unrelated `default.profraw` remains excluded.
+
+
+### The Club of Rome and the Limits to Growth checkpoint
+
+Rewrote `club-of-rome` to 2112 essay words after three actual reviews. Rebuilt around the model’s actual mechanisms and what comparisons can establish. Three reviews deepen the doubled-resource experiment, make 23 voice revisions and seven evidence revisions, followed by affected-passage rereads. The essay separates model generations and different scenario endings, retains technological criticism and corrects the 1991 quotation’s interpretation while examining its political language. All ten outgoing reasons now distinguish conceptual relationships from untraced commands or historical chains.
+
+All 10 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 94 of198 rewritten;104 remain. Next: `the-corporation`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 94
+
+`club-of-rome` finishes at 2,112 essay words after three recorded reviews. Local RoBERTa/Desklib weighted signals are 0.00728/0.02310. Reread the highest-scored quotation/distribution and ending windows against the actual prose; retained the specific interpretive limit and policy judgment. Scores are heuristic signals, not evidence of authorship. No external submission or writing-skill change.
+
+The production build exits 0 (`/tmp/apeirron-rewrite-build-94.log`), with generated JSON and compiled HTML checked for the replacement mechanism, World3-03, Nordhaus and BAU2. Compiled sources treatment, supported links and stale narration withholding also pass. The content validator passes across all 198 nodes and 94 rewritten essays. Local content/build checks only; no deployment or new browser inspection. Source and method limits are recorded in the inventory, including the selected passages, original scan inspection, working-paper/manuscript versions and the absence of an independent data-analysis rerun.
+
+Progress: **94 of 198 rewritten; 104 remain.** Next: `the-corporation`. Batch 89–98 has six complete essays. The unrelated `default.profraw` remains excluded.
+
+
+### Corporate Personhood and the Corporation checkpoint
+
+Rewrote `the-corporation` to 2099 essay words after three actual reviews. Rebuilt around the specific legal powers and accountability boundaries, with a usable explanation of liability, the actual railroad tax holding, the craigslist investor dispute, separate BP cases and public-benefit enforcement. Three reviews develop the rights-plan mechanism, make 25 voice revisions and eleven evidence revisions, followed by affected-passage rereads and a final plain-language pass. All ten reasons now distinguish legal arrangements from empirical claims requiring separate evidence.
+
+All 10 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 95 of198 rewritten;103 remain. Next: `climate-denial`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 95
+
+`the-corporation` finishes at 2,127 essay words. Following the first detector review (RoBERTa/Desklib weighted signals 0.00159/0.46432), replaced the generic contractual opening with the actual BP defendant and probation, made continuity concrete through the laboratory and contracts, and tightened repeated liability qualifications. Final signals are 0.01054/0.44449. Reread the remaining high-scored legal opening; retained the particular case, named rules and qualifications rather than pursuing a score. RoBERTa’s largest single-window value came from a four-token remainder, which was not treated as a meaningful prose diagnosis. These signals are not evidence of authorship. No external submission or skill change.
+
+The final production build exits 0 (`/tmp/apeirron-rewrite-build-95-final.log`). Checked the new opening, Newmark/Buckmaster, Vidrine and section 367 in generated JSON and compiled HTML, the compiled sources treatment, supported links and withheld narration. The content validator passes across all 198 nodes and 95 rewritten essays. Local checks only; no deployment or new browser inspection. The inventory records the selected statutory/case passages, publisher excerpt rather than complete book or film, prosecutorial sources and distinct corporate/individual outcomes.
+
+Progress: **95 of 198 rewritten; 103 remain.** Next: `climate-denial`. Seven essays in batch 89–98 are complete. The unrelated `default.profraw` remains excluded.
+
+
+### Climate Change Denial and the Manufacture of Doubt checkpoint
+
+Rewrote `climate-denial` to 1988 essay words after three actual reviews. Rebuilt around the difference between a specific scientific uncertainty and a general impression of ignorance. Three reviews develop the forcing-adjusted comparison and coding caveat, make 22 voice revisions and thirteen evidence revisions, followed by source and affected-passage rereads. The actual email review’s criticism of the WMO graphic is preserved alongside its findings on conduct and limited remit. All six reasons separate physical evidence, communications, policy and event-specific claims.
+
+All 6 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 96 of198 rewritten;102 remain. Next: `eugenics`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 96
+
+`climate-denial` finishes at 1,990 essay words after three reviews and a follow-up clarifying the regional/global inference and the unexplained proxy splice. Final local RoBERTa/Desklib weighted signals are 0.00724/0.17930. Reread the highest-scored opening and ending against the source-based argument; retained their particular evidence and judgment. These heuristic signals do not establish authorship. No external submission or writing-skill change.
+
+The final production build completes (`/tmp/apeirron-rewrite-build-96-final.log`). Generated JSON and compiled HTML contain the revised email discussion, Sargasso Sea example and Neuendorf attribution; compiled sources treatment, links and withheld narration pass. The content validator passes across all 198 nodes and 96 rewritten essays. Local content/build checks only; no deployment or new browser inspection. The inventory records the selected scientific and review passages, methodological critique and unavailable original advertisement rather than claiming every underlying document was inspected.
+
+Progress: **96 of 198 rewritten; 102 remain.** Next: `eugenics`. Eight essays in batch 89–98 are complete. The unrelated `default.profraw` remains excluded.
+
+
+### The Eugenics Movement checkpoint
+
+Rewrote `eugenics` to 2247 essay words after three actual reviews. Rebuilt around how an official classification gained power over a person’s reproduction. Three reviews deepen the release bargain and injury question, make eighteen voice revisions and correct evidence/attribution and metadata. The essay gives Buck and Skinner sufficient procedural detail, distinguishes medical inheritance from social ranking, preserves scientific dissent and treats the later consent audit on its own record.
+
+All 7 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 97 of198 rewritten;101 remain. Next: `new-world-order`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 97
+
+`eugenics` finishes at 2,247 essay words after three recorded reviews. Local RoBERTa/Desklib weighted signals are 0.00426/0.05210. Reread the highest-scored Skinner and transatlantic passages; retained the actual reasoning, unresolved limits and sourced institutional relationship. These heuristic signals do not establish authorship. No external submission or writing-skill change.
+
+The production build exits 0 (`/tmp/apeirron-rewrite-build-97.log`). Checked Stone, the embezzlement distinction, institutional responsibility for nineteen consent cases and scientific dissent in generated JSON and compiled HTML, along with sources treatment, supported links and withheld narration. Content validation covers all 198 nodes and 97 rewritten essays. Local checks only; no deployment or new browser inspection. Source limits are recorded in the inventory: judicial texts and selected archive/audit passages, Lombardo’s concise historical account rather than full book, and no claim of access to every trial or patient record.
+
+Progress: **97 of 198 rewritten; 101 remain.** Next: `new-world-order`. Nine essays in batch 89–98 are complete. The unrelated `default.profraw` remains excluded.
+
+
+### The New World Order checkpoint
+
+Rewrote `new-world-order` to 2155 essay words after three actual reviews. Rebuilt around the evidence needed to connect elite influence to a unified command. Three reviews deepen delegation and research access, make twenty voice revisions and correct chronology, attribution and all 23 graph reasons. The final account distinguishes explicit projects, real constraints, unequal access and consequential disagreement, ending at the particular records an investigation can follow.
+
+All 23 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 98 of198 rewritten;100 remain. Next: `reptilian-elite`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 98
+
+`new-world-order` finishes at 2,155 essay words after three recorded reviews. Final local RoBERTa/Desklib weighted signals are 0.05300/0.06636. Reread the substantial high-scored UN/claim-testing passages against the actual essay; retained the concrete distinctions and judgments. The largest single RoBERTa score was a nine-token remainder, not treated as a prose diagnosis. These heuristic signals do not establish authorship. No external submission or writing-skill change.
+
+The production build exits 0 (`/tmp/apeirron-rewrite-build-98.log`). Checked the Helsinki date, special-research division, Streit proposal and veto/abstention distinction in generated JSON and compiled HTML, plus sources treatment, supported links and withheld narration. The content validator passes across all 198 nodes and 98 rewritten essays. Local content/build checks only; no deployment or new browser inspection. Source limits are recorded in the inventory, including selected book passages, the Council’s own account, the Allen transcription and the failed original-scan download, attributed organizers’ statements and no claim of independent tracing of every later policy.
+
+Progress: **98 of 198 rewritten; 100 remain.** Next: `reptilian-elite`. Batch 89–98 is complete: Scientology, Rothschild, Rockefeller, Vatican/Jesuits, CFR/Trilateral, Club of Rome, the Corporation, Climate Denial, Eugenics and New World Order. Ten essays, all descriptions and all outgoing reasons reviewed; old narration withheld. Commit scope excludes the unrelated `default.profraw`.
