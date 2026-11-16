@@ -114,7 +114,20 @@
       "id": "bcci-nugan-hand",
       "category": "operations",
       "originalEssayWords": 2043,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2818,
+      "focus": "How concealed control and divided responsibility operated in BCCI’s nominee ownership, C-Chase plea, intelligence warnings and audits, compared with Nugan Hand’s exchange arrangements and the Australian inquiry’s narrower findings.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the original essay, sources, and seven outgoing reasons in full. Rebuilt the generic intelligence-bank argument around reconstructable mechanisms: nominee ownership, apparent loans, concealed risks, continued operation after a plea, a warning that did not reach the responsible regulator, divided audit responsibilities, and Yorkville contra payments. The depth pass added the actual Australian cash-to-offshore-certificate-to-Hawaii sequence and explained why a protected nominee’s incentives differ from an independent investor’s. The conclusion includes substantial creditor recoveries and the harm of delayed access to savings.",
+        "voice": "Revised thirteen passages to remove generic significance announcements, instructions about what a better account would say, rhetorical question chains, sweeping covert-command claims, and repeated caution. Kept the ownership example and the actual Australian transaction. Reread the changed first ninety lines, completed remaining sections, and checked the final legal-outcome addition and accounting clarification.",
+        "evidence": "Examined relevant original Senate chapters on origins, criminality, U.S. acquisitions and subsequent operations, prosecution, accountants, and intelligence use; the FAS electronic version’s penultimate-draft status is disclosed. Checked the actual 1985 CIA-report chronology, reconstruction of the missing memorandum, reported failure to notify the Federal Reserve, and acknowledged agency uses without converting them into bank ownership. Read the C-Chase plea rationale and criticism, audit positions, and relevant 1992 Commons supervision debate, without representing the full Bingham report as read. Read the 1983 government announcement and downloaded the Australian government Part 2 papers’ searchable text; examined Young’s November 1985 statement, commission referral, schedules explanation and first Schedule G transaction. The full 1,232-page commission report was not examined; this limitation is disclosed. The statement rejects established CIA use, deliberate Golden Triangle deposit recruitment, and knowing drug financing while acknowledging financial services to a syndicate member and important record limitations. Read the Federal Reserve’s 1998 settlement and a federal court’s account of Altman’s criminal acquittal and dismissal of Clifford’s charges. Used the 2011 ministerial answer for creditor recovery at that date, and only the narrowly attributed 2015 report that Butt found Hand. Removed the fictional Bible clue as opening proof, blanket claims of confirmed covert utility, the unverified universal Afghan financing route, asserted Watergate design lineage, Time black-network extrapolation, cold-war-timed deliberate closure, and permanent total loss by all depositors. Fixed unsupported wiki aliases by replacing the body and rewrote all seven reasons."
+      },
+      "connectionNotes": "Preserved seven targets. Operation-cyclone, octopus-promis, and watergate are weak or proposed connections requiring specific transactional or causal evidence; flagged for graph cleanup. The CIA-drugs reason distinguishes the two banks’ actual evidentiary records. The Iran-Contra reason identifies documented intermediaries without claiming exclusive financing, and the shadow-elite reason does not attribute criminal knowledge to every prestigious adviser."
     },
     {
       "id": "bermuda-triangle",
@@ -217,7 +230,20 @@
       "id": "cia-drugs",
       "category": "operations",
       "originalEssayWords": 5784,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2854,
+      "focus": "How intelligence priorities affected the handling of trafficking allegations, through the Contra reporting agreement, SETCO records search, Rivas debate, Zavala funds, and the distinct findings prompted by Dark Alliance, with bounded Laos and Afghanistan comparisons.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Rebuilt a worldwide catalog around a reconstructable question: how information about useful people moved through reporting duties, operational offices, prosecutors, and later inquiries. Explained employee versus nonemployee reporting, the difference between drug intelligence and a criminal referral, SETCO’s failed name trace, Rivas’s proposed retention and eventual resignation, the conflicting accounts of the Zavala funds, and the DOJ report’s delayed publication. The depth pass added the missing SETCO routing slip and the inspector general’s actual overall conclusion, alongside the particular failures. Laos and Afghanistan now test a comparison of priorities rather than standing as proof of one universal pipeline.",
+        "voice": "Replaced sweeping declarations of identical mechanisms, permanent vindication, the global conspiracy finale, rhetorical fragments, and repetitions of the crack narrative. The voice pass revised eleven passages, removed repeated editorial instructions and categorical contrast framing, let the database response and disagreement over the commander carry the point, and cut section endings that restated the next section’s work. Reread the affected sections and final evidence changes.",
+        "evidence": "Read the original 204-line essay, bibliography, and all 18 reasons in full. Downloaded and OCR-checked the Senate report selection, including cover/transmittal, executive findings, and relevant Contra chapter passages; read the primary CIA report text on reporting duties, SETCO and Rivas, relevant Frogman findings, the Volume I summary, and the October 8 release statement. Inspected Smith’s February 11, 1982 letter visually. Read Webb’s original first-day story and the DOJ executive findings, plus Bromwich’s epilogue on the delayed release. Read McCoy’s first-person publishing account and relevant agency correspondence, Leary’s stated position, and relevant SIGAR executive findings and agency-resource analysis. The SIGAR original host was unavailable; a preserved official PDF is linked. Corrected the MOU’s scope and employee distinction, distinguished optional reporting from immunity, included the agency’s rejected-conspiracy finding without erasing its particular failures, and distinguished prosecutors’ recollections from the CIA cable about returned money. Withdrew claims of universal drug-funded covert operations, fully corroborated major Contra donations, uniform backhaul cocaine flights, CIA direction of the national crack market, proof of a coordinated media attack, total vindication of all Webb claims, and the false statement that Harper & Row refused agency access. Removed the unrelated unverified Mena/anthrax, financial-bank catalog, Webb death insinuation, sentencing-law misstatement, and anonymous operative chains. All 18 reasons were rewritten."
+      },
+      "connectionNotes": "The original 18 targets are preserved. Strong developed relationships remain iran-contra, gary-webb, and questions of institutional accountability. The malcolm-x, tupac-biggie, operation-ajax, operation-condor, rex-84, bay-of-pigs, phoenix-program, octopus-promis, bcci-nugan-hand, and lockerbie edges require separate evidentiary support and should be reconsidered in graph cleanup. Withdrew their assertions of specific supply chains, shared flights, proven laundering, intentional community destruction, and an authenticated bombing route. The Cyclone edge now distinguishes the 1980s from the post-2001 SIGAR inquiry. The Mockingbird edge does not assert that newspaper criticism proves CIA tasking."
     },
     {
       "id": "climate-denial",
@@ -241,7 +267,20 @@
       "id": "cointelpro",
       "category": "operations",
       "originalEssayWords": 9464,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3579,
+      "focus": "How FBI intelligence became approved interference against political organizing, reconstructed through directives, forged correspondence, community support, exposure, litigation, and the limits of oversight.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the entire original body, bibliography, and sixteen outgoing reasons. Replaced the repeating catalogue with a developed account of the transition from investigation to covert action, field proposals and headquarters approval, coalition and recruitment goals, King’s campaign, the Panthers’ support and speaking opportunities, risk of violence, disclosure, legal remedies, and oversight. The depth review added the actual 1968 instructions to refute police-brutality allegations and Clark’s response, and differentiated the Klan program’s targets and claimed successes. Retained worked cases rather than a list of technique names.",
+        "voice": "Revised fifteen passages to replace significance announcements, hypothetical reader reactions, repetitive cautions, and editorial commentary with the proposed actions, decisions, and consequences. Varied the scale from a forged letter to institutional oversight while preserving one governing question. Moved the Klan comparison into the program explanation and reread the affected sections and final evidence edits.",
+        "evidence": "Read relevant portions of the Church Committee’s original COINTELPRO and Panther staff reports, including program dates, approved-action count, March 1968 goals, approval hierarchy, outside notice, post-termination examples, Rangers letter, church breakfast, coloring book, television arrest, and pre-raid information. Checked the House assassination committee’s account of the King campaign and surveillance, the original Stern disclosure opinion, the SWP findings and damages, and the Hampton appeal’s procedural posture. Corrected the Black directive date, inaccurate action count, invented coloring-book authorship, pre-Watergate exposure chronology, conflation of later investigations with formal programs, and asserted direct links to particular killings. The evidence pass added the limits on assigning individual authorship of the King letter and clarified Hampton’s taped-interview timing. Checked the later OIG summary’s actual findings, including its rejection of targeting solely for First Amendment activity, alongside its findings of weak predicates and misleading explanations. Did not represent the complete 2010 case files or inaccessible King staff-report PDF as read. Removed unsupported claims about Hampton being drugged, O’Neal’s suicide/broadcast timing, modern imprisonment status, and unrelated later cases. Rewrote all sixteen reasons."
+      },
+      "connectionNotes": "Preserved sixteen targets. Flag counterculture-psyop, cia-drugs, rfk-assassination, tupac-biggie, operation-condor, phoenix-program, and scientology for graph review: the inherited causal or operational lineage was not established. Other reasons distinguish formal programs, specific responsibilities, media practices, disclosure chronology, and separate assassination evidence."
     },
     {
       "id": "color-revolutions",
@@ -442,7 +481,20 @@
       "id": "gary-webb",
       "category": "operations",
       "originalEssayWords": 3981,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3081,
+      "focus": "How a dispute over Dark Alliance became a verdict on its author: original claims, competing newspaper scrutiny, shared editorial responsibility, Webb’s defense, CIA public affairs, later findings, and his continued work.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Rebuilt the essay around reporting and reception rather than repeating the preceding CIA essay. Explained the original claims about donations and market origins, the accessible supporting archive and its later restoration, the timing objection, the substance of Ceppos’s column, editorial responsibility for publication, Webb’s contemporaneous defense, and the different scopes of later inquiries. The depth pass added the actual twenty-eight-month versus life-sentence disparity and the limits of an institution examining its own records. Kept the colleague’s concrete memories and subsequent employment rather than making death an inevitable finale.",
+        "voice": "The voice pass revised thirteen passages, replacing editorial announcements, rhetorical scaffolding, repeated caveats, and general declarations with the continuity asserted in the opening, the record’s timing problem, an editor’s practical choices, and source interests. Reread the revised first hundred lines and remaining conclusion/source sections. The evidence pass also removed three repeated explanations and qualified the agency finding at its actual level.",
+        "evidence": "Read the original essay, sources, and all six reasons in full. Examined the first-day article, surviving archive introduction, Webb’s memoir excerpt and May 1997 interview, relevant original Washington Post text, the Justice inspector general’s account quoting Ceppos’s four points, executive findings and Bromwich’s epilogue, CIA summaries, reporting findings and release statement, and the Senate report passages read for the preceding essay. Read Devereaux’s full reproduced report; the CIA original download remained unavailable despite archive searches, so the public-affairs details are explicitly mediated through his reporting. Used only the public Esquire introduction, not the inaccessible article. Read contemporary attributed coroner and family statements in a Sacramento Bee reproduction and Munger’s firsthand memories. Corrected the first-volume release date, the Post headline, the Times staffing claim, Blandón’s U.S. prosecution and subsequent treatment, departure chronology, and the death date. Removed claims of complete vindication, no critical factual rebuttal, universal coordinated press command, no later employment, no favorable major-media coverage, and an established homicide or inevitable suicide. Rewrote all six reasons."
+      },
+      "connectionNotes": "Preserved all six targets. The tupac-biggie and malcolm-x edges are weak contextual connections and should be reconsidered during graph cleanup; their unsupported shared pipelines, CIA directions to LAPD, and intentional community-destruction claims have been withdrawn. The Mockingbird edge describes reported public-affairs activity without treating historical covert media programs as proof of operational direction in this episode."
     },
     {
       "id": "georgia-guidestones",
@@ -486,7 +538,20 @@
       "id": "gulf-of-tonkin",
       "category": "operations",
       "originalEssayWords": 7406,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3054,
+      "focus": "How a real August 2 battle, disputed August 4 reports, deliberately skewed signals intelligence, and prior legislative planning became a public case for broad future authority.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the entire original body, sources, and ten outgoing reasons in three segments. Rebuilt the repeated fabrication argument around the patrol/raids setting, actual first engagement, contradictory ship reports, Washington’s decision, technical reconstruction of warning and purported after-action messages, missing attack communications, prior resolution drafts, scope and expiration, and later inquiry. The depth pass developed the different deadlines for immediate ship defense and reprisals ashore, and the consequences of calendar versus discretionary expiration. Cut duplicate OPLAN, witness, media, casualties, elite, and war-powers sections while keeping worked evidence and a developed account of the authorization.",
+        "voice": "Revised fifteen passages to remove significance announcements, instructions about what distinctions matter, blanket confessions, repeated verdicts, and the single-cause history of all later wars. Reread the changed opening, naval context, Herrick sequence, Washington decision, legislative scope, and later-inquiry sections. The evidence pass removed two repeated sentences and tightened the final wording.",
+        "evidence": "Downloaded the scanned 56-page release of Hanyok’s study and OCRed it locally, then examined relevant original passages on the first attack, warnings, ambiguous second encounter, salvage traffic, missing command communications, changed translations, combined messages, chronology, and final assessment. Used the author’s explicit rejection of demonstrated administration pressure or all-level collusion alongside his finding of deliberate skewing, instead of claiming a unanimous official NSA conclusion. Read contemporary FRUS June memoranda and the June 11 draft, the August 4 reporting notes and telephone memorandum, NSC summary, and announcement chronology; read the reproduced Johnson–McNamara transcript and Ellsberg’s memoir excerpt as different source types. Examined the actual resolution and House precedents for votes, dates, scope, and termination; the evidence pass added the August 10 signing, actual presidential/congressional termination mechanisms, and the repeal law’s approval/effective-date distinction. Downloaded and OCRed all ten pages of the Marcy–Tordella packet, distinguishing his initial proposed language from subsequent revisions. Corrected the Herrick local/Washington timing conflation without retaining unnecessary clock precision, the first-shot account, sunk-boat claim, assumptions of a settled escalation plan, universal manufactured-message description, direct Northwoods lineage, newspaper-control claim, sole-cause casualty argument, complete concealment until 2005, and universal AUMF assertions. The underlying lost Vietnamese originals, full Stockdale/McNamara books, original newspaper reporting, and full hearing were not represented as independently examined. Rewrote all ten reasons."
+      },
+      "connectionNotes": "Preserved ten targets. Flag operation-mockingbird, shadow-elite, pearl-harbor-foreknowledge, uss-liberty, and military-industrial-complex for graph review where inherited causal claims lack a demonstrated link. Northwoods and Iraq are bounded comparisons, the 2001 authorization’s supposed advance drafting and universal scope are withdrawn, and the Kennedy/withdrawal connection no longer asserts an unconditional decision or causal proof from the assassination."
     },
     {
       "id": "haarp",
@@ -669,7 +734,20 @@
       "id": "kurt-cobain",
       "category": "modern",
       "originalEssayWords": 7511,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3032,
+      "focus": "What the death-investigation records establish, how particular homicide claims change on inspection, and how the later reviews, disclosure litigation, and documented firearm destruction affect future examination.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the cause/manner distinction, the meaning of a postmortem concentration, the 2002 fatal/nonfatal comparison and its limits, Parker’s contemporaneous note examination and Green’s later inconclusive result, the credit-card timing warning, the actual 2014 review, the newer paper’s assumptions, and disclosure versus preservation. The depth pass added the 1996 response to the Hoke allegation, Ciesynski’s small earlier role, and the missing premises of the inheritance calculation. This replaces a broad accusation with sufficient detail to reconstruct what each document does and does not say.",
+        "voice": "Removed the original sensational certainty, repetitive forensic-impossibility declarations, claims about all independent experts, ritual insinuations, and generic treatment of a widow’s mourning as proof of guilt. The voice pass revised ten passages, replacing editorial signposting with the particular report and consequence, simplifying the credit-card explanation, and shortening the ending. Reread the complete revision and the later evidence-related changes.",
+        "evidence": "Read the original 247-line body, frontmatter, and bibliography in full. Downloaded and OCR-checked relevant original police records in Notebook 1: initial assessment, interviews and follow-ups, the April 22 Parker report, May 6/9 fingerprint result, May 18 firearm examination, and March 1996 Briggs/Cameron documents. Read Ciesynski’s substantive 2014 report. Read the surviving medical documents through OCR and checked the toxicology sheet visually: morphine 1.52 by RIA; codeine 0.11, not 0.93; medical case 94-0399. Read the relevant Green report summary, comparison limitations, discussion, and opinion scale, and relevant toxicology, handwriting, pathology discussion, and conclusion sections of Burnett et al., published November 6, 2025. The 2002 study is limited to its available author abstract. Read Grant’s account, the 2018 appellate disclosure/privacy decision, current reporting of the institutional response, and the September 2026 administrative release, including the firearm’s September 27, 2022 destruction and September 29 status entry. Distinguished alleged solicitation from a proven offer and a follow-up instruction from a completed investigation. Corrected claims that the note was unexamined, the gun had no lifted impressions, credit-card entries established contemporaneous purchases, the 2014 report ignored toxicology/firearms, and the entire case was sealed. Removed unsupported exact clinical timelines, statements of universal expert agreement, mind-reading of grief, inference from failure to sue, automatic-total-inheritance claims, and assertions of proven institutional collusion. Both incomplete source material and qualified reconstructions are identified. All three reasons revised."
+      },
+      "connectionNotes": "Retained all three original targets. The counterculture-psyop and control-systems edges describe cultural interpretation and concrete institutional questions, not proof of coordinated neutralization or a cover-up. The 27 Club reason withdraws accusations against the partner and the claim that shared age and drug findings establish a repeating homicide protocol."
     },
     {
       "id": "las-vegas-shooting",
@@ -919,7 +997,20 @@
       "id": "octopus-promis",
       "category": "operations",
       "originalEssayWords": 2344,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2853,
+      "focus": "Following the disputed software through ownership, delivered versions, the vacated bankruptcy judgment, congressional oversight and dissent, later code comparisons and compensation findings, backdoor claims, and Casolaro’s unfinished inquiry.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the full original 80-line essay and all seven reasons. Rebuilt the narrative around the April 1983 delivery and followed it through rights, versions, bankruptcy, oversight, technical comparisons, and later court findings. Added the omitted 1997 hearing and 1998 review panel rather than stopping at the 1991 appeal. The depth pass developed a concrete license example and separated software ancestry, a concealed access mechanism, and evidence of actual use. Casolaro’s death has a bounded account of the reviews and their limits, with graphic method detail and conjectural destiny removed.",
+        "voice": "Revised thirteen passages to replace editorial announcements, repeated caution, rhetorical questions, and sweeping political conclusions with the delivered code, disagreement over rights, witnesses’ chronology, and the actual tests. Removed the unearned Epstein body tangent while preserving and flagging its graph edge. Reread the affected paragraphs and the conclusion, then repaired an awkward tense change.",
+        "evidence": "Downloaded the official 128-page House report and examined relevant summary passages, conclusions, recommendations, collective dissent, and Campbell’s separate dissent, plus the selection-process account. Read the Bason opinion’s relevant introductory findings and stated conclusions, the appellate chronology and bankruptcy reasoning, the 1997 report’s detailed discovery protocol, examination results and conclusion, and relevant procedural, license, copyright, and findings passages of the official 1998 panel report. Downloaded the preserved Bua/1994 review volume and read relevant summary, witness chronology, death-investigation, embalming, missing-paper, and conclusion sections; these are attributed institutional findings, not independent forensic reanalysis. Used OJP abstracts for actual PROMIS purposes and manual workflows. Corrected the generic super-database description, the continued legal force of the vacated judgment, the omission of later substantive proceedings, the scope of the House findings and dissent, the claim that Bason retaliation was established, and the treatment of the death as unexplained by every investigation. The final evidence pass caught a discrepancy between the 1998 summary and the 1997 detailed list: the examination results name systems at five agencies, not an established CIA software inspection. The essay now distinguishes the original request from the actual listed examinations and includes missing historical-code limitations. Removed claims of proven international backdooring, a documented Maxwell-to-Epstein operation, murder, and a confirmed single financial/criminal network. All seven reasons rewritten."
+      },
+      "connectionNotes": "All seven original targets retained. The epstein edge is weak and should be reconsidered in graph cleanup: family association and an alleged Maxwell software role do not establish an inherited surveillance operation. The cia-drugs and bcci-nugan-hand edges also require specific transactional evidence. The Iran-Contra and shadow-elite reasons describe Casolaro’s proposed inquiry, not findings that the Octopus existed as one organization. The mass-surveillance edge is a conceptual comparison, not verified technological ancestry."
     },
     {
       "id": "oklahoma-city",
@@ -937,7 +1028,20 @@
       "id": "operation-chaos",
       "category": "operations",
       "originalEssayWords": 5590,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3364,
+      "focus": "How a search for foreign direction of dissent generated domestic files despite negative findings, through expansive collection requirements, HYDRA indexing, agent preparation, incomplete internal review, and barriers to individual remedies.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the entire original body, bibliography, and six reasons. Rebuilt around the actual Grove Press file, presidential pressure, the direction of an intelligence inquiry, storage practices, repeated negative assessments, agents, distinct security projects, internal objections, termination, and remedies. The depth pass added a clearly hypothetical conference-contact example to explain what useful background could establish, and differentiated real instances of assistance from evidence of foreign command. Retained detailed accounts of recruitment, domestic reporting, database practices, and legal consequences instead of a short summary.",
+        "voice": "Revised seventeen passages to remove significance announcements, instructions about reading corrected numbers, repetitive conclusions, generic transitions, and the prototype/abyss finale. Replaced the three-part verdict and rhetorical policy question with the actual Grove Press retention decision. Reread the affected legal-boundary, index, analytical-findings, and conclusion sections, plus final evidence revisions.",
+        "evidence": "Downloaded the 54-page Senate staff report and examined program origins, authorization, relevant statutory analysis, studies and transmittals, sources, indexing, assistance to the FBI, 1969 expansion, agent operations, watchlists, termination and Office of Security programs. Downloaded the official 74-page Ford Library folder and examined chapter 11’s Grove Press case, opening counts, agents/Project 2, collection practices, secrecy and objections, winding down, conclusions and recommendations. Read the contemporary Justice Department memorandum recording Colby’s December 1974 explanation, with its status as a reported official account explicit. Examined the original Halkin appellate opinion’s discovery, privilege, standing, injunction and declaration reasoning. The evidence pass distinguished denial of an injunction for lack of imminent harm from mootness of the declaratory claim. Corrected the fictitious surviving Helms directive, application of the CHAOS name from its start, 300,000-person-file claim, treating 7,200 as intensive-watchlist subjects, merger of MERRIMAC/RESISTANCE under CHAOS, asserted universal ban on CIA activity in the United States, unverified media-planting machinery, MKULTRA administrative lineage, and post-exposure termination chronology. Preserved the March 5/March 15 discrepancy in the two official inquiries. The complete Restless Youth study and original Hersh article were not read; the essay identifies the inquiries and official record as its routes to those accounts. Rewrote all six reasons."
+      },
+      "connectionNotes": "Preserved all six targets. Flag operation-mockingbird for graph review: the inherited story-planting pipeline is not established. The mkultra administrative-continuity and counterculture-engineering claims were withdrawn. Mass-surveillance is a bounded comparison with specific watchlist relationships, without an asserted unbroken lineage to post-2001 systems."
     },
     {
       "id": "operation-condor",
@@ -992,7 +1096,20 @@
       "id": "operation-northwoods",
       "category": "operations",
       "originalEssayWords": 5711,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2859,
+      "focus": "How the March 1962 proposals would create apparently independent evidence for intervention in Cuba, distinguishing simulated losses, actual harm, official recommendation, further authority, and the surviving presidential record.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the original body, sources, and nine reasons in full. Read the complete fifteen-page released memo packet after local OCR. Rebuilt around the intended unwitting witness, the requested pretexts, approval status, Guantanamo and ship scenarios, harm to refugees, distinct civil and military aircraft deceptions, the Mongoose presidential record, and disclosure. The depth pass added the separate proposal to provoke a real Cuban reaction through harassment and deception, explaining its different risks, and removed a repeated preliminary-status verdict. Retained a full account of how apparently independent corroboration was meant to work.",
+        "voice": "Revised sixteen passages to remove dramatic superlatives, universal significance claims, reader instructions, repetitive corrections, manufactured casualty scenes, and the grand epistemological finale. Kept specific proposed actions and the governing question of how belief and consent would be obtained. Reread the changed context, approval, refugee, presidential, disclosure, and conclusion sections. The evidence pass further removed repeated status language, clarified the presidential note, and simplified the release chronology.",
+        "evidence": "Examined all pages of the primary fifteen-page packet, including the preliminary cover memorandum, limitations on distribution, proposed Guantanamo incidents, unmanned vessel and mock casualty lists, real-or-simulated refugee sinking, injury/bomb/document suggestions, civil-plane substitution and aliases, military-pilot survival, foreign pretexts, and Soviet-involvement condition. Examined the official Mongoose guidelines and the contemporary March 16 covering note; the evidence pass corrected might to would in the guidelines’ actual assumption while retaining Kennedy’s explicit lack of authorization and skepticism. Read the reproduced July press-conference section defending Lemnitzer’s European nomination, the ARRB’s actual November 1997 announcement/list in the later NARA release, and relevant identification/March portions of the larger Northwoods case. The larger complete Cuba file, the inaccessible complete JCS history, and Bamford’s full book were not represented as read. Corrected invented unsuspecting-passenger disappearance and family-notification claims, the fatal-pilot ambiguity, failure to distinguish mock from contemplated real casualties, treatment of submission approval as execution authority, the personally documented rejection of every item, direct punishment/reappointment causation, declassification/publication conflation, and asserted operational lineage to Gladio, Tonkin, Pearl Harbor, September 11, or Kennedy’s assassination. Rewrote all nine reasons."
+      },
+      "connectionNotes": "Preserved nine targets. Flag operation-gladio and pearl-harbor-foreknowledge for graph review: the inherited operational lineage is not established. JFK and nine-eleven retain bounded historical/contextual relationships without an assassination insinuation or shifted burden of proof. Military-industrial-complex and shadow-elite refer to the actual official recommendation and authority sought, not unsupported contractor command or private motives."
     },
     {
       "id": "operation-paperclip",
@@ -1029,7 +1146,20 @@
       "id": "paul-is-dead",
       "category": "modern",
       "originalEssayWords": 3070,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2665,
+      "focus": "How participatory album interpretation turned a false death story into apparently accumulated evidence, through campus publication, invented details, broadcast entertainment, and listening expectations.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Built the account around Harper’s contemporary invitation for contributions, LaBour’s later account of his inventions, the Abbey Road cover and failed age clue, reversed-speech interpretation, photographic identity claims, and McCartney’s own explanation. The depth pass developed what an actual identity inquiry would follow and why a traceable person differs from an adjustable symbol. Added a contemporary AP correction to show that ordinary explanations were available during the outbreak, not only in hindsight.",
+        "voice": "Removed the original sensational catalog, universal claims about all conspiracy thinking, implied intelligence authorship, and grand first-viral-conspiracy claim. The voice pass revised ten passages to remove editorial signposting and repeated generic cautions, replaced abstract transitions with the particular publication or person, simplified the proposed listening comparison, and cut its repeated conclusion. Reread the complete revised draft and the final source-related additions.",
+        "evidence": "Read the original body, sources, and reasons in full. Downloaded the Drake issue, read Harper’s article and continuation through OCR, and read LaBour’s University of Michigan interview through a preserved full-text reproduction. The original Michigan Daily archive was inaccessible and its reproduced scan too small for reliable reading; claims about LaBour’s actions are attributed to his later recollection. Checked the official Beatles session account, the reproduced Life interview, the contemporary October 23 AP report on pages 1 and 10 of the Michigan State News, Vokey’s discussion of his own research, the surviving opening of the Wired authors’ reprint, and McCartney’s official Paul Is Live entry. Corrected the two-day broadcast/publication interval, the age-clue arithmetic, and the Wired publication’s format. Removed the misattributed composite Life quotation, unverified voice-expert claims, claims of universal campus/radio spread, and direct genealogies to all later media conspiracies. Did not pretend to read the dead Wired continuation or the inaccessible 1985 psychology article; the relevant claim is attributed to Vokey’s available chapter. Both outgoing reasons rewritten."
+      },
+      "connectionNotes": "Retained both original targets. The counterculture-psyop edge remains a weak interpretive connection, not evidence of operational diversion. The predictive-programming reason describes an analogous decoding practice rather than asserting direct descent or effective subliminal influence."
     },
     {
       "id": "pearl-harbor-foreknowledge",
@@ -1557,6 +1687,6 @@
     }
   ],
   "rewriteOrder": "Follow content/roadmap.json path, skipping nodes already marked rewritten.",
-  "lastCompleted": "celebrity-27-club",
-  "nextNode": "paul-is-dead"
+  "lastCompleted": "operation-northwoods",
+  "nextNode": "reichstag-fire"
 }
