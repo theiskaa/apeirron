@@ -1,161 +1,189 @@
 ---
 id: "consciousness"
 title: "Consciousness"
-description: "Consciousness is the felt fact of experience no theory has fully explained. A deep dive into the hard problem, the brain, and whether mind extends beyond it."
+description: "Consciousness is the experience of being aware. Why explaining what the brain does can seem different from explaining what it feels like to be someone."
 category: "mind"
 connections:
   - target: "near-death-experiences"
-    reason: "Near-death experiences and children's past-life memories are the empirical test of whether consciousness can exist without a functioning brain — the one line of evidence that could settle the question by observation rather than argument."
+    reason: "Reports of experience near death raise questions about awareness and memory under extreme conditions; they do not by themselves establish experience independent of the brain."
   - target: "free-will"
-    reason: "Libet's timing experiments suggest conscious intention arrives after the brain has begun to act, casting consciousness as a narrator of decisions rather than their author — which makes free will a direct test of what consciousness is for."
+    reason: "Experiments on the timing of intention ask how conscious awareness participates in action. Their implications for deliberate choice remain disputed."
   - target: "taoism"
-    reason: "Taoism proposes the Tao as an impersonal ground from which mind and matter both arise, framing consciousness not as a product of the brain but as one expression of a deeper generative source."
+    reason: "Taoist accounts of mind offer a philosophical comparison with approaches that begin from a division between a subject and an external world."
   - target: "dmt"
-    reason: "DMT reliably produces contact with seemingly autonomous intelligences, forcing the question head-on: is the brain generating these beings, or is the molecule tuning a receiver to something already there?"
+    reason: "DMT changes reported experience, including a sense of encountering other beings. Whether those beings exist independently is a separate claim."
   - target: "hard-problem"
-    reason: "The hard problem is the central unsolved question about what consciousness actually is"
+    reason: "The hard problem asks why physical processing is accompanied by experience, rather than only how that processing works."
   - target: "altered-states"
-    reason: "Psychedelics and near-death experiences suggest consciousness extends beyond ordinary waking awareness"
+    reason: "Changes in perception and self-awareness help distinguish ordinary waking experience from the wider range of conscious states."
   - target: "panpsychism"
-    reason: "If consciousness can't emerge from dead matter, maybe it was there all along"
+    reason: "Panpsychism proposes that experiential properties are fundamental, while facing the problem of how they could combine into a unified experience."
   - target: "materialism"
-    reason: "Materialism claims consciousness is entirely physical — a product of the brain and nothing more"
+    reason: "Materialist accounts seek to explain consciousness through physical processes, including the organization and activity of the brain."
   - target: "idealism"
-    reason: "Idealism places consciousness at the foundation of reality — mind is primary, matter is derivative"
+    reason: "Idealism treats mind or experience as fundamental, reversing the usual question of how consciousness arises from matter."
   - target: "dualism"
-    reason: "Dualism proposes consciousness is non-physical — a separate substance from the brain"
+    reason: "Dualist theories distinguish mind from the physical, creating the further problem of explaining their relationship."
   - target: "mkultra"
-    reason: "MKUltra was literally the CIA trying to control and weaponize human consciousness through drugs, hypnosis, and torture"
+    reason: "CIA experiments used drugs and other interventions to alter perception and behavior without participants' informed consent."
   - target: "jung"
-    reason: "Jung is the depth-psychological investigator who concluded that waking consciousness is a small illuminated zone within a vastly larger, structured unconscious. His collective unconscious and archetypes remain the most sustained empirical case for a trans-personal layer of mind."
+    reason: "Jung distinguished conscious awareness from unconscious psychological processes; his collective unconscious is a further theoretical proposal."
   - target: "pharmacratic-inquisition"
-    reason: "McKenna's thesis names the political fact underneath consciousness research: the substances that most reliably alter it are the ones ruling powers have worked hardest to keep away from the public."
+    reason: "The pharmacratic-inquisition thesis interprets restrictions on psychoactive substances as control over access to altered experience."
   - target: "skinwalker-ranch"
-    reason: "The investigators who spent the most time on the property — Kelleher, Knapp, Lacatski — converged on what they called the trickster hypothesis: that the phenomena respond to observers' attention, target individuals rather than locations, and produce psychological after-effects, which is closer to a consciousness-anomaly model than to any external-object framework."
+    reason: "Some accounts of Skinwalker Ranch attribute a role to observers' minds. Those claims are not established evidence that consciousness acts outside the brain."
   - target: "project-stargate"
-    reason: "Star Gate is the only sustained government-funded program ever to test non-local cognition operationally. Its statistical record is the strongest institutional evidence on offer that consciousness is not confined to the brain — and its 1995 termination is the cleanest demonstration of how that evidence gets buried rather than answered."
+    reason: "Star Gate tested claims of remote viewing. Its existence documents government interest, rather than proving that consciousness can obtain information at a distance."
   - target: "dennett"
-    reason: "Dennett is consciousness studies' leading deflationist: he argues that consciousness is simply what brains do, with no non-physical residue and no hard problem left to solve."
+    reason: "Dennett challenges the idea that explaining all the functions associated with experience would still leave a separate hard problem."
   - target: "pineal-gland"
-    reason: "The pineal sits at the contested boundary where matter is claimed to touch mind — Descartes' chosen hinge and the rumored source of endogenous DMT."
+    reason: "Descartes assigned the pineal gland a role in mind-body interaction, a historical proposal distinct from its established biological functions."
   - target: "cymatics"
-    reason: "The vibratory-universe reading proposes mind and matter as differing frequencies of one substrate, making consciousness a resonance rather than a byproduct."
+    reason: "Visible patterns produced by vibration sometimes inspire theories of mind, but those patterns do not establish a mechanism of consciousness."
   - target: "maya-nonduality"
-    reason: "Advaita takes consciousness as the irreducible ground rather than a product of the brain, inverting the hard problem from the other side."
+    reason: "Advaita distinguishes awareness from its changing contents and treats consciousness as fundamental."
   - target: "illusion-of-self"
-    reason: "The self-illusion thesis splits consciousness — awareness, undeniable — from the self — a constructed model — reframing the whole problem."
+    reason: "An account of how the sense of self is constructed need not settle the separate question of why experience occurs."
   - target: "quantum-consciousness"
-    reason: "The quantum-mind program is the boldest attempt to give consciousness a place in fundamental physics rather than treating it as emergent."
+    reason: "Quantum theories of mind propose physical mechanisms for consciousness; their distinctive claims require evidence beyond the existence of quantum effects."
   - target: "holographic-universe"
-    reason: "Bohm and Pribram's holographic paradigm casts mind and matter as enfoldings of one implicate order, dissolving the observer/world split."
+    reason: "Holographic models of mind and reality offer theoretical comparisons, rather than an established explanation of subjective experience."
   - target: "law-of-attraction"
-    reason: "The Law of Attraction treats consciousness as a causal force acting directly on the physical world — mind-over-matter at its boldest and least defended."
+    reason: "The law of attraction attributes effects on external events to thought, going beyond the claim that experience depends on mental activity."
   - target: "morphic-resonance"
-    reason: "Sheldrake argues memory and mind are stored in fields, not the brain, directly challenging the materialist model of consciousness."
+    reason: "Sheldrake proposes field-based accounts of memory and mind that differ from established neuroscientific explanations."
   - target: "stoned-ape"
-    reason: "McKenna proposes a specific chemical trigger — psilocybin — for the emergence of self-reflective consciousness, a material answer to how mind arose."
+    reason: "McKenna proposed that psychedelic use contributed to human cognitive evolution. That hypothesis is distinct from an explanation of experience itself."
   - target: "noosphere"
-    reason: "The noosphere proposes consciousness as a planetary, collective phenomenon converging toward higher unity, not merely an individual brain event."
+    reason: "The noosphere extends discussion of mind to collective human thought and culture, a different scale from individual subjective experience."
 ---
 
-There is something it is like to be you. Right now, reading these words, there is an experience happening — light hitting your eyes, meaning forming in your mind, a sense of being *here*. This is consciousness. And after centuries of philosophy and decades of neuroscience, nobody can explain why it exists.
+A description of pain can be very good without hurting anyone. It can name the nerves involved, trace a signal into the brain, and explain why a hand pulls away from a hot surface. The person with the burned hand knows something else about the event: what it feels like.
 
-We can map every neuron in the brain. We can trace electrical signals from your retina to your visual cortex. We can describe, in exquisite mechanical detail, how information flows through neural tissue. None of this explains why any of it *feels like something*. A sufficiently advanced robot could process the same information without any inner experience at all. So why do we have one?
+That difference is a useful place to begin with consciousness. Here the word means experience: the taste of coffee, an ache, the sound of a voice, the feeling of being awake. It does not necessarily mean intelligence, self-knowledge, or the ability to speak. A creature might have experiences without being able to tell us about them.
 
-This is not a gap in our knowledge — it is a gap in our framework. Physics describes matter, energy, space, and time. Nowhere in those equations is there a variable for experience. Consciousness is not predicted by any law of nature. It simply shows up, unexplained, riding on top of biology.
+The question is how that experience belongs in an account of the physical world. Studying the brain has given us ways to investigate it. Whether a sufficiently complete account of brain activity would also explain why anything feels like something is where the disagreement begins.
 
-In 1974, philosopher Thomas Nagel published a paper that crystallized the problem. He asked a deceptively simple question: *what is it like to be a bat?* A bat perceives the world through echolocation — a sensory modality humans do not possess. We can study bat neurology exhaustively, map every neural pathway involved, and still never know what it *feels like* from the inside to navigate by sonar. "Fundamentally an organism has conscious mental states," Nagel wrote, "if and only if there is something that it is like to *be* that organism — something it is like *for* the organism." The subjective character of experience, he argued, is irreducible. No amount of objective, third-person description can capture a first-person fact.
+## What we mean by being conscious
 
-## The question beneath all questions
+Consciousness gets used for several things that usually come together. Being awake, noticing a sound, remembering an event, and recognizing yourself as the person who experienced it can all be described as conscious. Separating them makes the subject less slippery.
 
-Consciousness is not one topic among many in Apeirron — it is the substrate on which every other question rests. Whether we ask about [[simulation-hypothesis]], [[altered-states]], the existence of God, or [[nature-of-time]], we are always asking from inside a conscious experience. We cannot step outside it. Every observation, every theory, every doubt occurs within the field of awareness.
+A dream is the simplest counterexample to equating consciousness with wakefulness. The dreamer can have a vivid experience while largely disconnected from the room where they are sleeping. What is missing is ordinary contact with the surroundings. Conversely, detecting and responding to something need not involve experiencing it in the familiar way. A great deal of the work that supports perception happens without being available to inspection.
 
-This makes consciousness uniquely strange as a subject of inquiry. It is both the thing doing the investigating and the thing being investigated. The telescope is pointed at itself.
+Self-awareness adds another question. Having an experience and having a developed concept of yourself as its subject need not be the same achievement. A child or another animal might feel pain without possessing the adult human ability to describe a personal history. Demanding a verbal account as the test would build one particular human capacity into the definition of experience.
 
-## What we know (and what we don't)
+For a researcher, “is this person conscious?” can therefore hide several tasks. How awake are they? What, if anything, are they experiencing? Can they use what they experience to answer a question? A person who gives no reply might lack awareness, might not understand the request, or might understand perfectly well and be unable to move. At the bedside those possibilities can look much the same. Choosing among them takes more than a definition.
 
-Neuroscience has established strong correlations between brain activity and conscious experience. In 1990, Francis Crick — co-discoverer of the DNA double helix — and neuroscientist Christof Koch published a landmark paper proposing a research program to identify the "neural correlates of consciousness" (NCC): the minimal neural mechanisms sufficient for any specific conscious experience. This launched a generation of research mapping which brain regions light up during which experiences.
+## Two kinds of explanation
 
-The results are striking. Damage to specific brain regions predictably alters perception, memory, and personality. Psychedelics can radically reshape experience. The default mode network — a set of brain regions active during rest and self-reflection — appears to be central to maintaining the sense of a stable self.
+In [“Facing Up to the Problem of Consciousness”](https://consc.net/papers/facing.html) (1995), David Chalmers distinguished the easy problems from the hard problem. The easy problems concern abilities such as directing attention and reporting perceptions. Explaining them means finding the processes that perform them. The research can be enormously difficult.
 
-But correlation is not explanation. Knowing that neural activity in the visual cortex correlates with the experience of seeing blue does not tell us *why* that particular pattern of firing produces *that particular shade of felt experience*. Joseph Levine called this the "explanatory gap" in 1983 — and it remains completely open. David Chalmers later formalized this as [[hard-problem]], and it has dominated the field ever since.
+The [[hard-problem]] concerns experience itself. Suppose a researcher explained every step between light entering an eye and a person reporting red. Chalmers asks why those processes should be accompanied by the appearance of red to someone. He thinks a functional account could leave that question unanswered.
 
-## The experiments that shook the field
+This is a disputed claim about what would count as an explanation. Accepting it means seeking a further account of experience. Rejecting it can mean questioning whether that request rests on a misleading picture of the mind.
 
-Three lines of experimental work have been especially revealing — not because they solve the mystery of consciousness, but because they make it stranger.
+The disagreement can be easy to lose beneath the vocabulary. Both researchers may agree about what happened in the brain. They disagree about whether describing those events has explained everything there is to explain.
 
-**Binocular rivalry** is deceptively simple. Present one image to the left eye and a completely different image to the right eye. The brain cannot fuse them. Instead of seeing a blend, you experience spontaneous alternation — one image dominates for a few seconds, then the other takes over, back and forth, endlessly. The sensory input stays constant. The neural processing stays constant. But conscious experience *switches*. Researchers can watch neurons in the visual cortex flip their allegiance in real time, tracking which image the subject reports seeing. The physical stimulus has not changed. Something deeper has. Binocular rivalry isolates the moment where neural activity and conscious experience come apart — and nobody can explain why one particular pattern of firing gets to be "the one you see."
+Thomas Nagel approached the difficulty through another animal. In “What Is It Like to Be a Bat?” he asked what an objective description could tell us about a creature whose perception is organized very differently from ours. Knowing how echolocation works is not obviously the same as knowing how the world appears to a bat. Imagining ourselves flying in the dark may tell us more about human imagination than about a bat's experience.
 
-**Split-brain patients** reveal something even more unsettling. In the 1960s, Roger Sperry and Michael Gazzaniga studied patients whose corpus callosum — the thick bundle of nerve fibers connecting the brain's two hemispheres — had been surgically severed to treat severe epilepsy. The results earned Sperry the 1981 Nobel Prize in Physiology. When an image was shown only to the left visual field (processed by the right hemisphere), the patient could not verbally report what they saw — because language lives in the left hemisphere. But the left hand (controlled by the right hemisphere) could point to the correct object. In Sperry's own words from his 1968 paper: "Each hemisphere... has its own... private sensations, perceptions, thoughts, and ideas all of which are cut off from the corresponding experiences in the opposite hemisphere." Two separate streams of consciousness in one skull. If consciousness is unified, what happens when you physically divide the organ that supposedly produces it?
+Frank Jackson's [Mary thought experiment](https://academic.oup.com/pq/article-abstract/32/127/127/1612468) sharpens the issue. Mary learns all the physical facts about color vision while living in a black-and-white environment. When she first sees red, does she learn something? If so, Jackson argued, the complete physical description appears to have left something out.
 
-**Blindsight** is perhaps the strangest of all. Patients with damage to the primary visual cortex (area V1) report being completely blind in part of their visual field. They insist they see nothing. But when forced to guess — "Is the object on the left or the right?" — they guess correctly at rates far above chance. They can navigate around obstacles they cannot see. They respond to facial expressions they report not perceiving. Information is reaching the brain and guiding behavior, but it is not reaching *consciousness*. Blindsight demonstrates that there are two separable things: processing visual information, and *experiencing* visual information. [[materialism]] must explain why one occurs without the other. [[dualism]] must explain how a non-physical mind could be selectively disconnected from certain inputs but not others.
+The objection is that Mary might acquire a new ability, or a new way of recognizing a fact, without discovering an additional nonphysical fact. Knowing everything about riding a bicycle would not supply the ability to ride one. Whether the analogy works for seeing red is part of the argument. The thought experiment makes the disagreement visible; it cannot settle it by asking us to picture a situation whose conditions are themselves controversial.
 
-## The binding problem
+There is a reason to keep both examples close to the science. They identify a potential difference between describing a system and occupying its point of view. They do not establish that the difference is unbridgeable, or that it requires a substance outside physics.
 
-You are having a single, unified experience right now. You see the words on this screen, hear the ambient sounds around you, feel the pressure of your body against a surface, and weave all of it into one seamless moment of being. But your brain is not a unified thing. It is roughly 86 billion neurons, each firing independently, scattered across dozens of specialized regions. Color is processed in one area, shape in another, motion in a third, sound in yet another. There is no single neuron, no master region, no "Cartesian theater" where it all converges.
+## What the brain gives us to work with
 
-So how does a unified experience arise from billions of separate processes?
+The dependence of ordinary experience on the brain is a constraint any theory has to take seriously. Brain injury can change perception, memory, and personality. Drugs can alter the contents of experience. The relationship is detailed enough that an account of consciousness cannot simply set the brain aside.
 
-This is the binding problem, and it is distinct from [[hard-problem]] — though the two are deeply entangled. Even if you could explain *why* neural activity feels like something, you would still need to explain how the brain binds the separate threads of processing into a single tapestry of experience. Some researchers have proposed that synchronized neural oscillations — particularly gamma-wave activity around 40 Hz — serve as a binding mechanism, with neurons that fire in synchrony being "bound" into one conscious percept. But knowing that synchronized firing correlates with binding tells us nothing about *why* synchrony produces unity. The binding problem reproduces the explanatory gap at a different level.
+Consider [blindsight](https://academic.oup.com/book/2388). Some people with damage to the primary visual cortex report no sight in part of their visual field, yet can perform above chance when asked to guess about a stimulus presented there. Information can guide a response without the person reporting an ordinary visual experience. Lawrence Weiskrantz's work on blindsight made that distinction experimentally useful.
 
-## The rival theories
+Imagine being asked which way a line points in a part of your visual field where you report seeing nothing. You guess, and over many trials your guesses are too accurate to dismiss as chance. Some information about the line has reached the systems that guide your answer. What is missing, or at least profoundly changed, is the ordinary experience of seeing it. Blindsight gives researchers a way to study that separation rather than assume that every successful response carries awareness with it.
 
-Two major scientific theories of consciousness have emerged in the last three decades, and they disagree about almost everything.
+Another useful case is [binocular rivalry](https://tilde.ini.uzh.ch/~kiper/leopold.pdf). Present sufficiently different images to the two eyes and perception can alternate between them, even while the images remain fixed. The changing experience cannot be explained simply by saying that a new object appeared in front of the observer. Researchers can compare the periods when one image is seen with the periods when the other is seen.
 
-**Global Workspace Theory (GWT)**, proposed by Bernard Baars in his 1988 book *A Cognitive Theory of Consciousness*, uses the metaphor of a theater — but not the Cartesian kind that [[dennett]] dismantled. In Baars' model, the brain contains a vast number of unconscious specialist processors (vision, memory, language, planning) that work in parallel and compete for access to a limited-capacity "global workspace." When information wins this competition and enters the workspace, it is broadcast widely to all other processors — and *that* broadcast is what we experience as consciousness. Consciousness, in GWT, is not a special substance or a mysterious glow. It is a specific functional architecture: the moment when information becomes globally available.
+The point is sometimes overstated as an experience changing while the brain stays the same. It is the external input that stays approximately constant. Neural activity changes, and those changes are part of what researchers want to understand. The experiment helps narrow the question from everything the visual system is doing to processes associated with the contents of awareness.
 
-GWT has a clean elegance. It explains why we can only consciously attend to one thing at a time (the workspace has limited capacity). It explains why unconscious processing is so much faster than conscious thought (most work happens outside the workspace). It predicts specific neural signatures — a "global ignition" pattern where activity in prefrontal and parietal cortex suddenly spikes when a stimulus becomes conscious. These predictions have held up in experiments.
+Split-brain research approaches the relationship from another direction. In some patients treated for severe epilepsy, surgeons cut the corpus callosum, a major connection between the hemispheres. Under carefully arranged conditions, information presented to one hemisphere could guide a response that the patient could not provide through the usual verbal route. The classic work of Roger Sperry and Michael Gazzaniga showed how much our ordinary sense of a single, effortlessly coordinated mind depends on communication within the brain.
 
-**Integrated Information Theory (IIT)**, developed by Giulio Tononi and first published in *BMC Neuroscience* in 2004, takes a radically different approach. IIT starts not with the brain but with the mathematics of experience itself. Tononi argues that consciousness has specific axiomatic properties — it is intrinsic, structured, specific, unified, and definite — and then derives a mathematical framework that any physical system must satisfy to be conscious. The key quantity is phi (Φ), a measure of how much a system's information is integrated — meaning how much the whole exceeds the sum of its parts. High phi means rich consciousness. Zero phi means no consciousness.
+It is tempting to conclude that cutting that connection produces exactly two people. The experiments do not make counting subjects so straightforward. Tasks differ in what information they require and how a patient can respond. [Pinto and colleagues' 2017 study](https://academic.oup.com/brain/article/140/5/1231/2951052), involving two patients, argued for divided perception without two independent conscious agents. That finding is itself a contribution to a continuing debate, rather than a reason to discard the earlier observations.
 
-The implications diverge wildly from GWT. In IIT, consciousness is not about function or information broadcasting. It is about the intrinsic causal structure of a system. A digital computer, no matter how sophisticated, might have *low* phi — because its transistors are largely modular and independent — while a simple biological network might have high phi. This means IIT could declare your laptop unconscious and a honeybee conscious, which is exactly what Tononi has suggested. And because even very simple systems can have nonzero phi, IIT leads, by its own logic, toward [[panpsychism]].
+What would count as evidence of two subjects? An inability to compare information across the hemispheres is one possible clue, but it is also a failure of communication within a person. The experiments make that ambiguity unusually concrete: a response available through one route can be unavailable through another, while everyday conduct may look surprisingly ordinary. A theory must explain both features before claiming to have counted the minds involved.
 
-## The bet Koch lost
+There is a difficulty in the other direction, too. In people, researchers can compare a report with recorded brain activity. In an animal, or a patient unable to communicate, the report may be unavailable. Researchers must work from other signs and assumptions about which processes matter. The problem of recognizing experience is connected to the problem of explaining it, but the two are not identical.
 
-In 1998, neuroscientist Christof Koch made a wager with philosopher David Chalmers: that within 25 years, science would discover a clear neural signature of consciousness. Koch favored IIT. In June 2023, at the annual meeting of the Association for the Scientific Study of Consciousness in New York, the results of a major adversarial collaboration — designed specifically to test the predictions of both IIT and GWT — were announced. Neither theory was fully confirmed. IIT's specific predictions about the posterior cortex as the seat of consciousness received partial support, but its core mathematical claims were not validated. GWT's predictions about prefrontal involvement received partial support as well.
+## What happens when consciousness is interrupted
 
-Koch lost the bet. He conceded publicly and sent Chalmers a case of fine Portuguese wine. But the deeper lesson was more sobering than a lost wager: after 25 years of unprecedented neuroscientific progress — brain imaging, optogenetics, massive computational models — we are not appreciably closer to explaining *why* any of this processing feels like something. The neural correlates have been refined. The mystery has not budged.
+General anesthesia provides a particularly direct way of studying changes in conscious state. A drug is administered, ordinary responsiveness is lost, and later the person can return to a condition in which they communicate and remember. The intervention makes it possible to study a transition, rather than only compare different people with different injuries.
 
-## Quantum consciousness
+But the familiar phrase “going to sleep” hides important differences. [Brown, Lydic, and Schiff's review](https://doi.org/10.1056/NEJMra0808281) examines general anesthesia in relation to sleep and coma, including the different neural processes and drug effects involved. Anesthesia is not explained by saying that all brain activity stops. The organization of activity and communication matters.
 
-In 1989, the physicist Roger Penrose published *The Emperor's New Mind*, arguing that consciousness cannot be the product of computation. His argument was mathematical: Penrose invoked Godel's incompleteness theorems to claim that human mathematical understanding involves non-computable processes — things no algorithm could ever do. If consciousness is non-computable, then it cannot arise from the computational activity of neurons (which are, at the classical level, essentially biological computers). Something else must be going on.
+The absence of a later memory also leaves an interpretive problem. A report after waking can establish what a person remembers; it cannot, by itself, establish everything they experienced during the interval. Unresponsiveness, disconnection from the surroundings, and an absence of experience have to be distinguished. That is a reason for careful measurement, rather than a claim that patients are generally conscious during surgery.
 
-Penrose proposed that this "something else" is quantum mechanics. Together with anesthesiologist Stuart Hameroff, he developed Orchestrated Objective Reduction (Orch-OR), a theory claiming that consciousness arises from quantum computations in microtubules — protein structures inside neurons that are far smaller than synapses. In Orch-OR, quantum superpositions in microtubules undergo a special kind of collapse — "objective reduction" — governed by quantum gravity, and these collapse events are the elementary moments of conscious experience.
+One approach is to test what the brain can do when it is briefly perturbed. In [a 2013 study](https://pubmed.ncbi.nlm.nih.gov/23946194/), Adenauer Casali and colleagues combined transcranial magnetic stimulation with EEG recording. They developed a perturbational complexity index to assess whether the resulting activity was both distributed and differentiated, rather than merely local or repetitive. The work compared conditions including wakefulness, sleep, anesthesia, and disorders of consciousness.
 
-The theory is wildly controversial. Most neuroscientists consider the brain too warm and wet for quantum coherence to survive long enough to matter. But in 2014, experiments on photosynthetic bacteria demonstrated quantum coherence at biological temperatures for longer than physicists had thought possible, and some researchers have found suggestive evidence of quantum effects in microtubules. Orch-OR remains a minority position, but it refuses to die — because the mainstream alternatives have not solved the problem either.
+For a patient who cannot understand an instruction or move a hand, this offers an advantage over a behavioral task. The researchers are asking how the brain responds, not waiting for the person to demonstrate a skill. The index still needs interpretation against cases where more is known about awareness. A complex response does not tell the clinician whether a patient is hearing a voice, feeling pain, or dreaming; it gives evidence about the brain's capacity to sustain a conscious state.
 
-## What anesthesia reveals
+## What a theory is trying to do
 
-Perhaps nothing exposes our ignorance more starkly than general anesthesia. Every day, millions of people are rendered unconscious by anesthetic drugs. The patient goes under. Surgery is performed. The patient wakes up. It works reliably. But here is the discomfiting truth: *we do not know what anesthesia does to consciousness*. We know which receptors the drugs bind to. We know that they disrupt certain patterns of neural communication — particularly the long-range feedback connections between cortical regions that both GWT and IIT consider important. We know that the loss of consciousness under anesthesia correlates with a breakdown of integrated information processing.
+Bernard Baars's global workspace theory starts with the observation that much mental processing happens without awareness. On this account, information becomes conscious when it is made broadly available to systems involved in memory, reasoning, and action. The useful idea is that consciousness has something to do with access: information that had been handled locally becomes available for wider use.
 
-What we do not know is whether anesthesia *eliminates* consciousness or merely *disconnects* it from memory and behavior. The patient cannot report, cannot respond, cannot form memories. But is the lights-are-on-but-nobody's-home metaphor accurate? Or is it more like a phone that is receiving calls but has no speaker? Some patients under anesthesia show neural responses to meaningful stimuli — their brains react to their own names, to emotional words — despite being completely unresponsive. Are they having experiences that are simply not being recorded? We do not know. We can switch consciousness off — or at least switch off everything we can measure about it — and we have no idea what we are switching off.
+Imagine someone trying to read while another conversation continues nearby. Much of the sound can be processed without becoming the focus of awareness. When their name is spoken, they may stop reading, turn toward the speaker, and remember what was said. A workspace account tries to explain the difference between information handled by a specialized process and information made available across the system. The proposal concerns that change in availability: what becomes possible once the sound is noticed?
 
-This is the scandal at the heart of [[materialism]]. We have a technology that manipulates consciousness directly, and we cannot explain what it manipulates.
+The [global neuronal workspace model](https://pubmed.ncbi.nlm.nih.gov/21521609/) developed by Stanislas Dehaene and colleagues gives that idea a more specific neural form. It proposes that conscious access involves a large-scale change in processing through recurrent interactions, often described as ignition. The research question becomes testable: under what conditions does information become available for sustained use, and what neural activity accompanies that transition? An objection is that some measured activity may support the report or task rather than the experience itself. Asking a person to press a button about an image adds work the brain would not necessarily do while simply seeing it.
 
-## The meta-problem
+Giulio Tononi's integrated information theory starts elsewhere. It asks what properties experience has, including its unity and its specificity, and proposes a corresponding account of a physical system's causal organization. What matters is how the system forms an integrated whole. This is a different proposal from identifying consciousness with the availability of information for other tasks.
 
-In 2018, Chalmers introduced a further twist: the "meta-problem" of consciousness. Set aside the [[hard-problem]] for a moment — set aside the question of why experience exists. Ask instead: *why do we think there is a hard problem?* Why do physical creatures made of neurons report that consciousness is mysterious? Why do we have the *intuition* that subjective experience cannot be explained in physical terms?
+The theory introduces phi as a measure of integrated information. Its concern is the causal organization of a system: how its parts affect one another and which states they can form together. “Information” here is a technical property, rather than a judgment about whether a thought is interesting or meaningful.
 
-This is a question that [[materialism]] should be able to answer. Even if the hard problem is genuine, the meta-problem is a problem about behavior and cognition — about why brains generate reports of mystery. And if a materialist explanation of the meta-problem turns out to be fully satisfying — if we can explain *why* we think consciousness is mysterious without invoking anything beyond physics — then perhaps the hard problem dissolves after all. Perhaps the mystery is not in reality but in us.
+The appeal is an account of unity: an object's color, location, and shape are experienced together. The difficult step is identifying that experience with the proposed causal structure. Calculating the relevant quantities in realistic systems poses further problems. Phi is not a simple clinical reading available from an ordinary brain scan.
 
-Or perhaps not. Perhaps the meta-problem has a simple answer (our introspective mechanisms cannot fully model their own operation) and the hard problem remains untouched. Chalmers left the question open. It sits there, a problem about a problem, turtles all the way down.
+These approaches have now been tested against one another more explicitly. The COGITATE Consortium's [2025 adversarial collaboration](https://doi.org/10.1038/s41586-025-08888-1) set out competing predictions in advance and compared them with measurements of brain activity during visual experience. Its results challenged important predictions of both theories. That does not mean no useful prediction survived, or that one experiment settled everything each theory claims. It means the theories encountered a comparison whose outcome they could not both simply absorb as confirmation.
 
-## Why this matters
+The comparison exposes a difference in what the theories ask us to look for. A workspace account emphasizes information becoming available for wider use. Integrated information theory emphasizes the system's intrinsic causal structure. They can disagree about the conditions for experience even when they describe the same successful behavior.
 
-If consciousness is just a byproduct of computation, then sufficiently advanced AI will be conscious — with all the moral weight that implies. If consciousness is fundamental to reality, as [[panpsychism]] and [[idealism]] propose, then the universe is not the dead mechanical place physics describes — it is, in some sense, alive. If consciousness can exist independent of the brain — as experiences reported during [[altered-states]] sometimes suggest — then death may not be what we think it is. If Penrose is right that consciousness is non-computable, then no AI will ever be truly conscious, no matter how intelligent it appears.
+There are broader philosophical options. [[materialism]] holds that consciousness is physical. [[dualism]] distinguishes mind from the physical. [[panpsychism]] gives experiential properties a place among nature's fundamentals. These positions disagree about what sort of explanation could succeed, before deciding between particular neural models.
 
-Every answer rewrites the world. And the honest truth is: we do not have the answer yet. We barely have the right question.
+There are reasons those philosophical options keep returning. A physicalist can argue that identifying a gap in our present concepts does not establish a gap in nature. People can know the same event through very different descriptions. Understanding that water is H₂O did not require water to stop feeling wet. The hard question is whether experience will yield to an identification of that kind, or whether its first-person character creates a different explanatory problem.
+
+A substance dualist gives experience a place outside the physical account but then owes an account of interaction. If a nonphysical intention moves a hand, how does it affect a physical chain of events? If it makes no physical difference, how does it account for our reports about experience? Moving the problem does not remove the obligation to explain the relationship.
+
+Panpsychism tries to avoid experience appearing from wholly nonexperiential ingredients by treating some experiential properties as basic. It faces a combination problem: why should many elementary experiential properties produce one person's experience? A collection of small subjects would not automatically become a single larger subject. [[idealism]] begins with experience instead, then faces the task of explaining the stable, shared world that physical science describes so successfully.
+
+Whichever starting point one favors, it has to accommodate the same awkward facts: an anesthetic changes awareness, an injury can remove a kind of perception, and a severed connection can alter which information a person can use. A theory gains little by making experience fundamental if it cannot explain those dependencies. A neural theory, meanwhile, must say why the processes it identifies belong to experience rather than to the many things the brain does unconsciously.
+
+## Does the hard problem survive?
+
+Daniel [[dennett]] objects to the picture that gives the hard problem its force. His work asks us to examine how judgments about experience are produced, including the conviction that an inner observer receives a finished presentation of the world. An explanation of those processes, on his view, need not leave behind the mysterious remainder Chalmers expects.
+
+The objection deserves more than the answer that experience is obvious. Dennett is disputing an account of what experience must be. In turn, Chalmers can accept a great deal of cognitive explanation while asking whether it reaches the felt character of the experience. Repeating that the brain processes information does not resolve their disagreement.
+
+## Finding awareness without a reply
+
+The cost of getting these distinctions wrong is clearest when a person cannot communicate. In [a 2006 case report](https://pubmed.ncbi.nlm.nih.gov/16959998/), Adrian Owen and colleagues asked a behaviorally unresponsive patient to imagine playing tennis, then to imagine moving around her home. Different patterns of brain activity followed the instructions, resembling the patterns obtained from healthy volunteers. The interpretation depended on an appropriate response to an instruction, rather than merely a response to sound.
+
+The finding supplied evidence that a behavioral examination could miss awareness in that case. It did not establish that every unresponsive patient is aware, or that failing the task establishes an absence of experience. Hearing, understanding, attention, and the ability to sustain the imagined activity all matter to performance.
+
+This brings the abstract question back to the problem of other people. We cannot occupy someone else's point of view. We can improve the evidence used to judge whether that point of view is present, and remain clear about the assumptions connecting a measurement with an experience. A theory earns some of its value through the differences it helps us recognize.
+
+Changes in the brain reliably change experience. The experimental work helps explain when an image is seen, why information can guide a response without being seen, and how awareness can survive a loss of ordinary communication. Whether a complete account of those relationships would also explain the felt character of experience is the remaining disagreement.
+
+That gives an ordinary example like pain a sharper use. An account that explains withdrawal from heat has explained something important. An account that also explains the person's report has explained more. The remaining disagreement concerns whether, at that point, the hurt has been explained too. Before deciding that a theory succeeds or fails, it helps to know which of those tasks it claims to have completed.
 
 ## Sources
 
-- Nagel, Thomas. "What Is It Like to Be a Bat?" *The Philosophical Review*, Vol. 83, No. 4, pp. 435-450, 1974. [PDF](https://www.sas.upenn.edu/~cavitch/pdf-library/Nagel_Bat.pdf)
-- Crick, Francis and Koch, Christof. "Towards a Neurobiological Theory of Consciousness." *Seminars in the Neurosciences*, Vol. 2, pp. 263-275, 1990.
-- Dennett, Daniel C. *Consciousness Explained*. Little, Brown and Company, 1991.
-- Levine, Joseph. "Materialism and Qualia: The Explanatory Gap." *Pacific Philosophical Quarterly*, Vol. 64, No. 4, pp. 354-361, 1983.
-- Chalmers, David J. "Facing Up to the Problem of Consciousness." *Journal of Consciousness Studies*, Vol. 2, No. 3, pp. 200-219, 1995. [PDF](https://consc.net/papers/facing.pdf)
-- Koch, Christof. *The Quest for Consciousness: A Neurobiological Approach*. Roberts & Company Publishers, 2004.
+- Chalmers, David J. “Facing Up to the Problem of Consciousness.” *Journal of Consciousness Studies*, 2(3), 1995, pp. 200–219. [Full text](https://consc.net/papers/facing.html).
+- Nagel, Thomas. “What Is It Like to Be a Bat?” *The Philosophical Review*, 83(4), 1974, pp. 435–450. [PDF](https://www.sas.upenn.edu/~cavitch/pdf-library/Nagel_Bat.pdf).
+- Weiskrantz, Lawrence. *Blindsight: A Case Study and Implications*. Oxford University Press, 1986. [Publisher's account of the 1990 reissue](https://academic.oup.com/book/2388).
 - Baars, Bernard J. *A Cognitive Theory of Consciousness*. Cambridge University Press, 1988.
-- Tononi, Giulio. "An Information Integration Theory of Consciousness." *BMC Neuroscience*, Vol. 5, Article 42, 2004. [Link](https://link.springer.com/article/10.1186/1471-2202-5-42)
-- Penrose, Roger. *The Emperor's New Mind: Concerning Computers, Minds, and the Laws of Physics*. Oxford University Press, 1989.
-- Sperry, Roger W. "Hemisphere Deconnection and Unity in Conscious Awareness." *American Psychologist*, Vol. 23, No. 10, pp. 723-733, 1968.
-- Chalmers, David J. "The Meta-Problem of Consciousness." *Journal of Consciousness Studies*, Vol. 25, No. 9-10, pp. 6-61, 2018.
+- Tononi, Giulio. “An Information Integration Theory of Consciousness.” *BMC Neuroscience*, 5, 42, 2004. [Article](https://link.springer.com/article/10.1186/1471-2202-5-42).
+- Dennett, Daniel C. *Consciousness Explained*. Little, Brown and Company, 1991.
+- Jackson, Frank. “Epiphenomenal Qualia.” *The Philosophical Quarterly*, 32(127), 1982, pp. 127–136. [Article](https://academic.oup.com/pq/article-abstract/32/127/127/1612468).
+- Sperry, Roger W. “Hemisphere Deconnection and Unity in Conscious Awareness.” *American Psychologist*, 23(10), 1968, pp. 723–733.
+- Pinto, Yair, et al. “Split Brain: Divided Perception but Undivided Consciousness.” *Brain*, 140(5), 2017, pp. 1231–1237. [Article](https://academic.oup.com/brain/article/140/5/1231/2951052).
+- Brown, Emery N., Ralph Lydic, and Nicholas D. Schiff. “General Anesthesia, Sleep, and Coma.” *New England Journal of Medicine*, 363, 2010, pp. 2638–2650. [Article](https://doi.org/10.1056/NEJMra0808281).
+- Casali, Adenauer G., et al. “A Theoretically Based Index of Consciousness Independent of Sensory Processing and Behavior.” *Science Translational Medicine*, 5(198), 2013, 198ra105. [Study](https://pubmed.ncbi.nlm.nih.gov/23946194/).
+- COGITATE Consortium et al. “Adversarial Testing of Global Neuronal Workspace and Integrated Information Theories of Consciousness.” *Nature*, 642, 2025, pp. 133–142. [Study](https://doi.org/10.1038/s41586-025-08888-1).
+- Owen, Adrian M., et al. “Detecting Awareness in the Vegetative State.” *Science*, 313(5792), 2006, p. 1402. [Study](https://pubmed.ncbi.nlm.nih.gov/16959998/).
+- Dehaene, Stanislas, and Jean-Pierre Changeux. “Experimental and Theoretical Approaches to Conscious Processing.” *Neuron*, 70(2), 2011, pp. 200–227. [Review](https://pubmed.ncbi.nlm.nih.gov/21521609/).
+- Leopold, David A., and Nikos K. Logothetis. “Activity Changes in Early Visual Cortex Reflect Monkeys' Percepts during Binocular Rivalry.” *Nature*, 379, 1996, pp. 549–553. [Paper](https://tilde.ini.uzh.ch/~kiper/leopold.pdf).

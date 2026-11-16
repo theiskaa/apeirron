@@ -1,0 +1,1311 @@
+{
+  "standard": "editorial-standard.md",
+  "countingMethod": "Whitespace-delimited words after YAML frontmatter and before ## Sources; includes section headings.",
+  "nodes": [
+    {
+      "id": "5g-covid",
+      "category": "modern",
+      "originalEssayWords": 3034,
+      "status": "pending"
+    },
+    {
+      "id": "aatip-disclosure",
+      "category": "cosmos",
+      "originalEssayWords": 7678,
+      "status": "rewritten",
+      "essayWords": 3169,
+      "focus": "What the AAWSAP/AATIP paper trail establishes about funding, secrecy, research, and the later public disclosure.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the public procurement, 2009 special-access request and review, report classification example, later administrative dispute, video geometry, and preservation of source data.",
+        "voice": "Replaced the grand disclosure narrative with decisions and documents; revised the memo discussion and transitions to reduce editorial commentary.",
+        "evidence": "Verified the solicitation, special-access review, DIA product list, ODNI assessment, and dated GoFast analysis; separated Navy authentication from performance claims and testimony from corroboration; removed unsupported bibliographic entries."
+      }
+    },
+    {
+      "id": "agenda-21",
+      "category": "power",
+      "originalEssayWords": 3390,
+      "status": "pending"
+    },
+    {
+      "id": "aids-bioweapon",
+      "category": "operations",
+      "originalEssayWords": 8350,
+      "status": "pending"
+    },
+    {
+      "id": "alchemy",
+      "category": "origins",
+      "originalEssayWords": 1440,
+      "status": "pending"
+    },
+    {
+      "id": "altered-states",
+      "category": "mind",
+      "originalEssayWords": 3035,
+      "status": "pending"
+    },
+    {
+      "id": "amerithrax",
+      "category": "operations",
+      "originalEssayWords": 2501,
+      "status": "pending"
+    },
+    {
+      "id": "ancient-astronauts",
+      "category": "origins",
+      "originalEssayWords": 3438,
+      "status": "pending"
+    },
+    {
+      "id": "ancient-civilizations",
+      "category": "origins",
+      "originalEssayWords": 2877,
+      "status": "pending"
+    },
+    {
+      "id": "anunnaki",
+      "category": "origins",
+      "originalEssayWords": 2595,
+      "status": "pending"
+    },
+    {
+      "id": "area-51",
+      "category": "cosmos",
+      "originalEssayWords": 6709,
+      "status": "pending"
+    },
+    {
+      "id": "astrotheology",
+      "category": "origins",
+      "originalEssayWords": 9179,
+      "status": "pending"
+    },
+    {
+      "id": "atlantis",
+      "category": "origins",
+      "originalEssayWords": 4672,
+      "status": "pending"
+    },
+    {
+      "id": "bay-of-pigs",
+      "category": "operations",
+      "originalEssayWords": 6488,
+      "status": "pending"
+    },
+    {
+      "id": "bcci-nugan-hand",
+      "category": "operations",
+      "originalEssayWords": 2043,
+      "status": "pending"
+    },
+    {
+      "id": "bermuda-triangle",
+      "category": "reality",
+      "originalEssayWords": 8923,
+      "status": "pending"
+    },
+    {
+      "id": "bernays",
+      "category": "power",
+      "originalEssayWords": 7470,
+      "status": "pending"
+    },
+    {
+      "id": "big-pharma",
+      "category": "modern",
+      "originalEssayWords": 11145,
+      "status": "pending"
+    },
+    {
+      "id": "bilderberg",
+      "category": "power",
+      "originalEssayWords": 10441,
+      "status": "pending"
+    },
+    {
+      "id": "bohemian-grove",
+      "category": "power",
+      "originalEssayWords": 10452,
+      "status": "pending"
+    },
+    {
+      "id": "book-of-enoch",
+      "category": "origins",
+      "originalEssayWords": 8664,
+      "status": "pending"
+    },
+    {
+      "id": "boston-marathon",
+      "category": "modern",
+      "originalEssayWords": 6191,
+      "status": "pending"
+    },
+    {
+      "id": "breakaway-civilization",
+      "category": "power",
+      "originalEssayWords": 2853,
+      "status": "pending"
+    },
+    {
+      "id": "business-plot",
+      "category": "operations",
+      "originalEssayWords": 6519,
+      "status": "pending"
+    },
+    {
+      "id": "cbdc",
+      "category": "modern",
+      "originalEssayWords": 4742,
+      "status": "pending"
+    },
+    {
+      "id": "celebrity-27-club",
+      "category": "power",
+      "originalEssayWords": 8449,
+      "status": "pending"
+    },
+    {
+      "id": "cern",
+      "category": "reality",
+      "originalEssayWords": 6438,
+      "status": "pending"
+    },
+    {
+      "id": "cfr-trilateral",
+      "category": "power",
+      "originalEssayWords": 8711,
+      "status": "pending"
+    },
+    {
+      "id": "chemtrails",
+      "category": "operations",
+      "originalEssayWords": 4709,
+      "status": "pending"
+    },
+    {
+      "id": "cia-drugs",
+      "category": "operations",
+      "originalEssayWords": 5784,
+      "status": "pending"
+    },
+    {
+      "id": "climate-denial",
+      "category": "power",
+      "originalEssayWords": 4248,
+      "status": "pending"
+    },
+    {
+      "id": "clinton-body-count",
+      "category": "power",
+      "originalEssayWords": 2807,
+      "status": "pending"
+    },
+    {
+      "id": "club-of-rome",
+      "category": "power",
+      "originalEssayWords": 6399,
+      "status": "pending"
+    },
+    {
+      "id": "cointelpro",
+      "category": "operations",
+      "originalEssayWords": 9464,
+      "status": "pending"
+    },
+    {
+      "id": "color-revolutions",
+      "category": "power",
+      "originalEssayWords": 5659,
+      "status": "pending"
+    },
+    {
+      "id": "consciousness",
+      "category": "mind",
+      "originalEssayWords": 2619,
+      "status": "rewritten",
+      "essayWords": 2996,
+      "focus": "Why explaining brain activity and explaining experience can seem like different tasks.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "followupReview": "Reread the complete essay; replaced repeated qualifications and editorial commentary with concrete explanation, varied transitions, and checked revised passages against the existing sources."
+    },
+    {
+      "id": "control-systems",
+      "category": "power",
+      "originalEssayWords": 3746,
+      "status": "pending"
+    },
+    {
+      "id": "counterculture-psyop",
+      "category": "power",
+      "originalEssayWords": 6205,
+      "status": "pending"
+    },
+    {
+      "id": "covid-lab-leak",
+      "category": "modern",
+      "originalEssayWords": 10961,
+      "status": "pending"
+    },
+    {
+      "id": "crop-circles",
+      "category": "reality",
+      "originalEssayWords": 2779,
+      "status": "pending"
+    },
+    {
+      "id": "crowley",
+      "category": "origins",
+      "originalEssayWords": 1932,
+      "status": "pending"
+    },
+    {
+      "id": "cymatics",
+      "category": "reality",
+      "originalEssayWords": 4784,
+      "status": "pending"
+    },
+    {
+      "id": "dead-internet",
+      "category": "modern",
+      "originalEssayWords": 9088,
+      "status": "pending"
+    },
+    {
+      "id": "deep-state",
+      "category": "power",
+      "originalEssayWords": 5658,
+      "status": "pending"
+    },
+    {
+      "id": "dennett",
+      "category": "mind",
+      "originalEssayWords": 2673,
+      "status": "pending"
+    },
+    {
+      "id": "denver-airport",
+      "category": "power",
+      "originalEssayWords": 8208,
+      "status": "pending"
+    },
+    {
+      "id": "descartes",
+      "category": "mind",
+      "originalEssayWords": 2647,
+      "status": "pending"
+    },
+    {
+      "id": "directed-energy-wildfires",
+      "category": "modern",
+      "originalEssayWords": 2386,
+      "status": "pending"
+    },
+    {
+      "id": "dmt",
+      "category": "mind",
+      "originalEssayWords": 1308,
+      "status": "pending"
+    },
+    {
+      "id": "dualism",
+      "category": "mind",
+      "originalEssayWords": 2780,
+      "status": "pending"
+    },
+    {
+      "id": "economic-hitman",
+      "category": "power",
+      "originalEssayWords": 4369,
+      "status": "pending"
+    },
+    {
+      "id": "election-fraud",
+      "category": "modern",
+      "originalEssayWords": 6248,
+      "status": "pending"
+    },
+    {
+      "id": "epicureanism",
+      "category": "mind",
+      "originalEssayWords": 2575,
+      "status": "pending"
+    },
+    {
+      "id": "epstein",
+      "category": "operations",
+      "originalEssayWords": 12944,
+      "status": "pending"
+    },
+    {
+      "id": "eugenics",
+      "category": "power",
+      "originalEssayWords": 4216,
+      "status": "pending"
+    },
+    {
+      "id": "federal-reserve",
+      "category": "power",
+      "originalEssayWords": 8926,
+      "status": "pending"
+    },
+    {
+      "id": "fermi-paradox",
+      "category": "cosmos",
+      "originalEssayWords": 2727,
+      "status": "rewritten",
+      "essayWords": 2862,
+      "focus": "Which assumptions turn the lack of a confirmed detection into a puzzle, and how particular searches constrain them.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Explained branching settlement, the Drake equation with a numerical lifetime example, independent origins and filters, search coverage, BLC1 verification, and infrared constraints.",
+        "voice": "Replaced ominous taxonomies and cosmic verdicts with concrete observations and models; distinguished a remembered lunchtime exchange from a transcript.",
+        "evidence": "Corrected the L term, unsupported probability claims, the scope and authorship of the WISE result, and the inference from unresolved UAP to extraterrestrial contact; sourced the added research and reviewed outgoing reasons."
+      },
+      "followupReview": "Reread the complete essay; replaced repeated qualifications and editorial commentary with concrete explanation, varied transitions, and checked revised passages against the existing sources."
+    },
+    {
+      "id": "flat-earth",
+      "category": "reality",
+      "originalEssayWords": 10667,
+      "status": "pending"
+    },
+    {
+      "id": "frankfurt-school",
+      "category": "power",
+      "originalEssayWords": 3183,
+      "status": "pending"
+    },
+    {
+      "id": "franklin-scandal",
+      "category": "operations",
+      "originalEssayWords": 2456,
+      "status": "pending"
+    },
+    {
+      "id": "free-will",
+      "category": "mind",
+      "originalEssayWords": 2026,
+      "status": "pending"
+    },
+    {
+      "id": "freemasonry",
+      "category": "power",
+      "originalEssayWords": 7854,
+      "status": "pending"
+    },
+    {
+      "id": "gaia-hypothesis",
+      "category": "reality",
+      "originalEssayWords": 2687,
+      "status": "pending"
+    },
+    {
+      "id": "gary-webb",
+      "category": "operations",
+      "originalEssayWords": 3981,
+      "status": "pending"
+    },
+    {
+      "id": "georgia-guidestones",
+      "category": "power",
+      "originalEssayWords": 3309,
+      "status": "pending"
+    },
+    {
+      "id": "gmo-monsanto",
+      "category": "modern",
+      "originalEssayWords": 2672,
+      "status": "pending"
+    },
+    {
+      "id": "gnosticism",
+      "category": "origins",
+      "originalEssayWords": 4724,
+      "status": "pending"
+    },
+    {
+      "id": "gobekli-tepe",
+      "category": "origins",
+      "originalEssayWords": 3119,
+      "status": "rewritten",
+      "essayWords": 3102,
+      "focus": "What early monument building tells us about the people who built it.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "followupReview": "Reread the complete essay; replaced repeated qualifications and editorial commentary with concrete explanation, varied transitions, and checked revised passages against the existing sources."
+    },
+    {
+      "id": "great-reset",
+      "category": "modern",
+      "originalEssayWords": 10358,
+      "status": "pending"
+    },
+    {
+      "id": "gulf-of-tonkin",
+      "category": "operations",
+      "originalEssayWords": 7406,
+      "status": "pending"
+    },
+    {
+      "id": "haarp",
+      "category": "operations",
+      "originalEssayWords": 7592,
+      "status": "pending"
+    },
+    {
+      "id": "hard-problem",
+      "category": "mind",
+      "originalEssayWords": 2613,
+      "status": "rewritten",
+      "essayWords": 2905,
+      "focus": "Whether explaining physical functions also explains experience, and what the arguments for and against an explanatory gap establish.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed Mary, zombie conceivability, illusionism, the meta-problem, and the causal burden of alternative accounts.",
+        "voice": "Removed grand conclusions and a caricatured opening; developed arguments instead of announcing their importance.",
+        "evidence": "Corrected Jackson's later position, the conceivability-to-possibility inference, and overstated graph reasons; removed the Wigner/Penrose conflation."
+      },
+      "followupReview": "Reread the complete essay; replaced repeated qualifications and editorial commentary with concrete explanation, varied transitions, and checked revised passages against the existing sources."
+    },
+    {
+      "id": "havana-syndrome",
+      "category": "modern",
+      "originalEssayWords": 2382,
+      "status": "pending"
+    },
+    {
+      "id": "hermetic-tradition",
+      "category": "origins",
+      "originalEssayWords": 7225,
+      "status": "pending"
+    },
+    {
+      "id": "hollow-earth",
+      "category": "origins",
+      "originalEssayWords": 8761,
+      "status": "pending"
+    },
+    {
+      "id": "holographic-universe",
+      "category": "reality",
+      "originalEssayWords": 4923,
+      "status": "pending"
+    },
+    {
+      "id": "holy-grail",
+      "category": "origins",
+      "originalEssayWords": 12491,
+      "status": "pending"
+    },
+    {
+      "id": "hypernormalisation",
+      "category": "modern",
+      "originalEssayWords": 6304,
+      "status": "pending"
+    },
+    {
+      "id": "idealism",
+      "category": "mind",
+      "originalEssayWords": 2429,
+      "status": "pending"
+    },
+    {
+      "id": "illuminati",
+      "category": "power",
+      "originalEssayWords": 3049,
+      "status": "pending"
+    },
+    {
+      "id": "illusion-of-self",
+      "category": "mind",
+      "originalEssayWords": 4595,
+      "status": "pending"
+    },
+    {
+      "id": "iran-contra",
+      "category": "operations",
+      "originalEssayWords": 6143,
+      "status": "pending"
+    },
+    {
+      "id": "iraq-wmds",
+      "category": "operations",
+      "originalEssayWords": 4223,
+      "status": "pending"
+    },
+    {
+      "id": "jfk",
+      "category": "operations",
+      "originalEssayWords": 6237,
+      "status": "pending"
+    },
+    {
+      "id": "john-lennon",
+      "category": "operations",
+      "originalEssayWords": 6739,
+      "status": "pending"
+    },
+    {
+      "id": "jonestown",
+      "category": "operations",
+      "originalEssayWords": 2071,
+      "status": "pending"
+    },
+    {
+      "id": "jung",
+      "category": "mind",
+      "originalEssayWords": 7631,
+      "status": "pending"
+    },
+    {
+      "id": "kabbalah",
+      "category": "origins",
+      "originalEssayWords": 1646,
+      "status": "pending"
+    },
+    {
+      "id": "kant",
+      "category": "mind",
+      "originalEssayWords": 2481,
+      "status": "pending"
+    },
+    {
+      "id": "knights-templar",
+      "category": "power",
+      "originalEssayWords": 3487,
+      "status": "pending"
+    },
+    {
+      "id": "kundalini",
+      "category": "mind",
+      "originalEssayWords": 4936,
+      "status": "pending"
+    },
+    {
+      "id": "kurt-cobain",
+      "category": "modern",
+      "originalEssayWords": 7511,
+      "status": "pending"
+    },
+    {
+      "id": "las-vegas-shooting",
+      "category": "modern",
+      "originalEssayWords": 5333,
+      "status": "pending"
+    },
+    {
+      "id": "law-of-attraction",
+      "category": "mind",
+      "originalEssayWords": 3604,
+      "status": "pending"
+    },
+    {
+      "id": "lockerbie",
+      "category": "operations",
+      "originalEssayWords": 2398,
+      "status": "pending"
+    },
+    {
+      "id": "lusitania",
+      "category": "operations",
+      "originalEssayWords": 6061,
+      "status": "pending"
+    },
+    {
+      "id": "majestic-12",
+      "category": "cosmos",
+      "originalEssayWords": 2067,
+      "status": "pending"
+    },
+    {
+      "id": "malcolm-x",
+      "category": "operations",
+      "originalEssayWords": 6860,
+      "status": "pending"
+    },
+    {
+      "id": "mandela-effect",
+      "category": "reality",
+      "originalEssayWords": 4898,
+      "status": "pending"
+    },
+    {
+      "id": "manufacturing-consent",
+      "category": "power",
+      "originalEssayWords": 4202,
+      "status": "pending"
+    },
+    {
+      "id": "marilyn-monroe",
+      "category": "operations",
+      "originalEssayWords": 10485,
+      "status": "pending"
+    },
+    {
+      "id": "mass-surveillance",
+      "category": "modern",
+      "originalEssayWords": 7756,
+      "status": "pending"
+    },
+    {
+      "id": "materialism",
+      "category": "mind",
+      "originalEssayWords": 2853,
+      "status": "pending"
+    },
+    {
+      "id": "maya-nonduality",
+      "category": "mind",
+      "originalEssayWords": 3970,
+      "status": "pending"
+    },
+    {
+      "id": "megaliths",
+      "category": "origins",
+      "originalEssayWords": 3256,
+      "status": "pending"
+    },
+    {
+      "id": "mh370",
+      "category": "modern",
+      "originalEssayWords": 7214,
+      "status": "pending"
+    },
+    {
+      "id": "military-industrial-complex",
+      "category": "power",
+      "originalEssayWords": 5319,
+      "status": "pending"
+    },
+    {
+      "id": "mkultra",
+      "category": "operations",
+      "originalEssayWords": 7047,
+      "status": "rewritten",
+      "essayWords": 3089,
+      "focus": "What the surviving record establishes, and what its gaps cannot prove.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "followupReview": "Reread the complete essay; replaced repeated qualifications and editorial commentary with concrete explanation, varied transitions, and checked revised passages against the existing sources."
+    },
+    {
+      "id": "mlk-assassination",
+      "category": "operations",
+      "originalEssayWords": 6177,
+      "status": "pending"
+    },
+    {
+      "id": "money-as-debt",
+      "category": "power",
+      "originalEssayWords": 8291,
+      "status": "pending"
+    },
+    {
+      "id": "montauk-project",
+      "category": "operations",
+      "originalEssayWords": 2381,
+      "status": "pending"
+    },
+    {
+      "id": "moon-landing",
+      "category": "cosmos",
+      "originalEssayWords": 5946,
+      "status": "pending"
+    },
+    {
+      "id": "morphic-resonance",
+      "category": "mind",
+      "originalEssayWords": 2659,
+      "status": "pending"
+    },
+    {
+      "id": "nature-of-time",
+      "category": "reality",
+      "originalEssayWords": 2843,
+      "status": "rewritten",
+      "essayWords": 2818,
+      "focus": "How clock measurement, simultaneity, temporal passage, entropy and experienced duration are related without being the same problem.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Explained synchronization, proper time and an ideal light clock, competing temporal ontologies, entropy and boundary conditions, perception experiments, and relational time.",
+        "voice": "Replaced a grand claim that physics denies time with a concrete clock comparison; removed the simulation-rendering finale and repeated declarations of ignorance.",
+        "evidence": "Separated eternalism from determinism; corrected universal time-reversal symmetry, quantum-field-theory compatibility, the interpretation of the free-fall study, and the DeWitt authorship; reviewed all graph reasons."
+      },
+      "followupReview": "Reread the complete essay; replaced repeated qualifications and editorial commentary with concrete explanation, varied transitions, and checked revised passages against the existing sources."
+    },
+    {
+      "id": "near-death-experiences",
+      "category": "mind",
+      "originalEssayWords": 1878,
+      "status": "pending"
+    },
+    {
+      "id": "new-world-order",
+      "category": "power",
+      "originalEssayWords": 10033,
+      "status": "pending"
+    },
+    {
+      "id": "nibiru",
+      "category": "cosmos",
+      "originalEssayWords": 3426,
+      "status": "pending"
+    },
+    {
+      "id": "nine-eleven",
+      "category": "operations",
+      "originalEssayWords": 6616,
+      "status": "pending"
+    },
+    {
+      "id": "noosphere",
+      "category": "modern",
+      "originalEssayWords": 5936,
+      "status": "pending"
+    },
+    {
+      "id": "octopus-promis",
+      "category": "operations",
+      "originalEssayWords": 2344,
+      "status": "pending"
+    },
+    {
+      "id": "oklahoma-city",
+      "category": "modern",
+      "originalEssayWords": 6735,
+      "status": "pending"
+    },
+    {
+      "id": "operation-ajax",
+      "category": "operations",
+      "originalEssayWords": 6586,
+      "status": "pending"
+    },
+    {
+      "id": "operation-chaos",
+      "category": "operations",
+      "originalEssayWords": 5590,
+      "status": "pending"
+    },
+    {
+      "id": "operation-condor",
+      "category": "operations",
+      "originalEssayWords": 7160,
+      "status": "pending"
+    },
+    {
+      "id": "operation-cyclone",
+      "category": "operations",
+      "originalEssayWords": 6690,
+      "status": "pending"
+    },
+    {
+      "id": "operation-gladio",
+      "category": "operations",
+      "originalEssayWords": 9389,
+      "status": "pending"
+    },
+    {
+      "id": "operation-glasnost",
+      "category": "operations",
+      "originalEssayWords": 7399,
+      "status": "pending"
+    },
+    {
+      "id": "operation-high-jump",
+      "category": "operations",
+      "originalEssayWords": 6115,
+      "status": "pending"
+    },
+    {
+      "id": "operation-mockingbird",
+      "category": "operations",
+      "originalEssayWords": 6849,
+      "status": "pending"
+    },
+    {
+      "id": "operation-northwoods",
+      "category": "operations",
+      "originalEssayWords": 5711,
+      "status": "pending"
+    },
+    {
+      "id": "operation-paperclip",
+      "category": "operations",
+      "originalEssayWords": 5181,
+      "status": "pending"
+    },
+    {
+      "id": "p2-banco-ambrosiano",
+      "category": "power",
+      "originalEssayWords": 2664,
+      "status": "pending"
+    },
+    {
+      "id": "panpsychism",
+      "category": "mind",
+      "originalEssayWords": 2942,
+      "status": "pending"
+    },
+    {
+      "id": "paul-is-dead",
+      "category": "modern",
+      "originalEssayWords": 3070,
+      "status": "pending"
+    },
+    {
+      "id": "pearl-harbor-foreknowledge",
+      "category": "operations",
+      "originalEssayWords": 6698,
+      "status": "pending"
+    },
+    {
+      "id": "petrodollar",
+      "category": "power",
+      "originalEssayWords": 6554,
+      "status": "pending"
+    },
+    {
+      "id": "pharmacratic-inquisition",
+      "category": "mind",
+      "originalEssayWords": 7890,
+      "status": "pending"
+    },
+    {
+      "id": "philadelphia-experiment",
+      "category": "operations",
+      "originalEssayWords": 5476,
+      "status": "pending"
+    },
+    {
+      "id": "phoenix-program",
+      "category": "operations",
+      "originalEssayWords": 7197,
+      "status": "pending"
+    },
+    {
+      "id": "pineal-gland",
+      "category": "mind",
+      "originalEssayWords": 5396,
+      "status": "pending"
+    },
+    {
+      "id": "piri-reis-map",
+      "category": "origins",
+      "originalEssayWords": 5700,
+      "status": "pending"
+    },
+    {
+      "id": "pizzagate",
+      "category": "modern",
+      "originalEssayWords": 14892,
+      "status": "pending"
+    },
+    {
+      "id": "plato",
+      "category": "mind",
+      "originalEssayWords": 2898,
+      "status": "pending"
+    },
+    {
+      "id": "pope-john-paul-i",
+      "category": "operations",
+      "originalEssayWords": 1932,
+      "status": "pending"
+    },
+    {
+      "id": "predictive-programming",
+      "category": "power",
+      "originalEssayWords": 4372,
+      "status": "pending"
+    },
+    {
+      "id": "princess-diana",
+      "category": "operations",
+      "originalEssayWords": 6213,
+      "status": "pending"
+    },
+    {
+      "id": "project-blue-beam",
+      "category": "operations",
+      "originalEssayWords": 5655,
+      "status": "pending"
+    },
+    {
+      "id": "project-monarch",
+      "category": "mind",
+      "originalEssayWords": 6116,
+      "status": "pending"
+    },
+    {
+      "id": "project-stargate",
+      "category": "operations",
+      "originalEssayWords": 2872,
+      "status": "pending"
+    },
+    {
+      "id": "protocols-of-zion",
+      "category": "power",
+      "originalEssayWords": 2949,
+      "status": "pending"
+    },
+    {
+      "id": "pythagoras",
+      "category": "mind",
+      "originalEssayWords": 8695,
+      "status": "pending"
+    },
+    {
+      "id": "qanon",
+      "category": "modern",
+      "originalEssayWords": 6682,
+      "status": "pending"
+    },
+    {
+      "id": "quantum-consciousness",
+      "category": "mind",
+      "originalEssayWords": 3825,
+      "status": "pending"
+    },
+    {
+      "id": "reichstag-fire",
+      "category": "operations",
+      "originalEssayWords": 7751,
+      "status": "pending"
+    },
+    {
+      "id": "reptilian-elite",
+      "category": "power",
+      "originalEssayWords": 7776,
+      "status": "pending"
+    },
+    {
+      "id": "rex-84",
+      "category": "operations",
+      "originalEssayWords": 5886,
+      "status": "pending"
+    },
+    {
+      "id": "rfk-assassination",
+      "category": "operations",
+      "originalEssayWords": 6594,
+      "status": "pending"
+    },
+    {
+      "id": "rockefeller",
+      "category": "power",
+      "originalEssayWords": 8823,
+      "status": "pending"
+    },
+    {
+      "id": "roswell",
+      "category": "cosmos",
+      "originalEssayWords": 10369,
+      "status": "rewritten",
+      "essayWords": 3208,
+      "focus": "How the contemporary debris record differs from the later crash-retrieval story, and which explanation the surviving evidence supports.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed Brazel’s contemporary description, father-and-son testimony, Bessie Schreiber’s differing affidavit, acoustic research and reflector construction, the exact-flight dispute, missing records, body stories, and document authentication.",
+        "voice": "Replaced the forced alien-or-cover-up verdict and repeated dramatic conclusions with a chronology; revised witness passages and the distinction between a likely balloon source and an uncertain flight attribution.",
+        "evidence": "Checked the July 1947 FBI message, archived photograph, Air Force report and included affidavits, 1995 GAO findings, 1997 dummy chronology, and National Archives authentication issues. Corrected the claim that GAO proved targeted unauthorized destruction; separated later testimony and technical claims from contemporary records."
+      },
+      "connectionNotes": "The Project Blue Beam and crop-circles targets remain for graph stability; their relationships are interpretive or methodological and may merit removal in a separate graph review."
+    },
+    {
+      "id": "rothschild",
+      "category": "power",
+      "originalEssayWords": 7106,
+      "status": "pending"
+    },
+    {
+      "id": "sacred-geometry",
+      "category": "origins",
+      "originalEssayWords": 5517,
+      "status": "pending"
+    },
+    {
+      "id": "sandy-hook",
+      "category": "modern",
+      "originalEssayWords": 6322,
+      "status": "pending"
+    },
+    {
+      "id": "saturn-black-cube",
+      "category": "origins",
+      "originalEssayWords": 7090,
+      "status": "pending"
+    },
+    {
+      "id": "schwab-wef",
+      "category": "power",
+      "originalEssayWords": 7205,
+      "status": "pending"
+    },
+    {
+      "id": "scientology",
+      "category": "operations",
+      "originalEssayWords": 2034,
+      "status": "pending"
+    },
+    {
+      "id": "secret-societies",
+      "category": "power",
+      "originalEssayWords": 8711,
+      "status": "pending"
+    },
+    {
+      "id": "seth-rich",
+      "category": "modern",
+      "originalEssayWords": 6047,
+      "status": "pending"
+    },
+    {
+      "id": "shadow-elite",
+      "category": "power",
+      "originalEssayWords": 6913,
+      "status": "pending"
+    },
+    {
+      "id": "shock-doctrine",
+      "category": "power",
+      "originalEssayWords": 5039,
+      "status": "pending"
+    },
+    {
+      "id": "simulation-hypothesis",
+      "category": "reality",
+      "originalEssayWords": 5841,
+      "status": "rewritten",
+      "essayWords": 3096,
+      "focus": "What the simulation argument establishes, what its observer-counting assumptions require, and how that differs from physical evidence.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Added a worked observer-counting example, reference-class discussion, resource constraints, and the distinction between VR users and implemented minds.",
+        "voice": "Removed a speculative physics catalogue, sweeping ancient-equivalence claims, and repeated statements that the hypothesis rewrites reality.",
+        "evidence": "Returned to Bostrom, Kipping, Beane/Davoudi/Savage and Chalmers; qualified probabilities, model-specific tests, Planck-scale and quantum claims, and every outgoing reason."
+      },
+      "followupReview": "Reread the complete essay; replaced repeated qualifications and editorial commentary with concrete explanation, varied transitions, and checked revised passages against the existing sources."
+    },
+    {
+      "id": "skinwalker-ranch",
+      "category": "cosmos",
+      "originalEssayWords": 3476,
+      "status": "pending"
+    },
+    {
+      "id": "skull-and-bones",
+      "category": "power",
+      "originalEssayWords": 10101,
+      "status": "pending"
+    },
+    {
+      "id": "stoicism",
+      "category": "mind",
+      "originalEssayWords": 2749,
+      "status": "pending"
+    },
+    {
+      "id": "stoned-ape",
+      "category": "mind",
+      "originalEssayWords": 6587,
+      "status": "pending"
+    },
+    {
+      "id": "synchronicity",
+      "category": "mind",
+      "originalEssayWords": 4956,
+      "status": "pending"
+    },
+    {
+      "id": "taoism",
+      "category": "mind",
+      "originalEssayWords": 1491,
+      "status": "pending"
+    },
+    {
+      "id": "tartaria",
+      "category": "origins",
+      "originalEssayWords": 7877,
+      "status": "pending"
+    },
+    {
+      "id": "tavistock",
+      "category": "power",
+      "originalEssayWords": 3995,
+      "status": "pending"
+    },
+    {
+      "id": "technocracy",
+      "category": "power",
+      "originalEssayWords": 6466,
+      "status": "pending"
+    },
+    {
+      "id": "tesla-suppressed-tech",
+      "category": "operations",
+      "originalEssayWords": 11771,
+      "status": "pending"
+    },
+    {
+      "id": "the-aether",
+      "category": "reality",
+      "originalEssayWords": 3942,
+      "status": "pending"
+    },
+    {
+      "id": "the-corporation",
+      "category": "power",
+      "originalEssayWords": 4765,
+      "status": "pending"
+    },
+    {
+      "id": "thule-vril",
+      "category": "power",
+      "originalEssayWords": 5532,
+      "status": "pending"
+    },
+    {
+      "id": "transhumanism",
+      "category": "modern",
+      "originalEssayWords": 5846,
+      "status": "pending"
+    },
+    {
+      "id": "tupac-biggie",
+      "category": "modern",
+      "originalEssayWords": 6637,
+      "status": "pending"
+    },
+    {
+      "id": "tuskegee-experiment",
+      "category": "operations",
+      "originalEssayWords": 6856,
+      "status": "pending"
+    },
+    {
+      "id": "twa-flight-800",
+      "category": "modern",
+      "originalEssayWords": 6841,
+      "status": "pending"
+    },
+    {
+      "id": "ufos",
+      "category": "cosmos",
+      "originalEssayWords": 7942,
+      "status": "rewritten",
+      "essayWords": 2950,
+      "focus": "What observations, recordings, testimony and official investigations separately establish about UAPs and their proposed origins.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the historical investigations, Roswell provenance, sensor geometry with a numerical example, the separate parts of Nimitz, later official assessments and whistleblower claims.",
+        "voice": "Removed an apocalyptic opening and a speculative narrative that repeatedly declared nonhuman contact established; replaced a generic ending with the specific evidence that could advance a case.",
+        "evidence": "Distinguished video authentication from origin, later Nimitz footage from Fravor's flight, unresolved counts from demonstrated capabilities, and oath or complaint procedure from corroboration. Checked NARA records, ODNI assessment, hearing sources, NASA and AARO; corrected the Roswell publication year and reviewed all graph reasons."
+      },
+      "followupReview": "Reread the complete essay; replaced repeated qualifications and editorial commentary with concrete explanation, varied transitions, and checked revised passages against the existing sources."
+    },
+    {
+      "id": "uss-liberty",
+      "category": "operations",
+      "originalEssayWords": 6585,
+      "status": "pending"
+    },
+    {
+      "id": "vaccine-autism",
+      "category": "modern",
+      "originalEssayWords": 3850,
+      "status": "pending"
+    },
+    {
+      "id": "vatican-jesuits",
+      "category": "power",
+      "originalEssayWords": 8376,
+      "status": "pending"
+    },
+    {
+      "id": "venus-project",
+      "category": "modern",
+      "originalEssayWords": 6666,
+      "status": "pending"
+    },
+    {
+      "id": "waco",
+      "category": "modern",
+      "originalEssayWords": 6841,
+      "status": "pending"
+    },
+    {
+      "id": "water-fluoridation",
+      "category": "modern",
+      "originalEssayWords": 3733,
+      "status": "pending"
+    },
+    {
+      "id": "watergate",
+      "category": "operations",
+      "originalEssayWords": 5284,
+      "status": "pending"
+    },
+    {
+      "id": "wilhelm-reich",
+      "category": "reality",
+      "originalEssayWords": 3669,
+      "status": "pending"
+    },
+    {
+      "id": "younger-dryas",
+      "category": "origins",
+      "originalEssayWords": 8092,
+      "status": "pending"
+    },
+    {
+      "id": "zeitgeist",
+      "category": "modern",
+      "originalEssayWords": 3088,
+      "status": "pending"
+    }
+  ],
+  "rewriteOrder": "Follow content/roadmap.json path, skipping nodes already marked rewritten.",
+  "lastCompleted": "roswell",
+  "nextNode": "area-51"
+}

@@ -860,8 +860,10 @@ function ReadNext({
 
   if (!next) return null;
 
+  // A formatting context keeps the whole card beside the floated sidebar.
+  // Ordinary block backgrounds extend underneath floats even when text wraps.
   return (
-    <div className="mt-14 mb-8">
+    <div className="flow-root mt-14 mb-8">
       <div
         className="w-full h-px mb-8"
         style={{ backgroundColor: "color-mix(in srgb, var(--text-primary) 6%, transparent)" }}
