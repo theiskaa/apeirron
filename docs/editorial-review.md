@@ -518,3 +518,43 @@ All 18 outgoing reasons corrected; weak associations are flagged in the inventor
 
 
 Secret Societies verification: all 74 rewritten nodes pass metadata, graph order, wiki target, review, word count and stale audio checks. Production build 74 completed through OpenNext; generated and compiled essay contains the typewriter ribbon, 1813 and September 25, with Sources styling. Both local essay body detectors completed (RoBERTa 0.1326, Desklib 0.0097); these are heuristic signals, not authorship verification. No remote essay submission or skill change. **Progress: 74 of 198; 124 remain. Next: `pythagoras`.**
+
+
+### Pythagoras checkpoint
+
+Rewrote `pythagoras` to 2752 essay words after three actual reviews. The rewrite follows a string relationship through the teacher’s reputation, the theorem and its attribution, incommensurability, Philolaus’ account of order, Aristotle’s criticism and Simmias’ proposal about a soul. Depth review adds number terminology and the actual premise of Socrates’ reply; 23 voice edits and nine evidence/consistency edits were followed by rereading, with a final tetractys sentence correction reviewed again. The proposed hammer/weight experiment fails a specific square-root tension test rather than being dismissed generically. Mathematical proofs are presented as worked explanations without assigning their invention to Pythagoras. Late disclosure variants, rival inheritance and cosmic-order claims remain distinct. Detailed source limits are recorded in the inventory.
+
+All 9 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 75 of198 rewritten;123 remain. Next: `knights-templar`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+Pythagoras verification: all 75 rewritten nodes pass metadata, graph order, wiki target, review, word count and stale audio checks. Production build 75 completed through OpenNext; generated and compiled text includes the silence, four-triangle proof, square root of two and Simmias, with Sources styling. Both local essay body detectors completed (RoBERTa 0.0348, Desklib 0.0494); these remain heuristic signals. No remote essay submission or skill change. **Progress: 75 of 198; 123 remain. Next: `knights-templar`.**
+
+
+### The Knights Templar checkpoint
+
+Rewrote `knights-templar` to 2642 essay words after three actual reviews. The essay starts with the Cressing barn and follows publicly held resources into a prosecution that could make defending the order dangerous. It explains the 1310 burnings and the meaning of relapse, keeps Chinon’s admissions/absolution distinct from acquittal, and follows papal suppression and property transfer separately. The depth pass develops conflicting proceedings, two idol depositions and actual accounting duties; 23 voice edits and eight consistency/evidence edits were followed by rereading. Original nine-year digging, encrypted-check invention, debt-cancellation certainty, Vatican concealment, curse and underground world-power claims removed. Religious warfare is neither romanticized nor used to excuse an unjust process. All six reasons corrected; detailed source limits and weak edges recorded in inventory.
+
+All 6 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 76 of198 rewritten;122 remain. Next: `holy-grail`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+Knights Templar verification: all 76 rewritten nodes pass metadata, graph order, wiki target, review, word count and stale audio checks. Production build 76 completed through OpenNext; generated and compiled essay contains Cressing Temple, the fifty-four brothers, Chinon and 1791, with Sources styling. Both local essay body detectors completed (RoBERTa 0.0529, Desklib 0.0393); these are heuristic signals, not authorship verification. No remote essay submission or skill change. **Progress: 76 of 198; 122 remain. Next: `holy-grail`.**
+
+
+### The Holy Grail checkpoint
+
+Rewrote `holy-grail` to 2546 essay words after three actual reviews. The rewrite follows Chrétien’s failed question, Wolfram’s life-preserving stone and Malory’s sacramental dish before examining Mary, the modern dossiers and the copyright dispute. Corrects two reductive inherited claims: Chrétien’s Grail is already associated with a host, and royal-blood word division has medieval precedents without supplying a genealogy. Depth adds the maiden’s consequences, Wolfram’s Christian source framing and Malory’s spiritual kinship;23voiceedits and8evidence/consistencyedits followed by rereading. Modern library custody is separated from independent attestation. Mary’s significance is developed without making it depend on marriage. All four reasons corrected; weak reception/geometry edges and precise source limits recorded in inventory.
+
+All 4 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 77 of198 rewritten;121 remain. Next: `freemasonry`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+Holy Grail verification: all 77 rewritten nodes pass metadata, graph order, wiki target, review, word count and stale audio checks. Production build 77 completed through OpenNext; generated and compiled essay contains Anfortas, Lovelich, Schidlof and Mary Magdalene, with Sources styling. Both local essay body detectors completed (RoBERTa 0.0313, Desklib 0.0063); these are heuristic signals. No remote essay submission or skill change. **Progress: 77 of 198; 121 remain. Next: `freemasonry`.**
+
+
+### Freemasonry checkpoint
+
+Rewrote `freemasonry` to 2429 essay words after three actual reviews. The rewrite starts with1723directions to assist an authenticated poorbrother and follows admission, ritual, degree versus office, Pike’s rival meanings, public prestige and P2’s actual credit leverage. Depth review adds membership asymmetry, honor/safety, differing ritual experiences and Rizzoli/Ambrosiano; final follow-up replaces abstract ceremony talk with Prichard’s actual candles and officer positions. Twenty voice changes and ten final evidence/consistency changes were followed by rereading. Historic rules are neither present-day universal claims nor proof of behavior. Pike’s adepts passage remains alongside his preface’s invitation to dissent. Broad murder/revolution/ancientlineage claims removed; all17reasons corrected with weak edges/source limits recorded in inventory.
+
+All 17 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 78 of198 rewritten;120 remain. Next: `illuminati`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+Freemasonry verification: all 78 rewritten nodes pass metadata, graph order, wiki target, review, word count and stale audio checks. Production build 78 completed through OpenNext; generated and compiled essay contains Prichard, Rizzoli, the honor/safety limit and Supreme Being, with Sources styling. Both local essay body detectors completed (RoBERTa 0.00194, Desklib 0.1319); the differing signals were reviewed alongside the text, not treated as authorship findings. The highest Desklib window covers the degree/office and ritual discussion already made concrete with the early catechism. No remote essay submission or skill change. **Progress: 78 of 198; 120 remain. Next: `illuminati`.**
