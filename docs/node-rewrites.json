@@ -78,7 +78,19 @@
       "id": "area-51",
       "category": "cosmos",
       "originalEssayWords": 6709,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3142,
+      "focus": "How documented aircraft development explains the site’s secrecy and public mythology, while leaving concrete problems of access and accountability.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed site selection, the U-2’s accidental hop and viewing geometry, A-12 manufacturing and engine dependencies, stealth principles, overhead security concerns, and the workers’ litigation.",
+        "voice": "Replaced the remote-base mythology and repeated hidden-authority conclusions with engineering and administrative events; revised headings and passages commenting on the writing itself.",
+        "evidence": "Verified CIA history chapters, the 1955 flight sequence, April 30 1962 official A-12 flight, direct 1962/1974 security correspondence and 1991 stealth review, moscovium laboratory announcement, 1995 exemption, court decisions, and 10 USC 119. Corrected the first-acknowledgment-in-2013 claim, the A-12/SR-71 conflation, and blanket statements about environmental law and absent congressional notification."
+      }
     },
     {
       "id": "astrotheology",
@@ -570,7 +582,19 @@
       "id": "jonestown",
       "category": "operations",
       "originalEssayWords": 2071,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2715,
+      "focus": "How the Temple narrowed people's choices and why the final deaths require an account of coercion, dissent, killing, and different individual roles.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the practical dependence created before and after relocation, the opening provided by Ryan's visit, Christine Miller's dissent, survivor observations, individual roles in the deaths, limitations of autopsies and early counts, and institutional opportunities to act. Added a distinction among allegations of drug coercion, supplies, and the small toxicology sample.",
+        "voice": "Replaced an ominous chain of intelligence coincidences with people's attachments, constraints, objections, and decisions; removed generic commentary and repeated declarations of what a record proves. Kept Miller's objection as the thread rather than a spectacular final question.",
+        "evidence": "Checked Q042 transcripts, Layton's pre-death affidavit, Rhodes/Clayton interview records, Cowan's 1979 medical summary, the autopsy index, the November 20 State briefing and staff-investigation scope. Corrected the claim that official inquiry uniformly called the event voluntary suicide; distinguished early recovery tallies from confirmed escapes and coercion from reliable personality programming. Removed unsupported biography-to-CIA inference, drug-quantity conclusions, and universal claims that departure or outside contact never occurred."
+      }
     },
     {
       "id": "jung",
@@ -636,7 +660,19 @@
       "id": "majestic-12",
       "category": "cosmos",
       "originalEssayWords": 2067,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2876,
+      "focus": "Whether the alleged committee has a documentary existence beyond the papers describing it, and how the authenticity case should be tested.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed photographic-copy limits, independent custody, roster compatibility, the Cutler filing/paper/travel/meeting issues, signature comparison, the FBI’s disclosure inquiry, and the separate authorship question.",
+        "voice": "Replaced sensational leak-versus-operation framing with a paper found in a file; revised the roster, custody example, and transitions to keep the argument concrete.",
+        "evidence": "Read the NARA reference findings, FBI document copies and description, and Klass’s collected analysis/correspondence. Corrected the blanket onionskin claim, pixel-identity language, and attribution of the Air Force fake determination as an independent FBI forensic verdict; removed the unsupported inference from multiple document waves to a government operation. Retained book references are not represented as a new page-by-page audit."
+      }
     },
     {
       "id": "malcolm-x",
@@ -734,7 +770,19 @@
       "id": "moon-landing",
       "category": "cosmos",
       "originalEssayWords": 5946,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3024,
+      "focus": "How different forms of evidence support the Apollo landings, and why photographic objections or archival losses do not explain the full record.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed camera exposure, flag handling, perspective and terrain, radiation path/dose/shielding, Doppler tracking, sample context, laser travel-time measurement, orbital-image resolution, and the difference between raw slow-scan tapes and surviving broadcasts.",
+        "voice": "Replaced dramatic appeals to institutional trust and broad psychological judgments with physical examples and a defined historical comparison; revised the opening, photographic explanation, and final judgment.",
+        "evidence": "Checked relevant mission-report material, Bailey’s primary radiation chapter and skin-dose table, Jodrell Bank records, Saal’s 2008 water study, Murphy’s ranging paper, LROC site products, JAXA’s 2008 halo/terrain result, and NASA’s tape-restoration account. Corrected the radiation/X-ray comparison, universal water-free and unique-mineral claims, conflation of international imaging capabilities, and assertion that all original footage or telemetry vanished. Removed unrelated bibliography entries."
+      }
     },
     {
       "id": "morphic-resonance",
@@ -849,7 +897,20 @@
       "id": "operation-mockingbird",
       "category": "operations",
       "originalEssayWords": 6849,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3026,
+      "focus": "How covert media relationships worked, what the available investigations establish, and which later analogies preserve the actual mechanism.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed cover, recruitment, unpaid assistance, cultural sponsorship, publishing, and foreign-to-domestic circulation; added the Senate's 1967–74 executive case to distinguish a documented relationship from a proposed placement.",
+        "voice": "Removed claims of total contamination and a dramatic suicide finale; replaced broad narrative-control language with choices by reporters, executives, sponsors, and editors; revised introductory and transitional commentary after rereading.",
+        "evidence": "Separated the 1963 wiretap codename from the broader retrospective label, active relationships from Bernstein's cumulative reported count, and the actual 1976 accreditation/payment rule from a blanket prohibition. Checked the Senate media section, CIA release, cultural history, dispatch scan, and 1975 distribution account. Rewrote every graph reason and removed unsupported causal claims about later cases."
+      },
+      "connectionNotes": "Targets preserved. Several assassination, accident, scandal, and modern-politics edges remain only methodological comparisons; the revised reasons explicitly avoid claiming that coverage proves ongoing CIA tasking. Reassess their inclusion in a separate graph edit."
     },
     {
       "id": "operation-northwoods",
@@ -957,19 +1018,56 @@
       "id": "project-blue-beam",
       "category": "operations",
       "originalEssayWords": 5655,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2749,
+      "focus": "What would connect real display research, radio effects, and public persuasion to the specific worldwide operation alleged by Blue Beam.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed circulating-source provenance, the four-stage scheme, a real volumetric display and staged-image example, scaling and viewing geometry, radio carrier/modulation distinctions, a rotating-source spiral model, and the gap between an event and a political outcome.",
+        "voice": "Removed an unsupported biographical/murder opening and repeated warnings about the theory’s durability; revised transitions and added concrete examples in place of generic cautions.",
+        "evidence": "Checked the circulating 17-page French reprint and identified its editorial limits, the Smalley study and BYU researchers’ account, Frey’s publication record, HAARP’s operator description, contemporary Norway video/model discussion, Navy release, and ODNI assessment. Removed invented source-to-Monast chronology and private medical/police claims. Northwoods is a comparison of documented proposal versus allegation, not evidence of continuous operation."
+      }
     },
     {
       "id": "project-monarch",
       "category": "mind",
       "originalEssayWords": 6116,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2855,
+      "focus": "How Monarch was assembled from intelligence history, therapeutic reports, memoirs, and symbolic interpretation, and what could establish its proposed mechanism.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the difference between injury and reliable programming, the Cameron grant and procedural court account, independence of therapeutic reports, the actual mall-memory experiment, clinical diagnosis, corroboration of crimes, and the evidentiary chain for a claimed historical transfer.",
+        "voice": "Removed sensational technical catalogs, a false neutral-middle-ground finale, biographical insinuations, and repeated assertions of proven atrocities; revised self-commentary and added a concrete example of the leap from butterfly imagery to participation.",
+        "evidence": "Corrected the lecture date to June 25, 1992; used the circulated transcript with its provenance limits; distinguished a 1988 procedural opinion from findings after trial and testimony to an inquiry from established conclusions. Removed unsupported subproject identifications, claims that children or completed identity programming were established by the cited hearings, the incorrect automatic Plötner/Paperclip bridge, and unverified personal allegations. Checked official professional statements, the memory-study author account, Lanning, the 2021 verdict statement, and historical/archival Mengele accounts."
+      },
+      "connectionNotes": "Existing targets preserved. satanic-panic is an existing phantom graph node with no content file, so the body uses ordinary prose instead of an unresolved wiki link. Franklin and Montauk remain comparisons rather than corroboration."
     },
     {
       "id": "project-stargate",
       "category": "operations",
       "originalEssayWords": 2872,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2750,
+      "focus": "What remote-viewing experiments could establish and why an experimental score and a useful intelligence source require different demonstrations.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Built the essay around the crane and missing derricks in Kress's own account; developed blind judging, cues, a specific SAIC design, ranking and chance models, laboratory-to-field transfer, the recent operational sample, and participant objections.",
+        "voice": "Replaced the suppression narrative and metaphysical finale with decisions visible in records; removed stock framing, repetitive statements about what the account shows, and a catalogue of famous unverified success stories.",
+        "evidence": "Read the AIR research and operational evaluations, Utts's university-hosted account, Kress's specific description of the information supplied to Price, early paper and critique/response records, and Smith's participant critique. Separated the review's recent operational sample from a verdict on every historical mission, attributed expert conclusions, and corrected claims that Utts lacked prior involvement, that the report hid her assessment, or that funding itself proves efficacy. Removed unsupported claims of a continuous MKUltra successor and inevitable falsification of materialism."
+      }
     },
     {
       "id": "protocols-of-zion",
@@ -1127,7 +1225,20 @@
       "id": "skinwalker-ranch",
       "category": "cosmos",
       "originalEssayWords": 3476,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2946,
+      "focus": "Whether a repeatedly investigated location has yielded evidence that can be examined independently of the investigators’ experiences and the site’s reputation.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the dated Sherman report, long-term observation and its denominator, Kelleher’s night-vision discrepancy and calf account, testable versions of observer interference, the contract mandate, follow-home baselines, and television records.",
+        "voice": "Replaced grand institutional conclusions and a generalized skeptical diagnosis with specific observations and research questions; revised scene framing and the discussion of data release.",
+        "evidence": "Checked the 1996 contemporary article, Kelleher’s 2006 interview and exact short quotation, the AAWSAP solicitation and 38-report list, AARO’s attributed scope critique, and the broadcaster’s participant materials. Removed unsourced tribal-archive assertions, invented financial precision, unsupported medical/psychological causation, and claims that NIDS had categorically superior rigor. Retained books are identified as participant or regional histories."
+      },
+      "connectionNotes": "The crop-circles edge remains for graph stability and is a methodological comparison; it may merit removal in a separate graph review."
     },
     {
       "id": "skull-and-bones",
@@ -1217,7 +1328,19 @@
       "id": "tuskegee-experiment",
       "category": "operations",
       "originalEssayWords": 6856,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2792,
+      "focus": "How a federal research relationship displaced care and informed choice, survived objections, and generated obligations beyond ending the study.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Followed recruitment, the presentation of diagnostic procedures as care, the treatment policy, documented 1941–42 intervention against outside treatment, flaws in study design, internal objection, termination, benefits, and reform. Added the named survivors and representation at the 1997 apology.",
+        "voice": "Removed the invented newsroom scene, repetitive atrocity catalog, sweeping institutional-evil finale, and long detours through unrelated experiments; revised editorial commentary and moral signposting while keeping a firm judgment grounded in decisions.",
+        "evidence": "Checked the 1973 panel and Katz addendum, correcting the absence-of-dissent claim for 1969 and preserving the distinction between no adequate study treatment and some outside drug exposure. Separated pre-penicillin military-board correspondence from later penicillin policy; distinguished Guatemala's intentional exposure, July 25 AP publication from next-day coverage, 1974 settlement from 1975 family benefits, and IRB history from the later Belmont Report. Corrected the journal/date and observational inference of the Alsan–Wanamaker study; removed unverified harm totals, quotations, and cross-case causal assertions."
+      }
     },
     {
       "id": "twa-flight-800",
@@ -1306,6 +1429,6 @@
     }
   ],
   "rewriteOrder": "Follow content/roadmap.json path, skipping nodes already marked rewritten.",
-  "lastCompleted": "roswell",
-  "nextNode": "area-51"
+  "lastCompleted": "jonestown",
+  "nextNode": "operation-paperclip"
 }
