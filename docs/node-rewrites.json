@@ -108,7 +108,20 @@
       "id": "bay-of-pigs",
       "category": "operations",
       "originalEssayWords": 6488,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2981,
+      "focus": "How the covert project became an invasion, how political restrictions and failed assumptions affected air support, command and resupply, and what the competing inquiries established about its defeat.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the full original essay, sources, and eight reasons; recovered the training and Miami-base passages omitted by initial tool truncation. Rebuilt around the final ammunition convoy, evolution from guerrilla cadres to invasion, the provisional-government mechanism, brigade commitment, Trinidad/Zapata changes, air cover, ships and radios, resupply, final collapse, competing inquiries, revised responsibilities, Mongoose, and the prisoners’ return. The depth review adds the intended political use of a beachhead, the varied exile leadership and its exclusion from decisions, the safe-house/agency-written bulletins episode, Bissell’s security rationale, and the grievance left unresolved by the prisoners’ return. Reread additions.",
+        "voice": "Revised seventeen passages after the depth review, removing recurring editor commentary, generic contrasts, announced significance, ritual caveats, later-scandal catalogues, and an inflated universal-network conclusion. Kept the sequence of physical constraints and decisions, and ended on the specific convoy request that never reached Kennedy. Reread the complete draft in two parts; the final consistency pass also clarifies first references to Taylor, Kirkpatrick and Cabell, replaces repetition in the ammunition passage, and reduces the repeated introduction to Kirkpatrick.",
+        "evidence": "Read Taylor group covering letter and complete operational narrative from the official EPUB, plus all immediate-cause and conclusion sections. Read Kirkpatrick’s introduction, evaluation summary, selected command and political-front sections, and complete conclusions/recommendations in original scan OCR, with the official transcription for scope. Read Bissell’s introduction and summary through the appraisal/critical-air-assumption discussion, Cabell’s complete cancellation/phone-appeal account, Stevenson’s warning, NSAM 57, further covert-program text, Mongoose formation note and March guidelines with Kennedy covering note, the CIA memorial to the four airmen, and the CIA prisoner-negotiation account. Corrected the original’s chronology placing late-1960 events and Castro’s later Marxist declaration before the March 1960 authorization, March versus February rejection of Trinidad, invasion as identical to the initial cadres program, Trinidad as an assured military success, no preexisting Cuban political complexity, all air support as cancelled, Cabell never appealing to Kennedy, Houston simply sunk with an entire contingent rather than grounded with troops unable to enter the intended battle, no meaningful later resupply decisions, and the last bombers arriving late because of a proven time-zone error. Taylor records almost an hour early with reason undetermined; its narrative also qualifies survival even with air control. Distinguished Taylor’s intelligence judgment from Kirkpatrick’s, retained Kirkpatrick’s limited agency-only remit and Bissell’s counterargument, and corrected NSAM 55 as transfer of all operations by using the actual NSAM 57 allocation. Removed unsupported forty-year single-network doctrine, brigade membership/capture assertions, inflated Miami statistics and death totals, Operation 40 roster and later-assassination catalogue, generalized betrayal consensus, and grievances as assassination evidence. The last pass attributes Cabell’s claim it was too late to halt, identifies his later direct phone request through Rusk, fixes CIA proposal versus presidential approval, adds source links at consequential decisions, and distinguishes remaining December prisoners from the original capture total. The entire IG report, complete Bissell rebuttal, all Taylor annexes, memoirs, later network investigations, original speech audio, and complete later operational history are not represented as read. All eight reasons revised."
+      },
+      "connectionNotes": "Preserved eight targets. Flag cia-drugs and watergate for substantial graph review; the inherited collective-brigade lineage is unsupported by this invasion record. Iran-contra requires person-by-person verification in that node. Northwoods retains the documented post-invasion planning context without declaring a single necessary sequel. JFK refers to grievances and inquiry context without converting motive into participation. Ajax is a specific comparison rather than a shared guaranteed template."
     },
     {
       "id": "bcci-nugan-hand",
@@ -181,7 +194,20 @@
       "id": "business-plot",
       "category": "operations",
       "originalEssayWords": 6519,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3282,
+      "focus": "What MacGuire tried to recruit Butler to do, how the 1933 currency campaign developed into the reported 1934 authoritarian proposal, and how far financial records, letters, and testimony identify its support.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the full original essay, sources, and six reasons. Rebuilt around the staged convention speech, actual Newark cash account, Clark’s separate visit, the later Bellevue-Stratford proposal, French’s separate office interview and immediate memorandum, financial tracing, letters from Europe, the qualified positive committee finding, authorization, and contemporary publication. The depth pass develops the conflict between veterans’ bonus interests and the gold campaign, explains letters of credit and what bank tracing could establish, and addresses the veterans’ own consent rather than treating Butler’s popularity as command of an existing army. Reread the expanded passages.",
+        "voice": "Revised nineteen passages after the depth review, removing repeated editorial instructions, myth-correcting introductions, false binaries, dramatic language, and ritual disclaimers. Put the actual offers, refusals, transactions, and competing assessments in sequence. Reread both halves of the revised draft. The final consistency pass also removes a defensive correction about French hiding in Butler’s house, deletes an empty claim about the seriousness of the inquiry, and simplifies the publication and conclusion passages.",
+        "evidence": "Read the entire November 24 public statement, Butler’s and French’s testimony in the preserved transcription, selected original scan pages and OCR, and the final report’s full relevant pages 9–10 and title. Compared the original public-statement scan’s $31,000 against the later transcription’s erroneous $81,000. Rechecked the monetary testimony and bank witness details; corrected Frew’s first name to Walter, separated the post-convention $31,000 sound-money fund from earlier spending, and attributed the cash repayment to MacGuire rather than treating it as bank-confirmed. Corrected the original’s 1933/1934 conflation, invented cash scene, erroneous elapsed years, false French interview arrangement, fixed secretary title, conflation of Clark’s $15 million remark with army funding, and organized-force assumption. Read relevant Spivak original pages including the comparison of published and omitted French testimony, checked red restored spans in the transcription, and distinguished secondhand claimed arms support from an actual agreement. Read relevant Time opening and its complete final page; retained the continuing inquiry as well as the ridicule. Preserved the committee’s positive finding and actual corroboration qualification and corrected the report’s Congress/session and its statement about European links. Removed unsupported named organizers, Liberty League collective authorization, Bernays involvement, Bush/Paperclip lineage, secret-amnesty assertions, newspaper-cycle generalization, and the claim that all records disappeared until the 1970s. The complete MacGuire examination, every bank exhibit, all Spivak articles, entire Time middle section, later full-length histories, and inaccessible FBI file are not represented as read. All six reasons revised."
+      },
+      "connectionNotes": "Preserved all six targets. Flag skull-and-bones and operation-paperclip for removal or substantial graph review: their inherited direct relationships are unsupported. Bernays retains a concrete comparison about managed publicity rather than participation. Federal-reserve refers to monetary politics rather than institutional authorization. Deep-state and shadow-elite are limited to documented relationships and accountability questions."
     },
     {
       "id": "cbdc",
@@ -771,7 +797,20 @@
       "id": "lusitania",
       "category": "operations",
       "originalEssayWords": 6061,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3105,
+      "focus": "The distinct responsibilities for a passenger liner carrying war supplies: the warnings and navigation, the fatal evacuation constraints, competing explosion explanations, inquiry records, the sacrifice allegation, and the intervening diplomatic choices before American entry.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the complete original body, bibliography, and both reasons. Rebuilt around usable lifeboat capacity, mixed civilian and military service, newspaper versus immediate warning, actual Admiralty messages, speed decisions, flooding and evacuation, inquiry results, disputed deliberate exposure, and the diplomatic aftermath. The depth pass adds why flooding adjoining side bunkers could defeat compartment assumptions and make evacuation equipment unusable. It adds Preston’s allegation about an intercepted one-torpedo report, alongside her rejection of a sacrifice plan, and the actual medal’s erroneous date and changed political use.",
+        "voice": "Revised twenty passages to remove dramatic primacy claims, repetitive cautions, reader instructions, universal institutional motives, correction-heavy commentary, and an unsupported catalogue of later crises. Replaced the abstract template with actual cargo, messages, boarding obstacles, legal findings, and diplomatic positions. Reread the full revised draft, then repaired an orphaned technical paragraph, an unclear letter antecedent, repeated cargo language, the caricatured banker-to-submarine command claim, and the manufactured final sentence.",
+        "evidence": "Read the original Mersey cargo, navigation, and formal findings; the relevant Mayer opinion and extensive contemporary reprint passages on cargo, warnings, flooding, boats, and navigation; the National Archives reproduction of Schwieger’s observation; the May 13, May 28, and June 9 primary diplomatic notes; relevant Preston interview passages; the Langworth argument and Hazlehurst’s own reproduction/context for the letter; the museum’s actual medal, box transcription and history; Bryan’s official biography; the 1913 parliamentary answer; and the relevant 1917 war-address text/context. Corrected the claim that Mersey blamed Turner, that no specific warnings reached the ship, that ammunition was only exposed by later dives, that all observers proved the second explosion’s cause, and that the sinking made American entry inevitable. Distinguished the two inquiries’ two-torpedo conclusions from the modern single-torpedo account and attributed their technical arguments. Preserved criticism of closed proceedings and Preston’s evidence-management allegation rather than using her rejection of sacrifice as blanket exoneration. Did not present the full original intelligence files, full books, the inaccessible complete 2002 technical paper, or the physically examined wreck as inspected. Withdrew unsupported current secrecy and deliberate wreck-destruction claims, fabricated linkage to Northwoods and later attacks, universal financial command, and an invented Bryan loan-resignation cause. Both reasons revised."
+      },
+      "connectionNotes": "Preserved both targets. Flag federal-reserve for graph review: the essay establishes a financial setting for American alignment, not a specific causal role for Federal Reserve creation. Shadow-elite concerns actual institutional decisions and disputed explanation management, without asserting a proven coordinated sacrifice."
     },
     {
       "id": "majestic-12",
@@ -1022,7 +1061,20 @@
       "id": "operation-ajax",
       "category": "operations",
       "originalEssayWords": 6586,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3303,
+      "focus": "How the Anglo-American intervention acted within Iran’s oil dispute and constitutional crisis, why the first attempt failed, how the second succeeded, and what the contemporary records establish about costs, control, and the settlement.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the complete original essay, bibliography, and nine reasons, recovering the initially truncated military section separately. Rebuilt around Iranian nationalization and Mossadegh’s own UN argument, the fracture of his coalition, referendum and communist-threat assessment, foreign planning and approval, propaganda, first failure, headquarters/station disagreement, August 19, the oil settlement, and disclosure. The depth pass develops actual command-radio control in the failed and successful attempts, distinguishes the London draft’s $285,000 estimate from the later $5.33 million total and emergency government support, and adds the Shah’s December discussion of Mossadegh’s sentence. Reread the expanded passages.",
+        "voice": "Revised eighteen passages to remove editor commentary, repeated contrasts, generalized statements about hidden motives, simplistic paid-crowd versus spontaneous-event framing, and the global later-coup catalogue. Kept the domestic coalition, concrete offers and instructions, and the oil settlement’s divisions of ownership, management, and income. Reread the complete revised body in two parts. The final pass repairs repetition in the military paragraph, removes a needless correction about presidential election, and simplifies the property and publication passages.",
+        "evidence": "Read Mossadegh’s October 15, 1951 UN address paragraphs 8–27; the relevant 1907 supplementary constitutional provisions in the UN-hosted reproduction and Browne transcription; Wilber’s complete summary, selected narrative pages on threats and the first attempt, relevant London-draft plan pages including staged attacks and press work, and the historian’s note. Read the 2017 FRUS preface, support authorization, approval editorial note, aid message, British settlement assurances, August 12 draft estimate, the failed-attempt cable, station continuation argument, headquarters discontinuation instruction, embassy’s complete preliminary August 19 account, station complaint and success messages, military report, congratulations, relevant parts of the Shah’s trial conversation, full March 1954 operational summary, relevant NSC 5402 sections, and NIE 34–54 conclusions, repression discussion, and oil-agreement appendix. Cross-checked the leak/declassification distinction with the Archive’s 2000 and 2013 publication accounts. Corrected the original’s all-purpose corporate motive, guaranteed communist emergency, direct-election implication, every crowd participant as hired, exactly $1 million as an audited complete cost, no domestic agency, immediate finished royal absolutism, unsupported CIA-developed torture catalogue, all later coups as direct operational descendants, 1979 as mechanically inevitable, every US oil company as a Standard Oil descendant, 40 percent participation as ownership of Iran’s resources, Mossadegh demanding less than the later settlement, and official secrecy as complete public silence. Identified the 2000 Wilber publication as a leak and the 2013 document as a separate internal history. The evidence pass avoids choosing a precise arrest location from contradictory early accounts, records July 11 approval without inventing a surviving presidential signature, distinguishes a draft intelligence forecast from an adopted final estimate, and makes sources match the new financial and trial passages. The full Wilber narrative, all FRUS documents, original operational microfilms, complete later books, later torture allegations, and the full inaccessible Albright speech were not represented as read. All nine reasons revised."
+      },
+      "connectionNotes": "Preserved nine targets. Flag cia-drugs and petrodollar for graph review because the inherited direct relationships are unsupported here; operation-gladio also lacks the asserted operational lineage. Rockefeller retains the documented consortium/Standard Oil ancestry distinction without family command. Mockingbird is a comparison of specified publicity methods rather than proof of shared named assets. Other connections are bounded institutional or interpretive comparisons."
     },
     {
       "id": "operation-chaos",
@@ -1047,7 +1099,20 @@
       "id": "operation-condor",
       "category": "operations",
       "originalEssayWords": 7160,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2874,
+      "focus": "How the Southern Cone services made exile unsafe through intelligence exchange, shared detention and transfer, and overseas targeting, and what the documents establish about American knowledge and choices.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the full 53,565-character original, frontmatter, sources, and nine reasons in four consecutive slices. Rebuilt around the Orletti lease and service records, actual 1975 founding arrangements, intelligence circulation, shared detention, the Gelman family’s route, the Teseo regulations, Townley’s own account, the later CIA assessment, American warning and cancellation, Contreras liaison, archival corroboration, and the 2016 judgment. The depth review develops membership as a continuing commitment, staffing/reserves/accounting and recorded disagreements in Teseo, and Shlaudeman’s actual discussion of armed organizations and institutional incentives; reread additions.",
+        "voice": "Revised twenty-three passages after the depth pass, replacing superlatives, graphic spectacle, repetitive corrective instructions, anonymous universal-command claims, and broad final insinuations with the lease, messages, travel papers, and organizational decisions. Broke the overgrown Teseo budget/staffing paragraph. The evidence pass also replaces a generic archives paragraph with a specific corroboration example and avoids attributing personal concern for victims where the Warren memorandum states prevention of illegal activity. Reread the final essay in consecutive sections and the changed passages.",
+        "evidence": "Read the complete founding minutes in supplied English translation and OCR-checked the accompanying original; the entire July 28 CIA structure report as released, complete Teseo translation/report, substantive FBI cable pages 2–4, all three Townley Letelier-account pages, all six pages of the May 1987 CIA assessment by local OCR, the complete Shlaudeman fourteen-page report, the actual August 23 and September 20 State cables with source notes about September 16, the contemporary September 21 NSC report, and relevant CIA 2000 sections on liaison, Condor, and Contreras. Read the prosecutor’s historical-process introduction, selected Orletti organization/property/lease/closure sections and the complete trial-outcome page; court judgment Gelman paragraphs 79–90 and 106–116 through a transcription after official PDF access failed; and the Paraguayan culture ministry’s archival account. Corrected six founding states to five with Brazil later, Argentina’s 1975 civilian government, founding implementation phases versus the later description of overseas teams, Condortel as communications rather than the database, proposed Teseo costs as actual financed missions, Townley’s aborted Paraguayan documentation as his route of entry, Shlaudeman memo date, the actual warning/cancellation sequence, CIA’s one acknowledged payment versus a regular retainer, 1987 Pinochet assessment versus preattack knowledge, and all regional dictatorship victims as a Condor total. Kept American responsibility for maintaining abusive liaison and abandoning the warning without asserting a specific bombing was foreknown or certainly preventable. Removed unsourced direct Gladio/Phoenix/COINTELPRO lineage, the personal Leighton-shooter attribution, Nazi/Paperclip and cocaine-coup catalogues, false international-law chronology, overstated universal-jurisdiction claims, and all perpetrators escaped accountability. Added 2016 fifteen convictions/two acquittals and 174 initial joined-case victims with explicit scope. Final eleven source/claim revisions. No claim to have read the full Argentine trial judgment, the entire Gelman case, FBI first-page body absent from text extraction, all archives or inherited books. All nine reasons revised."
+      },
+      "connectionNotes": "Preserved nine targets and order. Flag economic-hitman, operation-paperclip, cia-drugs, and p2-banco-ambrosiano for removal or substantial graph review: the inherited claimed mechanisms are not established by the inspected Condor record. Gladio, Phoenix, and COINTELPRO are limited comparisons, not a demonstrated export or common command. Shock-doctrine needs country-specific policy and repression evidence. Shadow-elite retains the specific classified warning decision without implying foreknowledge of the bombing."
     },
     {
       "id": "operation-cyclone",
@@ -1059,7 +1124,20 @@
       "id": "operation-gladio",
       "category": "operations",
       "originalEssayWords": 9389,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2965,
+      "focus": "How Italy’s stay-behind preparations changed into a network also gathering domestic information, what investigations established about political violence, and how secrecy undermined political supervision.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the complete original body, frontmatter, sources, and fifteen reasons in six consecutive character slices. Rebuilt around the Aurisina cache, invasion rationale, recruitment and weapons, bilateral/NATO relationships, the proposed counterinsurgency role, 1972 retrenchment, later civil reporting, Peteano evidence and obstruction, selective political briefings, the disputed legal basis, P2, Belgian findings and withheld identities, the European resolution, and the later records acquittal. The depth review develops the historical roster versus current strength, recruitment backgrounds, the 1977 oversight mechanisms, and the bilateral agreement’s disputed legal standing; reread additions.",
+        "voice": "Revised twenty-two passages after the depth pass. Removed broad terrorism framing, repeated editor advice, conventional significance announcements, the international catalogue, and ritual caveats. Replaced generic claims about knowing with actual briefings, requests, missing material, and refused instructions. Reread the whole final draft; the evidence pass also replaces an unsourced general Vinciguerra interpretation with the committee’s specific account of Santovito routing information before the judiciary.",
+        "evidence": "Read the 1992 Italian main report pp. 11–40 and dissenting observations pp. 47–53, the 1995 official report’s complete Aurisina/Peteano sections, P2 passage and substantial records discussion; Belgian report title/contents and relevant identity-refusal, findings, and oversight conclusions; the entire European Parliament resolution; the Carabinieri Peteano memorial account; the Rome judgment’s opening and operative conclusions; and the 2022 parliamentary confirmation that the records acquittal became final. Corrected the August 1990 disclosure setting and October continuation, uniform NATO command, recruitment caricatures, 622 as current strength, all decades as unchanged readiness, 1966 proposal as proved execution, missing igniters as unique forensic attribution, the false leftist-arrestee account, and all terrorism as a single network’s operations. Preserved the 1992 main report’s critical legal/strategy interpretation alongside dissent, and Belgium’s absence of a demonstrated terrorism connection alongside refusal of confidential checks ordered by the minister. Included the July 2001 final acquittal in the records case without expanding it into a blanket verdict on all Gladio history. Removed the unverified manual as operational proof, invented quotations, incompatible dates, current-case assertions, false media-absence quantification, and universal P2/Vatican/assassination lineage. Seven final source/claim revisions, with the opening date made explicitly the official record and the court type left unasserted. No claim to have read complete foreign case files, the entire Belgian report, the entire court bundle, every 1995 section, or inherited books. All fifteen reasons revised."
+      },
+      "connectionNotes": "Preserved fifteen targets in order. Flag operation-mockingbird, jfk, vatican-jesuits, operation-glasnost, and pope-john-paul-i for removal or substantial graph review: no demonstrated operational link in the inspected record. Paperclip requires actual recruitment verification rather than collective attribution. Shadow-elite and Cyclone/Condor are limited comparisons, not common command or lineage. P2 and Freemasonry must retain the distinction between particular lodge affiliations and a fused organization. No unsupported target removed without a graph decision."
     },
     {
       "id": "operation-glasnost",
@@ -1165,7 +1243,20 @@
       "id": "pearl-harbor-foreknowledge",
       "category": "operations",
       "originalEssayWords": 6698,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3104,
+      "focus": "Which warnings could have improved the defense of Hawaii, what officials could read before December 7, and how documented failures of readiness and accountability differ from evidence of a deliberately permitted strike.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the full original body, sources, and five reasons. Rebuilt around the November warning and Short reply, degrees of knowledge, McCollum’s actual proposal, Stimson’s diary and resulting instructions, reception versus translation, the timely berthing reports, the separate delivery deadline, communications testimony, local observations, carriers, and the changing accountability findings. The depth pass adds Dudley Knox’s appended caution about a Pacific confrontation consuming resources needed for Britain, Richardson’s actual basing objections, the practical use of berthing reports without an attack date, and the unequal warning distribution to Halsey and Newton within Hawaii.",
+        "voice": "Revised twenty-four passages, removing repeated editor commentary, categorical psychology, false binary interpretations, ritual demands for more evidence, institutional invulnerability assumptions, and the global later-crisis catalogue. Kept documentary decisions and practical consequences. Reread the full revised argument; the evidence pass removes a premature reference to Stinnett, clarifies the direction-finding explanation, repairs the conclusion’s antecedent, breaks the long carrier paragraph, and avoids requiring an exact hour as a prerequisite for any deliberate-sacrifice allegation.",
+        "evidence": "Examined the complete McCollum transcription and Knox comment; selected primary congressional report sections on basing, warnings, Short’s reply, diary excerpts and testimony, berthing reports, translations, the fourteen-part reply and separate one-o’clock instruction, signal-channel selection, the Ward engagement, carrier missions, majority conclusions, and the minority’s actual final allocation of responsibility. Read Parker’s relevant naval/diplomatic sections and Appendix A’s explicit 1945–1946 translation note in the official 2013 PDF, with selected reproduced messages, distinguishing his reconstruction from a binding agency position. Read relevant Stinnett interview claims and his concession about direct proof of Roosevelt reading the memo, relevant Butow discussion, the NPS radar account, and all of Section 546 in the actual 2000 law. Corrected policy equivalence as proof of memo adoption, fleet basing after the memo rather than before, all Japanese communications as readable through PURPLE, transmission dates as proof of preattack translations, no meaningful war warning to Hawaii, the first-overt-act phrase as an instruction to abandon defense, fourteenth part and delivery instruction conflation, Marshall personally selecting commercial transmission despite French’s testimony, carriers as a single protective evacuation, Japanese ignorance of carrier value, the congressional majority as a repeated dereliction finding, the minority as proof of conspiracy, and unanimous Senate action as the sole later record. The Navy carrier-location page’s full body was inaccessible; its published search record supports Saratoga’s San Diego arrival, while the congressional primary record supplies the Enterprise/Lexington missions and Halsey/Newton contrast. The complete books, all inquiry volumes, full original Yale diary, individual operational intercept originals, and every Appendix A message were not represented as read. All five reasons revised."
+      },
+      "connectionNotes": "Preserved five targets. Flag iraq-wmds and nine-eleven for graph review: they retain broad comparisons rather than the inherited unsupported operational lineage. Northwoods and Tonkin remain concrete comparisons of different types of evidence and authorization; neither establishes a common executed plan. Shadow-elite refers to actual distribution and responsibility rather than automatic intent."
     },
     {
       "id": "petrodollar",
@@ -1189,7 +1280,20 @@
       "id": "phoenix-program",
       "category": "operations",
       "originalEssayWords": 7197,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2808,
+      "focus": "How intelligence coordination became targeting and detention, how advisers and operational forces shared responsibility, and why disputed testimony and changing statistical categories complicate assessment of Phoenix.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the full 59,719-character original, metadata, sources, and seven reasons in five consecutive slices. Rebuilt around Harrington’s attributed 1969 briefing account, the VCI as an intelligence target, the Dien Ban experiment, CORDS and ICEX/Phoenix/Phung Hoang, sources and fabrication, PRU work, detention and interrogation, competing testimony, statistical categories and incentives, provincial variation, and the December 1972 end of direct support. The depth pass adds Drinan/Cannon’s disagreement about an adviser’s responsibility for detention safeguards, the Hau Nghia one-of-thirty-five example, and the difference between physical control and political loyalty. Reread additions.",
+        "voice": "Revised twenty passages after the depth review, replacing the graphic fabricated opening, superlatives, repeated editorial caveats, rhetorical questions, universal doctrines and a forty-year catalogue with organizational choices and people’s stated judgments. Removed the later-program genealogy tangent. Reread the final essay in two consecutive sections; the final consistency pass separates the successful Quang Ngai report from the following Hau Nghia failure so an example does not imply the opposite of its evidence.",
+        "evidence": "Read Ahern’s complete chapter 12, printed pp. 279–306, plus selected preceding/pacification and chapter 14 passages on withdrawal, assessment, and provincial differences. Read selected 1973 nomination-hearing testimony from Harrington, Osborn, and Drinan, Colby’s responses and the written questions/answers at printed pp. 172–176. Inspected the original statistics page visually and locally OCRed all five final answer pages after finding that the embedded text silently omitted consequential answers. Read both actual FRUS documents, including the December 1969 PRU memorandum’s editorial summary of omitted risk discussion and its subsequent-decision source note. The original 1971 hearing and actual February 1970 memo are not represented as inspected; their testimony and memo passages are identified through the later hearing. Corrected the false Herbert-as-Navy-lieutenant opening, Reid as chair instead of Moorhead, Osborn’s 1971 date and later testimony conflations, every allegation as firsthand observation, every detainee as killed, all Phoenix as CIA-only or all CORDS as Phoenix, PRUs/PICs created by the program’s renaming, USAID’s Office of Public Safety as a CIA office, a proved MKULTRA training/personnel pipeline, uniformly criminal/minority PRU recruitment, capture as mere cover with no actual captures, and all killing totals as audited executions. The 20,587 figure is explicitly a reported 1968–May 1971 category; the table’s changing capture/sentencing definitions and posthumous VCI attribution are discussed with Colby’s actual explanation, rather than assuming he declined all questions. Preserved witnesses’ criticism, Defense’s disputed investigation, accepted Quaker treatment evidence, agency history’s admission of torture and documented decapitation, the supportive 1969 PRU proposal’s own risk language, and actual structural reforms without treating directives as proof of compliance. Added attribution at the opening and the Quang Ngai success report alongside Hau Nghia failure. Removed unverified total figures and records-destruction claims, blanket constitutional/international-law verdicts, the permanent CIA template conclusion, and automatic Condor/SOA/Iran-Contra/modern-drone lineage. Eight final evidence/source revisions, then corrected one transition. Full 1971 hearings, the entire 1973 hearing, complete Ahern volume, war-crimes case files, original training material, and inherited books are not represented as read. All seven reasons revised."
+      },
+      "connectionNotes": "Preserved seven targets in order. Flag mkultra and cia-drugs for removal or substantial graph review: the inherited training lineage and flight mechanism are not established. Iran-contra requires person-by-person assignment verification and separate evidence of doctrinal transfer. Condor and COINTELPRO are comparisons, not demonstrated exports. Tonkin is war context rather than direct authorization of this program; deep-state retains the particular divided-responsibility question."
     },
     {
       "id": "pineal-gland",
@@ -1329,7 +1433,20 @@
       "id": "reichstag-fire",
       "category": "operations",
       "originalEssayWords": 7751,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3127,
+      "focus": "How the arson accusation became enduring authority against organized opposition, through distinct decrees, political detention, an intimidated parliamentary vote, retroactive punishment, and a prosecution that failed to substantiate its alleged Communist accomplices.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the complete original body, sources, and four connection reasons. Rebuilt around the existing coercive campaign, constitutional emergency controls, the fire decree, political custody, the March vote, separate lawmaking and punishment measures, trial outcome, and the bounded arson controversy. The depth pass added Article 114’s actual information-and-objection protections and the translated 1936 custody order for Herbert Fröhlich, showing which authority the police invoked and why his release had no fixed date. Replaced a generic later-policing paragraph with the actual form and retained the concrete Mühsam case.",
+        "voice": "Revised twenty passages to remove reader instruction, repeated corrective formulas, editorial commentary, dramatic abstraction, and the comparative modern-crisis catalogue. Replaced the single-cause finale with the choices of actual officials and deputies and the survival of emergency power after the prosecution’s failure. Reread the changed sections and final arson discussion. The final pass further removed a repeated Communist-uprising sentence and the source-list claim about the writer’s research process.",
+        "evidence": "Read the translated fire decree, relevant Weimar constitutional provisions, complete Enabling Act, relevant Wels speech, March 29 retroactivity statute, primary Nuremberg examination passages, relevant original Mommsen discussion and conclusion, the complete Hett interview, the relevant Lennings parliamentary exchange, official historical chronology, detention context, and Fröhlich’s actual translated order. Corrected suspension of every constitutional guarantee, omission of Article 48 parliamentary withdrawal and Article 50 countersignature, consent-for-twelve-years framing, prefire retroactivity, all Communist deputies physically arrested, the vote treated as automatic, the Enabling Act treated as indefinite, misattribution of the dual-state concept, fabricated internal polling, Mommsen’s alleged recantation, the 1955 affidavit placed at Nuremberg, the wrong Hannover court, Göring’s alleged joke treated as admission, and asserted consensus after Hett. Specific fire technical testimony is attributed to Hett rather than described as our independent reconstruction. Mommsen’s introductory Rothfels foreword is distinguished from the author’s article. Hett’s full books, a full physical reconstruction, and all cited archival case files are not represented as examined. The evidence pass adds the two-thirds threshold, clarifies the cabinet-change expiration condition, and withdraws invented alternative timelines and later-event lineage. All four reasons revised."
+      },
+      "connectionNotes": "Preserved all four targets. Flag thule-vril and operation-paperclip for graph review: the inherited direct causal links are not established, leaving broad Nazi-era context. Flag amerithrax for review as a comparison of security responses rather than a documented common operation or manufactured legislative pretext."
     },
     {
       "id": "reptilian-elite",
@@ -1629,7 +1746,20 @@
       "id": "uss-liberty",
       "category": "operations",
       "originalEssayWords": 6585,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3208,
+      "focus": "How an identifiable American intelligence ship came under Israeli attack, what identification and communications failures the contemporary records establish, and why the survivors challenged the limited inquiry’s judgment about intent.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read the full 45,537-character original, sources and three graph reasons in four consecutive slices. Rebuilt around the replacement flag, the intelligence mission, undelivered withdrawal orders, McGonagle and Painter testimony, the attack and damage-control work, morning identification and failed caution, competing official assessments, the helicopter intercepts, American response, inquiry scope, Boston’s allegation, the private Moorer commission, and compensation. The depth review develops the contemporary public cover account and the medical and engineering work aboard the damaged ship. The final evidence pass also develops the actual Israeli examining judge’s reasoning, prosecutorial objection and no-trial outcome. Reread additions.",
+        "voice": "Twenty-two revisions after the depth review replace recurring proof disclaimers, draft commentary, superlatives and an unsupported later-coup narrative with decisions, observations and the different positions of the participants. The attempted contact by helicopter, a calling card weighted with an orange and the uncertain four-or-forty reply replace a generic description of late help. Reread the final essay in consecutive portions, including the additional Israeli inquiry discussion and final recall qualification.",
+        "evidence": "Read specified NSA history sections: preface, withdrawal pp. 21–23 (one part of p. 22 not fully retained), attack/response pp. 25–32, attaché/helicopter/damage-control pp. 34–35, complete Israeli inquiry and critical reassessment pp. 37–41, American reviews pp. 57–59, and aftermath p. 64; other isolated passages and captions are not represented as a complete reading of the volume. Downloaded the actual 728-page Navy file; locally OCRed/read the appointing order and initial communications testimony, selected first McGonagle testimony (printed pp. 31–36), all Painter testimony (pp. 55–59), all fifty-two court findings and specified later endorsements. Read the actual corrected Rusk note, CIA June 21 assessment, Clifford report and release memorandum; all four pages of Boston’s January 2004 declaration; relevant Conyers remarks, commission conclusions, shorter affidavit and biographies, not the entire associated FAQ. Eleven evidence/source revisions plus an inline-link cleanup. Corrected 171 wounded in the contemporary Navy documents, two-hour continuous fire, Sa’ar boats, gunfire and liferaft conflations, all communications as attack-order recordings, Hebrew collection claims, a unique monitoring platform and a proved suppressed POW intercept. Preserved apparent jamming as reported without deriving an operator’s knowledge from it. Distinguished morning headquarters identification from each attacker’s information; the Israeli no-trial reasoning from critical American assessments; the court’s formal finding from its more cautious public summary; actual American communications inquiries from an exhaustive attacker investigation; Boston’s personal role from presidential orders reported through Kidd; and a private commission published in the Congressional Record from congressional adoption. The published NSA late recall does not resolve allegations of another recall during the attack; avoided the unsourced Johnson/McNamara dialogue and did not treat all launch/recall references as one event. Removed false claims about Moorer’s office, Davis’s service, unique medal ceremony, ship disposal and automatic Tonkin/Northwoods orchestration. Full Israeli original inquiry, all Navy testimony/exhibits and certified versions, original flight/recall logs, original intercepted audio and inherited books are not represented as read. Three reasons revised."
+      },
+      "connectionNotes": "Preserved three targets and order. Tonkin is a comparison of disputed evidence under Johnson, not proof of common orchestration. Mass-surveillance is collection technology and its limits, not proof of a suppressed atrocity recording. Shadow-elite should be reviewed for a more precise neighboring node: the supported connection is political control and contested inquiry scope, not an established secret cabal or direct presidential sacrifice order."
     },
     {
       "id": "vaccine-autism",
@@ -1687,6 +1817,6 @@
     }
   ],
   "rewriteOrder": "Follow content/roadmap.json path, skipping nodes already marked rewritten.",
-  "lastCompleted": "operation-northwoods",
-  "nextNode": "reichstag-fire"
+  "lastCompleted": "uss-liberty",
+  "nextNode": "iran-contra"
 }
