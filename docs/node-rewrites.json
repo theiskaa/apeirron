@@ -180,7 +180,20 @@
       "id": "celebrity-27-club",
       "category": "power",
       "originalEssayWords": 8449,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2902,
+      "focus": "How a coincidence of age became a durable cultural category, what mortality and attention studies can establish, and why the underlying deaths and working conditions need individual examination.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Built a continuous argument from membership and missing denominators to the 2011 cohort, the 2024 posthumous-attention study, the Robert/Tommy Johnson folklore, differing primary death records, and wider occupational risk. The depth pass added Joplin’s autopsy findings and the posthumous release of Pearl, its actual UK chart peak as a concrete limit of a chart-based definition of fame, and an explanation of the corrected fame study’s relative hazard and uncertainty. Kept enough case evidence to understand what differs rather than replacing every death with a list entry or a link.",
+        "voice": "Replaced the succession of sensational mini-biographies, numerical mysticism, generalized handler accusations, and repeated promises of a deeper truth. The voice pass removed the opening rhetorical-question chain and repetitive cautions after each case, and let the chart entry, apprenticeship, medical record, second inquest, and study design carry the argument. Cut generic editorial instructions and repeated conclusions while preserving the worked denominator example and distinctions needed for the statistical argument.",
+        "evidence": "Read the original essay, frontmatter, and sources in full. Read the full 2011 BMJ and 2024 PNAS main texts; relevant Bellis 2012 methods, findings, and limitations; and the corrected 2026 Hepp study, including matching, confidence interval, causal alternatives, and correction notice. Checked the Hendrix death entry visually, the Morrison medical and police documents through OCR, Joplin’s autopsy summary and relevant examination findings, Pearl’s official release account and Official Charts record, the NPS Tommy Johnson account, the Mississippi Blues Commission’s Robert Johnson history, the 2023 Census methods and findings, the police Cobain review, 2026 reporting on the challenge, Sussex Police’s reproduced position, and Winehouse’s 2013 rehearing. Corrected the original twenty-five-month cluster to two years, the BMJ first author and scope, the inference of established homicide from independent Cobain claims, and the conflation of supernatural folklore with documented musical development. Removed unsupported exact purity/dose claims, misattributed Hendrix confession material, categorical accusations against partners/managers, CIA-supply assertions, and the false claim nothing had been reviewed since 1994. All three reasons were rewritten."
+      },
+      "connectionNotes": "The counterculture-psyop and industry-plants edges remain unverified interpretive relationships. Retained the original targets for graph continuity while withdrawing the assertions of operational cleanup, planted artists, and scheduled exit protocols. The kurt-cobain reason now describes a cultural connection and does not accuse a living person of arranging his death."
     },
     {
       "id": "cern",
@@ -570,13 +583,39 @@
       "id": "jfk",
       "category": "operations",
       "originalEssayWords": 6237,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3788,
+      "focus": "How substantial evidence connecting Oswald to the shooting coexists with documented failures and withheld information in the investigation into possible accomplices.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the rifle ownership and firearms evidence separately, preserved the package-size and Brennan identification problems, explained the single-bullet reconstruction and Connally wound shape, followed the autopsy review and acoustic timing dispute, and traced the effect of withheld Castro plots on investigative decisions.",
+        "voice": "Replaced the loss-of-innocence opening, omnipotent coalition, ritual numerology, and repeated conspiracy finale with a chronological and evidential thread. Replaced editorial instructions with the Frazier conflict and the actual Mexico City memorandum and visa evidence; cut repeated warnings without removing the uncertainty.",
+        "evidence": "Checked the Warren and House reports, the NRC acoustic conclusion and timing account, primary Vietnam memoranda and underlying recommendations, the Review Board report, and NARA's release page including January 2026. Corrected commission creation date, incomplete citizenship renunciation, unsupported single-bullet impossibility and film-direction claims, the assertion that NSAM 273 simply reversed withdrawal, and the obsolete claim that classification still accounted for the entire release problem. Rewrote all nine graph reasons to remove unestablished shared perpetrators or operational chains."
+      },
+      "connectionNotes": "Targets preserved. The Monroe, Gladio, Malcolm X, and Watergate edges are primarily comparisons or histories of allegations; the revised reasons no longer assert a common murder apparatus. Review their value separately from this rewrite."
     },
     {
       "id": "john-lennon",
       "category": "operations",
       "originalEssayWords": 6739,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3179,
+      "focus": "What the documentary record establishes about political efforts to remove Lennon from the United States, and whether the evidence connects that campaign to Chapman’s later killing.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed actual FBI/CIA correspondence, the proposed Miami arrest and peaceful-demonstration condition, the disputed statutory question and dissent in the immigration appeal, administrative delay, the procedural disclosure dispute, and Chapman’s accounts of work, gun and ammunition acquisition, return trips, alternative targets, and financing. Added the concrete within-an-hour approval episode and his hospital/night-work history after reviewing the thinnest sections.",
+        "voice": "Replaced the superlative-threat opening, intelligence-map itinerary, inferred precision training, imagined Reagan-era future, and long accumulation of presumed programming symptoms with an argument following the documents and the killing. A second pass removed repetitive editorial verdicts and correction-of-an-old-draft phrasing, made transitions follow decisions and records, and preserved a firm judgment about political policing without presenting Lennon’s whole life as its effect.",
+        "evidence": "Read the original node in full. Inspected document facsimiles for the 1971 rally report, 1972 CIA message, Hoover/Haldeman letter, proposed narcotics arrest, and informant pages. Read the relevant 1975 majority and dissent and 1991 disclosure opinion, Wiener’s final-release account, 2008 plea recollection, and substantive sections of the 2010 parole transcript on employment, finance, weapons, travel, motives, and assistance. Checked the contemporaneous plea reporting, formal COINTELPRO end date, 1976 permanent residency, 2025 parole denial, and the actual cryptonym list rather than treating its intelligence name as proof of the Dakota identity. The host’s automated 2025 transcript title was checked against the document’s 2010 date. Corrected the claim that travel funding was never questioned or explained, that the immigration conviction was automatically irrelevant, that the legal victory adjudicated political selection, that the document dispute ended in 1997, and that public parole hearings keep the homicide case open. Omitted unverified grand-jury, diagnosis, sealed-record, institutional-travel, and media-suppression assertions. Rewrote all four outgoing reasons."
+      },
+      "connectionNotes": "The operation-mockingbird edge lacks evidence of a CIA media operation in this case and remains weak. The counterculture-psyop edge is a contrast between documented attempted disruption and an unsupported claim that the movement or murder was engineered. Preserve targets for graph continuity."
     },
     {
       "id": "jonestown",
@@ -678,7 +717,20 @@
       "id": "malcolm-x",
       "category": "operations",
       "originalEssayWords": 6860,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3192,
+      "focus": "How the evidence against Halim differed from the identifications of Aziz and Islam, what withheld material could have changed, and why correction came only after decades of failed challenges.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Reconstructed the original physical and eyewitness evidence, alibis and lineup weaknesses, specific withheld descriptions and failed identifications, source protection orders, concealed police observations, unsuccessful 1970s litigation, the J.M. return-call alibi, and the standards and limits of the joint review. Developed the practical defense opportunities lost through concealment and the filing's distinction between modern disclosure responsibility and retroactivity.",
+        "voice": "Replaced the cinematic invented announcements, claims that almost nothing was true, omnipotent informant network, and predetermined assassination conclusion with people, records, and decisions. Cut repeated instructions to the reader and generic statements of complexity; preserved Malcolm's developing political work and the human cost of the wrongful convictions.",
+        "evidence": "Checked the 43-page 2021 joint motion, participating counsel's outcome statement, primary FBI reports on the split and firebombing, the OAAU founding address, biographical archives, and the August 19, 2026 federal order. Corrected the judge's name, trial-versus-later-affidavit chronology, the number and identification of alleged accomplices, Roberts's public disclosure chronology, blanket claims about prosecutors' knowledge, and the assertion that the review confirmed a deliberate withdrawal of requested protection or federal orchestration. Distinguished newly disclosed post-murder reports from advance warnings, exoneration from the prosecutor's explicit nonfinding on actual innocence, and civil allegations/procedural dismissal from findings after trial. Revised all six outgoing reasons."
+      },
+      "connectionNotes": "Targets preserved. The CIA-drugs and Gary Webb connections are especially weak and their previous causal claims were unsupported by this case. The Mockingbird edge is also a comparison unless evidence of particular press direction is supplied. Reassess these edges in a separate graph review."
     },
     {
       "id": "mandela-effect",
@@ -696,7 +748,19 @@
       "id": "marilyn-monroe",
       "category": "operations",
       "originalEssayWords": 10485,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3259,
+      "focus": "What the medical record and later inquiry establish about Monroe's death, and how later accounts convert uncertain objects, testimony, and social connections into a political murder story.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Followed toll records, discovery and notification times, cause versus intent, psychological autopsy, absorption and dye arguments, actual testing scope, Miner's changing interpretation, diary source independence, reported visits, and the methods and limitations of the 1982 review. Added an explanation of the difference between a medical estimate of death and evidence of when someone discovered it.",
+        "voice": "Replaced the sensational opening, prolonged intimate description of the body, repeated declarations of a confirmed cover-up, and omnipotent-network finale with concrete records. Removed repetitive reading instructions and replaced generic cautions with the actual interview conflicts and tests. Ended with Monroe's voice and the limits of assigning a purpose to her final actions.",
+        "evidence": "Read the original node in full and checked scanned autopsy/toxicology records, the entire December 1982 summary report, Stephens's relevant recorded consultation, Noguchi's 1982 and 1985 interviews, released FBI reporting, the JFK Library event archive, Miner's later personal account, and Meryman's recollection. Corrected the false universal medical consensus, required pill residue and dye trail, staged-position claims, assertion that all telephone records disappeared, confirmed RFK visit, and claims that federal files established a CIA killing operation. Replaced the unsupported sample-disposal narrative with the documented testing scope. Preserved criticism of the DA report's stereotypes and overbroad reasoning alongside its stronger medical and documentary findings."
+      }
     },
     {
       "id": "mass-surveillance",
@@ -752,7 +816,19 @@
       "id": "mlk-assassination",
       "category": "operations",
       "originalEssayWords": 6177,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3376,
+      "focus": "How the evidence against Ray, the documented FBI campaign, and the disputed civil-trial allegations should be weighed through their actual records and investigative limits.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the purchase and fingerprint chain, the limits of bullet comparison and trajectory reconstruction, the actual plea procedure, possible financial assistance, specific attorney-mail interception, Redditt's surveillance role and partner's continued presence, the jury instructions and competing closing arguments, and documentary tests of Jowers and military allegations.",
+        "voice": "Replaced the prophetic opening, character-based impossibility argument, automatic kill-zone inference, unqualified conspiracy conclusion, and isolated token rebuttal with a sustained comparison of the evidence. Cut repetitive editorial caution, used the court and mail-interception records as concrete examples, and retained King's economic and antiwar work as context rather than a presumed murder instruction.",
+        "evidence": "Read the original node in full. Checked HSCA evidence, conspiracy, agency, and investigative-conduct sections; read relevant 1999 closing arguments, jury instructions, and verdict in the primary transcript; compared the 2000 DOJ scope and its Jowers, witness, and military findings; checked strike and speech context and NARA's July 2025 release notice. Corrected the claim that Ray's fingerprints were unidentifiable, the claim no jury heard evidence at his plea, backdating of the formal COINTELPRO label, Jowers's supposed live testimony, the assertion the civil verdict overturned Ray's conviction, the conflation of surveillance and protection removals, and the inaccurate account of a DOJ refusal to investigate. Distinguished the civil standard and unnamed agencies from a criminal verdict, and presented Garrison's actual disagreements alongside his government-conspiracy closing request. Revised all three outgoing reasons."
+      }
     },
     {
       "id": "money-as-debt",
@@ -922,7 +998,20 @@
       "id": "operation-paperclip",
       "category": "operations",
       "originalEssayWords": 5181,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2868,
+      "focus": "How recruitment needs and screening decisions transformed wartime specialists into American employees and public figures without resolving the conduct in their past.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Followed acquisition of tacit expertise, the actual 1946 policy and administrative flow, a documented sequence of dossier revision, the Mittelbau labor system, von Braun's development-to-production visits, Rudolph's later immigration reckoning, and the differences among recruitment routes.",
+        "voice": "Replaced the invented hospital scene, parade of equivalent villains, and universal national-security finale with case decisions and a narrower judgment. Removed repeated editorial framing and retained the labor history within the engineering account.",
+        "evidence": "Verified the Acheson policy and September 3 approval, NARA's request-for-revised-reports account and case-file descriptions, the memorial's camp-complex casualty scope, Neufeld's direct interview, NASA's biographical account, and the GAO description of Rudolph's agreement. Distinguished simultaneous policy limits from cumulative counts; removed incorrect single-person Apollo authorship, Jupiter-C naming, all-Skylab and strongest-rocket claims, an unverified Nazi-data-to-MKUltra pipeline, and the claim Paperclip was unknown until 1985. Replaced every outgoing reason, including the conflation of refugee scholars with Nazi-associated recruits."
+      },
+      "connectionNotes": "Existing targets preserved. The Highjump, Thule/Vril, Tavistock, business-plot, and breakaway-civilization edges remain weak comparisons or claims about distinct histories; revised reasons avoid asserting a shared apparatus. Reassess inclusion in a separate graph review."
     },
     {
       "id": "p2-banco-ambrosiano",
@@ -1012,7 +1101,20 @@
       "id": "princess-diana",
       "category": "operations",
       "originalEssayWords": 6213,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3381,
+      "focus": "What the collision reconstruction, contested laboratory evidence, Diana’s recorded fears, and the actual inquest proceedings establish about her death.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the late rear-exit plan and information timeline, damage-based speed estimate, mechanical examination, real Fiat contact versus alleged blocking car, witness positions and light timing, toxicology across materials and retained-sample DNA limits, changing intelligence allegations, separate warning records, treatment chronology, embalming authorization, pre-transfusion pregnancy testing, and the contested verdict submissions. Added crash-test and authorization detail after identifying thin sections, then introduced the alleged royal author and motive early for new readers.",
+        "voice": "Replaced the repeated unprecedented-threat claims, predetermined-inquiry narrative, false choice between CCTV and toxicology, ritual/cross-case accumulation, and token closing rebuttal with a continuous examination of the case. A second pass cut repetitive instruction to the reader and mirrored disclaimers, using the decisions, documents, measurement limitations, and witnesses’ actual changes of view to carry the argument. Retained firm criticism of labeling and of the initial treatment of the prior warning without diagnosing Diana from a distance.",
+        "evidence": "Read the original node in full. Checked relevant Operation Paget passages on the pregnancy test and ring; the Mishcon and Burrell records; Paul’s appearance, sample documentation, carbon monoxide, consumed and DNA-tested samples, prescriptions and money; the mechanical examination; emergency care, hospital selection and embalming decisions; and the changing Tomlinson claims. Read the coroner’s actual ruling on verdicts, reconstruction, flashes, plan timing and paparazzi submissions, and the reproduced jury verdict. Checked the Dyson executive findings and HALO’s own account. Corrected the bodyguard-seatbelt exception, the claim that Fiat contact was unestablished or itself proved an ambush, the blanket original-sample DNA assurance, the asserted French pregnancy-testing autopsy, certainty beyond the hormone test’s early-pregnancy limits, the authorship/date and April 1996 timing of the warnings, and the claim Tomlinson saw Paul’s name in an MI6 file. Explained that police opposed one paparazzi-based verdict option and the coroner allowed it; unlawful killing was a gross-negligence finding, not a murder-conspiracy verdict or a conviction of named drivers. All four reasons were rewritten."
+      },
+      "connectionNotes": "The secret-societies edge has no evidential support in the collision record and remains weak. The operation-mockingbird edge is contrasting: pursuit and the separate documented BBC deception do not establish a CIA-directed narrative. Retained original targets for graph continuity; removed unsupported ritual/ancestry and intelligence-contact assertions."
     },
     {
       "id": "project-blue-beam",
@@ -1115,7 +1217,20 @@
       "id": "rfk-assassination",
       "category": "operations",
       "originalEssayWords": 6594,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 3612,
+      "focus": "How the close-range fatal wound, evidence against Sirhan, later firearms examination, and damaged investigative record bear on the competing reconstructions of the pantry shooting.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the actual defense of diminished capacity, pre-shooting preparation, uncertainty in a hostile prosecution witness, powder-pattern test setup, movement in the pantry, the eight-shot reconstruction, later firearms methods, and the distinction between the neck bullet and fatal fragments. Explained how trial strategy and later examination produced different degrees of certainty.",
+        "voice": "Removed the triumphant-election opening, enemy list as a murder explanation, repeated assertions of overwhelming conspiracy, and isolated token rebuttal. A second pass cut repeated editorial directions and mirrored disclaimers, replacing them with the positions, testing materials, preservation decisions, and changes in witness accounts that create the actual disagreement.",
+        "evidence": "Read the original node in full. Read the relevant autopsy summaries, wound and recovery descriptions, and test firings; the California Supreme Court evidence and psychiatric review; Kranz’s 1975 examination and evidence-preservation account and Cesar/Schulman interview comparisons; Serrano’s recantation transcript and the official tape inventory; the full substantive 2015 order; the January 2022 parole decision; and NARA release notes. Corrected autopsy wound locations, the assertion that more than eight shots are established by simple arithmetic, the claim the firearms challenge was never examined, the description of Schulman’s accounts as consistent, the claim of uniformly confirmed amnesia, and the parole-reversal year. Distinguished legal actual-innocence review from scientific resolution. Added contemporaneous 1988 reporting with Burns’s uncertainty about burned-photo subjects instead of calling every image a crime-scene photograph. Rewrote all six graph reasons."
+      },
+      "connectionNotes": "The shadow-elite and operation-mockingbird edges remain weak: political enemies and later media disputes do not establish a coordinating network or a CIA media operation. The COINTELPRO edge is contextual and contrasting, not evidence of a shared murder operation. Targets retained for graph continuity."
     },
     {
       "id": "rockefeller",
@@ -1322,7 +1437,20 @@
       "id": "tupac-biggie",
       "category": "modern",
       "originalEssayWords": 6637,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2952,
+      "focus": "What now distinguishes the two murder cases: Davis’s 2026 conviction, the evidence and contested statements behind it, and the unresolved Wallace case with documented concealment of police records.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the Quad interview as a first-person account of perceived betrayal, the MGM assault and retaliation sequence, the indictment’s alternative liability and shooter allegations, separate occasions on which Davis spoke, corroboration versus repetition, proffer protections, and the limits of the 2025 pretrial ruling. The depth pass added how investigators obtained the alleged Wallace intermediary’s account through a fabricated confession, the absence of an audio recording according to Kading, McClure’s competing explanation for shelving the task force, and Shakur’s musical and political background. Distinguished the family’s disclosure result from an unestablished murder allegation and explained the separate federal closure.",
+        "voice": "Removed the sweeping manufactured-feud and unified-state-operation narrative, repeated ominous associations, and unsupported claims of secret knowledge. The voice pass then cut generic evidence cautions and editorial commentary, replaced them with the interview’s reactions, specific investigative choices, the false-confession tactic, and the city’s actual discovery dispute. Reworked the opening and ending around the two cases’ different present outcomes, and reread the revised passages.",
+        "evidence": "Read the original node in full. Read both pages of the 2023 indictment through OCR; the substantive September 14, 2023 grand jury testimony; the November 2025 Nevada Supreme Court order; the full July 2005 mistrial order; relevant Poole interview passages; the police arrest press conference; the Wallace FBI January 2005 closing memo; the October 1996 Tupac inquiry’s opening communication; current official sentencing release and contemporary verdict/appeal reports; and Vogel’s reporting on Kading, the intermediary interview and McClure. Corrected the obsolete pending-trial account to the August 31, 2026 conviction and October 13 forty-years-to-life sentence, with appeal pending as reported in November. Corrected the inference that the verdict identifies a specific rear-seat gunman, the claim of a 4,000-page political-surveillance file, the 2010 dismissal’s meaning, and an initially ambiguous draft timeline for deaths of other suspects. Kept the June 2006 ruling rejecting deception by the family’s lawyers, rather than stopping at the city’s accusation. All four connection reasons were rewritten."
+      },
+      "connectionNotes": "The cia-drugs and gary-webb edges remain weak thematic associations, with no demonstrated operational connection; retained original targets and explicitly withdrew the old assertion that the murders and Contra trafficking were the same operation. The cointelpro connection concerns political background and the interpretation of FBI records, not an established continuation of that program."
     },
     {
       "id": "tuskegee-experiment",
@@ -1429,6 +1557,6 @@
     }
   ],
   "rewriteOrder": "Follow content/roadmap.json path, skipping nodes already marked rewritten.",
-  "lastCompleted": "jonestown",
-  "nextNode": "operation-paperclip"
+  "lastCompleted": "celebrity-27-club",
+  "nextNode": "paul-is-dead"
 }
