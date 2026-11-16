@@ -18,12 +18,13 @@ Every node file starts with YAML frontmatter:
 ---
 id: "dmt-entities"
 title: "DMT Entities"
+description: "An essay about reports of encounters during DMT experiences, what those reports share, and what they can establish."
 category: "mind"
 connections:
   - target: "altered-states"
-    reason: "DMT produces the most intense altered state known, with consistent entity contact reports"
+    reason: "DMT can produce intense changes in perception, including reports of encounters with apparently autonomous beings."
   - target: "consciousness"
-    reason: "The existence of seemingly autonomous entities challenges materialist models of consciousness"
+    reason: "These reports raise questions about how experience is generated; they do not by themselves establish independently existing entities."
 ---
 ```
 
@@ -31,21 +32,25 @@ connections:
 
 - `id` — unique identifier, lowercase with hyphens. Must match the filename (without `.md`).
 - `title` — display name of the node.
-- `category` — one of: `mind`, `origins`, `cosmos`, `power`, `reality`.
-- `connections` — the 2-5 strongest links to other nodes. Each has a `target` (the other node's id) and a `reason` (one sentence explaining why they're connected). These define the graph edges.
+- `description` — a short, accurate description of the essay's subject and focus, usually around 150–160 characters.
+- `category` — an id from `content/categories.json`: `mind`, `origins`, `cosmos`, `power`, `operations`, `modern`, or `reality`.
+- `connections` — usually 3–6 useful links for a new node. Each has a `target` and a short `reason` explaining a specific relationship. Existing connections should be reviewed deliberately when rewriting.
 
 ## Writing content
 
-### The only rule: make it worth reading.
+### The editorial bar
 
-There is no required structure. No forced sections. No template to follow. Some nodes will read like philosophical essays. Others like investigative journalism. Others like a scientist thinking out loud. The format should serve the topic, not the other way around.
+Read [the editorial standard](docs/editorial-standard.md). The house voice is plain and thoughtful: a clear point of view, concrete details, and room for doubt. Write a substantial essay, with enough explanation, historical context, evidence, and worked examples for the subject to be understood. There is no routine word ceiling. Develop a governing question and its supporting questions; link to neighboring essays for tangents and further depth.
+
+There is no compulsory section template. Orient the reader, develop the evidence, examine the difficulty, and arrive at a conclusion proportionate to what the essay established. The format should serve the argument.
 
 ### What makes a good node
 
-- **Narrative, not encyclopedic.** Don't summarize — tell the story. Why does this idea exist? What makes it compelling? What makes it unsettling?
-- **Present both sides.** The strongest case for, and the strongest case against. Don't mock believers or uncritically endorse claims. Map the intellectual landscape fairly.
+- **Focused and readable.** Give the reader a thread to follow. A story, worked example, or direct explanation can carry it. Do not tour every theory associated with the title.
+- **Weigh the evidence.** Explain serious competing readings fairly, in proportion to their support. Separate what happened, what someone interprets it to mean, and what remains conjecture.
 - **Make connections.** The real value of Apeirron is the web. Use `[[wiki links]]` throughout your text to connect to other nodes. Every link is a rabbit hole the reader can follow.
-- **Be specific.** Names, dates, papers, events. Vague hand-waving is not interesting. Specific claims with specific evidence are.
+- **Choose concrete details.** Use the names, dates, and examples that help the reader understand the argument. Explain unfamiliar terms where they matter.
+- **Write naturally.** Let sentences vary. Cut repeated conclusions, dramatic filler, and endings that inflate the stakes. Do not manufacture a personal voice with invented experiences.
 - **Treat every topic seriously.** Whether it's the hard problem of consciousness or ancient astronaut theory, the tone is the same: genuine inquiry.
 
 ### What makes a bad node
@@ -76,7 +81,7 @@ The purpose is simple: Apeirron maps ideas that are contested, speculative, and 
 
 ### Requirements
 
-- **Minimum 1 source per node.** More is better.
+- **Enough sources to support the actual essay.** A longer bibliography is not automatically better. Keep the sources used and cite important or contested claims inline.
 - **Each source must be specific.** Not "some studies show" — the actual study, with author, title, and year.
 - **Accepted source types:** academic papers, books (author + year), documentaries/videos (with timestamp), official documents, named interviews, investigative journalism (with publication name and date).
 - **URLs are encouraged** but not required — books and papers don't always have free links.
@@ -84,7 +89,7 @@ The purpose is simple: Apeirron maps ideas that are contested, speculative, and 
 
 ### Why this matters
 
-Without sources, a node is just an opinion. With sources, it's a map. PRs that add new nodes without a Sources section will not be approved.
+Sources let readers check an account. A bibliography alone does not establish that the cited material supports the prose. PRs that add nodes without a Sources section will not be approved.
 
 ## Wiki links
 
@@ -94,7 +99,7 @@ Use `[[double brackets]]` to link to other nodes inline. You can reference by id
 This connects to [[consciousness]] and also to [[The Hard Problem]].
 ```
 
-Both formats work. Links render as clickable inline references that open the target node. If the target doesn't exist yet, the link renders as a broken reference — which is fine, it signals a node that should be written.
+Both formats work; slugs are preferred. Links render as clickable inline references that open the target node. Check targets before adding them. Intentional forward references become proposed nodes; do not introduce them accidentally. The `[[slug|label]]` syntax is not supported.
 
 ## Categories
 
@@ -104,6 +109,8 @@ Both formats work. Links render as clickable inline references that open the tar
 | `origins` | Origins | Ancient civilizations, human evolution, lost history, megaliths, myths |
 | `cosmos` | Cosmos | Aliens, Fermi paradox, UFOs, space, multiverse |
 | `power` | Power | Control systems, banking, surveillance, secret societies, media |
+| `operations` | Operations | Documented covert operations, intelligence programs, contested historical events |
+| `modern` | Modern | Contemporary controversies, institutions, technology, and public claims |
 | `reality` | Reality | Nature of existence, time, simulation theory, physics |
 
 If you think a new category is needed, open an issue to discuss it before submitting a PR.
@@ -113,7 +120,7 @@ If you think a new category is needed, open an issue to discuss it before submit
 - One node per PR (unless they're tightly related and should be reviewed together)
 - Frontmatter must be valid YAML
 - All `connections[].target` values should reference existing node ids (or nodes included in the same PR)
-- Content should include at least 2-3 `[[wiki links]]` to other nodes
+- Include useful `[[wiki links]]` where a neighboring essay provides context or takes over a tangent
 - **Must include a `## Sources` section with at least one verifiable source**
 - Run `npm run build` locally to verify the site builds without errors
 
@@ -123,11 +130,13 @@ If you think a new category is needed, open an issue to discuss it before submit
 
 Found a node that could be better? PRs to improve existing content are welcome. You can:
 
-- Expand a section that's too thin
+- Develop a section that needs explanation, or cut a tangent that obscures the essay's question
 - Add connections that are missing
 - Fix factual errors
 - Improve the writing quality
 - Add `[[wiki links]]` to newly created nodes
+
+The reusable [write-node skill](.claude/skills/write-node/SKILL.md) covers the workflow for agents. The [editorial review](docs/editorial-review.md) explains the first batch; the [rewrite inventory](docs/node-rewrites.json) tracks all 198 nodes. When replacing an essay's body, withhold its old narration in `public/audio-manifest.json` until regenerated audio matches the text. Existing PDF/EPUB editions need separate regeneration.
 
 ## Questions?
 
