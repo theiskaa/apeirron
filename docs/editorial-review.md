@@ -982,3 +982,163 @@ The revised production build exits 0 (`/tmp/apeirron-rewrite-build-108-revised.l
 Batch 99–108 contains exactly ten essays: `reptilian-elite`, `schwab-wef`, `mass-surveillance`, `cbdc`, `big-pharma`, `gmo-monsanto`, `vaccine-autism`, `covid-lab-leak`, `aids-bioweapon`, `chemtrails`. Every body, description, outgoing reason, three-pass record and stale-audio removal has been checked. Remote fetch showed no incoming divergence before preparation of the authorized ten-essay commit. Unrelated `default.profraw` is excluded.
 
 Progress: **108 of 198 rewritten; 90 remain.** Next: `5g-covid`.
+
+
+### 5G health fears and a false pandemic mechanism checkpoint
+
+Rewrote `5g-covid` to 2135 essay words after three actual reviews. Rebuilt around the difference between viral transmission and exposure-health research. Three actual reviews develop physical quantities, measured fields, dated cancer evidence, a prospective cohort and blinded symptom study, and correct the public discussion record. Twelve voice revisions remove scaffolding and implied contempt. The2026animal-review correction and actualOfcomguidance decision are incorporated without inflating either.
+
+All 7 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 109 of198 rewritten;89 remain. Next: `directed-energy-wildfires`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 109
+
+`5g-covid` finishes at 2,090 essay words after three recorded reviews and a further reread of locally flagged passages. Six final revisions replace an abstract thesis, connect different exposure measures, remove generic biology and drafting signposts, and state the actual Ofcom balance of criticism and audience protection. Revised local RoBERTa/Desklib weighted signals are 0.04453/0.22896. Reread the highest opening/mechanism and human-cohort/symptom passages; models disagree and the scores are heuristic, not authorship proof. Retained the accurate research explanation rather than changing facts or adding artificial irregularity to reduce scores. No external submission or skill change.
+
+The revised production build exits 0 (`/tmp/apeirron-rewrite-build-109-revised.log`). Confirmed source-specific measured-field percentage, cohort size and diagnoses, recruitment dates, actual complaint count and updated correction in generated JSON and compiled HTML, sources treatment and withheld narration. All 198 nodes and 109 rewrites pass metadata/link/review/audio validation. Local content/build checks only; no deployment, new browser inspection, device measurement, medical experiment or independent clinical-data analysis claimed. Access limits and corrected inherited chronology, physical overclaims and broadcaster outcome are recorded in the inventory. No result or dataset fabricated.
+
+Progress: **109 of 198 rewritten; 89 remain.** Next: `directed-energy-wildfires`. Batch 99–108 was committed and pushed as `e89e7450cd6616c4842154bcd03b1ed0d5d6f939`, verified against the remote branch. This is the first essay of batch 109–118. Unrelated `default.profraw` remains excluded.
+
+
+### Wildfire ignition, uneven damage and directed-energy claims checkpoint
+
+Rewrote `directed-energy-wildfires` to 2025 essay words after three actual reviews. Three actual reviews replaced a broad theory catalogue with two documented fire sequences and a worked account of exposure and water distribution. Corrected the afternoon rekindling time, the utility’s changing account, the false pump-power explanation and the Camp Fire fatality/count confusion. Real weapons research is distinguished from evidence of use in these incidents; later offers and visible color are examined within what they can establish.
+
+All 6 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 110 of198 rewritten;88 remain. Next: `havana-syndrome`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 110
+
+`directed-energy-wildfires` finishes at 1,948 essay words after three recorded reviews and seven further revisions following a reread of locally flagged passages. Replaced generic testing language and a repeated verdict, kept the remaining embers explicit, and developed the difference between monitoring water and closing damaged connections. Local weighted RoBERTa/Desklib signals changed from 0.04995/0.32229 to 0.00975/0.12073. Reread the revised highest substantial opening/timeline and water/land passages. These heuristic signals do not prove authorship; no external submission or detector additions to the skill.
+
+Temporary tooling and logs from the prior runtime were no longer present after the runtime changed. Recreated the local model environment using the existing cached weights, reran the actual production build and checks, and stored the new evidence under `/Users/theiskaa/.cache/apeirron-editorial/` and `/Users/theiskaa/.cache/apeirron-build-110-revised.log`. Build exits 0 and completes the OpenNext bundle. Verified ignition time, separate fatality and plea counts, monitoring time and continued production in generated JSON and compiled HTML, sources styling and withheld narration. All 198 ids, preserved titles/categories/target order, rewritten-body links, three-pass records, word counts, audio removals and inventory cursor checked. Existing missing `industry-plants` graph targets are retained as inherited graph issues; pending-node alias syntax is not claimed fixed. Skill hash unchanged; `git diff --check` passes. No server data, deployment, new browser check, laser experiment, site inspection or forensic replication fabricated.
+
+Progress: **110 of 198 rewritten; 88 remain.** Essays through 108 are already pushed. This is the second completed essay in batch 109–118; `havana-syndrome` is next. Unrelated `default.profraw` remains excluded.
+
+
+### Havana symptoms, measurements and a changing intelligence record checkpoint
+
+Rewrote `havana-syndrome` to 2418 essay words after three actual reviews. Three actual reviews rebuild the essay around what each kind of evidence can establish. Explains the acoustic comparison, microwave-pressure mechanism, differing imaging study designs and functional diagnoses without turning a group result into an individual verdict. Updates the dated intelligence disagreement, June 2026 recall and device enquiry, and gives consent and access to care their own evidential place.
+
+All 5 outgoing reasons corrected; weak associations and source access limits are recorded in the inventory. Stale narration withheld. Progress: **111 of 198 rewritten; 87 remain.** Next: `water-fluoridation`. Local model checks, metadata/link/review/audio validation and production build are due. Skill unchanged.
+
+
+### Verification through essay 111
+
+`havana-syndrome` finishes at 2,375 essay words after three actual reviews and a further revision of the consent/payment ending. The local models disagree sharply: weighted RoBERTa/Desklib signals were 0.46894/0.01903, revised to 0.45527/0.02075. Reread the high RoBERTa consent and then intelligence/testimony passages, and the highest Desklib opening/acoustic and acquisition/consent passages. Kept the source-specific chronology, disputed claims and medical qualifications. The final revision explains freedom to refuse, narrows the payment programme to the DOJ population, removes a repeated causal checklist and ends at the clinical guidance’s concrete voluntary-registry provision. No factual alteration, fake personal voice or score target. These local heuristic results are not authorship proof; no external upload or skill change.
+
+Actual revised production build exits 0 and completes OpenNext (`/Users/theiskaa/.cache/apeirron-build-111-revised.log`). Confirmed the work-capacity count, median imaging delay, functional diagnoses, June 2026 recall and voluntary-registry ending in generated JSON and compiled HTML. Sources styling and withheld narration verified. All 198 ids, preserved metadata and target order, rewritten-body links, word counts, review records and inventory cursor validate; `git diff --check` passes. Existing inherited graph issues remain recorded, not silently claimed fixed. Local content/build checks only: no deployment, new browser inspection, clinical experiment, private-record access or independent intelligence authentication claimed.
+
+Progress: **111 of 198 rewritten; 87 remain.** Through 108 committed and pushed; three completed essays in batch 109–118. Next: `water-fluoridation`. Unrelated `default.profraw` remains excluded.
+
+
+### Fluoridation benefit, exposure and a shared decision checkpoint
+
+Rewrote `water-fluoridation` to 2268 essay words after three actual reviews. Three actual reviews replace the polemical historical catalogue with an account of additional dental benefit, exposure measures, neurodevelopmental evidence, industrial chemistry and the governance of a shared supply. Corrects the modern benefit’s unit and uncertainty, threshold claims, prospective-study interpretation and the legal effect of the 2026 vacatur; keeps consent and equitable prevention as substantive questions.
+
+All 6 outgoing reasons corrected; weak associations and source access limits are recorded in the inventory. Stale narration withheld. Progress: **112 of 198 rewritten; 86 remain.** Next: `great-reset`. Local model checks, metadata/link/review/audio validation and production build are due. Skill unchanged.
+
+
+### Verification through essay 112
+
+`water-fluoridation` finishes at 2,204 essay words after three actual reviews and a further locally prompted five-part revision. Reread the dental-comparison/replacement-prevention and historical/toothpaste passages, removing repeated cautions, making contemporary comparisons direct and correcting an unsupported generalization about past access to other fluoride sources. A final reread repaired the review/reviewers pronoun. Weighted local RoBERTa/Desklib signals: initially 0.17182/0.08892, revised 0.05198/0.04209, final checked 0.02783/0.04456. Reread the final highest substantial windows. These are heuristic signals, not authorship proof; retained accurate quantities and uncertainty. No external submission or skill change.
+
+Actual final production build exits 0 and completes OpenNext (`/Users/theiskaa/.cache/apeirron-build-112-final.log`). Verified the two-study sample, additional dental-benefit estimate, cohort analysis sample, distinct enforceable ceiling and dated appellate ruling in generated JSON and compiled HTML, plus sources styling and withheld narration. All 198 ids, preserved metadata/target order, rewritten-body links, counts, review records, audio removals and inventory cursor validate; `git diff --check` passes. Existing graph issues are not silently claimed fixed. The Cochrane final-published document was distinguished from an official embargoed draft and checked directly; no unpublished draft presented as the publication. Source access limits and corrected inherited study, pineal, industrial-motive and legal claims are recorded in the inventory. No water sample, IQ dataset, individual medical decision, legal advice, deployment or browser inspection fabricated.
+
+Progress: **112 of 198 rewritten; 86 remain.** Four completed essays in batch 109–118; through 108 already committed and pushed. Next: `great-reset`. Unrelated `default.profraw` remains excluded.
+
+
+### The Reset proposal and the institutions that could adopt it checkpoint
+
+Rewrote `great-reset` to 2247 essay words after three actual reviews. Three actual reviews replace a broad, insinuating policy catalogue with the June 2020 proposals, stakeholder decision rights, reporting metrics, a bounded partnership agreement and a worked EU recovery process. Auken’s earlier fictional scenario and Event 201 are read in their own forms and dates. Corporate-access criticism is retained without converting every network, forecast or shared goal into an implemented command.
+
+All 19 outgoing reasons corrected; weak associations and source access limits are recorded in the inventory. Stale narration withheld. Progress: **113 of 198 rewritten; 85 remain.** Next: `agenda-21`. Local model checks, metadata/link/review/audio validation and production build are due. Skill unchanged.
+
+
+### Verification through essay 113
+
+`great-reset` finishes at 2,247 essay words after three actual reviews. Local RoBERTa/Desklib weighted signals are 0.06115/0.05906. Reread the highest substantial closing accountability passage and the full metrics/partnership/EU-process window. The factual quantities, attribution and distinction between participation, reporting and legal adoption remain necessary; no further substantive revision was justified by those model signals alone. These are heuristic outputs, not proof of authorship. No external submission or writing-skill change.
+
+Actual production build exits 0 and completes OpenNext (`/Users/theiskaa/.cache/apeirron-build-113.log`). Verified the reporting-framework counts, prelaunch EU proposal date, green/digital allocation requirements and the no-rent premise of Auken’s scenario in generated JSON and compiled HTML, plus sources styling and withheld narration. All 198 ids, preserved metadata/target order, rewritten-body links, word counts, review records, audio removals and cursor validate; `git diff --check` passes. Final verification caught one trailing space, which was removed before repeating the diff check. All nineteen outgoing reasons were corrected, with weak conceptual associations flagged rather than converted into a shared operation. Source-access limits and the removal of unverified current fees, private-meeting claims, family psychology, ownership mandates and protest allegations are recorded. No book-wide reading, original viral-video inspection, private records, actual policy-outcome analysis, deployment or new browser verification claimed.
+
+Progress: **113 of 198 rewritten; 85 remain.** Five completed essays in batch 109–118; through 108 committed and pushed. Next: `agenda-21`. Unrelated `default.profraw` remains excluded.
+
+
+### Agenda 21 paragraphs and the rules made locally checkpoint
+
+Rewrote `agenda-21` to 2147 essay words after three actual reviews. Three actual reviews replace a broad conspiracy/defense catalogue with land and population provisions, the consultation route, a dated Oxford case and the later goals and Alabama response. Keeps real restrictions and political trade-offs visible while correcting adoption/signature confusion, document chronology, unsupported control claims and consultation arithmetic.
+
+All 9 outgoing reasons corrected; weak associations and source access limits are recorded in the inventory. Stale narration withheld. Progress: **114 of 198 rewritten; 84 remain.** Next: `technocracy`. Local model checks, metadata/link/review/audio validation and production build are due. Skill unchanged.
+
+
+### Verification through essay 114
+
+`agenda-21` finishes at 2,147 essay words after three actual reviews. Local RoBERTa/Desklib weighted signals are 0.03721/0.08338. Reread the highest substantial local-participation/Oxford and opening/land passages in full. Their specifics and qualifications earn their place; no substantive change was justified by a score alone. These local heuristics are not authorship proof. No external submission or change to the writing skill.
+
+The actual production build completes OpenNext (`/Users/theiskaa/.cache/apeirron-build-114.log`). Verified land and family-choice paragraph numbers, the six-road proposal, Alabama act number and later target count in generated JSON and compiled HTML. All 198 ids, preserved metadata/target order, rewritten-body links, word counts, reviews, audio removals and inventory cursor validate; sources styling and unchanged skill hash checked. `git diff --check` passes. Primary passages were read within the access limits recorded in the inventory; no full global implementation audit, raw Oxford recoding, current traffic-rule advice, deployment or new browser check claimed.
+
+Progress: **114 of 198 rewritten; 84 remain.** Six completed essays in batch 109–118; through 108 committed and pushed. Next: `technocracy`. Unrelated `default.profraw` remains excluded.
+
+
+### Technocracy, energy accounts and the purposes of expertise checkpoint
+
+Rewrote `technocracy` to 2218 essay words after three actual reviews. Three actual reviews replace a repetitive institutional genealogy with the original proposed operating rules, a worked bus-service case, dispersed knowledge and bounded expert delegation. Develops equality, future claims, forecast uncertainty and the challenge to public objectives; corrects Columbia withdrawal chronology and distinguishes a dated digital-euro proposal from expiring certificates.
+
+All 7 outgoing reasons corrected; weak associations and source access limits are recorded in the inventory. Stale narration withheld. Progress: **115 of 198 rewritten; 83 remain.** Next: `transhumanism`. Local model checks, metadata/link/review/audio validation and production build are due. Skill unchanged.
+
+
+### Verification through essay 115
+
+`technocracy` finishes at 2,227 essay words after three actual reviews and a further six-part revision prompted by rereading locally flagged passages. The revision makes a possible documentary connection concrete, distinguishes the retained market economy from energy allotments, explains Panetta’s conditional-payment example, and specifies possible routes of challenge. Local weighted RoBERTa/Desklib signals changed from 0.25233/0.02282 to 0.25103/0.01422. Reread the revised highest substantial institutional/ending and opening/historical windows in full. Kept the necessary distinctions despite model disagreement; no score target, external upload or detector instructions in the skill.
+
+Actual revised production build completes OpenNext (`/Users/theiskaa/.cache/apeirron-build-115-revised.log`). Verified the contemporary withdrawal date, recall fraction, two-year budget, reporting interval and named dated speaker in generated JSON and compiled HTML. All 198 ids, preserved metadata/target order, rewritten-body links, counts, review records, withheld narration, cursor and unchanged skill hash validate. Sources styling checked; `git diff --check` passes. Actual primary course and newspaper PDFs read within the recorded scope; no fictitious archive investigation, full book reading, new traffic dataset, implemented currency test, deployment or browser inspection claimed.
+
+Progress: **115 of 198 rewritten; 83 remain.** Seven completed essays in batch 109–118; through 108 committed and pushed. Next: `transhumanism`. Unrelated `default.profraw` remains excluded.
+
+
+### Transhumanist hopes and the abilities actually demonstrated checkpoint
+
+Rewrote `transhumanism` to 2317 essay words after three actual reviews. Three actual reviews rebuild the essay around a speech interface, a dated gene-therapy endpoint, a randomized aging-measure case, emulation success criteria and the proposed Singularity feedback. Develops personal identity, continuing support, unequal access and refusal without treating either liberation or domination as inevitable; corrects historical chronology and inherited clinical and philosophical overclaims.
+
+All 8 outgoing reasons corrected; weak associations and source access limits are recorded in the inventory. Stale narration withheld. Progress: **116 of 198 rewritten; 82 remain.** Next: `zeitgeist`. Local model checks, metadata/link/review/audio validation and production build are due. Skill unchanged.
+
+
+### Verification through essay 116
+
+`transhumanism` finishes at 2,289 essay words after three actual reviews and six further revisions following a full reread of locally flagged clinical/aging and uploading/forecast passages. Replaced editor-like treatment commentary with what the recipient undergoes, clarified transfer to another genetic target, developed the aging follow-up question and removed repeated definitions and verdicts. Local weighted RoBERTa/Desklib signals changed from 0.18406/0.05882 to 0.14589/0.10943; reread both revised highest substantial windows. The models disagree about the revision; retained source-specific numbers, qualifications and philosophical uncertainty. No score target, external submission or detector content added to the skill.
+
+Actual revised production build exits 0 and completes OpenNext (`/Users/theiskaa/.cache/apeirron-build-116-revised.log`). Verified electrode count, evaluable endpoint count, aging algorithm, corrected historical dates and dated forecast in generated JSON and compiled HTML. All 198 ids, preserved metadata/target order, rewritten-body links, counts, reviews, narration removals, cursor and unchanged skill hash validate; sources styling and `git diff --check` pass. Source access limits distinguish original abstracts/captions, selected roadmap pages, a proof copy and an unusable local download. No personal medical advice, clinical replication, full-paper access behind a browser check, future survival demonstration, deployment or new browser inspection claimed.
+
+Progress: **116 of 198 rewritten; 82 remain.** Eight complete in batch 109–118; through 108 committed and pushed. Next: `zeitgeist`. Unrelated `default.profraw` remains excluded.
+
+
+### Zeitgeist’s separate claims and their proposed synthesis checkpoint
+
+Rewrote `zeitgeist` to 2158 essay words after three actual reviews. Three actual reviews replace broad cultural verdicts with the guide’s reconstructed Horus, a dated engineering comparison and a worked monetary example. Separates private testimony from corroboration and economic diagnosis from an alternative’s decision rules. Distinguishes early films, movement and the later Requiem announcement without fabricated viewing or audience effects.
+
+All 8 outgoing reasons corrected; weak associations and source access limits are recorded in the inventory. Stale narration withheld. Progress: **117 of 198 rewritten; 81 remain.** Next: `venus-project`. Local model checks, metadata/link/review/audio validation and production build are due. Skill unchanged.
+
+
+### Verification through essay 117
+
+`zeitgeist` finishes at 2,118 essay words after three actual reviews and six further revisions prompted by a reread of locally flagged opening and alternative/movement/closing passages. Replaced abstract corroboration and trial language with a specific transport experiment, shortened the movement and later-film scope statements, and ended at the deposit/September11distinction. Local weighted RoBERTa/Desklib signals changed from 0.23255/0.05840 to 0.17699/0.03836. Reread both revised highest substantial windows in full; retained factual qualifications and limited scope. These are heuristic outputs, not authorship proof; no external upload or skill change.
+
+Actual revised production build exits 0 and completes OpenNext (`/Users/theiskaa/.cache/apeirron-build-117-revised.log`). A verification attempt while the build was still running correctly failed the completion-marker check; repeated only after observed completion. The subsequent checks pass: generated JSON and compiled HTML contain the qualified free-fall duration, explicitly hypothetical loan/repayment balances, dated movement account and Requiem announcement. All 198 ids, preserved metadata/target order, rewritten-body links, counts, reviews, audio removals, cursor and unchanged skill hash validate; sources styling and actual `git diff --check` pass. No new full-film viewing, audience-effect study, engineering replication, bank dataset, private-conversation authentication, deployment or browser inspection claimed. Source scope and corrections recorded in the inventory.
+
+Progress: **117 of 198 rewritten; 81 remain.** Nine complete in batch 109–118; through 108 committed and pushed. Next: `venus-project`. Unrelated `default.profraw` remains excluded.
+
+
+### Resource accounts, practical experiments and the choices they leave checkpoint
+
+Rewrote `venus-project` to 2228 essay words after three actual reviews. Three actual reviews rebuild the essay from the proposal’s own decision and feedback descriptions, joint design-center history and reported later research effort. Worked water, maintenance and repair-queue examples develop physical limits, uncertainty, priorities and appeal. Corrects categorical claims about no transition or no work attempted while distinguishing plans from validated performance.
+
+All 6 outgoing reasons corrected; weak associations and source access limits are recorded in the inventory. Stale narration withheld. Progress: **118 of 198 rewritten; 80 remain.** Next: `georgia-guidestones`. Local model checks, metadata/link/review/audio validation and production build are due. Skill unchanged.
+
+
+### Verification through essay 118
+
+`venus-project` finishes at 2,201 essay words after three actual reviews and a further five-part revision following full rereads of locally flagged experiment/closing passages. Removed a repeated opening, made the staged proposal direct, developed a conditional cooker/booking conflict and specified the resources and independent authority needed for an appeal. Local weighted RoBERTa/Desklib signals changed from 0.25752/0.09203 to 0.15698/0.07636. Reread revised highest substantial maintenance/transition and closing windows in full. Necessary source limits and hypothetical qualifications retained; no external submission, score target or skill change.
+
+Actual revised production build exits 0 and completes OpenNext (`/Users/theiskaa/.cache/apeirron-build-118-revised.log`). Verified the land expansion, purchase year, later design effort, distributed computing and conditional repair example in generated JSON and compiled HTML. All 198 ids, preserved metadata/target order, rewritten-body links, counts, review records, old narration removals, cursor and unchanged skill hash validate. Sources styling and `git diff --check` pass. Organization statements remain attributed within recorded access limits; no physicalsite inspection, independentproject-recordaudit, completeFrescobook reading, actualwater/repairdataset, trialperformance, deployment or newbrowserinspection claimed.
+
+Progress: **118 of 198 rewritten; 80 remain.** Batch 109–118 is reviewed and locally validated, ready for the authorized ten-essay commit and push. Next: `georgia-guidestones`. Unrelated `default.profraw` remains excluded.
