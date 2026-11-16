@@ -820,3 +820,165 @@ All 23 outgoing reasons corrected; weak associations are flagged in the inventor
 The production build exits 0 (`/tmp/apeirron-rewrite-build-98.log`). Checked the Helsinki date, special-research division, Streit proposal and veto/abstention distinction in generated JSON and compiled HTML, plus sources treatment, supported links and withheld narration. The content validator passes across all 198 nodes and 98 rewritten essays. Local content/build checks only; no deployment or new browser inspection. Source limits are recorded in the inventory, including selected book passages, the Council’s own account, the Allen transcription and the failed original-scan download, attributed organizers’ statements and no claim of independent tracing of every later policy.
 
 Progress: **98 of 198 rewritten; 100 remain.** Next: `reptilian-elite`. Batch 89–98 is complete: Scientology, Rothschild, Rockefeller, Vatican/Jesuits, CFR/Trilateral, Club of Rome, the Corporation, Climate Denial, Eugenics and New World Order. Ten essays, all descriptions and all outgoing reasons reviewed; old narration withheld. Commit scope excludes the unrelated `default.profraw`.
+
+
+### The Reptilian Elite checkpoint
+
+Rewrote `reptilian-elite` to 2028 essay words after three actual reviews. Rebuilt around how reports, objects, texts and images become claims of a literal nonhuman ruling group. Three reviews develop source circumstances and manuscript uncertainty, make fifteen voice revisions and six evidence/copy corrections, then refine the image limits. The actual survey and the direct use of a forged source replace sweeping headcounts, population psychology and word-for-word equivalence claims.
+
+All 8 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 99 of198 rewritten;99 remain. Next: `schwab-wef`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 99
+
+`reptilian-elite` finishes at 2,028 essay words after three recorded reviews. Local RoBERTa/Desklib weighted signals are 0.01048/0.03022. Reread the substantial high-scored survey passage and the ending; retained the actual denominator, inference limits and judgment. Desklib’s highest single window contained only 23 tokens and was not treated as a meaningful independent prose diagnosis. These heuristic signals do not establish authorship. No external submission or writing-skill change.
+
+The production build exits 0 (`/tmp/apeirron-rewrite-build-99.log`). Checked the cobra’s fitting, poll question/denominator and genomics passage in generated JSON and compiled HTML, sources treatment, supported links and withheld narration. Validation covers all 198 nodes and 99 rewritten essays. Local content/build checks only; no deployment, new browser inspection, specimen testing or forensic video examination. Source limits are recorded in the inventory, including the selected unofficial OCR passages and attributed reports, museum interpretation, actual poll, selected scholarly passages and interview rather than full book/documentary.
+
+Progress: **99 of 198 rewritten; 99 remain.** Next: `schwab-wef`. Batch 89–98 was committed and pushed as `7e4a970c9a5ce9abe166cbf33412d9a69150b76c`, with remote main verified at that hash. Essay 99 begins batch 99–108. The unrelated `default.profraw` remains excluded.
+
+
+### Klaus Schwab and the World Economic Forum checkpoint
+
+Rewrote `schwab-wef` to 2045 essay words after three actual reviews. Rebuilt around the Forum’s concrete routes to influence: selection and status, leadership relationships, risk framing and partnerships. Three reviews develop technical knowledge versus public authority, make twenty voice revisions and six evidence/copy corrections, followed by affected-passage rereads. The essay corrects the lecture date, current program format, founder’s departure and attributed inquiry outcome while preserving scrutiny of access and representation.
+
+All 11 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 100 of198 rewritten;98 remain. Next: `mass-surveillance`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 100
+
+`schwab-wef` finishes at 2,045 essay words after three recorded reviews. Local RoBERTa/Desklib weighted signals are 0.00715/0.15098. Reread the highest-scored substantial opening/access and stakeholder passages; retained the concrete historical study, attribution and authority distinction rather than pursue a score. These heuristic signals do not establish authorship. No external submission or writing-skill change.
+
+The production build exits 0 (`/tmp/apeirron-rewrite-build-100.log`). Checked the badge, risk-survey denominator, current cohort and co-chair affiliation in generated JSON and compiled HTML, sources treatment, supported links and withheld narration. Validation covers all 198 nodes and 100 rewritten essays. Local content/build checks only; no deployment or new browser inspection. The inventory records selected primary reporting and research, actual auto-captions rather than a claim of viewing/listening, unavailable financial table/full report, and an announcement rather than the complete partnership instrument or inquiry report. No financial, cabinet or test figures were fabricated to fill those gaps.
+
+Progress: **100 of 198 rewritten; 98 remain.** Next: `mass-surveillance`. Two essays in batch 99–108 are complete. The last pushed batch remains `7e4a970`; the unrelated `default.profraw` remains excluded.
+
+
+### Mass Surveillance checkpoint
+
+Rewrote `mass-surveillance` to 1979 essay words after three actual reviews. Rebuilt around what changes when records are collected before investigators know whom they want to search. Three reviews develop retention, query and technical compliance, make sixteen voice revisions and six evidence/copy corrections, and add a dated upstream mechanism/change after a final depth check. The actual orders, oversight disagreement, court holding and successive program changes replace a universal capability narrative.
+
+All 23 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 101 of198 rewritten;97 remain. Next: `cbdc`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 101
+
+`mass-surveillance` finishes at 2,002 essay words after three recorded reviews and a further voice reread. The first local detector review prompted inspection of the opening and ending, which were revised for actual editorial reasons: a staged introduction, an abstract description of a reader’s hesitation, and a repeated summary. Final RoBERTa/Desklib weighted signals are 0.00715/0.56982. Reread the highest-scored substantial opening/records and oversight passages; retained the concrete account and its evidence limits. The models disagree and these heuristics do not establish authorship. No external submission or writing-skill change.
+
+The revised production build exits 0 (`/tmp/apeirron-rewrite-build-101-revised.log`). Checked the alert-list failure, retention limit, excluded location information and study sample in generated JSON and compiled HTML, sources treatment and withheld narration. Validation covers all 198 nodes and 101 rewritten essays. Local content/build checks only; no deployment or new browser inspection. The source record distinguishes selected report passages and separate board statements, a visually checked four-page order, a court’s statutory holding, a full short agency statement, the successor-program fact sheet and selected research methods. It does not claim full classified records, all report pages, a rerun of the study or a current-law survey.
+
+Progress: **101 of 198 rewritten; 97 remain.** Next: `cbdc`. Three essays in batch 99–108 are complete. The last pushed batch remains `7e4a970`; the unrelated `default.profraw` remains excluded.
+
+
+### CBDCs and the Cashless Society checkpoint
+
+Rewrote `cbdc` to 2317 essay words after three actual reviews. Rebuilt around what changes for a person trying to make a payment. Three reviews develop the offline and bank-funding mechanisms, make twenty voice revisions and six evidence/copy corrections, and reread the affected passages. Concrete proposal differences and documented adoption difficulties replace inevitable surveillance, cash abolition and global-mandate claims.
+
+All 5 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 102 of198 rewritten;96 remain. Next: `big-pharma`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 102
+
+`cbdc` finishes at 2,317 essay words after three recorded reviews. Local RoBERTa/Desklib weighted signals are 0.00022/0.09297. Reread the highest-scored substantial intermediation and conditional-payment/privacy passages; retained the distinct actors, clearly hypothetical examples and dated proposals. These heuristic signals do not establish authorship. No external submission or writing-skill change.
+
+The production build exits 0 (`/tmp/apeirron-rewrite-build-102.log`). Checked the debit-card example, transaction count, conditional timetable, pseudonymous settlement and demonstration-study scope in generated JSON and compiled HTML, sources treatment, supported links and withheld narration. Validation covers all 198 nodes and 102 rewritten essays. Local content/build checks only; no deployment or new browser inspection. The inventory records actual selected primary readings, unavailable alternative links, and the distinction between proposals, demonstrations and issued money. No real-money test, implemented privacy guarantee, current adoption estimate or full legislative-status survey is claimed.
+
+Progress: **102 of 198 rewritten; 96 remain.** Next: `big-pharma`. Four essays in batch 99–108 are complete. The last pushed batch remains `7e4a970`; the unrelated `default.profraw` remains excluded.
+
+
+### Big Pharma and the Vaccine Conspiracy checkpoint
+
+Rewrote `big-pharma` to 2256 essay words after three actual reviews. Rebuilt around the scrutiny misconduct warrants and the evidence still needed for a particular vaccine claim. Three reviews expand methods and benefit interpretation, make twenty-one voice revisions and six final evidence/copy corrections, with affected-passage rereads. The essay corrects the corporate plea, publication categories, outcome-specific samples, reporting follow-up and dated safety measures without dismissing genuine harm.
+
+All 16 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 103 of198 rewritten;95 remain. Next: `gmo-monsanto`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 103
+
+`big-pharma` finishes at 2,210 essay words after three recorded reviews and a further voice reread. The first local review prompted inspection of the legal opening and benefit/comparison passage; cut a repeated legal summary and generic warning sentence and simplified the comparison and reporting-law transitions. Final RoBERTa/Desklib weighted signals are 0.02136/0.24587. Reread the highest-scored substantial opening/publication and benefit/access passages and retained factual qualifications that serve the reader. These heuristic signals do not establish authorship. No external submission or writing-skill change.
+
+The revised production build exits 0 (`/tmp/apeirron-rewrite-build-103-revised.log`). Checked the subsidiary, cohort, outcome-specific review sample, dated claims-based incidence and historical case count in generated JSON and compiled HTML, sources treatment, supported links and withheld narration. Validation covers all 198 nodes and 103 rewritten essays. Local content/build checks only; no deployment or new browser inspection. The inventory distinguishes direct agency/legal reporting from indexed primary study and investigative passages after inaccessible/blank direct pages, selected readings from full underlying records, and dated safety results from personal medical advice. No medical figures, patient records, database reanalysis or successful external tests were fabricated.
+
+Progress: **103 of 198 rewritten; 95 remain.** Next: `gmo-monsanto`. Five essays in batch 99–108 are complete. The last pushed batch remains `7e4a970`; the unrelated `default.profraw` remains excluded.
+
+
+### GMO, Monsanto and Roundup checkpoint
+
+Rewrote `gmo-monsanto` to 2288 essay words after three actual reviews. Rebuilt around the crop trait, herbicide exposure and company conduct. Three reviews develop selection, source-tracing and legal reproduction, make twenty-two voice revisions and six final evidence/copy corrections, and reread affected passages. The essay adds the actual retraction notice and EPA response, updates the pending review and appellate award, and removes blanket food-safety and capture claims.
+
+All 5 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 104 of198 rewritten;94 remain. Next: `vaccine-autism`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 104
+
+`gmo-monsanto` finishes at 2,288 essay words after three recorded reviews and a final correction to avoid implying that all cohort exposure information preceded every cancer outcome. Local RoBERTa/Desklib weighted signals are 0.00206/0.17275. Reread the highest-scored substantial opening/trait passages and retained the distinction between a changed plant, worker exposure and seed rights. These heuristic signals do not establish authorship. No external submission or writing-skill change.
+
+The production build exits 0 (`/tmp/apeirron-rewrite-build-104.log`). Checked the applicator cohort, reduced appellate award, printed retraction date, mechanism term and seed-purchase setting in generated JSON and compiled HTML, sources treatment, supported links and withheld narration. Validation covers all 198 nodes and 104 rewritten essays. Local content/build checks only; no deployment or new browser inspection. The inventory distinguishes report summaries from full dossiers, public indexed primary abstract/notice from underlying studies and correspondence, and selected primary opinion passages from all trial exhibits. EPA’s pending review and stated response to retraction are attributed, not represented as a completed update or independent audit. No field, exposure or legal outcome was fabricated.
+
+Progress: **104 of 198 rewritten; 94 remain.** Next: `vaccine-autism`. Six essays in batch 99–108 are complete. The last pushed batch remains `7e4a970`; the unrelated `default.profraw` remains excluded.
+
+
+### Vaccines and Autism: The Wakefield Affair checkpoint
+
+Rewrote `vaccine-autism` to 2278 essay words after three actual reviews. Rebuilt around the difference between checking a report and testing its causal claim. Three reviews add a blinded tissue experiment, deepen comparison and selection, make twenty-one voice revisions and eight evidence/copy corrections, then reread affected passages. The essay corrects payment chronology, laboratory controls, the doctors’ distinct outcomes, cohort follow-up, thimerosal and outbreak measures while retaining families’ need for an accurate and humane response.
+
+All 7 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 105 of198 rewritten;93 remain. Next: `covid-lab-leak`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 105
+
+`vaccine-autism` finishes at 2,278 essay words after three recorded reviews and a final removal of a repeated subgroup-prediction sentence. Local RoBERTa/Desklib weighted signals are 0.00034/0.16811. Reread the highest-scored substantial retraction/appeal/mechanism and concluding support passages; retained the factual distinctions and humane ending. These heuristic signals do not establish authorship. No external submission or writing-skill change.
+
+The production build exits 0 (`/tmp/apeirron-rewrite-build-105.log`). Checked accumulated payments, the actual higher-risk subgroup, distinct preservative cohort, confirmed outbreak count and vaccinated status of both tissue-study groups in generated JSON and compiled HTML, sources treatment and withheld narration. Validation covers all 198 nodes and 105 rewritten essays. Local content/build checks only; no deployment or new browser inspection. The inventory records selected original-paper sections, full short retractions, an official appeal judgment and actual primary study methods/results, rather than a claim to all patient records, complete GMC files, all supplements or an independent clinical experiment. No patient histories, outcomes or figures fabricated.
+
+Progress: **105 of 198 rewritten; 93 remain.** Next: `covid-lab-leak`. Seven essays in batch 99–108 are complete. The last pushed batch remains `7e4a970`; the unrelated `default.profraw` remains excluded.
+
+
+### COVID-19 and the route to the first infection checkpoint
+
+Rewrote `covid-lab-leak` to 2445 essay words after three actual reviews. Rebuilt around evidence that could distinguish an animal spillover from a research-associated incident. Three reviews develop geography and sampling, explain the laboratory evidence and missing chain, remove eleven mechanical or overstated passages, and check actual dated records. Strong June2026 allegations are attributed and selected underlying documents examined without claiming a full release audit. The proposal, audit and conflict disclosure are treated within their scope.
+
+All 9 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 106 of198 rewritten;92 remain. Next: `aids-bioweapon`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 106
+
+`covid-lab-leak` finishes at 2,422 essay words after three recorded reviews and a further reread of locally flagged passages. Removed editorial commentary about study limitations, generic release-date signposting and a closing moral list; the revised ending identifies the specific grant-monitoring responsibility. Local RoBERTa/Desklib weighted signals are 0.06078/0.03945; the highest substantial windows remain the dated-document/conclusion and mixed-swab/laboratory sections, which were reread. Heuristic signals do not establish authorship. No external submission or skill change.
+
+The revised production build exits 0 (`/tmp/apeirron-rewrite-build-106-revised.log`). Confirmed case and animal sample numbers, original LLNL date, forwarded2024report and reporting delay in generated JSON and compiled HTML, sources treatment and withheld narration. Validator covers all198nodes and106rewrites. Local content/build checks, no deployment or browser claim. Original essay read in full; primary research and access limits are recorded in the inventory, including selected sections of the2026release rather than all files. No biological incident, classified finding, clinical record or test fabricated.
+
+Progress: **106 of198 rewritten;92remain.** Next: `aids-bioweapon`. Eight essays in batch99–108complete; last pushed batch remains `7e4a970`. Unrelated `default.profraw` excluded.
+
+
+### AIDS as Bioweapon: specimens before recognition checkpoint
+
+Rewrote `aids-bioweapon` to 2456 essay words after three actual reviews. Rebuilt around the direct early specimens and the evolutionary claims they can test. Three actual reviews deepen sample authentication and molecular-clock limits, add the 1966 genome and actual 1984 vaccine inquiry, make ten voice revisions and distinguish historical wrongdoing from origin evidence. Corrected the false claim that Tuskegee researchers deliberately infected the men and removed an unverified vaccine-lot citation.
+
+All 5 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 107 of198 rewritten;91 remain. Next: `chemtrails`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 107
+
+`aids-bioweapon` finishes at 2,456 essay words after three recorded reviews. Local RoBERTa/Desklib weighted signals are 0.00627/0.19003. Reread the highest-scored opening/authentication and campaign/medical-abuse passages; retained the factual explanation and specific authentication checks. Heuristic scores do not establish authorship. No external submission or skill change.
+
+The production build exits 0 (`/tmp/apeirron-rewrite-build-107.log`). Checked tissue/specimen counts, model interval and 1966 record, actual 1984 vaccine report and corrected Tuskegee statement in generated JSON and compiled HTML, sources treatment and withheld narration. All198nodes/107rewrites pass metadata/link/review/audio validation. These are local content/build checks, not a deployment or new browser inspection. The source-access limits are recorded: primary indexed selected study methods/results and reproduced archival translations, actual short CDC texts/PDF, no complete clinical archive, supplied-book reading or genetic reanalysis claimed. An inherited unverified paper citation was replaced with a verified historical report, not fabricated support.
+
+Progress: **107 of198 rewritten;91remain.** Next: `chemtrails`. Nine essays in batch99–108complete. Last pushed batch remains `7e4a970`; unrelated `default.profraw` excluded.
+
+
+### Chemtrails: identifying the material and the release checkpoint
+
+Rewrote `chemtrails` to 2153 essay words after three actual reviews. Rebuilt around what photographs, samples and documents can establish. Three reviews explain persistent ice and its climate effects, develop actual sampling distinctions, correct the patent mechanism and SCoPEx stages/enddate, and include the 2026 reporting audit without treating errors as covert-flight counts. Twelve voice revisions remove editorial scaffolding and dismissive wording. Historical misconduct remains within its documented scope.
+
+All 6 outgoing reasons corrected; weak associations are flagged in the inventory. Stale narration withheld. **Progress:** 108 of198 rewritten;90 remain. Next: `5g-covid`. Metadata/link/review/audio validation, both local detector checks and production build are due. The writing skill remains unchanged.
+
+
+### Verification through essay 108 and batch 99–108
+
+`chemtrails` finishes at 2,106 essay words after three recorded reviews and a further reread of locally flagged opening and governance passages. Merged repetitive thesis paragraphs, removed self-description of the governance argument, and replaced a mirrored verdict with the audit’s specific reporting problem. Revised local RoBERTa/Desklib weighted signals are 0.00099/0.09763. Reread the highest substantial opening and climate/sampling windows; preserved the relevant mechanisms and distinctions. These are heuristic signals, not proof of authorship. No external submission or skill change.
+
+The revised production build exits 0 (`/tmp/apeirron-rewrite-build-108-revised.log`). Checked corrected photo denominator, no-release test stage, filed-report error statement, patent number and actual historical test date in generated JSON and compiled HTML, sources treatment and withheld narration. Metadata/link/review/audio validation covers all 198 nodes and 108 rewrites. Local content/build checks only; no deployment or new browser inspection. Source-access limits are recorded in the inventory, including selected report passages and public indexed originals rather than complete inaccessible papers. The jar example is a stated hypothetical; no environmental, flight, exposure or health experiment was performed or fabricated.
+
+Batch 99–108 contains exactly ten essays: `reptilian-elite`, `schwab-wef`, `mass-surveillance`, `cbdc`, `big-pharma`, `gmo-monsanto`, `vaccine-autism`, `covid-lab-leak`, `aids-bioweapon`, `chemtrails`. Every body, description, outgoing reason, three-pass record and stale-audio removal has been checked. Remote fetch showed no incoming divergence before preparation of the authorized ten-essay commit. Unrelated `default.profraw` is excluded.
+
+Progress: **108 of 198 rewritten; 90 remain.** Next: `5g-covid`.

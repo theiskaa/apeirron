@@ -36,7 +36,20 @@
       "id": "aids-bioweapon",
       "category": "operations",
       "originalEssayWords": 8350,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2456,
+      "focus": "How do archived human specimens, viral family trees and wild-ape reservoirs test a recent bioweapon origin for pandemic HIV-1 group M, and what does documented medical abuse establish separately?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed recognition versus infection, antibody versus sequence evidence, repeated recovery and independent blinded confirmation, a molecular clock and common-ancestor versus first-spillover dates, wild-reservoir sampling and actual specimens versus individuals. Added the 2020 near-complete 1966 genome as a check on inference and explained the distinction between creation, accidental introduction and medically amplified spread.",
+        "voice": "Made ten targeted revisions after a sentence-level reread: removed ritual significance statements, a family-resemblance straw man and instructions about what the reader should find reasonable. Kept the argument in concrete samples and comparisons, shortened the three-encounter summary, and corrected the ending to describe specimen limits rather than assuming what personal accounts the patients left. Reread the affected passages.",
+        "evidence": "Checked dated specimens and authentication, source-specific clock estimates, reservoir methods, polio-stock testing and the distinct Kisangani SIV comparison, actual 2016 archival-cohort methods and the 1984 CDC vaccine inquiry. Added credible-interval meaning and the observational comparator’s limits. Distinguished actual translated propaganda records from unresolved Segal involvement, and withholding treatment at Tuskegee from intentional exposure in Guatemala. Replaced language that could concede manufacture as fact; reviewed all five reasons."
+      },
+      "connectionNotes": "All five targets/order retained; each reason rewritten. MKUltra, Tuskegee, anthrax and eugenics are ethical or evidential comparisons, not proof of shared authors, a source or a pathogen-design program. Read the entire 60,035-character inherited essay and bibliography. The inherited Gruber/Jonathan 2001 vaccine-lot citation could not be verified; search returned the corpus itself rather than an identifiable paper. Removed it and used the actual December 1984 MMWR first two substantive pages. Also removed unverified MacArthur appropriation/implementation claims and broad Gallo, NSSM200, sterilization, pricing, CIA-drug and global-count tangents rather than claiming to verify them. Source access: actual short 1981 MMWR, CDC HIV/Tuskegee pages and 1984 PDF; public indexed original abstracts/selected methods/results of Zhu1998, Worobey2008/2016, Keele2006, Faria2014, Gryseels2020 and vaccine papers2001/2004. Normal PMC attempts returned challenges and Nature IDP failed; no bypass, full-text or supplement claim. Actual translated KGB/Stasi passages reproduced by original archival researchers were read; separate Wilson archive endpoints502, not claimed independently inspected. Guatemala commission cover/primary educational findings read in public index; direct archive failed. No supplied book, full clinical/archival file or independent genetic reanalysis claimed. No patient history, outcome, hidden funding or biological experiment fabricated. Skill unchanged."
     },
     {
       "id": "alchemy",
@@ -171,7 +184,20 @@
       "id": "big-pharma",
       "category": "modern",
       "originalEssayWords": 11145,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2210,
+      "focus": "What should documented pharmaceutical misconduct change about scrutiny of a vaccine claim, and what must still be established about the particular product and outcome? Develop legal accountability, publication bias, controlled comparison, safety signals, dated risk measures and practical disclosure.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Rebuilt around promotion and publication, then case-series versus population comparison, safety reporting, a real pause and dated warning, and enforceable access to evidence. Expanded age-matched background comparisons, outcome definitions and relative versus absolute benefit; retained the substantive mechanism rather than a catalogue of scandals and unrelated cures.",
+        "voice": "Made twenty-one specific revisions to the opening, abstract transitions, mirrored verdicts and headings. Preserved the patient’s stake and the difficulty of finding missing evidence without an invented narrator. A subsequent reread removes an editorial aside and clarifies the warning language. A follow-up reread cuts a repeated criminal/civil summary and a generic warning conclusion, simplifies the infection-comparison passage and makes the reporting-law transition direct.",
+        "evidence": "Checked the Bextra criminal/civil distinction, exact publication-study categories and limits on assigning blame, indexed primary MMR cohort and outcome-specific review samples, VAERS follow-up versus causality, the historical Janssen sequence, and the 2025 formulation/age/window/unadjusted heart-inflammation measure. Kept MRI follow-up distinct and prognosis uncertain. Source limitations are explicit; no database reanalysis, full confidential chart review or current individual medical recommendation claimed."
+      },
+      "connectionNotes": "All sixteen targets/order retained and reasons rewritten. Chemtrails, NWO, QAnon, Great Reset, identity/censorship, pharmacratic and cross-industry edges are conceptual comparisons or claims needing separate records, not established causal/organizational chains. The original’s Vioxx/opiates/fluoride/cannabis/suppressed-cure/censorship/eugenics catalogues are not presented as newly verified histories. Actual source access: DOJ/FDA factual sections read directly; NEJM abstract/results/selected discussion, BMJ original investigative passages, PubMed cohort abstract and Cochrane review abstract/results read through public indexing after direct journal/VAERS403s or blank PubMed rendering. No bypass, complete underlying reports/records or independent reanalysis. ClinicalTrials guidance read via public indexed official sections; direct app rendered shell. Checked a misleading indexed retraction reference against the actual notice: it retracts Jake Crosby’s separate letter DOI L19-0381/PMID31476223, not the Hviid cohort M18-2101/PMID30831578. Safety estimates are dated and outcome/formulation-specific; no all-cases-mild claim, universal infection comparison, current clinical schedule or recommendation. The skill remains unchanged."
     },
     {
       "id": "bilderberg",
@@ -252,7 +278,20 @@
       "id": "cbdc",
       "category": "modern",
       "originalEssayWords": 4742,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2317,
+      "focus": "What would a retail CBDC change about the power to see, permit and refuse a payment? Follow liability, intermediation, conditional payments, data separation, offline security, bank funding and practical adoption rather than infer every possible control from the label.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed liability versus wallet provision, a parcel-payment/food-restriction comparison, data separation and holding-limit enforcement, a two-shop offline double-spending example, loan-created deposits versus funding, and the eNaira’s first-year adoption problem. Added substantive explanations after the first draft rather than padding the original global-convergence narrative.",
+        "voice": "Made twenty specific revisions to replace a question-chain opening, editorial announcements, repeated reversals and generic transitions; then corrected three repetitions found on rereading. Concrete, explicitly hypothetical customer and merchant situations carry the explanation without an invented personal narrator.",
+        "evidence": "Verified selected primary BIS/Fed/PBOC/BoE/ECB documents, the EDPB/EDPS executive summary and selected IMF first-year methods/results. Corrected debit versus credit card, dated design commitments and policy changes, checked the conditional 2029/2026 timeline, and avoided treating a transaction/wallet ratio as a count of distinct inactive people. No claim of production tests, full reports/code audits or complete current US legislative research."
+      },
+      "connectionNotes": "All five targets and order retained with rewritten reasons. Great Reset and technocracy are conceptual comparisons, not established implementation chains. Source limits: selected portions of 2020 BIS, 2022 Fed, 2021 PBOC, 2025 ECB and 2014 BoE PDFs; full selected web sections rather than complete underlying code/law; EDPB/EDPS executive summary rather than all 34 pages; selected 2023 IMF first-year passages rather than all 46 pages or current adoption. BoE offline experiments used demonstration systems, not real-money transactions; no local currency test claimed. eLibrary/EDPS alternate PDFs failed and the EDPB news link redirected; accessible official IMF/EDPB document copies used normally. Congress access was blocked and no assertion that a bill became law was retained. No video/audio was viewed: viral remarks, Canada, blanket social-credit coupling and unverified bibliography were removed rather than passed off as checked."
     },
     {
       "id": "celebrity-27-club",
@@ -302,7 +341,20 @@
       "id": "chemtrails",
       "category": "operations",
       "originalEssayWords": 4709,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2106,
+      "focus": "What would distinguish a persistent aircraft contrail from a deliberate covert release, and how do trail appearance, chemical samples, historical programs, patents and current reporting records bear on that identification?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed formation and persistence at flight level, apparent proximity and interrupted/gridded trails, a day/night energy example, hypothetical rain collection and field blanks, filtered versus whole-water methods and source attribution. Added SCoPEx technical review versus missing engagement and clarified that errors among filed reports do not count undisclosed flights.",
+        "voice": "Made twelve revisions after reading sentence by sentence. Stated the supported judgment early, removed a persistence/inference drumbeat and harmlessness straw man, replaced supposed/imagined language, removed a drafting aside from the hypothetical jar example, made the research citation natural, corrected an overgeneral patent heading and removed commentary aimed at the old draft’s wrong report date. Reread affected passages. A further reread of locally flagged opening/governance passages merged two repetitive thesis paragraphs, removed self-description of the governance argument and replaced a mirrored negative/positive verdict with the audit’s specific reporting problem.",
+        "evidence": "Checked actual 2025 contrail explanations, NASA energy balance, ATSDR occurrence, USGS methods, primary expert-study abstract and correction, actual 1967 Popeye memo, indexed original 1996 cover/disclaimer and official historical entry, actual patent mechanism, 2023 OSTP scope, 2024 Harvard termination and selected SCoPEx report, and 2024/2026 GAO findings. Defined aerosol/stratosphere/infrared and NOAA. No claim that all geoengineering is hypothetical or that reporting is complete; no field measurements or exposure findings invented."
+      },
+      "connectionNotes": "All six targets/order retained and reasons rewritten. Most are conceptual or methodological comparisons; no conductive HAARP particle system, pharmaceutical disease-creation model, inevitable world government, continuous military airline program or common activist lineage is asserted. The entire inherited 36,345-character essay was read. Removed unverified Project SHAD counts/health conclusions, radiation insinuations, universal rainwater backgrounds, granite/aluminum claims, invented publication scene, patent-number catalogue and broad billionaires/intent claims rather than pretending to verify them. Source access: actual short EPA/FAA pages and selected joint fact sheet; primary indexed NASA, ATSDR and USGS methods/control passages; Carnegie primary study abstract and actual indexed correction, IOP robots denied and UCI supporting page403. Original1996cover/disclaimer publicly indexed and official Air Force history entry indexed, full DTIC unavailable and other public copies403; no bypass or wholepaper claim. Actual patent abstract/description read. Actual 1967 memo, 2023 OSTP opening/scope, 2024 GAO highlights and2026audit highlights/methods read, not entire long reports. Harvard statement read and actual235page committee PDF selected pages1–6/60 read; no all-appendix claim. A failed water-control PDF was supplemented by actual USGS primary indexed control definitions and filtered/whole-water methods, not fabricated sampling. No external message, flight/air/soil monitoring or independent attribution test performed. Skill unchanged."
     },
     {
       "id": "cia-drugs",
@@ -461,7 +513,20 @@
       "id": "covid-lab-leak",
       "category": "modern",
       "originalEssayWords": 10961,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2422,
+      "focus": "What evidence distinguishes animal-to-human spillover from a research-associated incident, and what do market geography, mixed swabs, research proposals, oversight failures and dated official records actually establish about the first infection?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed 155 mapped cases/120 without known market links, ascertainment limits, late animal sampling and mixed-species swabs; explained sequences versus infectious isolates and distant relatives versus an immediate precursor. Added spike/cleavage definitions. Replaced a generic map verdict with what the case set misses. Preserved the serious alternative of market amplification without claiming it is demonstrated.",
+        "voice": "Made eleven sentence-level revisions after a complete reread: stated the supported judgment early, removed the question chain and generic caution bridges, replaced a harmlessness straw man with contact/material/safeguard questions, cut repeated audit verdicts and an unsupported lost-opportunity claim, and made the disclosure/trust issue specific to accessible records. Reread affected passages in sequence. A further reread of locally flagged passages removed a comment about how to read study limitations, replaced generic document-date commentary with the actual risks of redating a finding/counting a public report twice, and replaced a closing three-part moral list with the specific funding-monitoring failure.",
+        "evidence": "Traced case/sample counts, dates, study limitations, intelligence assessment scope, proposal versus implementation, audit scope and actual expanded disclosure to primary records. Added necessary acronyms and virus/disease distinction. Dated the June2023/June2025 assessments and attributed stronger June2026 ODNI allegations; checked selected underlying 2020/2024 documents so declassification and forwarding are not mistaken for a new independently verified origin finding. No complete release audit or independent sequence/clinical reanalysis claim."
+      },
+      "connectionNotes": "All nine targets/order retained and reasons rewritten. Surveillance/control, pharma revenue, Iraq, anthrax, MMR and wireless claims are adjacent ethical or evidential comparisons, not origin proof or a single institutional program. Original assertions of a proven Fort Detrick attack-source chain, identical suppression mechanism, shared actors and universal control are removed. Source limits: entire inherited84,782chars read; selected actual SAGO executive/biosafety/discussion/conclusion pages, actual2023ODNI substantive report, selected actual75pageDEFUSE proposal, actual2024official hearing excerpts, OIG public findings/scope rather than fullaudit, actualLancet addendum, public indexed Proximal Origin passages after direct failures, selected actualScience results and indexedCell methods/limitations; Nature surveillance abstract obtained by ordinary direct access after earlier failures. No challenge bypass, no paid-text claim, no original datasets or all supplements independently reanalyzed. June2026release read; Part1actualPDF94pages, OCRpages1–4 and selected28–29/40 read, not completebundle orParts2/3. LLNLassessment datedMay27,2020/equal-weight alternatives; December2024email forwards public congressionalreport. Current intelligence-position table deliberately omitted because current primary agency-by-agency records not obtained. No fabricated medical histories, labincident, political motive, numbers or tests. Skill unchanged."
     },
     {
       "id": "crop-circles",
@@ -740,7 +805,20 @@
       "id": "gmo-monsanto",
       "category": "modern",
       "originalEssayWords": 2672,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2288,
+      "focus": "How can a reader judge an engineered crop, glyphosate exposure and Monsanto’s conduct without allowing one answer to stand in for the others? Develop trait and resistance mechanisms, bounded food findings, differing carcinogenic assessments, the AHS, retraction, patent reproduction and a worker’s warning claim.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Explained herbicide tolerance versus insect resistance, why pesticide totals obscure substance and exposure, a weed-selection scenario, the scope of the food review, hazard/risk disagreement and the later AHS, a citation-to-experiment check, and legal reproduction versus biological reproduction. The worker’s claim retains its own evidence and appellate limits rather than become a verdict on all crops.",
+        "voice": "Made twenty-two specific revisions to the clipped opening, abstract transitions, mirrored warnings and repeated negative verdicts. Preserved field, selection, study-tracing and seed examples. Replaced sweeping manufactured-consensus language with specific contributions, records and a worker’s need for warnings.",
+        "evidence": "Checked the 2016 review’s scope, IARC’s public-evidence rule, ECHA hazard disagreement, EFSA data gaps, the 2018 cohort’s chronology/findings/AML caveat, the 2026 printed retraction notice and its disclaimer, pending 2026 EPA update and its stated reliance on original studies, Bowman’s limited holding and Johnson’s reduced appeal award. No full-dossier, all-email, current all-litigation or independent reanalysis claim."
+      },
+      "connectionNotes": "All five targets/order retained and reasons rewritten. Corporate form, industry publication and food-system links are specific comparisons, not a finding that every regulator is captured or all science manufactured. The crop/vaccine-paper edge is methodological; no claim of identical fraud or history. Source access: FDA primary pages/PDF selected sections, NAS official report summary (not whole book), IARC three-page Q&A, EFSA factual summary (not full dossier), selected EPA current page, AHS indexed abstract/method passages after direct PMC challenge (not bypassed), public indexed full journal retraction notice after publisher403, and actual primary opinion texts reproduced by Justia. Court selected passages read, not every trial exhibit; a failed guessed Supreme Court PDF was replaced by an ordinary public opinion copy, not a bypass. The 2024 label opening was a lead only, not full45pages. Bayer’s own closing account verifies historical ownership, not all later claims or settlement values. Golden Rice/Indian suicides/Terminator/Forbes/Séralini and original broad book citations removed rather than presented as checked. No field outcomes, chemical exposure figures or legal dispositions fabricated. Skill unchanged."
     },
     {
       "id": "gnosticism",
@@ -1182,7 +1260,20 @@
       "id": "mass-surveillance",
       "category": "modern",
       "originalEssayWords": 7756,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2002,
+      "focus": "What happens when records are collected before identifying a particular suspect? Follow the historical telephone and Section 702 arrangements through collection, retention, query, dissemination and concrete oversight/reform outcomes, without treating every system as one unlimited capability.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read all 61,476 bytes/61,212 characters of the original, all 23 reasons and bibliography. Rebuilt around the reversal in which records are acquired before an investigator selects a person of interest. Explained provider-made records versus content, selector approval and contact chaining, inference versus guilt, repository retention versus retrieved results, provider-assisted PRISM versus upstream, incidental US communications, oversight disputes and actual changes. The depth review develops the differing five-year/query-result retention, adds the documented 2009 alert-list failure and explains the US-person category. Later evidence review develops the thin upstream passage through a selected-identifier mention and the documented 2017 curtailment, then rereads the affected mechanism. The clinic and contact-chain examples are explicit general illustrations, not invented observed data or a tested patient/network case. The final study passage explains method and limits rather than using a universal chilling percentage.",
+        "voice": "Made sixteen voice revisions replacing bridge/abyss theater, omniscience claims, universal panopticon imagery, significance cues, rhetorical question chains and repeated editorial directions with the order’s actual records and the life of the data. Reread the opening, clinic example, query/retention sequence, targeting distinction, alert-list incident, reform and chilling passages. Six evidence/copy corrections and a final historical-upstream sentence refine the account, including the caller versus clinic number and consistent past tense. The final judgment follows the record from collection through later use, while retaining a serious critique of broad collection without claiming every reform is fictitious. A follow-up reread replaces the staged opening, repeated collection summary and abstract chilling-effect passage with the order and a plainly hypothetical reading decision; the ending returns directly to collection.",
+        "evidence": "Downloaded the complete four-page BR 13-80 secondary order from the University of Michigan Clearinghouse’s S3 reproduction after its catalog page returned 403. Read all four pages, and visually inspected pages 1 and 4 to correct OCR’s 13-as-15 docket error and verify April 25 signature/July 19 expiration. The order concerns specified Verizon Business entities, domestic and US/foreign call records, excluded content/subscriber information and nondisclosure; no universal Verizon/all-US content claim. Downloaded the 238-page January 2014 PCLOB report and read selected printed pp. 8–11, 21–25, 29, 47–48 and first pages of the Brand p.208/Cook p.214 separate statements. Preserved exclusion of cell-site location, separate query rules, contact-chain purpose, retention/export difference, alert-list matching rather than automatic unauthorized chains, government explanation and shutdown, majority criticism and internal disagreement. No full reading of every underlying filing, classified briefing or report page. Downloaded the 196-page July 2014 PCLOB report and read introduction p.1 and selected pp.6–10: US-person definition, non-US/outside-US targeting, annual categorical authorization and procedures rather than individual warrants, provider-compelled PRISM, upstream, incidental/inadvertent distinction and retained/queryable US information. Read NSA’s April 28, 2017 statement in full regarding the upstream curtailment and compliance context; an earlier 2014 practice is not passed off as unchanged current operation. Read selected actual May 7, 2015 Clapper opinion passages via the web-parsed PDF, especially statutory scope, refusal to decide constitutional issues and disposition. Direct PDF curl returned 403; no claim to have read all 110 pages or the later October order. Read the November 2015 ODNI implementation fact sheet’s transition and provider-held selector-based process and the complete two-page 2020 PCLOB CDR fact sheet: early-2019 suspension, deletion exceptions, data integrity/value/cost and separate views. The underlying 2020 full classified/unclassified reports were not fully read. No claim that all surveillance ended or that this successor operates today. Downloaded Penney’s 66-page 2016 paper; read abstract/contents and selected methods pp.137–141, refinement/comparator passages153/155 and discussion162–163. The initial 48 English articles, Jan2012–Aug2014, total page loads rather than people, pragmatic DHS selection and later exclusions/comparators are kept distinct. No fixed universal 20% reduction, knowledge of a keyword trigger, measured individual motive, randomized trial or independent statistical rerun claimed. Six source/copy corrections specify the order’s scope without guessing individual suspicion, fix the clinic example’s subject, distinguish legal categories, note p.1 definition and develop dated upstream collection. All 23 graph reasons reviewed; historical sources are dated rather than used as a current 2026 legal guide."
+      },
+      "connectionNotes": "Preserved all 23 targets and order; every reason rewritten. Most cross-event links are conceptual or investigatory questions, not findings that an unreleased sensor record must exist or solve a particular crime/disappearance. Unsupported Five Eyes universal law-bypass claim, private programs as one network, all-CBDC permanence, all-voting infrastructure as evidence of fraud, direct Tavistock/PROMIS genealogy, Rex/Main Core authentication and pandemic-origin inference remain flagged rather than filled with invented evidence. Removed every-US-call/content/location conflation, unlimited direct PRISM access, unverified bulk counts and NSL request/letter confusion, universal FISA rubber-stamp conclusion from approval percentages alone, no-accountability-ever claim, every Chinese citizen in one score, all selected Pegasus numbers as proven compromises, all-country reactions and unsupported whistleblower motive/outcome generalizations. The original encryption claim that a lock cannot open only to authorized keys is literally wrong and is removed; no new cryptography assessment or forensic device analysis is implied. No full reading of Bamford, Greenwald, Harding, Harris, Zuboff, Foucault, Klein, Church Committee volumes, every Snowden file, Pegasus record or the current statutes of all Five Eyes jurisdictions. The final body has no forced wiki-link quota; preserved graph links supply related reading without making unsupported case claims. No external text submission, new browser inspection or writing-skill change."
     },
     {
       "id": "materialism",
@@ -1894,7 +1985,20 @@
       "id": "reptilian-elite",
       "category": "power",
       "originalEssayWords": 7776,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2028,
+      "focus": "What changes when an account of predatory power becomes a literal allegation about nonhuman beings? Trace the layers from reported experience, ancient object/text and image defect to interpretation, and distinguish the evidence from population or motive claims.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read all 56,270 bytes of the original, eight reasons and bibliography. Rebuilt around the distinction between a literal claim and the layers of evidence invoked for it, rather than a biography, catalogue of myths, speculative universal psychology and repeated claims that every video has been explained. Developed Icke’s own account, tuning analogy, bloodline/possession distinction, comparative-genomics limit, one contextual bronze cobra, an actual Sumerian translation, digital-image evidence, the original poll, one scholarly interpretation and a primary Protocols passage. The depth review explains manuscript uncertainty and alternative readings, and corrects the initial assumption that the unnamed TV witnesses necessarily observed the guest directly in the room. Reread the revised source-circumstance passage before choosing any explanation.",
+        "voice": "Made fifteen voice revisions, replacing spectacle, significance cues, a belief-versus-insanity framing and generic editorial instructions with the particular report and object. The cobra’s dowel hole and the translation’s uncertainty markers give the explanation concrete detail. Reread the opening, receiver analogy, physical/possession boundary, artifact/text passages, poll interpretation and ending. Six evidence/copy corrections remove repeated editor commentary and clarify attributions, followed by a final precision pass on the conditional crop and the limits of enlarging an image. The final judgment concerns the missing inference and accountability, rather than calling the author a genius or inventing a shared grievance for millions.",
+        "evidence": "Downloaded the 542-page public OCR reproduction of the 1999 Biggest Secret; noted the added GetPedia wrapper and read selected printed pp. 26–29 and 212, not the full book or underlying witness records. Verified the radio/fourth-dimension language, specified controlling group rather than all beings, separate face/hand reports attributed to the author and the direct Protocols-use passage. No recording of that interview or independent witness corroboration was inspected, and no raw original first-edition scan authentication is claimed. Read Ickonic’s actual book description and edition metadata; no claim to have read all later Icke books or adjudicated every variant. Read NHGRI’s comparative-genomics explanation, avoiding the false inference that any conserved sequence would be a recent secret hybrid or that every human genome has been tested. Read the Met object 41.160.111 record, including broad dating, bronze, dowel hole and likely shrine-frieze interpretation; no invented excavation context or independent visual/chemical examination. Read Oxford’s Enki and Ninmah translation opening and selected creation/role passages, including editorial uncertainties and variants. The ORACC Anunna page returned 502, so no etymology rests on its snippet. Read MDN’s compression and artifact explanation; no forensic examination of any particular viral clip, universal artifact diagnosis, false pupil-physiology statement or claim to have watched every compilation. Downloaded the 34-page original PPP report and read methodology, full question 13 and relevant demographic questions; dates March 27–30/April 2, 2013, 1,247 registered voters, automated telephone interviews and rounded 4/88/7 retained. The published overall margin is not treated as a subgroup-specific interval; no exact raw respondent count inferred from weighted rounded percentages. The original’s twelve-million extrapolation, global extension, satire-design assertion and demographic/clinical motive claims are removed. Read selected abstract, development, literal-meaning, reception and scope passages of Robertson’s 2013 article via the author-posted Academia text after the direct ResearchGate PDF returned 403; no full article/book or dataset claim. The article explicitly brackets a complete antisemitism treatment, so it is not presented as settling that question. Read Ronson’s Icke-related C-SPAN interview passages and verified the March 24, 2002 air date; no full Them book or documentary viewing implied. Reused the directly read USHMM Protocols provenance/forgery account from essay 98. Six evidence/copy corrections check question number, scope, editorial uncertainty, actual passage limits and grammar; every graph reason was reviewed against the final account."
+      },
+      "connectionNotes": "All eight targets and order retained; all reasons rewritten. The claim that every secret society is one nonhuman mechanism, Sumerian gods are already reptile genetic engineers, shared ancestry identifies a different species, all apparent pupil changes are known artifacts, everyone surveyed is a committed believer, and every literal reptile is code for Jews remains unsupported. Removed the original’s universal genuine-or-psychotic framing, mutually contradictory poll dates, extrapolated headcount, all-culture independence and exact-match myth claims, all-genomes-ever assertion, direct Monroe-to-Icke-to-QAnon/adrenochrome lineage, incorrect South Park example, alleged witness recantation without a record and claims that every ban increased following. No full reading of Sitchin, Heiser, Temple, Monroe, Barkun, later Icke volumes, Ronson or every ancient text; no invented neurological or psychological testing. The book is used to establish its author’s claims and source use, not to repeat unsupported allegations of specific crimes as fact. No new medical/psychiatric diagnosis, no source-file video examination, no external text submission or writing-skill change."
     },
     {
       "id": "rex-84",
@@ -2026,7 +2130,20 @@
       "id": "schwab-wef",
       "category": "power",
       "originalEssayWords": 7205,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2045,
+      "focus": "How a privately organized forum turns selection, status, research framing and partnerships into opportunities for public influence, while retaining the distinction between expertise, representation and governing authority.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Read all 57,462 bytes of the original, all eleven outgoing reasons and bibliography. Rebuilt around selection/access, leadership communities, the production of risk framings, stakeholder authority and a formal partnership. The badge example comes from an identified historical ethnography rather than an invented visit. The depth review develops the difference between a data-collecting company’s technical knowledge and the public authority needed to decide permitted uses/remedies, as an explicit hypothetical illustration rather than a reported event or tested dataset. It also specifies the anonymous-whistleblower inquiry and preserves the board’s acknowledgment of minor irregularities. Reread the example, data/methods section, partnership and governance passages; links hand off detailed Reset, surveillance and enhancement questions after sufficient explanation of their institutional relationship.",
+        "voice": "Made twenty revisions replacing inflated institutional significance, long biographical clauses, unnamed mainstream/conspiracy camps, rhetorical question chains and the forced honest-middle conclusion. Reread the opening and access mechanisms, program selection, report interpretation and public/private authority passages. Six evidence/copy corrections plus the final pronoun/affiliation pass tighten the concrete distinctions. The final essay retains a point of view on unequal access and representation, explains why cooperation can help, and ends by following an invitation to the public decision rather than repeating the cabinet boast as a universal confession.",
+        "evidence": "Downloaded the 21-page Garsten/Sörbom 2021 open-access article and read the abstract, printed pp. 543–545, 549–550 and 554–555 on methods, selection and status. Eighty observation days/seventy staff interviews and anonymization are retained; badge descriptions belong to that study, not a new live audit or current admission guide. Read the Forum’s current partners page, 2025–26 institutional framework, selected financial-statement notes and leadership/governance page. Direct full annual-report PDF download returned 504; the financial table image download returned 403, so no unread numerical totals, fee tiers, funder shares or claim of independently audited accounts is supplied. The notes identify membership/partnership/registration income; the source is the Forum’s own reporting. Read the Swiss January 23, 2015 notice and the January 30, 2020 FDFA explanation of agreements; no full legal-text review or claim that this confers parliamentary powers. Read indexed Harvard news/event descriptions to verify the September 20, 2017 date and Gergen format after direct event/news pages returned 403. Read the relevant public caption transcript, then downloaded the official YouTube auto-generated English captions through yt-dlp and inspected the 17–20 minute context, including 18:29 cabinet phrase and the numerical boast. No independent listening, viewing or cabinet census is claimed; no reliance on a clipped April-date recollection or treating every named person as confirmed alumnus. Read the April 16, 2026 YGL announcement: foundation 2004, 118 under-forty people/55 countries, one-year selection and current three-year program. The old nomination PDF timed out/returned 504 and its search-indexed Class of 2015 criteria were not passed off as current. Read the Global Risks Report 2026 methods overview, actual Appendix B via its link, and selected key-findings passages: 1,564 received/1,302 used, unequal question completion, 33 preselected risks with room to nominate missing ones, current single-choice tally versus two-/ten-year severity, and 18% selecting geoeconomic confrontation. No independent reanalysis, probability forecast or representative-population mandate inferred. Read the full short December 2, 2019 manifesto and selected Jan 14, 2016 Fourth Industrial Revolution essay passages, including government, surveillance, privacy and human augmentation; these articles, not full books, support the account, and the risks are not silently changed into instructions. The June 3, 2020 Reset article was read for essay 98 and is reused only for its public reform argument. Read the June 13, 2019 WEF partnership announcement and UN same-day account; the linked full framework opened a JavaScript-only Box page, so no full instrument reading or independent evaluation of later projects is implied. Verified the April 21, 2025 resignation announcement, August 15 board statement and 2025–26 leadership table. The board’s no-evidence-of-material-wrongdoing conclusion and minor-irregularities acknowledgment are attributed to that statement, not a full underlying report or a finding covering every prior workplace allegation. Removed invented confirmation, wrong 2024 interim-chair sequence, stale founder authority and age errors. Every reason was reviewed against the final essay; final copy clarifies the antecedent of remark and current co-chair affiliations."
+      },
+      "connectionNotes": "Preserved eleven targets and their order; all reasons rewritten. Continuous personnel overlap as proof of command, a WEF-to-Bilderberg sibling/control structure, Rockefeller funding since 1971, every major forum as a later imitation, every speech as a subsequent policy instruction and every alumnus as an agent remain unestablished. Removed undated fee estimates and budget totals, the every-January/continuous-meeting claim, mixed alumni rosters, uniform claims of public/mainstream reaction, first-century-largest superlatives and speculative founding/childhood motivations. No full reading of Pigman, Goodman, Discreet Power, Schwab’s 2016/2018/2020/2021/2022 books, WSJ investigations, every annual report or underlying inquiry report. Source failures were not bypassed or replaced with fabricated financial/cabinet/test data. The current survey and program are dated to 2026, not assumed timeless. The company/regulator passage is an explicitly general illustration, not a new case investigation. No external text submission, new browser inspection or writing-skill change."
     },
     {
       "id": "scientology",
@@ -2363,7 +2480,20 @@
       "id": "vaccine-autism",
       "category": "modern",
       "originalEssayWords": 3850,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2278,
+      "focus": "How did the 1998 MMR report support a causal suspicion it could not test, what changed when its record was checked, and how did later studies test the claim itself? Develop referral selection, record checking, distinct legal outcomes, a blinded bowel-mechanism test, registry/sibling comparisons, the separate thimerosal hypothesis and families’ needs.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed referral selection and appropriate controls, a record-timing example, partial/full retractions and different doctors’ outcomes. Added the 2008 three-laboratory blinded tissue study with its actual control group and one RNA-positive child in each group, then explained denominator, subgroup and insurance-selection issues alongside the registry comparisons. Preserved uncertainty about individual development and practical support rather than a broad conspiracy or body-count catalogue.",
+        "voice": "Made twenty-one specific revisions to signposting, mirrored verdicts and abstract transitions. Replaced assumptions about every parent’s motives with the actual task of recording observations, testing causes and providing support. A later reread removed an intrusive editorial record-access aside while retaining attribution and source limitations.",
+        "evidence": "Made eight final corrections covering aggregate payments, twelve-year retraction timing, the later mechanism hypothesis, RNA versus infectious-virus implications, confidence-interval limits, age-one follow-up versus variable ending ages, and no statistically supported thimerosal increase versus zero point estimates. Distinguished disciplinary findings, the successful Walker-Smith appeal and Wakefield’s abandoned appeal, source-specific samples and confirmed outbreak counts. No full clinical-record, full GMC-file, video-viewing or independent data reanalysis claim."
+      },
+      "connectionNotes": "All seven targets/order retained and reasons rewritten. Tuskegee, bodily authority, corporate law, pathogen origin and wireless-exposure connections are ethical/conceptual comparisons, not proof of one causal program. Original RFKlieutenant, universal manufacturer-immunity and identicalSéralini/Wakefield claims removed. Source limits: selected portions of the actual five-page 1998 paper, full short 2004/2010 statements in Deer’s public archive, indexed primary Deer investigative passages after BMJ403, selected official National Archives2012judgment (not complete GMC/individual cases), 2019primaryabstract and selected actual2015/2003JAMA methods/results/discussion, selected actual2008PLoSmethods/results, historical1999MMWR, CDC formulation statement, PHW outbreak summary and NIMH overview. A separate first PDF was onlyonepage; fullpaperobtainedfromactualarchive link and selectedreadings recorded. BAILIIdenied,officialNAcopyusednormally; no bypass. No oldbooks,documentary or alloutbreakrecords claimedread. Confirmed2013Walescounts keptdistinctfromnotifications/annualtotal; no full causalallocation of illnesses or current personal vaccination recommendation. Skill unchanged."
     },
     {
       "id": "vatican-jesuits",
@@ -2441,6 +2571,6 @@
     }
   ],
   "rewriteOrder": "Follow content/roadmap.json path, skipping nodes already marked rewritten.",
-  "lastCompleted": "new-world-order",
-  "nextNode": "reptilian-elite"
+  "lastCompleted": "chemtrails",
+  "nextNode": "5g-covid"
 }
