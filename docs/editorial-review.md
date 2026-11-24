@@ -1142,3 +1142,116 @@ All 6 outgoing reasons corrected; weak associations and source access limits are
 Actual revised production build exits 0 and completes OpenNext (`/Users/theiskaa/.cache/apeirron-build-118-revised.log`). Verified the land expansion, purchase year, later design effort, distributed computing and conditional repair example in generated JSON and compiled HTML. All 198 ids, preserved metadata/target order, rewritten-body links, counts, review records, old narration removals, cursor and unchanged skill hash validate. Sources styling and `git diff --check` pass. Organization statements remain attributed within recorded access limits; no physicalsite inspection, independentproject-recordaudit, completeFrescobook reading, actualwater/repairdataset, trialperformance, deployment or newbrowserinspection claimed.
 
 Progress: **118 of 198 rewritten; 80 remain.** Batch 109–118 is reviewed and locally validated, ready for the authorized ten-essay commit and push. Next: `georgia-guidestones`. Unrelated `default.profraw` remains excluded.
+
+
+### Batch 109–118 pushed
+
+Committed exactly ten rewritten nodes, the two editorial records and narration manifest as `0f6ef0e48bb2ab150d7f4157121c5bbce902acdc` (`content: rewrite essays 109–118 with reviewed sources`). Before commit, all ten generated descriptions and outgoing reasons matched source, and specific facts appeared in generated JSON and compiled HTML. Fetch showed no divergence; push exited 0 and `git ls-remote origin refs/heads/main` matched the full commit hash. The only remaining tracked change immediately after push was unrelated `default.profraw`, excluded from the commit. No deployment or audio publication performed.
+
+Continuing batch 119–128 with `georgia-guidestones`; 118 of 198 complete and pushed, 80 remaining.
+
+
+### The Guidestones text, reproductive authority and the limits of anonymity checkpoint
+
+Rewrote `georgia-guidestones` to 2092 essay words after three actual reviews. Three actual reviews replace imagined commission scenes and a binary kill-order/survivor defense with contemporary production reporting and the1986text’s real present-directed reproductive politics. Develops the population ceiling’s missing assumptions, voluntary access versus coercion and what destruction records can establish. Corrects1980unveiling and2022population chronology while keeping sponsor attribution and later reporting within their actual scope.
+
+All 4 outgoing reasons corrected; weak associations and source access limits are recorded in the inventory. Stale narration withheld. Progress: **119 of 198 rewritten; 79 remain.** Next: `dead-internet`. Local model checks, metadata/link/review/audio validation and production build are due. Skill unchanged.
+
+
+### Verification through essay 119
+
+`georgia-guidestones` finishes at 2,050 essay words after three actual reviews and a further four-part revision after rereading locally flagged book/politics and catastrophe/destruction windows. Removed repeated responsibility statements, made the actual2026reporting announcement specific, cut a moral signpost and replaced inflated rhetoric about certainty. Local weighted RoBERTa/Desklib signals changed from 0.00774/0.06481 to 0.00806/0.04442. Reread revised highest substantial book/politics and opening/commission/inscription windows in full; retained source-specific qualifications and attribution. These are heuristic outputs, not authorship proof; no external submission or skill change.
+
+Actual revised production build exits 0 and completes OpenNext (`/Users/theiskaa/.cache/apeirron-build-119-revised.log`). Verified1980unveiling, publisher, single-child proposal, currentreporting date and corrected eight-billion milestone in generated JSON and compiled HTML. All198ids, preserved metadata/targetorder, rewritten-bodylinks, counts, reviews, narrationremovals, cursor and unchangedskillhash validate; sourcesstyling and actual `git diff --check` pass. Primarybook selectedpages and originalcontemporaryarticle checked within recorded limits; no completepodcast review, fullbookreading, privateidentityauthentication, currentcaseconclusion, physicalinspection, explosivesanalysis, deployment or browserinspection fabricated.
+
+Progress: **119 of198 rewritten;79 remain.** Through118committed and pushed as `0f6ef0e48bb2ab150d7f4157121c5bbce902acdc`; this is the first completed essay in batch119–128. Next: `dead-internet`. Unrelated `default.profraw` remains excluded.
+
+
+### Dead Internet measurements, manufactured accounts and accountable sources checkpoint
+
+Rewrote `dead-internet` to 2171 essay words after three actual reviews. Three actual reviews replace a sprawling all-purpose replacement narrative with request/account/exposure distinctions, a documented Spamouflage case and a bounded recursive-learning experiment. Develops the difference between apparent following and persuasion, mixed authorship, selection and pseudonymous accountability. Public original-report reproductions checked, with source-specific attribution and access limits recorded.
+
+All 13 outgoing reasons corrected; weak associations and source access limits are recorded in the inventory. Stale narration withheld. Progress: **120 of 198 rewritten; 78 remain.** Next: `noosphere`. Local model checks, metadata/link/review/audio validation and production build are due. Skill unchanged.
+
+
+Dead Internet verification: final2171-word source passed its actual revised production build (`/Users/theiskaa/.cache/apeirron-build-120-revised.log`, exit0/OpenNext complete). Local-only models: initial RoBERTa0.21207/Desklib0.01198; highest substantial windows read and editorial improvements made to the recursive-experiment qualification and ending. A final grammar/antecedent correction was reread, then both models rerun on the exact final text (`dead-internet-verified.json`):0.21580/0.01866. Highest substantial final windows reread; no further change justified and no score target imposed. Intermediate revised run retained only as a working artifact. Corpus verifier passed120/198 with ids/titles/categories/target order intact, body links/review passes/word counts/audio/cursor/unchanged skill checked, and actual generated+compiled fact markers and source styling. `git diff --check` exited0. No external essay submission, server access, browser check, fabricated test data, deployment or audio publication claimed. Two essays complete in batch119–128; next `noosphere`.
+
+
+### Noosphere agency, collective learning and the boundary of a subject checkpoint
+
+Rewrote `noosphere` to 2156 essay words after three actual reviews. Three actual reviews distinguishVernadsky’s materialagency, Teilhard’s personalconvergence and a global-brainengineeringproposal. Develops an original1996learningexperiment and itsattractorfailure, plus a clearlyhypotheticalsharedarchive, independentrecords/correction, politicaljudgment and the boundaryproblemforcollectiveexperience. OriginalFrenchpassagesandprimarypaperchecked; no imaginedpropheticdesertscene or universalconsciousinternetclaim.
+
+All 6 outgoing reasons corrected; weak associations and source access limits are recorded in the inventory. Stale narration withheld. Progress: **121 of 198 rewritten; 77 remain.** Next: `qanon`. Local model checks, metadata/link/review/audio validation and production build are due. Skill unchanged.
+
+
+Noosphere verification: final2156-word text passed actual revised production build (`/Users/theiskaa/.cache/apeirron-build-121-revised.log`, exit0/OpenNext complete). Local-only models initialRoBERTa0.06393/Desklib0.00539; highest substantial windows read, then clarified furnace reference and archive-specific exclusion/correction rights. Reread changed passages, reran both models on exactfinaltext:0.09148/0.00470 (`noosphere-revised.json`); highest substantial final windows read, no further editorial change justified. Scores treated as heuristics, no target imposed. Corpus verifier passed121/198 with unchanged ids/titles/categories/targetorder/skill and valid bodylinks, sources/reviews/wordcounts/audio/cursor; actual generated+compiled markers checked. `git diff --check` exited0. No external essay submission, physical experiment replication, browser check, fabricated dataset, deployment or audio publication. Three essays complete in batch119–128; next `qanon`.
+
+
+### QAnon authority, specified predictions and independent corroboration checkpoint
+
+Rewrote `qanon` to 1975 essay words after three actual reviews. Three actual reviews follow the first archivedexchange and contemporaneouspublicappearance through participatoryinterpretation, boundedcrossplatformresearch, datedpoliticalrecognition and anti-traffickingstaffburden. Explains credentiallimits andhowpredictiontestsbecomeinsulatedfromfailure, while keeping lawfulbelief, violentconduct, individualresponses and sourceaccess distinct.
+
+All 9 outgoing reasons corrected; weak associations and source access limits are recorded in the inventory. Stale narration withheld. Progress: **122 of 198 rewritten; 76 remain.** Next: `pizzagate`. Local model checks, metadata/link/review/audio validation and production build are due. Skill unchanged.
+
+
+QAnon verification: final1975-word text passed actual revised production build (`/Users/theiskaa/.cache/apeirron-build-122-revised.log`, exit0/OpenNext complete). Local-only models initialRoBERTa0.26897/Desklib0.01292; highest substantial windows read, four editorial revisions made to repeated-corroboration example, actual deadline/check transition and opening/conclusion wording. Revised passages reread and models rerun:0.26364/0.00695 (`qanon-revised.json`); highest substantial final windows read in full, no further revision justified by editorial merit. Heuristics not proof of authorship and no target score imposed. Corpus verifier passed122/198 with unchanged ids/titles/categories/targetorder/skill, correctwordcounts/reviews/sources/bodylinks/audio/cursor and actual generated+compiled factmarkers/source styling; allninepublicgraphreasons reread afterspacingcorrection. `git diff --check` exited0. No externalessay upload, server/browser check, fabricatedtestdata, deployment ornewaudio. Four essays complete inbatch119–128; next `pizzagate`, inherited102546-character node fullyread.
+
+
+### Pizzagate allegations and the separate Epstein evidentiary record checkpoint
+
+Rewrote `pizzagate` to 2001 essay words after three actual reviews. Three actual reviews replace a sprawling intelligence/blackmail accusation with a focused comparison of claim construction and identifiable institutional decisions. Develops the2007agreement,2008resolution,2020review’slimitedstandard,Maxwelljuryfindings and2026releases/review. Explains why an authentic record can contain an unverified allegation and why a real abuse case cannot supply evidence for an unrelated accusation.
+
+All 10 outgoing reasons corrected; weak associations and source access limits are recorded in the inventory. Stale narration withheld. Progress: **123 of 198 rewritten; 75 remain.** Next: `epstein`. Local model checks, metadata/link/review/audio validation and production build are due. Skill unchanged.
+
+
+Pizzagate verification: final2001-word text passed actual revised production build (`/Users/theiskaa/.cache/apeirron-build-123-revised.log`, exit0/OpenNext complete). Local-only models initialRoBERTa0.04973/Desklib0.06412; highest substantial windows read, then clarified NPA conditions, removed a repeated decision/records paragraph and revised the release section’s repeated interview definition. Revised passages reread and both models rerun:0.17628/0.02168 (`pizzagate-revised.json`); highest substantial final windows read in full, no further change justified by editorial merit. No score target imposed. Corpus verifier passed123/198 with unchanged ids/titles/categories/targetorder/skill, validbodylinks, correctwordcounts/reviews/sources/audio/cursor and actual generated+compiled factmarkers/source styling. `git diff --check` exited0. Actual source-access limits recorded in inventory; no all-files/trial-exhibits audit, externalessay submission, browser/server check, fabricatedtestdata, deployment ornewaudio. Five essays complete in batch 119–123; next `epstein`.
+
+### Editorial checkpoints 124–134
+
+The inventory records the three reviews for each essay, their actual revisions, and the limits of the source checks. Stale narration was withheld for all eleven. IDs, titles, categories and outgoing target order were preserved.
+
+| Checkpoint | Node | Main editorial change |
+| --- | --- | --- |
+| 124 | `epstein` | Separated documented abuse, documented access and unproved claims of intelligence sponsorship. |
+| 125 | `franklin-scandal` | Distinguished convictions, grand jury findings and the scope of a civil default. |
+| 126 | `seth-rich` | Separated the unsolved homicide from the DNC theft record, Fox’s retraction and later records litigation. |
+| 127 | `clinton-body-count` | Used the Foster findings and the list’s shifting comparison population to test the claims separately. |
+| 128 | `nine-eleven` | Distinguished the attack evidence, missed warnings, the limits of collapse and trading claims, and subsequent state action. |
+| 129 | `amerithrax` | Separated the outbreak evidence and possible culture ancestry from an untried attribution to Ivins. |
+| 130 | `sandy-hook` | Distinguished the shooting record, the use of isolated clips, and the subsequent litigation over harassment and false claims. |
+| 131 | `boston-marathon` | Separated the FBI’s prior assessment and the shelter request from the later trial and limited juror inquiry. |
+| 132 | `las-vegas-shooting` | Corrected the attack chronology and separated identification, motive, the settlement and the statutory ruling. |
+| 133 | `mh370` | Distinguished contact and handover, signal-based search constraints, debris, mapped versus searched seabed, and cause. |
+| 134 | `twa-flight-800` | Traced the breakup from physical evidence and separated it from ignition, witness interpretation, trace residue and later prevention. |
+
+Progress: **134 of 198 rewritten; 64 remain.** The OpenNext build and corpus verifier passed at this checkpoint. Generated body, compiled description and source-section checks passed for `mh370` and `twa-flight-800`. Browser checks are no longer part of this session’s verification.
+
+### 135 — Lockerbie
+
+Rewrote `lockerbie` (1,242 words) to distinguish the accident investigation’s physical findings from the trial court’s inferences about the baggage route, the separate outcomes for the two defendants, and the scope of later reviews. Checked the UN letter and resolution separately from the criminal findings, and updated the U.S. scheduling reference. Recorded source-access limits and revised all five outgoing reasons. Withheld stale narration. Progress: **135 of 198 rewritten; 63 remain.** The OpenNext build and corpus verifier passed; the generated and compiled article contain the revised baggage evidence. Next: `waco`.
+
+### 136 — Waco
+
+Rewrote `waco` (1,482 words) around the raid warning, the two different surrender offers, and the April 19 decision. Distinguished the special counsel’s findings on fire and gunfire from the documented delay in disclosure and the question of judgment before the fire. Recorded the three reviews, revised all five outgoing reasons, and withheld stale narration. Progress: **136 of 198 rewritten; 62 remain.** The OpenNext build and corpus verifier passed; generated and compiled content, descriptions and source sections were checked for `lockerbie` and `waco`. Next: `oklahoma-city`.
+
+### 137 — Oklahoma City
+
+Rewrote `oklahoma-city` (1,130 words) around the vehicle and preparation evidence, the second-man sketch, the excluded informant evidence and what the judges made of it, a separate FOIA ruling, and the actual provisions of the 1996 law. Recorded the three reviews, revised all four outgoing reasons, and withheld stale narration. Progress: **137 of 198 rewritten; 61 remain.** The OpenNext build and corpus verifier passed. Next: `election-fraud`.
+
+### 138 — Election Fraud Theories
+
+Rewrote `election-fraud` (1,253 words) to show how different evidence answers questions about ballot interpretation, interference before the count, tabulation, influence operations, and allegations aired or heard in court. Recorded the three reviews, revised all four outgoing reasons, and withheld stale narration. Progress: **138 of 198 rewritten; 60 remain.** The OpenNext build and corpus verifier passed; generated and compiled content, descriptions and source sections were checked for `oklahoma-city` and `election-fraud`. Next: `ancient-civilizations`.
+
+### 139 — Lost Ancient Civilizations
+
+Rewrote `ancient-civilizations` (1,133 words) around the work of building and feeding people at Göbekli Tepe, the evidence for submergence at Tel Hreiz, and the difference between a literary chronology and a material history. Recorded the three reviews, revised all eleven outgoing reasons, and withheld stale narration. Progress: **139 of 198 rewritten; 59 remain.** The OpenNext production build, corpus verifier and `git diff --check` passed. Generated article markers, compiled descriptions and source styling were verified for all seven rewrites from `mh370` through `ancient-civilizations` without a browser check. Next: `hermetic-tradition`.
+
+### Publication review — checkpoints 119–139
+
+Reviewed all 21 rewrites against the previous versions, then corrected the claims and omissions that affected the reader’s understanding. The earlier entries describe the initial editorial passes; this entry records the subsequent changes.
+
+- **Depth and structure.** Restored the Boston watchlisting and travel chronology from the public inspectors general summary, the abandoned Palm Beach evidence lead as reported by House majority staff, Oklahoma City’s 2001 discovery violation and delayed execution, and Alisha Owen’s separate state perjury conviction from the Nebraska appellate decision. Completed the Dominion and Texas Sandy Hook examples with their distinct outcomes. Updated the Guidestones reporting with the team’s account of the incident records and the AJC’s own published episode notes. Added QAnon’s movement into general-interest Reddit forums after the Tampa rally and the second training setting in the model-collapse experiment.
+- **Voice and movement.** Opened Pizzagate with a documented example of a food reference being read as code instead of attributing the accusation’s appeal to Epstein by inference. Removed repeated explanations in Franklin and Las Vegas and the isolated furnace illustration in the Noosphere. Replaced editorial-process language in several connection reasons with specific comparisons. Reread the amended sections and their transitions.
+- **Evidence and consistency.** Put Waco’s death toll on April 19 rather than attributing every death to fire, and included the special counsel’s finding on gunshot deaths. Matched the MH370 fuel-exhaustion language to the Malaysian report’s level of confidence. Corrected the Tel Hreiz boulders’ description and the Göbekli Tepe connection. Rechecked Lockerbie’s reported U.S. scheduling with a second contemporaneous source; the full 2021 Scottish appellate opinion and the current U.S. docket were not independently reviewed. For the Guidestones update, the interview transcript and published episode notes were checked, not all episodes or the underlying police files. The amended essays distinguish allegations, jury awards, agency conclusions and material not independently available.
+
+The inventory now reflects the final counts; all 21 stale narration entries remain withheld. The OpenNext production build, corpus verifier and `git diff --check` passed. Generated and compiled article text, compiled descriptions, wiki-link rendering and source styling were checked for all 21 essays without a browser. Progress is unchanged at **139 of 198 rewritten**; `hermetic-tradition` is next.

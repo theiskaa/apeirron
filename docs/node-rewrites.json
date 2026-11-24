@@ -93,7 +93,20 @@
       "id": "amerithrax",
       "category": "operations",
       "originalEssayWords": 2501,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1355,
+      "focus": "What did the public health inquiry establish, how did the FBI move from a laboratory lead to an accusation, and why are those findings not equally certain?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Separated decisions about workplace exposure from identification of a sender. Added the difference between a possible parent batch and the immediate source, and compared the earlier Senate bill with Leahy's concerns and the final vote.",
+        "voice": "Replaced rhetorical certainty with the specific limits of entry logs, the shared batch, and the committee's remit. Ended by returning to Brentwood and the higher evidentiary burden of attributing the crime.",
+        "evidence": "Checked the CDC epidemiological account, selected DOJ summary sections, the National Research Council summary and findings, Frontline reporting, S. 1510 as passed and the October 25 Congressional Record. Distinguished case counts, route inferences, batch attribution, prosecution claims and what no trial tested. Omitted inaccessible GAO findings and did not claim to review sealed evidence or establish a legislative motive."
+      },
+      "connectionNotes": "Retained all seven targets and their order. Removed claims of a demonstrated CIA plant, Iraq link, shared September 11 authorship, or official motive. Kept outbreak and media comparisons distinct from evidence for particular origin claims."
     },
     {
       "id": "ancient-astronauts",
@@ -105,7 +118,20 @@
       "id": "ancient-civilizations",
       "category": "origins",
       "originalEssayWords": 2877,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1151,
+      "focus": "How excavated remains can show early organisation and inundated landscapes without showing that different societies inherited their knowledge from the same missing culture.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Replaced a list of purported anomalies with worked examples of food preparation and communal construction, a submerged site, a literary chronology and a material historical sequence. Added the boulder provenance and reconstructed shoreline at Tel Hreiz and gave the Harappan comparison its own section.",
+        "voice": "Focused the opening on what the two kinds of stone can show, removed the claims about an invented orthodox timeline and an unsolved worldwide anomaly, and ended with the people who built at Göbekli Tepe.",
+        "evidence": "Checked Dietrich’s discussion of regional monuments and grain processing, Galili’s site description and interpretation, the Firestone and Surovell papers’ relevant claims and limits, Hancock’s posted excerpts, Jowett’s Timaeus, and Giosan’s account of Indus settlement and rivers. Separated cultivation, domestication and permanent residence; the onset of cooling from later inundation; and Plato’s literary date from independent archaeological dating. Did not independently inspect excavation archives, all Younger Dryas papers, full Hancock volumes, the Sphinx geological record or the Dogon studies; removed those unsupported inherited comparisons."
+      },
+      "connectionNotes": "Preserved all eleven targets in order. Reframed the weaker links as comparisons in claims about teaching, transmission, or myth, rather than common proof of a donor civilisation. Kept monumental scale, the impact question, and inundation separate from any evidence of connection."
     },
     {
       "id": "anunnaki",
@@ -273,7 +299,20 @@
       "id": "boston-marathon",
       "category": "modern",
       "originalEssayWords": 6191,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1296,
+      "focus": "What did the bombing trial establish, and what evidence is needed to judge the earlier FBI assessment, the emergency restrictions, and the fairness of the sentence?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Separated the defense concession from mitigation, added concrete juror answers and the limits of the 2024 remand, and explained how the shelter request ended before the call that located the suspect.",
+        "voice": "Replaced rhetorical questions about prior FBI knowledge with the difference between having a file and recognizing a face. Ended on the question a resident could ask about an individual search rather than a global verdict about emergency power.",
+        "evidence": "Checked selected portions of the state after-action report and the 2020, 2022 and 2024 opinions, including the Supreme Court dissent and 2024 disposition. Used contemporary reporting for portions of the FBI statement; the original foreign records and unclassified oversight summary were not available for verification and no claims based on those documents were retained. Did not assert the legality of particular entries, a finding of juror bias, or a current remand outcome."
+      },
+      "connectionNotes": "Retained all three targets and their order. Distinguished identification from intelligence sponsorship, and emergency restrictions from a finding of unconstitutional searches or a declaration of martial law."
     },
     {
       "id": "breakaway-civilization",
@@ -424,7 +463,20 @@
       "id": "clinton-body-count",
       "category": "power",
       "originalEssayWords": 2807,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1537,
+      "focus": "How was the list assembled, and why do both the individual case records and the missing comparison population matter to its central claim?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the shared-accident and comparison-population examples. Explained what officials could ask to see under White House counsel’s document review and why meeting requests need not resolve the controversy over restricted access.",
+        "voice": "Replaced generic verdicts with the different questions posed by Foster’s death, Rich’s killing and the office review; simplified the source discussion and reread the revised passages.",
+        "evidence": "Checked the August 1994 Congressional Record reprint, selected introduction, background, note and summary passages from the independent counsel’s Foster report, majority and minority passages from Senate Report 104-280, contemporary Ron Brown and Epstein coverage and the custody report. Corrected the Congressional Record attribution and avoided treating five inquiries as independent sets of physical evidence. No full Brown accident docket, medical reanalysis, or population mortality estimate claimed."
+      },
+      "connectionNotes": "All five targets and order preserved. Corrected the chronology of Pizzagate versus the original list and distinguished association from evidence of homicide or sponsorship."
     },
     {
       "id": "club-of-rome",
@@ -576,7 +628,20 @@
       "id": "dead-internet",
       "category": "modern",
       "originalEssayWords": 9088,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2205,
+      "focus": "What does evidence establish about manufactured online activity, and why do request, account, authorship and exposure counts not establish a single death of human communication?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Depth pass: added a chain from account creation through distribution/attention/belief and explained possible moderation or bogus-citation consequences even when persuasion fails. Expanded the recursive language-model experiment with five runs, held-out original text and the actual meaning of evaluation. Added pseudonym-preserving accountability so the conclusion does not imply mandatory legal identification. Reread additions and surrounding case, experiment and ending. Original66685-character node fully read before drafting, all13reasons/bibliography included.",
+        "voice": "Voice pass: ten revisions remove editorial endorsement and the useful-point signpost, break a three-fragment suspicion sequence, simplify the request-share inference and central-operator transition, and replace a vague too-accommodating verdict with the theory absorbing disappointing experiences. Cut recursive-experiment scaffolding and the answer/answerable repetition in the ending; subsequently removed repeated selection wording. Reread every changed passage with its paragraph context. Local-model follow-up: read highest substantial windows in both models; revised repeated experiment exclusions into a conditional fresh-observation comparison and a training-information requirement, simplified the three practical questions, and replaced an awkward appearance-of-participation sentence. Retained anonymity qualifications and evidence limits, reread the full revised experiment/ending, no score-target rewriting. Corrected the ending’s remaining efforts antecedent after the final sentence change and reread the paragraph.",
+        "evidence": "Evidence pass: Agora query URL normalized to forum homepage and pretty URL inaccessible, neither counted as original-thread reading. Atlantic31Aug2021firsthandreporting/readactualmainbody and contact withposter supports attributed January2021formulation, notfirsteverorigin; kept short summaryunder100derivedwords, no long quotations. Primary2021Redditrepostfirstpost read but omitted as unnecessary. Imperva29Apr2026blog and parentThalespressrelease selectedactualbody/method read; no gated-form submission. Then actual40-page2026Thalesreport obtained from normalpublicreproduction, printed3–4,7–8,39read;53%observed2025traffic, not53%posts/people, notabsolutedecline. Sample notcalledrandomcensus, benign/malicious distinguished. Cloudflaresearch was leadonly and omitted. Metaofficial29Aug2023announcement selectedread; officialQ2link429notbypassed; actual110pageoriginalreport publicreproduction downloaded, printed11–12and14read. Correct7704/954/15/15counts, law-enforcementindividualattribution and no substantialauthenticengagement limited toMeta’s assessment/services. Serialnumber interpretation qualifiedapparent; humanoperators notmistakenforautomation, no networksize/persuasion equivalence. Originalarxiv2305.17493v3 abstract,methods88–107,Fig5/6captions andlanguage-method229–242read; OPT125m/WikiText2/fiveindependent runs/held-outprediction verified, controlledrecursivefailure notwebsurvey/allsynthetictraininginevitability. Naturepublicationretitle notsubstitutedforreadversion; no fullpaper/report/forumread or experimentreplication claimed. Clear hypotheticalexamples notfabricatedobservations. No unverifiedTwitterIRAcounts/everygov/allfeedclaims/causedmemorylossorloneliness/consciousnesssettled asserted. Reviewed consequentialclaims with selectedoriginalPDFpassages andmethodsagain, fixed apparentserialnumber qualification, directcitations andsource-scopelimits. Noexternalessayupload, Atlas orpublishingaction. Immediately corrected plural agreement after selection-wording edit and reread ranking paragraph."
+      },
+      "connectionNotes": "All13targets and order preserved and everyreason rewritten. Weakmandela-effect edge explicitly flagged, SethRich retained as evidentialcontrast; QAnon/SandyHook/electionedges make no inherited unsupported same-network/caseamplification claims. No covertprogram continuation asserted, no surveillance-to-manipulation equivalence, no definitive six-filter/noosphere-death claim."
     },
     {
       "id": "deep-state",
@@ -682,7 +747,20 @@
       "id": "election-fraud",
       "category": "modern",
       "originalEssayWords": 6248,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1266,
+      "focus": "Which records can distinguish ballot interpretation, interference before a count, inaccurate tabulation, influence operations and false claims about an outcome?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Built from the rejected-mark problem in Florida through North Carolina’s new election, the distinction between influence and tabulation, and Georgia’s audit. Added why an audit cannot reconstruct what never reached the count, and a worked explanation of a five-percent risk limit that is not a probability of fraud.",
+        "voice": "Replaced the inherited bipartisan-equivalence and permanent-unverifiability frames with what officials did when they found particular problems. Ended by comparing two different, demonstrated remedies rather than repeating a general warning.",
+        "evidence": "Checked selected passages of Bush v. Gore, HAVA section 301, contemporary NBC coverage of the North Carolina hearing, the Mueller executive summary, the archived Georgia announcement, National Academies chapter 5, the Pennsylvania appeals opinion, Delaware’s Dominion ruling and the Jan. 6 committee report. Distinguished a permanent paper record from a voter-verifiable ballot, the Georgia hand tally from a random sample, a pleading appeal from a trial on fraud, and Dominion’s partial finding from a final ruling on liability. Did not inspect all county tally sheets, the full North Carolina hearing, all 2020 lawsuits, election-system code, the full Mueller report, or every individual ballot. Removed exploit details and unsupported totalizing claims."
+      },
+      "connectionNotes": "Kept all four targets in order. Reframed verification as checking counts without collecting individual political choices, and separated social-media activity or movement beliefs from evidence of changed ballots."
     },
     {
       "id": "epicureanism",
@@ -694,7 +772,20 @@
       "id": "epstein",
       "category": "operations",
       "originalEssayWords": 12944,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2250,
+      "focus": "What would establish blackmail or intelligence sponsorship, and what do the prosecution, victim-rights litigation, and custody records establish independently?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the signed agreement through the notice letter and Wild’s unsuccessful attempt to obtain a remedy. Explained the distinct functions of cellmate assignment, rounds, and recorded footage, and separated possession of material, demands, compliance, repeated conduct, and sponsorship.",
+        "voice": "Tightened the opening around the conditional promise, removed repeated grooming explanations, replaced the summary ending with the victim’s question, and reread the affected passages.",
+        "evidence": "Reviewed the full inherited node. Checked the 2021 en banc In re Wild opinion, pp. 2–13 and 52–53, and did not treat the 2019 district ruling as the final resolution. Rechecked July 2025 DOJ/FBI memo pp. 1–2, 2023 inspector general summary pp. i–iv, Acosta interview OCR pp. 147–149, and 2026 House majority staff report pp. 103–105 and 133–136. Used the NPA, public OPR summary, SDNY charging/sentencing announcements and 2026 release statement already reviewed for Pizzagate. Kept the agency findings dated, footage limits explicit, and Acosta’s denial separate from what is independently corroborated. No raw footage, autopsy, seized sexual material, or complete unsealed collection examined."
+      },
+      "connectionNotes": "All eight targets and their order preserved. Revised reasons separate comparison from operational lineage, and remove inherited unproven claims about PROMIS, Monarch, intelligence sponsorship, and culpability by social association."
     },
     {
       "id": "eugenics",
@@ -782,7 +873,20 @@
       "id": "franklin-scandal",
       "category": "operations",
       "originalEssayWords": 2456,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1457,
+      "focus": "What did the financial prosecution, grand juries and single-plaintiff civil default each establish, and what questions remain about handling the original foster-care reports?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the difference between independent reports and repeated accounts, including a worked example of testing a recantation against a dated record. Separated physical evidence about the crash from what could establish the contents of any evidence lost with the investigator.",
+        "voice": "Simplified the structural failure explanation, removed a recap of the legal distinctions, and ended on the original duty of follow-up. Reread those passages in context.",
+        "evidence": "Read the full inherited essay, archived 1988–91 coverage, Lee County sheriff’s supplementary report and selected inquest pages, appellate docket, and the 1999 magazine excerpts attributed to Judge Urbom. Checked Rules 8 and 55; distinguished liability by civil default from a contested verdict. No complete grand-jury records, trial court order, state perjury judgment, or final NTSB report available in the materials checked. Kept claims within those limits; removed unsupported suppression, murder, and organizational-lineage assertions."
+      },
+      "connectionNotes": "All six targets and their order preserved. Monarch and Mockingbird edges are explicitly limited comparisons; no claim of shared enterprise with Epstein or Pizzagate."
     },
     {
       "id": "free-will",
@@ -838,7 +942,20 @@
       "id": "georgia-guidestones",
       "category": "power",
       "originalEssayWords": 3309,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2065,
+      "focus": "What do the Guidestones inscriptions and sponsor-attributed explanation support about population policy, and where do claims of a concealed implementation go beyond that record?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Depth pass: developed the absent assumptions behind an apparently exact population ceiling; distinguished available reproductive services from pressure on people classified as undesirable through a clearly general choice/refusal example; explained what clearance records could establish without using a gap to identify an attacker. Removed unreadcontinuation from source scope. Reread additions and surrounding population/book/destruction sections.",
+        "voice": "Voice pass: thirteen revisions make claims direct, remove a rhetorical-question chain and draft-correction language, distinguish government scope plainly, and replace a generic commission verdict with actual translation/engraving work from the contemporary article. Simplified the population chronology and late anonymity argument without changing evidence limits. Reread affected passages, including the added translation detail. Further full-window reread after local model checks produced four revisions: removed repeated responsibility/evidence statements, made the2026AJCannouncement’s actual form and reporter specific without treating it as a finding, cut moral signposting and replaced counterfeit-certainty rhetoric with unsupported-identification wording. Reread revised passages and retained substantive reproductive-politics qualifications.",
+        "evidence": "Evidence pass: original23185-character essay fully read. Actual134-pagepublicscan CommonSenseRenewed downloaded; cover/copyright/TOC/preface,printed6–15and25–29read, with selectedearlierchaptercontext. Publication isGraphicPublishing1986; authorclaimoriginator onp7 remains an attribution, not identificationofrealperson. Toclistedreproduction23butactualchapterbegins25; citation followsactualprintedpages. Explicit presentnationalpolicies/legalandsocialpressures/selectivebreeding/stateoverindividual corrected inheritedonlypostcatastrophesurvivorsreading. Preserved noauthoritytocommand andlimitedworldcourt/commonlanguage qualifications;Only the two short opening inscriptions quoted, under25words, paraphrasedotherguides, no extendedbookquotation. OriginalcontemporaryGeorgiaAnchorAgeSep/Oct1984pp10–11read viaDLGOCR, publisherGeorgiaPortsAuthority verifiedmetadata, notDNR;352MBcombinedPDFtoolsizeerror, notdownloadedorclaimedread; unreadp44continuation omitted. NGEcorearticle selectedbodyread with1980unveiling/languages/geometry, updated2022notcurrentalltimeauthority. WikisourceflaggedunknownsourceandincorrectPDreason, usedonlylead/crosschecknotvalidatedsource. GBIoriginal6July2022and7Julyupdateread;approx4AM/noinjury/safetydemolition attributed, noindependentvideoviewing/explosivesreplicationorforeverunsolvedclaim. UNprimarymilestone15Nov2022correctsJuly8bclaim; Agenda21actual5.50alreadycheckedfor114. ActualAJC3March2026announcementfullsubstantiveparagraphsread, acknowledgesnewreportingbeyond2022butnotclaimcompletepodcastheardoridentity/investigationadjudicated. Fixedarticle/objectpronounandreplacedoverconfidentpaymentrhetoricwithidentifiedbuilder/intermediary; removedpresentunknownauthorassertion, addeddirectbook/GBIlinksandrereadaffectedpassages. No privatebankrecords, definitivehiddenaffiliation, commissiondialogue, guessedKerstenidentity,bomberidentification,timecapsuleinspectionorfullbookreadclaimed."
+      },
+      "connectionNotes": "Preserved all four outgoing target ids and order and rewrote every reason. Freemasonry remains explicitly weak and unverified; no claimedRosenkreuzconfession/directfraternallineage. Agenda21contrastedagainstitsactualfree-choiceprovisionratherthan equatedthroughnaturelanguage. NWOclaimdistinguishedfrompublishingananonymousmessageandeugenicsclaimgroundedinthesponsor-attributedpoliticaltext, notassumedgenocidalimplementation."
     },
     {
       "id": "gmo-monsanto",
@@ -1208,7 +1325,20 @@
       "id": "las-vegas-shooting",
       "category": "modern",
       "originalEssayWords": 5333,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1095,
+      "focus": "What could investigators establish about the source and timing of the gunfire, and why is the question of motive different from the question of accountability?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the difference between the time of an alarm response and a gunshot injury, explained how physical and digital evidence tested the competing shooter claim, and distinguished the hotel settlement from the federal rule and later ruling.",
+        "voice": "Removed insinuations about a reluctant witness and the absence of an explanation. Returned at the end to the practical question the timestamp raised rather than treating all of the unknowns as interchangeable.",
+        "evidence": "Checked selected sections of the preliminary and final LVMPD reports, contemporary reporting on the timeline and the behavioral panel, the later death toll, reporting on the MGM filing and settlement, the DHS overview and Cargill. Distinguished a revised time, a tentative motive hypothesis, a party's legal position and a holding. Did not claim access to the full video archive, an independent acoustic analysis, the panel's internal files or sealed evidence."
+      },
+      "connectionNotes": "Retained both targets in order. Replaced unverified claims of universal camera coverage, concealed motives, institutional rewards, and withheld records with evidence-limited comparisons."
     },
     {
       "id": "law-of-attraction",
@@ -1220,7 +1350,20 @@
       "id": "lockerbie",
       "category": "operations",
       "originalEssayWords": 2398,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1242,
+      "focus": "How the wreckage established the cause of Pan Am 103’s breakup and how courts assessed the less direct evidence about the suitcase’s route and the people responsible.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Separated the physical findings, the combined case against Megrahi, the acquittal of Fhimah, three different appellate stages, and Libya’s letter. Added the limited parts of Giaka’s testimony accepted by the judges and why Fhimah’s references to baggage tags did not show knowledge of a plot.",
+        "voice": "Explained why the Heathrow breach mattered without granting it an unproven consequence; stated the contents and sequence of the UN documents directly and ended with the gap acknowledged in the original verdict rather than a blanket claim that the evidence or conviction collapsed.",
+        "evidence": "Checked AAIB synopsis and conclusions via local OCR, selected portions of the trial and first appeal transcripts, the 2007 Commission’s public referral summary, contemporary reporting on the 2021 appeal, the UN letter and resolution, and October 2026 Reuters coverage of the U.S. plea and revised jury selection date. The full 2021 opinion, full Commission statements of reasons, original U.S. case docket and complete forensic exhibits were not independently checked; the inherited tin-comparison claims and details of the contested statement are not introduced as findings. Curtis’s interpretation is distinguished from the primary letters. Omitted unverified claims that early leads were abandoned for political reasons and any operational attack particulars."
+      },
+      "connectionNotes": "Retained all five targets in order. Treated the drug-route and state-pressure connections as theories requiring evidence specific to this flight; distinguished the UN settlement from personal guilt and the Iraq comparison from a claim of identical mechanisms."
     },
     {
       "id": "lusitania",
@@ -1362,7 +1505,20 @@
       "id": "mh370",
       "category": "modern",
       "originalEssayWords": 7214,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1568,
+      "focus": "How did separate radar, communications, and debris records narrow the search for MH370 without fixing a crash point or showing why the flight was diverted?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Separated rescue coordination from later path reconstruction, explained why timing gave an arc and why frequency data could favour a direction, and distinguished mapping the seabed from searching it for wreckage.",
+        "voice": "Clarified the transition from known-position validation to the missing track, separated the two simulator records, and shortened the conclusion to what locating the main wreckage could establish for families.",
+        "evidence": "Checked selected sections of the Malaysian safety report, the Inmarsat paper's calibration, validation and example path, and the dated Ocean Infinity announcement. Corrected the last contact and rescue timeline, the distinctions between estimates and fixes and between confirmed and less certain debris, and the cumulative nature of the company's latest coverage figure. The search figures attributed to Malaysia are not an independent ATSB sonar audit; no unreleased raw radar, flight recorder or case against an individual is claimed."
+      },
+      "connectionNotes": "Retained both targets and their order. Separated actual tracking and coordination issues from unsupported claims about what military systems recorded or concealed."
     },
     {
       "id": "military-industrial-complex",
@@ -1518,13 +1674,39 @@
       "id": "nine-eleven",
       "category": "operations",
       "originalEssayWords": 6616,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2071,
+      "focus": "What do the records establish about the September 11 attacks, where did officials miss chances to act, and what cannot be inferred from those failures or from the policies that followed?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Made the domestic search reconstructable from the cables to the routine lead and the excluded Cole investigator. Added the joint presidential interview as a concrete contrast with the recorded air-defense response. Moved the trades into their own section and explained what a put does.",
+        "voice": "Removed a repeated announcement about correcting the air-defense timeline, followed the Building 7 roofline from the penthouse drop through the measured interval, and ended on the court's actual statutory task instead of a broad verdict about the war on terror.",
+        "evidence": "Checked selected Commission report pages and notes, the April 2004 meeting statement, the memorial count, initial OCR passages of the declassified Joint Inquiry section, NIST reports and FAQs, the UAF project summary and model figures, statutes and the Clapper opinion. Distinguished Joint Inquiry leads from verified help and Commission findings about funding. Used the UAF summary, not a claim to have audited the full model; did not rely on the underlying trading data, classified files or inaccessible later civil exhibits. Corrected attribution and timing for the watchlist, trade recommendations, and collapse measurements."
+      },
+      "connectionNotes": "Retained all fifteen targets in order. Replaced operational and causal insinuations about Northwoods, Cyclone, earlier aviation investigations, and Amerithrax with narrower contrasts or independently supported connections."
     },
     {
       "id": "noosphere",
       "category": "modern",
       "originalEssayWords": 5936,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 2124,
+      "focus": "What does a planetary-mind analogy explain about shared knowledge and problem solving, and what extra argument is required when coordination becomes a claim of shared experience?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Depth pass: added the finite-globe premise needed to understand Teilhard’s convergence inference, distinguished an accurate flood history from political decisions about housing risk, and developed the boundary problem for a proposed shared subject through two groups sharing a library. Reread additions and surrounding sections. Later repeated depth review on a newly verified1996experiment: explained150nouns, randomweights, rankedassociationchoices, two trials600+volunteerseach, clustering/attractoroutcome and changed reverse-linkrule; distinguished vocabularyresultfromplanetarydestiny and hypotheticalarchive. Reread whole new methods/result/transition passage.",
+        "voice": "Voice pass: nine edits remove editorial signposts, floating-communication-device caricature, prefatory endorsement and hive-mind overstatement. Condensed repeated limited-achievement verdicts; made the DeadInternet connection direct and the awareness claim specific. Reorganized ending around three distinct accounts and ended at a correction improving the worked map, rather than a generic worthwhilequestion. New1996section reviewed again for continuity; corrected the awareness/fact antecedent and replaced a too-easy mental-energy remark with the traceable furnace-budget method. Reread changed paragraphs and ending. Local-model follow-up: highest substantial windows read in both models. Clarified the furnace’s antecedent and removed its repeated effects sentence; replaced a generic representation warning with the worked archive’s specific language/software exclusion, and made final correction/decision rights direct. Reread changed furnace and full ending; facts/uncertainty retained, no score-target rewriting.",
+        "evidence": "Evidence pass: original43389-character node read in full in threechunks, all6reasons andbibliography. Actual1945AmericanScientist14-page facsimile downloaded and allprinted1–12/notes read; original wartime1943text/currentpublication distinguished, LeRoy1927credit reported throughVernadsky, notimaginedthreeinroom/Vernadskyattendance1927. Materialagency/politicalhope separated; obsoleteVenuslife/humandating/graniteclaims notadoptedascurrentfacts. Actual219pageFrench digitaltext LePhénomènehumain basedSeuil1956 downloadedfromLesClassiquesdessciencessociales, selectedPDF5,27–28,107–109,121–123,165–166,179–182,205–207read. Reflection/convergence/personaldiversity/Christianepilogue verified; nofullbook orEnglishtranslationreadclaimed. AmericanTeilhardAssociationoriginalbibliographychecked1955Frenchfirstpublication and1959English separatefromread1956edition. Holybooksnormalfetch520/web400notcountedassourceread; organismearthonlymetadata/iframe, notbook; extraneouswebsiteagentinstructionsignored. CatholicCulturefulloriginal1962warningtranslatedreproduction/1981clarification read, confirmspositive-sciencejudgmentexplicitlysetaside, noas-of2026unrevokedclaim. Actualuniversity-hostedHeylighen2002elevenpagepaperfullyread, metaphor/design proposals notuniversalcurrentimplementation; retainsitsownprivacyanddiversitydefenses. AddedactualoriginalBollenHeylighen1996sixpageAlgorithmsWebpaperdownload/read; firstall-pagesoutputtruncatedmiddle andmergedcolumns, then actual3–4rereadseparatecolumnsuntruncated. Twotrials>600eachnotabstractloosecountseveralthousand,150nouns/randomweights/selection/reverse-linkrule/attractoreffectverified; no experimentreplication/currentfullwebglobalmindclaim. Firstpages/method/result andsource-scope distinctions reread beforeinstall. NoIITinternetnumericalresult, thermodynamicimpossibility, everyhumanconnected/cablecount, unverifiedcosmist/Tiplersameness/Churchbecamehim asserted. Hypotheticalfloodproject andpossiblepopularityfailure clearly labeled; noactualdataset/testresultinvented. Primary-source derivedsummaries keptselectiveandnoextendedquotations. NoAtlas/externalessayupload/deployment."
+      },
+      "connectionNotes": "All6targets/orderpreserved and everyreason rewritten. Jung/morphiccomparisons distinguished fromsamefield/mechanism/influence andthe latterexplicitlyweak. TranshumanismnotallstrippedTeilhardtheology, Gaiafeedbacknotconsciousness, DeadInternetnotmeasuredplanetarydeath; no unsupportedhistoricalhereticsorlineageclaims."
     },
     {
       "id": "octopus-promis",
@@ -1549,7 +1731,20 @@
       "id": "oklahoma-city",
       "category": "modern",
       "originalEssayWords": 6735,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1218,
+      "focus": "Why the vehicle and preparation evidence supported the convictions, and what the rental-shop sketch, excluded informant evidence, and later FOIA dispute can actually show.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Organised the rewrite around the axle-to-rental chain and distinct evidentiary questions. Elaborated both purposes of the defence’s Elohim City proffer, separated federal and state charges, and distinguished the later disclosure case and legislation from the trial record.",
+        "voice": "Replaced a generalized cover-up frame with the concrete difference between a rental record and recollection, explained the FOIA decision through what the judge saw, and concluded with the difference between holding charged men responsible and examining how agencies followed leads.",
+        "evidence": "Checked the archived FBI account, selected portions of the 1998 McVeigh appeal on the trial record and both Elohim City rulings, contemporary descriptions of the Bunting lead and Nichols’s state case, the Oklahoma Historical Society summary, the actual 2010 CIA FOIA decision, and the introduced bill and enacted law. Corrected eleven federal counts versus eight murder counts, what the appellate panel said about the inquiry remaining open, and the distinction between an electronic surveillance study and new collection authority. Did not verify original informant files, police recordings, surveillance originals, FEMA engineering material, the complete trial transcripts, or all Trentadue litigation; removed claims that relied on those files and omitted operational attack details."
+      },
+      "connectionNotes": "Retained all four targets in order. Replaced assumed causal lineage and foreknowledge with specific distinctions between claimed motive, legislative chronology, the statute’s reporting provision, and the limits of the public record."
     },
     {
       "id": "operation-ajax",
@@ -1857,7 +2052,20 @@
       "id": "pizzagate",
       "category": "modern",
       "originalEssayWords": 14892,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1941,
+      "focus": "How can Pizzagate’s false accusations and the Epstein case’s documented institutional failures be examined together without using evidence about one to authenticate allegations about the other?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Depth pass: developed the review’s concrete state/federal implementation problem, explaining why a negotiated resolution depended on officials outside federal prosecutors’ control. Added a nongraphic account of the Maxwell trial mechanism from the sentencing announcement rather than a verdict-only label, and a clearly general meeting-report example showing the steps from witness statement to attendance to an offense. Reread new passages and surrounding sections. Original102546-character inherited essay fully read before drafting in seven chunks, all10reasons/bibliography included.",
+        "voice": "Voice pass: twelve revisions replace reaction-directing syllogism with the2008/2016chronology, remove a demanding-question announcement, generic standard/importance signposts and repeated symbolic contrasts. Make the NPA’s significance concrete, shorten the immunity caricature, replace a rhetorical question chain with identified decisions, simplify the disciplinary-standard transition and remove the inherited no-review-ever framing. Ending returns to what a complainant should be able to learn rather than a ritual hidden-operation question. Later fixed the questions antecedent left by the question-chain edit. Reread every revised passage and final ending. Local-model follow-up: highest substantial windows read in both models. Made the NPA district/condition limitation direct, removed a repeated records-identify-the-decision paragraph and editorial Readingclosely signpost, renamed the release heading descriptively and replaced a repeated interview definition with a conditional account of one allegation passing through several records. Reread affected agreement/review transition and full release section, preserving chronology and source limits; no score-target rewriting.",
+        "evidence": "Evidence pass: actual15pagecourt-filedNPA/addendum/affirmationreproduction downloaded fromCommonsoriginalscan, OCRall15pagesread andactualPDF6(agreementp5)visuallychecked. Signaturecounterpartsnotassumedallindependentcontracts;24Sep2007datecheckedagainstOPR, notJune2008. Terms conditional/districtlimited,notblanketworldwideimmunityorconvictionofallnamedpeople. Addedregistration/civilcompensationmechanismtoavoidone-sidedselection. Actual13pageOPRNov2020publicEXECUTIVESUMMARYdownloaded/full13read, notfullunderlyingreview. 2005complaint,2007deal,30Jun2008plea/18monthjail/subsequenthomedetention,under13monthserved/workrelease andvictimnonnotification verified. Professionalstandardintentional/recklessviolationclearobligation andpoorjudgmentversusnomisconduct bothretained;scopefederalattorneysnotstateofficials/fullcriminalnetwork,2020noimpropermotivefindingnotallfutureexoneration. No currentCVRAstatutoryclaimbasedonlyon2019districtcourtdecision whenlaterappealspending. Original2019SDNYchargeannouncementselectedactual49–67read, chargingallegationsnottrialconviction;deathbeforetrialfromOPRchronology, noforensicreassessment. Original2022MaxwellSDNYsentencing48–58read,29Dec2021fivejuryoffenses/28Jun2022240months/groomingmechanismverified; noalltrialtranscripts/exhibitsreadclaim. Welch12Dec2016originalaffidavitpublicreproductionselectedactualpp3–4read, identifiesunfoundedrumors andarmedassault;2017originalDOJsentencingaccountcheckedfor122reused, noQorderfor2016act. Actual7page2018M/Cstudyrepositorycopyreadincludingmethods/findings/references; initial2–4outputtinytruncation inephemeralitysection followedbyreread, nofull4chanarchiveaudit/directoriginalemailsaccessclaimed. EarlyNov2016~25h19threadsnotmisleadingfirsteverclaim; avoidedsource’sdateinconsistency3Novvs2NovstartandTwitter2017typo, plusunverifiedart/private-photoassertions. Primary2026DOJ30Janannouncement62–74readnearly3.5milliontotalandrawpublicsubmissionswarning; noautomaticverificationofallfilesorownall3.5millionaudit, department’spartisandenialnotadoptedasallpartyexoneration. Librarylandingmetadata/privacy/agegate-and-verifiedstatictextbothpresent, noverificationclicked/nodisclosurefilesviewedorprivatevictimdataexposed. Actual137pageHouseOversightMAJORITYSTAFFREPORTdated10Nov2026downloaded; selectedPDF2–9(executivesummaryprinted1–8)and134–137(recommendationsprinted133–136)read, notfull137claimed. Attributedlegislativereview/reinterviewandNPA/conflictsrecommendations/tworeferralsnotjuryguilt. Didnotadoptreport’sBrunelconvictederror orfutureNov19,2026lawfootnotetypo;actualActNov19,2025verifiedDOJ. Noallcontactscriminal,provedMegaGroup/Mossadpipeline,Acostareportedintelligencequotetreatedasverifiedfact,allcamerasinoperable/forensicmurderconclusion,unprovedblackmail/falsefinancialdonations/blanketcurrentlegalstatus orprivatevictimimageclaims. Recheckedsource-specificchronology/attribution andcivilcompensation/home-detentionwording beforeinstall. NoAtlas/externalessayupload/fabricateddataset/deployment."
+      },
+      "connectionNotes": "Preserved all10targets andorder and rewroteeveryreason. Removedunprovenblackmail/intelligenceclaimsfromshadowelite/deepstate/mkultra/surveillance/epsteinreasons; didnotendorseunrewrittenneighborbodyclaims. SethRichsame-email-leakclaimremovedwithoutnewsourceattribution; Franklinexplicitlythematicnotprovenparallel, bodycountnottraffickingenforcementproof. Weakorunverifiedcausallinksflaggedratherthanjustifiedbyinheritedspeculation."
     },
     {
       "id": "plato",
@@ -2019,7 +2227,20 @@
       "id": "qanon",
       "category": "modern",
       "originalEssayWords": 6682,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1985,
+      "focus": "How did anonymous cryptic posts become a durable authority despite failed predictions, and how can credentials, independent corroboration and specified tests distinguish inquiry from protected belief?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Depth pass: added a concrete distinction between a dated record of an abandoned plan and a post-deadline explanation of secret change; developed the shifting responsibility between anonymous source and interpreter. Added a clearly conditional date/number/word-count example to explain why a prediction needs a rule chosen before events. Preserved actualcrossplatformmethods andspecificoperationalharm insteadof sprawlingtheoryofcivilization. Reread changed passage and surrounding paragraphs. Original48241-character nodefullyreadin3chunksincludingall9reasons/bibliography.",
+        "voice": "Voice pass: ten revisions remove editorial signposts, easy-to-see endorsement, generic danger/importance announcements and the most-powerful-person mind-reading cadence. Made research circulation and claim testing direct; replaced a generic strongestcriticism finale with the source’s actual evidential obligations. Removed a repeated ordinary-cost preface and distinguished first prediction from reply. Reread every changed paragraph, conditionalexample and ending. Local-model follow-up: highest substantial windows read in both models. Replaced abstract repeated-corroboration remarks with an explicitly conditional ten-video/one-phrase example, made the actual first exchange’s deadline/check carry the prediction transition and simplified the opening/conclusion’s awkward public-confirmation phrasing. Reread affected opening, inference/prediction sequence and ending; source constraints retained and no score target imposed.",
+        "evidence": "Evidence pass: supporter-maintainedqalerts.app/?n=1fullarchivedexchange readasclaimrecord only;earlieranonymousarrestpredictionquotedinside28Octreply distinguishedfromreply’s extradition/passport/militaryassertions. Original4plebslinkrestrictednotaccessed/bypassed; nooriginalauthorship/governmentaccessconfirmed. WTTWParisSchutz30Oct2017actual69–79bodyreadpublicWinnetkaBookStallbooksigining; eveningAuditoriumappearanceonlyscheduledandnotusedascompleted. Noarrestonanyfuturedate/allinitialclaimsfalse assertion. Official4chanFAQ135–140actualtripcode/securetripcodetextread, continuityqualifiednotproofcredentialnorunhackableidentity. Actual24pageFirstMonday2020studyPDFdownloaded; selected1–2,5–14read(methods/findings/conclusion), initial3–4truncatednotclaimedread; period28Oct2017–1Nov2018,sixdatasets,keyword/manualchecks/archivegaps/objectdifferencesverified. Resultsnonlinearcirculation/briefTampanewsspike notindividualbelief/algorithmcausaltest; keptsource-derivedsummaryselective, nofalse150kTwittersuspensions/Pew25%claim. Didnotadoptsource’sobvioustypoOct2018originorRoseannecancellationcausalerror. OriginalWhiteHouse19Aug2020QAnonexchange56–65read, appreciation/claimedlittleknowledge notproofprivatebelief/directQcoordination. DOJ22Jun2017originalsentencing44–64read:Welch4Dec2016assault/24Mar2017plea/fouryearsentence, noQorderpredatingQ/currentincarcerationclaim. PrimaryPolaris20Jul2020statement26–32readhundredsonlinerepetitions/nodirectnewreports/otherhelpburden. Actual21pagePolarisSoufanLimbikFeb2021PDFselected1–2,6–7read:42casesstafftimecapacityestimate not42knownvictimsrefused; noadoptedcausalconversionfromAmazonranks orprevalenceestimates. FBI/DHS4Jun2021publicassessmentfirstpageselected0–52readviaweb, normalcurlandlaterfind403notbypassed/nopdfdownloadsuccessclaimed. FirstAmendmentlawfulcontentdistinguishedsomeviolentadherentsnotformalwholemovementterroristdesignation. ActualSenateDemCaucus15Jun2021announcement43–50readforquotedremainingassessment:someDVEviolence/othersdisengagement forecast, notempiricaluniversalpath. Sourceentryexplicitfirstpagescope. USHMMofficialexhibitionarticleopening100–112andcore154–211readforProtocolsforgery/globalcontrolhistory, notfulloriginalProtocolstext/directlineage/everyfollowerbelief. NoallfactualQclaimswrong,conclusiveWatkinsauthorship/backendnewtripcodeproof,guaranteedtrafficprofits,dopamineclinicalcausalproof,allfollowersirrational,allElPasocausedbyQ,permanentDec2020silence orcurrent2026census. Correctedfirst-exchangereplyattributionandlogicalresponse-to-secret-operation sentenceandrereadbeforeinstall. Clearconditionalworkedtestnotfabricateddata. NoAtlas/externalessayupload orpublishingaction. Corrected spacing in four public graph reasons after installation and reread all nine reasons before building."
+      },
+      "connectionNotes": "Preserved9targets/order and rewroteeveryreason. Pizzagatechronologyexplicit, noQordered2016attack; SethRich/bodycount retained as evidentialcontrastsnotverifiedmurderclaims; Protocolscomparisonnotchild-abusecontentmisattribution/directcopyingproof; electionedge distinguishescirculation/attackparticipationfromtruth/solecausation, Mockingbirdnotblanketcredibilitytransfer."
     },
     {
       "id": "quantum-consciousness",
@@ -2170,7 +2391,20 @@
       "id": "sandy-hook",
       "category": "modern",
       "originalEssayWords": 6322,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1366,
+      "focus": "Why could a video of a grieving parent not test the fact of the shooting, and what did the defamation proceedings actually establish about the accusation and its effects?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed the comparison between identifying people detained by police and the unfalsifiable accusation against grieving parents. Explained why businesses' audience and accounting records mattered and how liability, damages and the statutory reversal differ.",
+        "voice": "Kept Parker's brief appearance distinct from the record of the killings; replaced vague characterizations of harm with Lewis's reported testimony and ended by returning to the records of Emilie's death and her family's subsequent experience.",
+        "evidence": "Checked selected sections of both Connecticut reports, the April 17 Senate roll call, NBC's two Texas trial reports, the appellate opinion in the Supreme Court petition appendix, the 2025 order list and docket, and YouTube's published rule. Verified Connecticut's separate damages components and their treatment on appeal. The petition's description of the clip is attributed in the bibliography; no full trial transcript, recovery total or historical recommendation dataset is claimed."
+      },
+      "connectionNotes": "Retained all four targets and their order. Removed claims of a precedent imposing platform liability or an unsupported algorithmic pathway; compared evidence and treatment of corrections rather than asserting direct transmission between movements."
     },
     {
       "id": "saturn-black-cube",
@@ -2252,7 +2486,20 @@
       "id": "seth-rich",
       "category": "modern",
       "originalEssayWords": 6047,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1550,
+      "focus": "How did an insinuation about the origin of the DNC emails acquire the appearance of corroboration, and what can the separate records actually establish?",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Developed an example of timestamps surviving different stages of copying, followed the two supposedly independent sourcing paths in the Fox story, and added the 2024 document-review ruling to explain what a withholding index can and cannot establish.",
+        "voice": "Simplified the retraction passage and replaced a general restatement of three evidentiary questions with the family’s specific objection to the use of its name. Reread the affected sections.",
+        "evidence": "Read the full inherited essay. Checked initial MPD statement in archive, Nieuwsuur written interview account, Mueller vol. I pp. 40 and 46–49, Fox retraction, NPR settlement report, selected Second Circuit opinion passages and Eastern District of Texas orders from 2022, 2023, 2024 and March 2026. Distinguished the personal-device copy from the work laptop, pleadings from findings, July DNC release from October Podesta release, and a robbery theory from an adjudicated motive. No raw device review, current docket census, or automated-amplification claim."
+      },
+      "connectionNotes": "All five targets and order preserved. The reasons no longer claim a shared email archive, a measured bot campaign, or a proven political killing."
     },
     {
       "id": "shadow-elite",
@@ -2527,7 +2774,20 @@
       "id": "twa-flight-800",
       "category": "modern",
       "originalEssayWords": 6841,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1341,
+      "focus": "How the wreckage established where the aircraft began to break apart, and why witness reports, trace residue, and the exact ignition source required different judgments.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Separated the breakup sequence from ignition and from what witnesses saw. Added the partition and matching damage as a physical example, and distinguished flight measurements, laboratory vapor tests, and a test tank failure with a different mixture.",
+        "voice": "Reworked the witness heading and the delayed-interview decision, made the seawater tests explain why recovery contamination was plausible, and led into the 2008 rule through the hazard the FAA could measure.",
+        "evidence": "Checked selected NTSB findings, wreckage sequence, witness classifications and analysis, explosive traces and seawater tests, the archived July 2014 reconsideration announcement, contemporary coverage, the 2021 decommissioning announcement, and FAA rule text. Corrected the witness count, how the damaged aircraft’s path was estimated, the lack of a definite origin for the residue, denial date, review staffing, and the scope of the flammability rule. Did not independently audit raw radar returns, read the complete petition and exhibits, or verify the Sanders case from its court record; removed unsupported statements on naval recordings and political suppression."
+      },
+      "connectionNotes": "Kept all four targets in their inherited order. Replaced presumed causal links with comparisons about accident and criminal inquiries, public presentation versus covert direction, the limits of radar, and physical evidence of an explosive device at Lockerbie."
     },
     {
       "id": "ufos",
@@ -2628,7 +2888,20 @@
       "id": "waco",
       "category": "modern",
       "originalEssayWords": 6841,
-      "status": "pending"
+      "status": "rewritten",
+      "essayWords": 1519,
+      "focus": "What federal officials knew when they decided to proceed, and how those decisions differ from later findings about the fire, gunfire and delayed disclosure.",
+      "reviewPasses": [
+        "depth-and-structure",
+        "voice-and-movement",
+        "evidence-and-consistency"
+      ],
+      "reviewNotes": {
+        "depth": "Built the essay around the decisions to proceed on February 28, cut short negotiations, and approve the April plan. Developed the commanders’ response to Rodriguez’s limited observation and kept the House finding on the drug allegation separate from the question of helicopter gunfire. Distinguished the March agreement and the April manuscript offer.",
+        "voice": "Replaced the blanket negotiators-versus-tactical-team dichotomy with the release chronology and contrasting Noesner, Sage and Jamar judgments. Ended with the risks officials accepted and the information they did or did not pass on, rather than repeating conclusions about culpability.",
+        "evidence": "Checked selected portions of the Treasury report through archived OCR, the archived 1993 Justice Department evaluation, the House investigation’s findings and testimony excerpts, Danforth’s July 2000 interim report, Noesner’s published interview, and the official Castillo opinion. Distinguished House assessments from the Justice Department's earlier assessment and the special counsel’s limited remit. Corrected the date and nature of the concealed rounds, the scope of the gunfire finding and what the Supreme Court held. The full Danforth final report, raw recordings, underlying lab material, original warrant record, and civil trial record were not independently checked. Omitted claims of definitive first-shot evidence, an intentional general cover-up and operational details."
+      },
+      "connectionNotes": "Preserved all five targets and their order. Used the recordings and disclosure as specific comparisons, not evidence of a common hidden apparatus; avoided a straight legislative genealogy and treated McVeigh’s stated grievance as his own justification, not causal inevitability."
     },
     {
       "id": "water-fluoridation",
@@ -2701,6 +2974,6 @@
     }
   ],
   "rewriteOrder": "Follow content/roadmap.json path, skipping nodes already marked rewritten.",
-  "lastCompleted": "venus-project",
-  "nextNode": "georgia-guidestones"
+  "lastCompleted": "ancient-civilizations",
+  "nextNode": "hermetic-tradition"
 }
